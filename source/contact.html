@@ -1,0 +1,40 @@
+<h1 class="page-header contact-header">{{ page.name }}</h1>
+{% if errors != blank %}
+  <ul class="errors">
+    {% for error in errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% if contact.sent %}
+  <p class="message-sent">Your message has been sent and we'll get back to you soon.</p>
+{% else %}
+  <form method="post" action="/contact" class="contact-form">
+    <div class="form-block contact-name">
+      <label for="name-input">Name</label>
+      {{ contact | contact_input: 'name-input', tabindex: 1 }}
+    </div>
+    <div class="form-block contact-email">
+      <label for="email-input">Email</label>
+      {{ contact | contact_input: 'email-input', tabindex: 2 }}
+    </div>
+    <div class="form-block contact-subject">
+      <label for="subject-input">Subject</label>
+      {{ contact | contact_input: 'subject-input', tabindex: 3 }}
+    </div>
+    <div class="form-block contact-message">
+      <label for="message-textarea">Message</label>
+      {{ contact | contact_input: 'message-textarea', tabindex: 4 }}
+    </div>
+    <div class="form-block contact-spam">
+      <label for="captcha-input">Spam check</label>
+      <div class="captcha-holder">
+        {{ contact | contact_input: 'captcha-input', tabindex: 5 }} {{ contact.captcha }}
+      </div>
+      <span class="captcha-instructions">Please enter the characters from the image.</span>
+    </div>
+    <div class="form-block contact-send">
+      <button class="button" type="submit" name="submit" title="Send message" tabindex="6">Send message</button>
+    </div>
+  </form>
+{% endif %}

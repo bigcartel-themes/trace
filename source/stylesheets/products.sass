@@ -1,0 +1,211 @@
+@import 'variables'
+
+.page-products .category-nav
+  +transform(translateX(-50%))
+  display: none
+  font-size: 22px
+  left: 50%
+  margin: 0 auto 40px
+  max-width: 600px
+  padding: 10px
+  position: relative
+  text-align: center
+  width: auto
+  z-index: 3
+    
+  @media screen and (max-width: $break-medium)
+    display: inline-block
+    font-size: 18px
+
+  @media screen and (max-width: $break-small)
+    font-size: 16px
+    max-width: 100%
+
+  .category-nav-heading
+    padding: 10px
+    
+  .category-nav-title
+    display: inline-block
+    
+  .category-nav-page
+    color: $secondary-color
+    display: inline-block
+    
+  .category-nav-arrow
+    display: inline-block
+    fill: $secondary-color
+    height: 11px
+    margin-left: 2px
+    width: 15px
+  
+  .category-dropdown  
+    +box-shadow(0 2px 4px $secondary-color)
+    +border-radius(0 0 4px 4px)
+    +transform(translateX(-50%))
+    background: $background-color
+    display: none
+    left: 50%
+    margin: 0 auto
+    padding: 20px 20px
+    position: absolute
+    text-align: left
+    z-index: 3
+    
+    @media screen and (max-width: $break-small)
+      width: 90%
+    
+    .dropdown-list
+      list-style: none
+      margin: 0
+      padding: 0
+      
+      li
+        display: block
+      
+        a
+          color: $secondary-color
+          display: block
+          font-size: 14px
+          padding: 8px 2px
+          
+          &:hover
+            color: $primary-color
+            
+  &.dropdown-open .category-dropdown
+    display: inline-block
+                    
+.product-list
+  +flexbox
+  +flex-wrap(wrap)
+  +flex(flex-grow)
+  +flex-direction(row)
+  +justify-content(space-around)
+  list-style: none
+  margin: 0 -5.5%
+  padding: 0
+  
+  @media screen and (max-width: $break-small)
+    margin: 0
+  
+  .product
+    +flexbox
+    +align-self(center)
+    padding: 0 3.5% calc(5% + 80px)
+    text-align: #{"{% if theme.product_detail_alignment == 'Left' %} left {% else %} center {% endif %}"}
+    width: 33%
+    
+    @media screen and (max-width: $break-medium)
+      padding-bottom: 60px
+      width: 50%
+    
+    @media screen and (max-width: $break-small)
+      padding-bottom: 40px
+      width: 100%
+    
+    .product-link
+      color: $primary-color
+      display: block
+      width: 100%
+      
+      @media screen and (max-width: $break-small)
+        padding: 0
+      
+      .product-image
+        display: block
+        margin-bottom: 30px
+        width: 100%
+        
+        @media screen and (max-width: $break-medium)
+          margin-bottom: 20px
+        
+      .product-info
+        +all-transitions
+        padding: 0
+        
+        .product-name
+          color: $primary-color
+          font-size: 22px
+          line-height: 26px
+          
+          @media screen and (max-width: $break-medium)
+            font-size: 18px
+        
+        .product-price
+          color: $secondary-color
+          font-family: $secondary-font
+          font-size: 14px
+          margin-top: 10px
+          
+      &:hover img
+        +animation(hover 200ms linear)
+        
+      &:hover .product_info
+        opacity: .8    
+        
+    &.sold
+      opacity: .6
+          
+.pagination
+  font-family: $secondary-font
+  font-size: 14px
+  margin: 0 auto
+  max-width: 700px
+  overflow-x: auto
+  padding-bottom: 20px
+  text-align: center
+  white-space: nowrap
+  width: 100%
+  -webkit-overflow-scrolling: touch
+  
+  a, span
+    +border-radius(50%)
+    border: 1px solid transparent
+    color: $secondary-color
+    display: inline-block
+    height: 40px
+    line-height: 38px
+    margin: 0 6px
+    text-align: center
+    width: 40px
+    
+    &.previous, &.next
+      border: none
+      padding: 0 10px
+      
+      svg
+        +all-transitions
+        fill: $secondary-color
+        height: 11px
+        position: relative
+        top: 0
+        width: 15px
+        
+    &.previous svg
+      +rotate(90deg)
+    
+    &.next svg
+      +rotate(-90deg)
+      
+    &.current
+      border: 1px solid $secondary-color
+      
+    &.disabled
+      display: none
+      
+.fade-in
+  opacity: 0
+  +animation(fadeIn 1s normal forwards ease-in-out)
+  
++keyframes(fadeIn)
+  0%
+    opacity: 0
+    
+  100%
+    opacity: 1
+    
++keyframes(hover)
+  0%
+    opacity: 1
+    
+  100%
+    opacity: .85

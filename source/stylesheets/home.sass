@@ -1,0 +1,145 @@
+@import 'variables'
+
+.page-home .wrapper
+  padding: 0 $tablet-padding
+  max-width: 1280px
+  width: 100%
+  
+  @media screen and (max-width: $break-medium)
+    padding: 0
+
+.home-welcome
+  +border-radius($border-radius)
+  margin: 0 auto 40px
+  
+  .welcome-image
+    display: block
+    width: 100%
+    
+  .welcome-message
+    background: $welcome-background-color
+    color: $welcome-text-color
+    padding: 80px
+    text-align: center
+    
+    @media screen and (max-width: $break-small)
+      padding: 40px
+    
+    h2.welcome-header
+      font-size: 24px
+      font-weight: normal
+      line-height: 38px
+      margin: 0 auto
+      max-width: 600px
+      padding: 0
+      text-align: center
+      
+      @media screen and (max-width: $break-small)
+        font-size: 22px
+      
+      @media screen and (max-width: $break-small)
+        font-size: 18px
+      
+    h2.welcome-header + .welcome-button
+      margin-top: 40px
+  
+    .welcome-button
+      +border-radius($border-radius)
+      background: $welcome-text-color
+      color: $welcome-background-color
+      display: inline-block
+      padding: 20px 60px
+      
+      @media screen and (max-width: $break-small)
+        width: 100%
+
+.carousel-holder
+  
+  @media screen and (max-width: $break-medium)
+    padding: 0 7%
+      
+.carousel-main
+  padding-bottom: 50%
+  width: 100%
+  
+  @media screen and (max-width: $break-small)
+    padding-bottom: 0
+  
+  .flickity-viewport
+    position: absolute
+    width: 100%
+
+  .carousel-cell
+    background: $welcome-background-color
+    font-size: 0
+    height: 100%
+    width: 100%
+    
+    .category-name
+      float: left
+      height: 100%
+      position: relative
+      text-align: center
+      width: 50%
+      
+      @media screen and (max-width: $break-small)
+        float: none
+        height: 30%
+        width: 100%
+      
+      .category-text
+        +vertical-align
+        color: $welcome-text-color
+        left: 0
+        padding: 0 20px
+        position: absolute
+        width: 100%
+    
+    .category-title
+      font-size: 32px
+      line-height: 42px
+      margin-bottom: 30px
+      
+      @media screen and (max-width: $break-medium)
+        font-size: 22px
+        line-height: 26px
+        margin-bottom: 20px
+    
+    .category-subtitle
+      font-size: 18px
+      
+      @media screen and (max-width: $break-medium)
+        font-size: 14px
+      
+    .category-image
+      background-position: center
+      background-size: cover
+      float: right
+      height: 100%
+      overflow: hidden
+      width: 50%
+      
+      @media screen and (max-width: $break-small)
+        float: none
+        height: 70%
+        width: 100%
+
+.carousel-nav
+  margin-top: 40px
+  
+  .carousel-cell
+    +all-transitions
+    +border-radius(50%)
+    border: 1px solid transparent
+    color: $secondary-color
+    cursor: pointer !important
+    display: inline-block
+    height: 40px
+    line-height: 38px
+    margin: 0 6px
+    text-align: center
+    width: 40px
+    
+    &.is-nav-selected
+      border: 1px solid $secondary-color
+        

@@ -1,0 +1,65 @@
+@import 'compass/css3'
+@import 'compass'
+@import 'flexbox'
+
+$primary-font: #{"{{ theme.primary_font }}"}
+$secondary-font: #{"{{ theme.secondary_font }}"}
+
+$background-color: #{'{{ theme.background_color }}'}
+
+$primary-color: #{'{{ theme.primary_text_color }}'}
+
+$secondary-color: #{'{{ theme.secondary_text_color }}'}
+
+$border-color: #{'{{ theme.secondary_text_color }}'}
+
+$welcome-background-color: #{'{{ theme.welcome_background_color }}'}
+
+$welcome-text-color: #{'{{ theme.welcome_text_color }}'}
+
+$error-text-color: #{'{{ theme.error_text_color }}'}
+
+$header-height: 220px
+$header-height-tablet: 120px
+$header-height-mobile: 100px
+$border-radius: 4px
+
+$tablet-padding: 40px
+$mobile-padding: 20px
+
+$break-extra-large: 1200px
+$break-large: 945px
+$break-medium: 800px
+$break-small: 668px
+$break-extra-small: 500px
+
+@mixin all-transitions
+  +transition(.2s linear)
+
+@mixin vertical-align
+  +transform(translateY(-50%))
+  position: relative
+  top: 50%
+  
+@mixin keyframes($animation)
+  @-webkit-keyframes #{$animation}
+    @content
+  
+  @-moz-keyframes #{$animation}
+    @content
+  
+  @-ms-keyframes #{$animation}
+    @content
+  
+  @-o-keyframes #{$animation}
+    @content
+  
+  @keyframes #{$animation}
+    @content
+      
+@mixin animation($str)
+  -webkit-animation: $str
+  -moz-animation: $str
+  -ms-animation: $str
+  -o-animation: $str
+  animation: $str

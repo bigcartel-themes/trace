@@ -1,0 +1,118 @@
+@import 'variables'
+
+.product-heading, .product-details
+  float: left
+  max-width: 600px
+  padding-right: 60px
+  width: 40%
+  
+  @media screen and (max-width: $break-medium)
+    padding-right: 40px
+  
+  @media screen and (max-width: $break-small)
+    float: none
+    max-width: 100%
+    padding-right: 0
+    width: 100%
+    
+h1.product-title
+  font-size: 32px
+  line-height: 42px
+  margin-bottom: 20px
+  text-align: left
+  
+  @media screen and (max-width: $break-medium)
+    font-size: 22px
+    line-height: 26px
+    margin-bottom: 10px
+  
+h2.product-subtitle
+  color: $secondary-color
+  font-family: $secondary-font
+  font-size: 18px
+  margin-bottom: 50px
+  
+  @media screen and (max-width: $break-medium)
+    font-size: 14px
+    margin-bottom: 40px
+    
+  @media screen and (max-width: $break-small)
+    margin-bottom: 20px
+    
+.product-details
+  clear: left
+        
+.product-form
+  margin-bottom: 40px
+  
+  @media screen and (max-width: $break-medium)
+    display: none
+  
+  .option-select
+    margin-bottom: 20px
+    
+    @media screen and (max-width: $break-small)
+      max-width: 100%
+  
+  .add-to-bag
+    max-width: 300px
+    
+    @media screen and (max-width: $break-small)
+      max-width: 100%
+      
+.product-description
+  color: $secondary-color
+  font-family: $secondary-font
+  font-size: 14px
+  line-height: 24px
+  
+  p
+    margin: 0 0 1em
+  
+  a[href]
+    +all-transitions
+    text-decoration: underline
+    
+    &:hover
+      opacity: .6
+    
+  img
+    display: block
+    max-width: 100%
+  
+  ol, ul
+    margin: 1em 0
+    padding: 0
+    
+  ul
+    list-style: disc
+    list-style-position: inside
+  
+  ol
+    list-style: decimal
+    list-style-position: inside
+    
+.product-images
+  float: right
+  max-width: 1000px
+  width: 60%
+  
+  @media screen and (max-width: $break-extra-large)
+    max-width: 55%
+    
+  @media screen and (max-width: $break-large)
+    max-width: 50%
+    
+  @media screen and (max-width: $break-medium)
+    max-width: 48%
+  
+  @media screen and (max-width: $break-small)
+    float: none
+    margin-bottom: 35px
+    max-width: 100%
+    width: 100%
+  
+  .product-image
+    display: block
+    margin-bottom: 5px
+    width: 100%

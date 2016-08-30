@@ -1,0 +1,72 @@
+@import 'variables'
+
+.contact-form
+
+  .form-block  
+    margin-bottom: 40px
+    text-align: left
+  
+  input
+    height: 56px
+    
+  textarea  
+    height: 140px
+    
+  input, textarea
+    width: 100%
+    
+    &:active, &:focus
+      border: 1px solid $primary-color
+      outline: none
+  
+  label  
+    display: block
+    font-size: 18px
+    margin-bottom: 20px
+    
+  .contact-name, .contact-spam, .contact-send, .contact-email 
+    display: block
+    position: relative
+    width: 100%
+
+  .contact-spam
+    width: 100%
+    
+    .captcha-instructions
+      color: $secondary-color
+      display: block
+      font-family: $secondary-font
+      font-size: 14px
+      margin-top: 10px
+      
+    .captcha-holder
+      position: relative
+  
+  #captcha
+    &:active, &:focus
+      #captcha_image
+        border-left: 1px solid $secondary-color
+  
+  #captcha_image
+    +border-radius(0 $border-radius $border-radius 0)
+    border-left: 1px solid $secondary-color
+    height: 54px
+    position: absolute
+    right: 1px
+    top: 1px
+    
+  .contact-send
+    text-align: center
+    width: 100%
+    
+    button
+      margin: 30px auto
+      width: 300px
+      
+      @media screen and (max-width: $break-small)
+        max-width: 100%
+        width: 100%
+        
+.message-sent
+  line-height: 1.3em
+  text-align: center
