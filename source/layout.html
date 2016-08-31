@@ -139,24 +139,8 @@
         </div>
       </div>
     </div>
-    {% if page.permalink == 'product' %}
-      <div class="footer_options">
-        <div class="options_background"></div>
-  
-        <div class="footer_options_list">
-          <div class="options_list_header">
-            <svg class="close_options_list" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"/></svg>
-            <span class="options_list_title">Select option</span>
-          </div>
-          <ul class="product_options_list">
-            {% for option in product.options %}
-              <li data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>{{ option.name }} - {{ option.price | money_with_sign }} {% if option.sold_out %}(Sold out){% endif %}</li>
-            {% endfor %}
-          </ul>
-        </div>
-  
-      </div>
-    {% endif %}
+
+
     {% if page.permalink == 'product' or page.permalink == 'cart' or cart.item_count > 0 %}
       <div class="site_footer">
         <div class="background"></div>
@@ -168,9 +152,7 @@
             {% if product.has_default_option %}
               <a href="#" class="add_single_option" data-option-id="{{ product.options.first.id }}">Add to bag</a>
             {% else %}
-            
               <a href="#" class="open_options">Add to bag <svg viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg></a>
-
             {% endif %}
           </div>
         {% endif %}

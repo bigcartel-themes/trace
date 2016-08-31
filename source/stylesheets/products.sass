@@ -16,10 +16,12 @@
   @media screen and (max-width: $break-medium)
     display: inline-block
     font-size: 18px
+    width: 80%
 
   @media screen and (max-width: $break-small)
     font-size: 16px
     max-width: 100%
+    width: 100%
 
   .category-nav-heading
     padding: 10px
@@ -38,17 +40,19 @@
     margin-left: 2px
     width: 15px
   
-  .category-dropdown  
+  .category-dropdown 
+    +all-transitions
     +box-shadow(0 2px 4px $secondary-color)
     +border-radius(0 0 4px 4px)
     +transform(translateX(-50%))
     background: $background-color
-    display: none
     left: 50%
+    opacity: 0
     margin: 0 auto
     padding: 20px 20px
     position: absolute
     text-align: left
+    visibility: hidden
     z-index: 3
     
     @media screen and (max-width: $break-small)
@@ -73,6 +77,8 @@
             
   &.dropdown-open .category-dropdown
     display: inline-block
+    opacity: 1
+    visibility: visible
                     
 .product-list
   +flexbox
@@ -103,6 +109,7 @@
       width: 100%
     
     .product-link
+      +all-transitions
       color: $primary-color
       display: block
       width: 100%
@@ -136,11 +143,8 @@
           font-size: 14px
           margin-top: 10px
           
-      &:hover img
-        +animation(hover 200ms linear)
-        
-      &:hover .product_info
-        opacity: .8    
+      &:hover
+        opacity: .8
         
     &.sold
       opacity: .6
@@ -202,10 +206,3 @@
     
   100%
     opacity: 1
-    
-+keyframes(hover)
-  0%
-    opacity: 1
-    
-  100%
-    opacity: .85

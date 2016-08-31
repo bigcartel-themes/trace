@@ -51,17 +51,15 @@
     <div class="carousel-holder">
       <div class="carousel carousel-main">
         {% for product in products.current limit:theme.featured_items %}
-            <div class="carousel-cell">
-              <div class="category-image" style="background-image:url('{{ product.image | product_image_url | constrain: 1000,1000 }}');"></div>
-              
-              <div class="category-name">
-                <a href="{{ product.url }}" class="category-text">
-                  <div class="category-title">{{ product.name }}</div>
-                  <div class="category-subtitle">Shop now</div>
-                </a>
-              </div>
-              
+          <div class="carousel-cell">
+            <div class="category-image" style="background-image:url('{{ product.image | product_image_url | constrain: 1000,1000 }}');"></div>
+            <div class="category-name">
+              <a href="{{ product.url }}" class="category-text">
+                <div class="category-title">{{ product.name }}</div>
+                <div class="category-subtitle">Shop now</div>
+              </a>
             </div>
+          </div>
         {% endfor %}
       </div>
       {% if products.current != blank and theme.featured_items > 1 %}

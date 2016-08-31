@@ -62,8 +62,7 @@ $(function() {
       asNavFor: '.carousel-main',
       contain: true,
       pageDots: false,
-      prevNextButtons: false,
-      draggable: false
+      prevNextButtons: false
     });
   //}
   $('.add-single-option').click(function(e) { 
