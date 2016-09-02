@@ -1,5 +1,5 @@
 {% if cart.items != blank %}
-  <h1 class="page-header cart-header">Your bag</h1>
+  <h1 class="page-header cart-header" data-empty-text="Your bag is empty">Your bag</h1>
 {% else %}
   <h1 class="page-header cart-header cart-empty-title">Your bag is empty</h1>
 {% endif %}
@@ -58,7 +58,7 @@
             <div class="cart-discounts">
               {% if cart.discount.pending %}
                 <input autocomplete="off" class="cart-discount-code" name="cart[discount_code]" type="text" placeholder="Enter discount code"{% if cart.discount.code %} value="{{ cart.discount.code }}"{% endif %}>
-                <a href="#" title="Apply discount" class="apply-discount"><svg class="apply-discount-button" width="15" height="16" viewBox="0 0 15 16"><g fill-rule="evenodd"><path d="M0 7h15v2H0z"/><path d="M8.5.5v15h-2V.5z"/></g></svg></a>
+                <a href="#" title="Apply discount" class="apply-discount"><svg class="apply-discount-button" viewBox="0 0 46 46"><path d="M46 20v6H26v20h-7V26H0v-6h19V0h7v20z"/></svg></a>
               {% else %}
                 {% if cart.discount.free_shipping %}
                   Free shipping discount!

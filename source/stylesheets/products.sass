@@ -35,6 +35,7 @@
     display: inline-block
     
   .category-nav-arrow
+    +all-transitions
     display: inline-block
     fill: $secondary-color
     height: 11px
@@ -75,11 +76,16 @@
           
           &:hover
             color: $primary-color
-            
-  &.dropdown-open .category-dropdown
-    display: inline-block
-    opacity: 1
-    visibility: visible
+
+  &.dropdown-open 
+  
+    .category-dropdown
+      display: inline-block
+      opacity: 1
+      visibility: visible
+    
+    .category-nav-arrow
+      +rotate(180deg)
                     
 .product-list
   +flexbox
@@ -152,7 +158,10 @@
       
       &:hover
         opacity: .8
-          
+
+.no-products-message
+  text-align: center
+            
 .pagination
   font-family: $secondary-font
   font-size: 14px
