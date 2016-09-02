@@ -2,6 +2,7 @@
 
 .page-products .category-nav
   +transform(translateX(-50%))
+  cursor: pointer
   display: none
   font-size: 22px
   left: 50%
@@ -114,6 +115,9 @@
       display: block
       width: 100%
       
+      &:hover
+        opacity: .8
+      
       @media screen and (max-width: $break-small)
         padding: 0
       
@@ -142,12 +146,12 @@
           font-family: $secondary-font
           font-size: 14px
           margin-top: 10px
-          
+
+    &.sold .product-link
+      opacity: .6
+      
       &:hover
         opacity: .8
-        
-    &.sold
-      opacity: .6
           
 .pagination
   font-family: $secondary-font
@@ -198,7 +202,7 @@
       
 .fade-in
   opacity: 0
-  +animation(fadeIn 1s normal forwards ease-in-out)
+  +animation(fadeIn 800ms normal forwards ease-in-out)
   
 +keyframes(fadeIn)
   0%

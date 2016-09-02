@@ -1,14 +1,19 @@
 {% if cart.items != blank %}
   <h1 class="page-header cart-header">Your bag</h1>
-  
-  {% if errors != blank %}
-    <ul class="errors">
-      {% for error in errors %}
-      <li>{{ error }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-  
+{% else %}
+  <h1 class="page-header cart-header cart-empty-title">Your bag is empty</h1>
+{% endif %}
+
+{% if errors != blank %}
+  <ul class="errors">
+    {% for error in errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if cart.items != blank %}
+
   <form method="post" action="/cart" id="cart-form" class="cart-form">
     
     <ul class="cart-items">
@@ -22,6 +27,7 @@
                 {% unless item.product.has_default_option %}
                   <span class="item-details-option">{{ item.option.name }}</span>
                 {% endunless %}
+                <span class="item-details-price">{{ item.unit_price | money_with_sign }}</span>
               </a>
             </div>
           </div>
@@ -51,7 +57,7 @@
           {% if cart.discount.enabled %}
             <div class="cart-discounts">
               {% if cart.discount.pending %}
-                <input autocomplete="off" class="cart-discount-code" name="cart[discount_code]" type="text" placeholder="Enter discount"{% if cart.discount.code %} value="{{ cart.discount.code }}"{% endif %}>
+                <input autocomplete="off" class="cart-discount-code" name="cart[discount_code]" type="text" placeholder="Enter discount code"{% if cart.discount.code %} value="{{ cart.discount.code }}"{% endif %}>
                 <a href="#" title="Apply discount" class="apply-discount"><svg class="apply-discount-button" width="15" height="16" viewBox="0 0 15 16"><g fill-rule="evenodd"><path d="M0 7h15v2H0z"/><path d="M8.5.5v15h-2V.5z"/></g></svg></a>
               {% else %}
                 {% if cart.discount.free_shipping %}
@@ -105,7 +111,6 @@
     <p><a class="button start-shopping" href="/products">Start shopping</a></p>
   </div>
 {% else %}
-  <h1 class="page-header cart-header cart-empty-title">Your bag is empty</h1>
   <div class="cart-empty-message">
     <p><a class="button start-shopping" href="/products">Start shopping</a></p>
   </div>

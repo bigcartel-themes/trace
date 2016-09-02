@@ -127,10 +127,10 @@ var processUpdate = function(input, item_id, new_val, cart) {
   var sub_total = Format.money(cart.total, true, true);
   var item_count = cart.item_count;
   if (item_count == 0) {
-    $('.main_cart_title').html('Your bag is empty'); 
+    $('.cart-header').html('Your bag is empty'); 
     $('.cart-form').slideUp('fast',function() { 
-      $('.cart-empty-message, .main_cart_title').fadeIn('fast', function() { 
-        
+      $('.cart-empty-message, .cart-header').fadeIn('fast', function() { 
+        $('.site-footer').fadeOut('fast');
       });
       
       $('.cart-num-items').html('0');

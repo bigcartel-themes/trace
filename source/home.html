@@ -11,7 +11,7 @@
     {% if theme.welcome_image %}<a href="/products"><img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 1400,'' }}"></a>{% endif %}
     <div class="welcome-message">
       <h2 class="welcome-header">{{ theme.welcome_message }}</h2>
-      <a class="welcome-button" href="/products" title="Start shopping">Start shopping</a>
+      <a class="button welcome-button" href="/products" title="Start shopping">Start shopping</a>
     </div>
   </div>
 {% endif %}
@@ -47,28 +47,28 @@
   {% endif %}
   
 {% else %}
-  {% if products.current != blank and theme.featured_items > 0 %}
-    <div class="carousel-holder">
-      <div class="carousel carousel-main">
-        {% for product in products.current limit:theme.featured_items %}
-          <div class="carousel-cell">
-            <div class="category-image" style="background-image:url('{{ product.image | product_image_url | constrain: 1000,1000 }}');"></div>
-            <div class="category-name">
-              <a href="{{ product.url }}" class="category-text">
-                <div class="category-title">{{ product.name }}</div>
-                <div class="category-subtitle">Shop now</div>
-              </a>
+  {% get products from products.all limit:theme.featured_items %}
+    {% if products != blank %}
+      <div class="carousel-holder">
+        <div class="carousel carousel-main">
+          {% for product in products %}
+            <div class="carousel-cell">
+              <div class="category-image" style="background-image:url('{{ product.image | product_image_url | constrain: 1000,1000 }}');"></div>
+              <div class="category-name">
+                <a href="{{ product.url }}" class="category-text">
+                  <div class="category-title">{{ product.name }}</div>
+                  <div class="category-subtitle">Shop now</div>
+                </a>
+              </div>
             </div>
-          </div>
-        {% endfor %}
-      </div>
-      {% if products.current != blank and theme.featured_items > 1 %}
+          {% endfor %}
+        </div>
         <div class="carousel carousel-nav">
-          {% for product in products.current limit:theme.featured_items %}
+          {% for product in products %}
             <div class="carousel-cell">{{ forloop.index }}</div>
           {% endfor %}
         </div>
-      {% endif %}
-    </div>
-  {% endif %}
+      </div>
+    {% endif %}
+  {% endget %}
 {% endif %}

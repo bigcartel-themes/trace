@@ -84,6 +84,7 @@ h1, h2, h3, h4, h5, h6
   list-style: none
   margin: 0 0 40px
   padding: 0
+  text-align: center
 
 .wrapper
   +pie-clearfix
@@ -162,6 +163,7 @@ header
           
           
     .category-nav
+      cursor: pointer
       float: left
       position: relative
       width: auto
@@ -183,24 +185,27 @@ header
         display: inline-block
         
       .category-nav-arrow
+        +all-transitions
         display: inline-block
         fill: $secondary-color
         height: 11px
         margin-left: 2px
         width: 15px
       
-      .category-dropdown  
+      .category-dropdown
+        +all-transitions
         +box-shadow(0 2px 4px $secondary-color)
         +border-radius(0 0 4px 4px)
         +transform(translateX(-50%))
         background: $background-color
-        display: none
         left: 50%
         margin: 0 auto
         min-width: 250px
+        opacity: 0
         padding: 20px 20px
         position: absolute
         text-align: left
+        visibility: hidden
         z-index: 3
         
         @media screen and (max-width: $break-small)
@@ -223,21 +228,16 @@ header
               &:hover
                 color: $primary-color
                 
-      &.dropdown-open .category-dropdown
-        display: inline-block
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+      &.dropdown-open 
+      
+        .category-dropdown
+          display: inline-block
+          opacity: 1
+          visibility: visible
+        
+        .category-nav-arrow
+          +rotate(180deg)
+ 
     .page_subtitle
       @media screen and (max-width: $break-medium)
         display: none
@@ -650,7 +650,7 @@ input, textarea
           opacity: .6    
           
 
-.site_footer
+.site-footer
   +pie-clearfix
   +flexbox
   +align-items(center)
