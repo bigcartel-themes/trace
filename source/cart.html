@@ -33,7 +33,7 @@
           </div>
           <div class="item-quantity-holder" data-cart-id="{{ item.id }}">
             <button class="qty" type="button" data-func="minus"><svg viewBox="0 0 20 20"><path d="M5 9h10v2H5z"/><path d="M5 9h10v2H5z"/></svg></button>
-            {{ item | item_quantity_input, 'quantity', 'quantity' }}
+            {{ item | item_quantity_input, '', 'quantity' }}
             <button class="qty" type="button" data-func="plus"><svg viewBox="0 0 20 20"><path d="M11 5H9v4H5v2h4v4h2v-4h4V9h-4z"/></svg></button>
           </div>
           <div class="price">{{ item.unit_price | money_with_sign }}</div>

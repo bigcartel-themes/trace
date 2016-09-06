@@ -14,7 +14,6 @@ function init() {
 }
 window.onload = init();
 
-
 $(window).on("load resize", function() {
   var window_width = $(window).width();
   if (window_width < 669) {
@@ -25,10 +24,6 @@ $(window).on("load resize", function() {
     $('.carousel-main').css('height','100%')
   }
 });
-  
-
-
-
 
 $(function() {
   $('.category-nav').hover(function() { 
@@ -49,22 +44,19 @@ $(function() {
   
   var num_featured_items = $('.carousel-main').length;
 
-  //if (num_featured_items > 1) { 
-    $('.carousel-main').flickity({
-      // options
-      cellAlign: 'center',
-      contain: true,
-      prevNextButtons: false,
-      setGallerySize: false,
-      pageDots: false
-    });
-    $('.carousel-nav').flickity({
-      asNavFor: '.carousel-main',
-      contain: true,
-      pageDots: false,
-      prevNextButtons: false
-    });
-  //}
+  $('.carousel-main').flickity({
+    cellAlign: 'center',
+    contain: true,
+    prevNextButtons: false,
+    setGallerySize: false,
+    pageDots: false
+  });
+  $('.carousel-nav').flickity({
+    asNavFor: '.carousel-main',
+    contain: true,
+    pageDots: false,
+    prevNextButtons: false
+  });
   $('.add-single-option').click(function(e) { 
     e.preventDefault();
     $('.add_to_bag').trigger('click');
@@ -173,10 +165,6 @@ var updateCart = function(cart) {
 }
 
 $(function() {
-  //$('[name="cart[discount_code]"]').on('change',function() { 
-  //  $(this).closest('.checkout_btn').attr('name','update');
-  //  $('.cart-form').submit();
-  //});
   $('.apply-discount').click(function(e) {
     e.preventDefault();
     $(this).closest('.checkout_btn').attr('name','update');
@@ -205,7 +193,7 @@ $(function() {
     , valMax = 99
     , valMin = 1
     , item_id = $(this).parent().data("cart-id");
-    if(isNaN(val) || val < valMin) {
+    if (isNaN(val) || val < valMin) {
       var new_val = valMin;
     }
     else if (val > valMax) {
@@ -233,13 +221,14 @@ $(function() {
     }
   });
 
-  
   $('.item-quantity-holder input').blur(function(e) {
     var item_id = $(this).parent().data("cart-id");
     var new_val = $(this).val();
     var input = $(this);
-    Cart.updateItem(item_id, new_val, function(cart) {
-      processUpdate(input, item_id, new_val, cart);
-    });
+    if (!isNaN(new_val)) { 
+      Cart.updateItem(item_id, new_val, function(cart) {
+        processUpdate(input, item_id, new_val, cart);
+      });
+    }
   });
 });
