@@ -114,7 +114,7 @@
       +transform(none)
       clear: both
       float: none
-      width: 100%
+      width: 140px
     
     button
       +all-transitions
@@ -128,6 +128,11 @@
       line-height: normal
       padding: 0
       width: 40px
+      
+      &.increase-qty-button
+      
+        @media screen and (max-width: $break-small)
+          float: right
       
       @media screen and (max-width: $break-small)
         height: 38px
@@ -159,8 +164,11 @@
       width: 60px
       
       @media screen and (max-width: $break-small)
+        +transform(translateX(-50%))
         font-size: 14px
         height: 36px
+        left: 50%
+        position: absolute
         width: 56px
       
       &:focus
