@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "0.0.27",
+  "version": "0.0.36",
   "images": [
     {
       "variable": "logo",
@@ -22,7 +22,7 @@
     {
       "variable": "secondary_font",
       "label": "Secondary Font",
-      "default": "Karla"
+      "default": "Work Sans"
     }
   ],
   "colors": [
@@ -39,7 +39,7 @@
     {
       "variable": "secondary_text_color",
       "label": "Secondary text",
-      "default": "#777777"
+      "default": "#A0A0A0"
     },
     {
       "variable": "welcome_background_color",
@@ -100,36 +100,31 @@
       "variable": "twitter_url",
       "label": "Twitter URL",
       "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel",
-      "default": "http://blah.com"
+      "description": "Ex: http://twitter.com/bigcartel"
     },
     {
       "variable": "facebook_url",
       "label": "Facebook URL",
       "type": "text",
-      "description": "Ex: http://facebook.com/bigcartel",
-      "default": "http://blah.com"
+      "description": "Ex: http://facebook.com/bigcartel"
     },
     {
       "variable": "tumblr_url",
       "label": "Tumblr URL",
       "type": "text",
-      "description": "Ex: http://bigcartel.tumblr.com",
-      "default": "http://blah.com"
+      "description": "Ex: http://bigcartel.tumblr.com"
     },
     {
       "variable": "instagram_url",
       "label": "Instagram URL",
       "type": "text",
-      "description": "Ex: http://instagram.com/bigcartel",
-      "default": "http://blah.com"
+      "description": "Ex: http://instagram.com/bigcartel"
     },
     {
       "variable": "pinterest_url",
       "label": "Pinterest URL",
       "type": "text",
-      "description": "Ex: http://pinterest.com/bigcartel",
-      "default": "http://blah.com"
+      "description": "Ex: http://pinterest.com/bigcartel"
     }
   ],
     "checkout": {
