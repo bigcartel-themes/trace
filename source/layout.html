@@ -15,7 +15,7 @@
         
         <div class="header_nav">
           
-          <span class="open_menu menu_bars"><span></span><span></span><span></span><span></span></span>
+          <span class="open-menu menu_bars"><span></span><span></span><span></span><span></span></span>
           
           {% if page.permalink != 'product' %}
             {% if page.permalink == 'products' %}
@@ -24,11 +24,12 @@
           {% endif %}
           
           {% if show_categories == 1 %}
+            <div class="category-nav-title open-menu">Shop</div>
           
             <div class="category-nav">
               
               <div class="category-nav-heading">
-                <div class="category-nav-title">Shop</div>
+                
               
                 {% if categories.active != blank or artists.active != blank %}
                   <h1 class="category-nav-page">{{ page.name }}</h1>
@@ -38,6 +39,7 @@
               </div>
               {% if categories.active != blank or artists.active != blank %}
                 <div class="category-dropdown">
+                  <div class="category-dropdown-background"></div>
                   {% if categories.active != blank %}
                     <ul class="dropdown-list categories-list">
                       <li><a href="/products">All products</a></li>
@@ -63,7 +65,9 @@
             
             
           {% else %}
-            {% if page.permalink != 'product' %}<h1 class="navigation_page_title">{{ page.name | replace: 'Cart','Your bag' }}</h1>{% endif %}
+            {% if page.permalink != 'product' %}
+              <h1 class="navigation-page-title open-menu">{{ page.name | replace: 'Cart','Your bag' }}</h1>
+            {% endif %}
           {% endif %}
 
 
@@ -176,6 +180,7 @@
             </div>
           {% endif %}
         </div>
+        <div class="footer-divider"></div>
       </div>
     {% endif %}
 

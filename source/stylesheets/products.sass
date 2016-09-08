@@ -42,20 +42,30 @@
     margin-left: 2px
     width: 15px
   
-  .category-dropdown 
+  .category-dropdown
     +all-transitions
-    +box-shadow(0 2px 4px $secondary-color)
     +border-radius(0 0 4px 4px)
     +transform(translateX(-50%))
-    background: $background-color
     left: 50%
-    opacity: 0
     margin: 0 auto
-    padding: 20px 20px
+    min-width: 250px
+    opacity: 0
+    padding: 10px 0 20px 20px
     position: absolute
     text-align: left
     visibility: hidden
     z-index: 3
+
+    .category-dropdown-background
+      +opacity(.97)
+      background: $background-color
+      height: 100%
+      left: 0
+      position: absolute
+      right: 0
+      top: 0
+      width: 100%
+      z-index: 3
     
     @media screen and (max-width: $break-small)
       width: 90%
@@ -64,18 +74,20 @@
       list-style: none
       margin: 0
       padding: 0
-      
-      li
+      position: relative
+      z-index: 4
+    
+    li
+      display: block
+    
+      a
+        color: $secondary-color
         display: block
-      
-        a
-          color: $secondary-color
-          display: block
-          font-size: 14px
-          padding: 8px 2px
-          
-          &:hover
-            color: $primary-color
+        font-size: 14px
+        padding: 8px 2px
+        
+        &:hover
+          color: $primary-color
 
   &.dropdown-open 
   
@@ -143,15 +155,21 @@
           color: $primary-color
           font-size: 22px
           line-height: 26px
-          margin-bottom: 3px
+          margin-bottom: 9px
           
           @media screen and (max-width: $break-medium)
             font-size: 18px
+          
+          @media screen and (max-width: $break-small)
+            margin-bottom: 7px
         
         .product-price-status
           color: $secondary-color
           font-family: $secondary-font
           font-size: 14px
+          line-height: 17px
+          
+         
 
     &.sold .product-link
       opacity: .6

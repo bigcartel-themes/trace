@@ -1,7 +1,6 @@
 {% if artists.active != blank or categories.active != blank %}
 
   <div class="category-nav">
-    
     <div class="category-nav-heading">
       <div class="category-nav-title">Shop</div>
     
@@ -11,6 +10,7 @@
     </div>
     
     <div class="category-dropdown">
+      <div class="category-dropdown-background"></div>
       {% if categories.active != blank %}
         <ul class="dropdown-list categories-list">
           <li><a href="/products">View all</a></li>

@@ -31,7 +31,7 @@ $(function() {
   });
 
   
-  $('.menu_bars').click(function(e) {
+  $('.open-menu').click(function(e) {
     $('body').addClass('overlay_open');
     $('.overlay').addClass('open').addClass('navigation');
     return false;
