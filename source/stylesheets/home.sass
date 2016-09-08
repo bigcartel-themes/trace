@@ -118,12 +118,17 @@
       width: 50%
       
       @media screen and (max-width: $break-small)
+        display: block
         float: none
         height: 70%
         width: 100%
 
 .carousel-nav
+  cursor: default !important
   margin-top: 40px
+  
+  .flickity-viewport
+    cursor: default !important
   
   .carousel-cell
     +all-transitions
