@@ -1,14 +1,14 @@
 function init() {
   window.addEventListener('scroll', function(e){
     var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-        shrinkOn = 20,
-        elements = $('header, .close_container');
+      shrinkOn = 20,
+      elements = $('header, .close_container');
     if (distanceY > shrinkOn) {
-        elements.addClass('smaller');
+      elements.addClass('smaller');
     } else {
-        if (elements.hasClass('smaller')) {
-            elements.removeClass('smaller');
-        }
+      if (elements.hasClass('smaller')) {
+        elements.removeClass('smaller');
+      }
     }
   });
 }
@@ -26,11 +26,15 @@ $(window).on("load resize", function() {
 });
 
 $(function() {
-  $('.category-nav').hover(function() { 
+  $('.category-nav').hover(function() {
+    $(this).toggleClass('dropdown-open');
+  });
+  
+  $('.category-nav').bind('touchstart', function(e) {
+    if (!$(e.target).closest('a').length) { e.preventDefault(); }
     $(this).toggleClass('dropdown-open');
   });
 
-  
   $('.open-menu').click(function(e) {
     $('body').addClass('overlay_open');
     $('.overlay').addClass('open').addClass('navigation');
