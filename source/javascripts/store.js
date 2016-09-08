@@ -47,7 +47,7 @@ $(function() {
   });
   
   var num_featured_items = $('.carousel-main').length;
-
+  
   $('.carousel-main').flickity({
     cellAlign: 'center',
     contain: true,
@@ -99,10 +99,7 @@ $(document).on('keyup',function(e) {
   }
 });
 
-
-
-
- API.onError = function(errors) {
+API.onError = function(errors) {
   var $errorList = $('<ul>', { class: 'errors'} )
     , $cartError = $('.cart-form')
     , $productError = $('.product_form');
@@ -233,6 +230,20 @@ $(function() {
       Cart.updateItem(item_id, new_val, function(cart) {
         processUpdate(input, item_id, new_val, cart);
       });
+    }
+  });
+  $('.item-quantity-holder input').on('keyup',function(e) { 
+    if (e.keyCode == 13) {
+      e.preventDefault(); 
+      var item_id = $(this).parent().data("cart-id");
+      var new_val = $(this).val();
+      var input = $(this);
+      if (!isNaN(new_val)) { 
+        Cart.updateItem(item_id, new_val, function(cart) {
+          processUpdate(input, item_id, new_val, cart);
+        });
+      }
+      $(this).blur();
     }
   });
 });
