@@ -155,7 +155,7 @@
           <form method="post" action="/cart" class="footer_option_form">
             <input class="footer_option_id" name="cart[add][id]" type="hidden" value="0">
           </form>
-          <div class="left_side">
+          <div class="left-side">
             {% if product.has_default_option %}
               <a href="#" class="add_single_option" data-option-id="{{ product.options.first.id }}">Add to bag</a>
             {% else %}
@@ -164,11 +164,12 @@
           </div>
         {% endif %}
         {% if page.permalink == 'cart' %}
-          <div class="left_side">
+          <div class="left-side">
             <a href="/products">Continue shopping</a>
           </div>
         {% endif %}
-        <div class="right_side"{% if cart.item_count == 0 %} style="display: none"{% endif %}>
+        <div class="right-side"{% if cart.item_count == 0 %} style="display: none"{% endif %}>
+          <div class="footer-divider"></div>
           {% if page.permalink == 'cart' %}
             <a href="/checkout">Checkout</a>
           {% else %}
@@ -180,7 +181,6 @@
             </div>
           {% endif %}
         </div>
-        <div class="footer-divider"></div>
       </div>
     {% endif %}
 
