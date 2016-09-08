@@ -55,7 +55,7 @@
             <img class="fade-in product-image" alt="Image of {{ product.name | escape }}" src="{{ product.image | product_image_url | constrain: '1000','1000' }}">
             <div class="product-info">
               <div class="product-name">{{ product.name }}</div>
-              <div class="product-price">{{ product.default_price | money_with_sign }}{% if product_status != blank %} - {{ product_status }}{% endif %}</div>
+              <div class="product-price-status"><span class="product-price">{{ product.default_price | money_with_sign }}</span> {% if product_status != blank %}<span class="product-status"> - {{ product_status }}{% endif %}</span></div>
             </div>
           </a>
         </li>

@@ -8,7 +8,7 @@
   		{% assign product_status = 'Coming soon' %}
   {% endcase %}
   <h1 class="product-title">{{ product.name }}</h1>
-  <h2 class="product-subtitle">{{ product.default_price | money_with_sign }}{% if product_status != blank %} - {{ product_status }}{% endif %}</h2>
+  <h2 class="product-subtitle {{ product.css_class }}"><span class="product-price">{{ product.default_price | money_with_sign }}</span>{% if product_status != blank %}<span class="product-status"> - {{ product_status }}</span>{% endif %}</h2>
 </div>
 
 <div class="product-images">
