@@ -407,15 +407,15 @@ header
         display: block
     
     .custom_page_content
+      color: $secondary-color
       font-family: $secondary-font
       font-size: 18px 
       line-height: 32px
-        
-    p
-      color: $secondary-color
-      margin: 0 auto 20px
-      max-width: 800px
       
+      @media screen and (max-width: $break-small)
+        font-size: 14px
+        line-height: 24px
+
     a[href]
       +all-transitions
       text-decoration: underline
@@ -699,7 +699,7 @@ input, textarea
     top: 0
     width: 100%
     
-  .left_side, .right_side
+  .left-side, .right-side
     +flex
     +flex-grow(1)
     height: 60px
@@ -708,14 +708,14 @@ input, textarea
     a
       color: $background-color
   
-  .left_side
+  .left-side
     
     a
       +vertical-align
       display: block
       line-height: 60px
     
-  .right_side
+  .right-side
     position: relative
     
     > a
