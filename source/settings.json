@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "images": [
     {
       "variable": "logo",
@@ -76,8 +76,8 @@
       "variable": "featured_items",
       "label": "Featured items",
       "type": "select",
-      "options": "0..10",
-      "default": 5,
+      "options": "0..5",
+      "default": 3,
       "description": "The number of items featured on the Home page"
     },
     {
