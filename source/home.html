@@ -10,7 +10,7 @@
   <div class="home-welcome">
     {% if theme.welcome_image %}<a href="/products"><img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 1400,'' }}"></a>{% endif %}
     <div class="welcome-message">
-      <h2 class="welcome-header">{{ theme.welcome_message }}</h2>
+      {% if theme.welcome_message != blank %}<h2 class="welcome-header">{{ theme.welcome_message }}</h2>{% endif %}
       <a class="button welcome-button" href="/products" title="Start shopping">Start shopping</a>
     </div>
   </div>

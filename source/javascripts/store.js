@@ -1,7 +1,7 @@
 function init() {
   window.addEventListener('scroll', function(e){
     var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-      shrinkOn = 20,
+      shrinkOn = 30,
       elements = $('header, .close_container');
     if (distanceY > shrinkOn) {
       elements.addClass('smaller');
@@ -21,7 +21,7 @@ $(window).on("load resize", function() {
     $('.carousel-main').css('height',flickity_width+'px')
   }
   else { 
-    $('.carousel-main').css('height','100%')
+    $('.carousel-main').css('height','100%');
   }
 });
 
