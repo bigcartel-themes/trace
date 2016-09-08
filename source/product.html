@@ -44,14 +44,15 @@
 </div>
 
 {% if product.has_default_option == false %}
-  <div class="footer_options">
-    <div class="options_background"></div>
-    <div class="footer_options_list">
-      <div class="options_list_header">
-        <svg class="close_options_list" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"/></svg>
-        <span class="options_list_title">Select option</span>
+  <div class="footer-options">
+    <div class="options-background"></div>
+    <div class="footer-options-list">
+      <div class="options-list-header">
+        <svg class="close-options-list" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"/></svg>
+        <span class="options-list-title">Select option</span>
+        <div class="options-list-divider"></div>
       </div>
-      <ul class="product_options_list">
+      <ul class="product-options-list">
         {% for option in product.options %}
           <li data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>{{ option.name }} - {{ option.price | money_with_sign }} {% if option.sold_out %}(Sold out){% endif %}</li>
         {% endfor %}
