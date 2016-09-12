@@ -11,7 +11,7 @@
     {% if theme.welcome_image %}<a href="/products"><img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 1400,'' }}"></a>{% endif %}
     <div class="welcome-message">
       {% if theme.welcome_message != blank %}<h2 class="welcome-header">{{ theme.welcome_message }}</h2>{% endif %}
-      <a class="button welcome-button" href="/products" title="Start shopping">Start shopping</a>
+      {% if theme.welcome_button_text != blank %}<a class="button welcome-button" href="/products" title="{{ theme.welcome_button_text }}">{{ theme.welcome_button_text }}</a>{% endif %}
     </div>
   </div>
 {% endif %}

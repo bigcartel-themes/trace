@@ -37,21 +37,25 @@
       
       @media screen and (max-width: $break-small)
         font-size: 18px
+        line-height: 28px
       
     h2.welcome-header + .welcome-button
       margin-top: 40px
   
     a.welcome-button
       +border-radius($border-radius)
-      background: $welcome-text-color
+      background-color: $welcome-text-color
       color: $welcome-background-color
       display: inline-block
+      line-height: 22px
       margin-left: auto
       margin-right: auto
+      max-width: 600px
       padding: 20px 60px
       width: auto
       
       @media screen and (max-width: $break-small)
+        max-width: 100%
         width: 100%
 
 .carousel-holder
@@ -85,7 +89,7 @@
       
       @media screen and (max-width: $break-small)
         float: none
-        height: 30%
+        height: 35%
         width: 100%
       
       .category-text
@@ -123,7 +127,7 @@
       @media screen and (max-width: $break-small)
         display: block
         float: none
-        height: 70%
+        height: 65%
         width: 100%
 
 .carousel-nav

@@ -15,7 +15,7 @@ body
   line-height: 1
   padding-top: $header-height
   
-  &.overlay_open
+  &.overlay-open
     overflow: auto !important
     overflow-x: hidden !important
     padding-right: 0 !important
@@ -311,11 +311,12 @@ header
             &:hover
               color: $primary-color
   
-  .store_name
+  .store-name
     +flex(2)
     color: $secondary-color
     display: inline-block
     font-size: 22px
+    height: 100%
     max-width: 33%
     text-align: center
 
@@ -327,9 +328,11 @@ header
         
       @media screen and (max-width: $break-small)
         height: calc(#{$header-height-mobile} / 2)
+        
+      .store-link
+        height: 100%
       
       img
-        +vertical-align
         display: block
         height: auto
         margin: 0 auto
@@ -345,12 +348,13 @@ header
       max-width: 66.66%
       text-align: right
     
-    a
+    .store-link
+      +vertical-align
       color: $secondary-color
-      display: block
+      display: inline-block
       line-height: 1.2em
 
-  .cart_link
+  .cart-link
     +flex(3)
     display: inline-block
     max-width: 33%
@@ -623,53 +627,77 @@ input, textarea
     width: 18px
     z-index: 6
     
-  .page_list
+  .overlay_navigation
     margin: 0
     max-width: 100%
     padding: 0
     position: relative
     z-index: 6
     
-    li
-      display: block
+    .page_list
+      margin: -10px 0 0 -5px
+      padding: 0
       
-      a
-        color: $primary-color
+      @media screen and (max-width: $break-small)
+        margin-top: 20px
+    
+      li
         display: block
-        font-size: 32px
-        padding-bottom: 40px
         
-        @media screen and (max-width: $break-medium)
-          font-size: 22px
+        a
+          +all-transitions
+          +transform(translateZ(0px))
+          color: $primary-color
+          display: inline-block
+          font-size: 32px
+          line-height: 60px
+          padding: 0 5px
           
-        @media screen and (max-width: $break-small)
-          padding-bottom: 30px
-        
-  .social_icons
-    margin: 0
-    padding: 40px 0
+          @media screen and (max-width: $break-medium)
+            font-size: 22px
+            line-height: 44px
+          
+          &:hover
+            color: $secondary-color
+
+  .social-icons
+    margin: 0 0 0 -5px
+    margin: 30px 0
+    padding: 0
     position: relative
     z-index: 6
 
     li
       display: inline-block
       font-size: 0
-      margin-right: 30px
+      margin-right: 20px
       
       a
         color: $secondary-color
         display: block
-        font-size: 12px
+        padding: 5px
         
         svg
           +all-transitions
           fill: $secondary-color
-          height: 22px
-          width: 22px
+          height: 20px
+          width: 20px
           
         &:hover svg
           opacity: .6    
-          
+  
+  .bigcartel-credit
+    margin: 60px 0 60px 5px
+    
+    @media screen and (max-width: $break-small)
+      font-size: 12px
+      margin: 50px 0
+    
+    a
+      color: $secondary-color
+      
+      &:hover
+        color: $primary-color       
 
 .site-footer
   +pie-clearfix
@@ -722,15 +750,8 @@ input, textarea
       +vertical-align
       display: block
       line-height: 60px
-  
-  .footer-divider
-    background: $secondary-color
-    height: 100%
-    left: -1px
-    position: absolute
-    width: 2px
     
-  .open_options svg
+  .open-options svg
     fill: $background-color
     height: 12px
     left: 5px
@@ -738,7 +759,7 @@ input, textarea
     top: 1px
     width: 12px
     
-  .cart_link
+  .cart-link
     display: block
     height: 60px
     position: relative
@@ -761,7 +782,11 @@ input, textarea
       fill: $background-color
       height: 30px
       width: 30px
-      
+    
+.left-side + .right-side
+  border-left: 2px solid $secondary-color
+  left: -1px
+          
 .footer-options
   +transition(opacity 0.3s)
   height: 100%
