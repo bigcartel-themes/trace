@@ -313,6 +313,7 @@ header
   
   .store-name
     +flex(2)
+    +transform(translateZ(0))
     color: $secondary-color
     display: inline-block
     font-size: 22px
@@ -694,6 +695,7 @@ input, textarea
       margin: 50px 0
     
     a
+      +all-transitions
       color: $secondary-color
       
       &:hover
