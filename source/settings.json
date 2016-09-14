@@ -10,7 +10,7 @@
     {
       "variable": "welcome_image",
       "label": "Welcome image",
-      "description": "Displays on the Home page"
+      "description": "1200px by 800px images recommended"
     }
   ],
   "fonts": [
@@ -134,7 +134,7 @@
       "description": "Ex: http://pinterest.com/bigcartel"
     }
   ],
-    "checkout": {
+  "checkout": {
     "header_image": "{{ logo }}",
     "header_image_max_width": "200px",
     "header_image_max_height": "50px",

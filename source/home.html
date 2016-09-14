@@ -8,7 +8,7 @@
 
 {% if theme.welcome_image or theme.welcome_message != blank or theme.welcome_button_text != blank %}
   <div class="home-welcome">
-    {% if theme.welcome_image %}<a href="/products"><img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 1400,'' }}"></a>{% endif %}
+    {% if theme.welcome_image %}<a href="/products"><img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}"></a>{% endif %}
     {% if theme.welcome_message != blank or theme.welcome_button_text != blank %}
       <div class="welcome-message">
         {% if theme.welcome_message != blank %}<h2 class="welcome-header">{{ theme.welcome_message }}</h2>{% endif %}
