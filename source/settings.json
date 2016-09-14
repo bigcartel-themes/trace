@@ -68,7 +68,7 @@
       "variable": "welcome_button_text",
       "label": "Welcome button",
       "type": "text",
-      "description": "Provides a link to the Products page - only appears when a welcome image or message is set.",
+      "description": "Displays a link to the Products page on the Home page",
       "default": "Start shopping"
     },
     {
@@ -77,7 +77,7 @@
       "type": "select",
       "options": ["Categories", "Products"],
       "default": "Products",
-      "description": "Display either featured products or categories on the Home page"
+      "description": "Display featured products or categories on the Home page"
     },
     {
       "variable": "featured_items",
