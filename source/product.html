@@ -35,14 +35,12 @@
       <button class="button add-to-bag" name="submit" type="submit" title="Add to bag">Add to bag</button>
     </form>
   {% endif %}
-  
   {% if product.description != blank %}
     <div class="product-description">
       {{ product.description | paragraphs }}
     </div>
   {% endif %}
 </div>
-
 {% if product.has_default_option == false %}
   <div class="footer-options">
     <div class="options-background"></div>
