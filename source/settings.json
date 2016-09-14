@@ -4,13 +4,13 @@
   "images": [
     {
       "variable": "logo",
-      "label": "Logo",
-      "description": "Adds your logo to the header"
+      "label": "Header logo",
+      "description": "Good for an image up to 300 x 80 pixels"
     },
     {
       "variable": "welcome_image",
       "label": "Welcome image",
-      "description": "Displays on your Home page"
+      "description": "Displays on the Home page"
     }
   ],
   "fonts": [
@@ -62,14 +62,21 @@
       "variable": "welcome_message",
       "label": "Welcome message",
       "type": "text",
-      "description": "Displays a welcome message on your Home page"
+      "description": "Displays a welcome message on the Home page"
+    },
+    {
+      "variable": "welcome_button_text",
+      "label": "Welcome button",
+      "type": "text",
+      "description": "Provides a link to the Products page - only appears when a welcome image or message is set.",
+      "default": "Start shopping"
     },
     {
       "variable": "featured_items_type",
       "label": "Featured items type",
       "type": "select",
       "options": ["Categories", "Products"],
-      "default": "Categories",
+      "default": "Products",
       "description": "Display either featured products or categories on the Home page"
     },
     {

@@ -13,9 +13,9 @@
     <header class="header">
       <div class="wrapper">
         
-        <div class="header_nav">
+        <div class="header-nav">
           
-          <span class="open-menu menu_bars"><span></span><span></span><span></span><span></span></span>
+          <span class="open-menu menu-bars"><span></span><span></span><span></span><span></span></span>
           
           {% if page.permalink != 'product' %}
             {% if page.permalink == 'products' %}
@@ -98,7 +98,7 @@
       <div class="wrapper">  
         {% if page.category == 'custom' %}
           <h1 class="page-header custom-header">{{ page.name }}</h1>
-          <div class="custom_page_content">{{ page_content | paragraphs }}</div>
+          <div class="custom-page-content">{{ page_content | paragraphs }}</div>
         {% else %}
           {{ page_content }}
         {% endif %}
@@ -106,13 +106,13 @@
     </section>
     
     <div class="overlay">
-      <div class="overlay_background"></div>
+      <div class="overlay-background"></div>
       <div class="wrapper">
-        <div class="close_container">
-          <svg class="close_overlay" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"/></svg>
+        <div class="close-container">
+          <svg class="close-overlay" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"/></svg>
         </div>
-        <div class="overlay_navigation">
-          <ul class="page_list">
+        <div class="overlay-navigation">
+          <ul class="page-list">
             <li><a href="/">Home</a></li>
             <li><a href="/products">Shop</a></li>
             {% for page in pages.all %}

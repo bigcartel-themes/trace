@@ -126,7 +126,7 @@ header
     @media screen and (max-width: $break-small)
       height: 100%
     
-  .header_nav
+  .header-nav
     +flex(1)
     display: inline-block
     font-size: 18px
@@ -136,7 +136,7 @@ header
     .open-menu
       cursor: pointer
       
-    .menu_bars
+    .menu-bars
       float: left
       height: 16px
       margin-right: 20px
@@ -249,10 +249,6 @@ header
         .category-nav-arrow
           +rotate(180deg)
  
-    .page_subtitle
-      @media screen and (max-width: $break-medium)
-        display: none
-          
     h1
       display: inline-block
       font-size: 18px
@@ -261,11 +257,11 @@ header
       @media screen and (max-width: $break-medium)
         display: none
     
-    .dropdown_section
+    .dropdown-section
       display: inline-block
       position: relative
           
-    .open_categories
+    .open-categories
       color: $secondary-color
       padding: 10px 0
       
@@ -279,37 +275,6 @@ header
         
         &.hover
           +rotate(-180deg)
-          
-    .category_dropdown
-      +box-shadow(0 2px 4px $secondary-color)
-      +border-radius(0 0 4px 4px)
-      +opacity(.97)
-      background: $background-color
-      display: none
-      left: -23px
-      max-width: 300px
-      min-width: 250px
-      padding: 16px 0
-      position: absolute
-      top: 26px
-      width: 100%
-
-      ul
-        list-style: none
-        margin: 0
-        padding: 0
-      
-        li
-          display: block
-        
-          a
-            color: $secondary-color
-            display: block
-            font-size: 14px
-            padding: 8px 25px
-            
-            &:hover
-              color: $primary-color
   
   .store-name
     +flex(2)
@@ -411,7 +376,7 @@ header
       @media screen and (max-width: $break-medium)
         display: block
     
-    .custom_page_content
+    .custom-page-content
       color: $secondary-color
       font-family: $secondary-font
       font-size: 18px 
@@ -590,7 +555,7 @@ input, textarea
     opacity: 1
     visibility: visible
   
-  .overlay_background
+  .overlay-background
     +opacity(.97)
     background: $background-color
     bottom: 0
@@ -607,7 +572,7 @@ input, textarea
     padding-bottom: 140px
     position: relative
   
-  .close_container
+  .close-container
     height: $header-height
     
     &.smaller
@@ -619,7 +584,7 @@ input, textarea
     @media screen and (max-width: $break-small)
       height: $header-height-mobile
     
-  .close_overlay
+  .close-overlay
     +vertical-align
     cursor: pointer
     fill: $primary-color
@@ -628,14 +593,14 @@ input, textarea
     width: 18px
     z-index: 6
     
-  .overlay_navigation
+  .overlay-navigation
     margin: 0
     max-width: 100%
     padding: 0
     position: relative
     z-index: 6
     
-    .page_list
+    .page-list
       margin: -10px 0 0 -5px
       padding: 0
       
@@ -874,5 +839,5 @@ input, textarea
           opacity: .6
           
 
-#success .header_nav h1
+#success .header-nav h1
   display: none
