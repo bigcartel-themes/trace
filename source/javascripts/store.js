@@ -189,19 +189,13 @@ $(function() {
     var $t = $(this)
     , input = $(this).parent().find('input')
     , val = parseInt(input.val())
-    , valMax = 99
     , valMin = 1
     , item_id = $(this).parent().data("cart-id");
     if (isNaN(val) || val < valMin) {
       var new_val = valMin;
     }
-    else if (val > valMax) {
-      var new_val = valMax;
-    }
     if ($t.data('func') == 'plus') {
-      if (val < valMax) {
-        var new_val = val + 1;
-      }
+      var new_val = val + 1;
     }
     else {
       if (val > valMin) {
