@@ -89,16 +89,7 @@ $(window).on("load resize", function() {
 });
 
 $(function() {
-  $('.category-nav').hover(function() {
-    $(this).toggleClass('dropdown-open');
-  });
-  
-  $('.dropdown-list a').click(function(e) {
-    $(this).closest('.category-nav').removeClass('dropdown-open');
-  })
-  
-  $('.category-nav').bind('touchstart', function(e) {
-    if (!$(e.target).closest('a').length) { e.preventDefault(); }
+  $('.category-nav').hover(function(e) {
     $(this).toggleClass('dropdown-open');
   });
 
