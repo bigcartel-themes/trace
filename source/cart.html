@@ -25,7 +25,7 @@
                 {% unless item.product.has_default_option %}
                   <span class="item-details-option">{{ item.option.name }}</span>
                 {% endunless %}
-                <span class="item-details-price">{{ item.unit_price | money_with_sign }}</span>
+                <span class="item-details-price">{{ item.unit_price | money: theme.money_format }}</span>
               </a>
             </div>
           </div>
@@ -34,13 +34,13 @@
             {{ item | item_quantity_input, '', 'quantity' }}
             <button class="increase-qty-button qty" type="button" data-func="plus"><svg viewBox="0 0 20 20"><path d="M11 5H9v4H5v2h4v4h2v-4h4V9h-4z"/></svg></button>
           </div>
-          <div class="price">{{ item.unit_price | money_with_sign }}</div>
+          <div class="price">{{ item.unit_price | money: theme.money_format }}</div>
         </li>
       {% endfor %}
     </ul>
     <div class="cart-footer">
       <div class="cart-totals">
-        <h3>Total  <span>{{ cart.total | money_with_sign }}</span></h3>
+        <h3>Total  <span>{{ cart.total | money: theme.money_format }}</span></h3>
         <button type="submit" name="checkout" title="Checkout" class="button checkout-btn">Checkout</button>
         <a class="button continue-shopping" href="/products">Continue shopping</a>
       </div>

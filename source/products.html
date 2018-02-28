@@ -45,7 +45,7 @@
             <div class="product-info">
               <div class="product-name">{{ product.name }}</div>
               <div class="product-price-status">
-                <span class="product-price">{{ product.default_price | money_with_sign }}</span>
+                <span class="product-price">{{ product.default_price | money: theme.money_format }}</span>
                 {% if product_status != blank %}<span class="product-status"> - {{ product_status }}</span>{% endif %}
               </div>
             </div>
