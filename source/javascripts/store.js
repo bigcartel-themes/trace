@@ -48,20 +48,6 @@ var processUpdate = function(input, item_id, new_val, cart) {
   }
   else {
     $('.errors').hide(); 
-    if ($('.cart-shipping-amount').length) { 
-      if (cart.shipping.pending) {
-        if (cart.country) { 
-          var shipping_amount = 'Shipping: <span class="small-message">Select another country</span>';
-        }
-        else { 
-          var shipping_amount = 'Shipping: <span class="small-message">Select country</span>';
-        }
-      }
-      else { 
-        var shipping_amount = 'Shipping: <span>'+Format.money(cart.shipping && cart.shipping.amount ? cart.shipping.amount : 0, true, true)+'</span>';
-      }
-      $('.cart-shipping-amount').html(shipping_amount);
-    }
     $('.cart-totals h3 > span').html(sub_total);
     $('.cart-num-items').html(item_count);
     input.val(new_val);
@@ -150,30 +136,6 @@ $(function() {
       $('.footer-option-id').val(option_id);
       $('.footer-option-form').submit();
     }
-  });
-  
-  $('.apply-discount').click(function(e) {
-    e.preventDefault();
-    $(this).closest('.checkout-btn').attr('name','update');
-    $('.cart-form').submit();
-  });
-  
-  $('[name="cart[shipping_country_id]"]').on('change',function() {
-    $('.cart-form').submit();
-  });
-  
-  $('[name="cart[discount_code]"]').on('keyup',function(e) { 
-    if (e.keyCode == 13) {
-      e.preventDefault(); 
-      $(this).closest('.checkout-btn').attr('name','update');
-      $('.cart-form').submit();
-    }
-  });
-  
-  $('.cancel-discount').click(function(e) {
-    e.preventDefault(); 
-    $('.cart-form').append('<input name="cart[discount_code]" type="hidden" value="">');
-    $('.cart-form').submit();
   });
 
   $('.qty').click(function() {

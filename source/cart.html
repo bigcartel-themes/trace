@@ -39,60 +39,7 @@
       {% endfor %}
     </ul>
     <div class="cart-footer">
-      {% if cart.shipping.enabled or cart.discount.enabled %}
-        <div class="cart-discounts-shipping">
-          {% if cart.shipping.enabled %}
-            <div class="cart-shipping">
-              <div class="select country-select">
-                {{ store.country | country_select }}
-                <svg viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
-              </div>
-            </div>
-          {% endif %}
-          {% if cart.discount.enabled %}
-            <div class="cart-discounts">
-              {% if cart.discount.pending %}
-                <input autocomplete="off" class="cart-discount-code" name="cart[discount_code]" type="text" placeholder="Enter discount code"{% if cart.discount.code %} value="{{ cart.discount.code }}"{% endif %}>
-                <a href="#" title="Apply discount" class="apply-discount"><svg class="apply-discount-button" viewBox="0 0 46 46"><path d="M46 20v6H26v20h-7V26H0v-6h19V0h7v20z"/></svg></a>
-              {% else %}
-                {% if cart.discount.free_shipping %}
-                  Free shipping discount!
-                {% else %}
-                  {{ cart.discount.name }}
-                {% endif %}
-                <a href="#" title="Remove discount" class="cancel-discount"><svg class="cancel-discount-button" viewBox="0 0 20 20"><path d="M15 6.4L13.6 5 10 8.6 6.4 5 5 6.4 8.6 10 5 13.6 6.4 15l3.6-3.6 3.6 3.6 1.4-1.4-3.6-3.6z"/></svg></a>
-              {% endif %}
-            </div>
-          {% endif %}
-        </div>
-      {% endif %}
       <div class="cart-totals">
-        {% if cart.shipping.enabled or cart.discount.enabled %}
-          <div class="cart-subtotals">
-            {% if cart.shipping.enabled %}
-              <h4 class="cart-shipping-amount">
-                Shipping
-                {% if cart.shipping.pending %}
-                  {% if cart.country %}
-                    <span class="small-message">Select another country</span>
-                  {% else %}
-                    <span class="small-message">Select country</span>
-                  {% endif %}
-                {% else %}
-                  <span>{{ cart.shipping.amount | money_with_sign }}</span>
-                {% endif %}
-              </h4>
-            {% endif %}
-            {% if cart.discount.enabled %}
-              {% if cart.discount.pending %}
-              {% elsif cart.discount.free_shipping %}
-                <h4 class="cart-discount-amount">Discount <span class="small-message">Free shipping</span></h4>
-              {% else %}
-                <h4 class="cart-discount-amount">Discount <span>- {{ cart.discount.amount | money_with_sign }}</span></h4>
-              {% endif %}
-            {% endif %}
-          </div>
-        {% endif %}
         <h3>Total  <span>{{ cart.total | money_with_sign }}</span></h3>
         <button type="submit" name="checkout" title="Checkout" class="button checkout-btn">Checkout</button>
         <a class="button continue-shopping" href="/products">Continue shopping</a>
