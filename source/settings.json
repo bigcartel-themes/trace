@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.0.11",
+  "version": "1.1.0",
   "images": [
     {
       "variable": "logo",
@@ -102,6 +102,17 @@
       "options": ["Left", "Centered"],
       "default": "Left",
       "description": "Alignment for product details under thumbnail images"
+    },
+    {
+      "variable": "money_format",
+      "label": "Price display",
+      "type": "select",
+      "options": [
+        ["Currency sign", "sign"],
+        ["Currency code with sign", "sign_and_code"]
+      ],
+      "default": "sign",
+      "description": "Sets the display of prices in your shop"
     },
     {
       "variable": "twitter_url",
