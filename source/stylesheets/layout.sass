@@ -2,7 +2,7 @@
 
 *
   +box-sizing(border-box)
-  
+
 html
   min-height: 100%
   position: relative
@@ -14,59 +14,59 @@ body
   font-size: 14px
   line-height: 1
   padding-top: $header-height
-  
+
   &.overlay-open
     overflow: auto !important
     overflow-x: hidden !important
     padding-right: 0 !important
-  
+
   @media screen and (max-width: $break-medium)
     padding-top: $header-height-tablet
-  
+
   @media screen and (max-width: $break-small)
     padding-top: $header-height-mobile
-    
+
   &.standalone-page
     color: $primary-color
     padding: 140px 60px
     text-align: center
-    
+
     @media screen and (max-width: $break-medium)
       padding: 80px 20px
-    
+
     h1
       font-size: 22px
       line-height: 1.6em
       text-align: center
-    
+
     .maintenance-icons
       display: block
-      margin: 40px 0 0 
+      margin: 40px 0 0
       padding: 0
-      
+
       li
         display: inline-block
-        
+
         a
           display: block
           padding: 0 15px
-          
+
           @media screen and (max-width: $break-small)
             padding: 0 6px
-          
+
           svg
             +all-transitions
             fill: $secondary-color
             height: 22px
             width: 22px
-            
+
             @media screen and (max-width: $break-small)
               height: 18px
               width: 18px
-              
+
           &:hover svg
-            opacity: .6 
-  
+            opacity: .6
+
 a, a:visited
   color: $primary-color
   text-decoration: none
@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6
   margin: 0
   padding: 0
   text-align: left
-  
+
 .errors
   color: $error-text-color
   font-size: 16px
@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6
   padding: 0 7%
   position: relative
   width: 100%
-  
+
 header
   background: $background-color
   +transition(height .4s)
@@ -101,13 +101,13 @@ header
   top: 0
   width: 100%
   z-index: 4
-  
+
   &.smaller
     height: 100px
-  
+
   @media screen and (max-width: $break-medium)
     height: $header-height-tablet
-  
+
   @media screen and (max-width: $break-small)
     height: $header-height-mobile
     position: absolute
@@ -119,30 +119,30 @@ header
     height: 100%
     position: relative
     z-index: 5
-    
+
     @media screen and (max-width: $break-medium)
       height: 100%
-    
+
     @media screen and (max-width: $break-small)
       height: 100%
-    
+
   .header-nav
     +flex(1)
     display: inline-block
     font-size: 18px
     max-width: 33%
     text-align: left
-    
+
     .open-menu
       cursor: pointer
-      
+
     .menu-bars
       float: left
       height: 16px
       margin-right: 20px
       position: relative
       width: 22px
-      
+
       span
         +border-radius(2px)
         +transform(rotate(0deg))
@@ -153,23 +153,23 @@ header
         position: absolute
         left: 0
         opacity: 1
-  
+
         &:nth-child(1)
           top: 0px
-  
+
         &:nth-child(2), &:nth-child(3)
           top: 50%
-  
+
         &:nth-child(4)
           top: 99%
-          
+
     .category-nav-title
       float: left
       margin-right: 8px
-      
+
       @media screen and (max-width: $break-medium)
         display: none
-        
+
     .category-nav
       +transform(translateZ(0))
       cursor: pointer
@@ -177,19 +177,19 @@ header
       position: relative
       width: auto
       z-index: 3
-        
+
       @media screen and (max-width: $break-medium)
         display: none
         font-size: 18px
-    
+
       @media screen and (max-width: $break-small)
         font-size: 16px
         max-width: 100%
-        
+
       .category-nav-page
         color: $secondary-color
         display: inline-block
-        
+
       .category-nav-arrow
         +all-transitions
         display: inline-block
@@ -197,7 +197,7 @@ header
         height: 11px
         margin-left: 2px
         width: 15px
-      
+
       .category-dropdown
         +all-transitions
         +border-radius(0 0 4px 4px)
@@ -210,7 +210,7 @@ header
         text-align: left
         visibility: hidden
         z-index: 3
-        
+
         .category-dropdown-background
           +opacity(.97)
           +border-radius(0 0 4px 4px)
@@ -231,45 +231,45 @@ header
           padding: 0
           position: relative
           z-index: 4
-          
+
           li
             display: block
-          
+
             a
               color: $secondary-color
               display: block
               font-size: 14px
               padding: 8px 2px
-              
+
               &:hover
                 color: $primary-color
-                
-      &.dropdown-open 
-      
+
+      &.dropdown-open
+
         .category-dropdown
           display: inline-block
           opacity: 1
           visibility: visible
-        
+
         .category-nav-arrow
           +rotate(180deg)
- 
+
     h1
       display: inline-block
       font-size: 18px
       position: relative
-    
+
       @media screen and (max-width: $break-medium)
         display: none
-    
+
     .dropdown-section
       display: inline-block
       position: relative
-          
+
     .open-categories
       color: $secondary-color
       padding: 10px 0
-      
+
       svg
         +transition(250ms linear all)
         fill: $secondary-color
@@ -277,10 +277,10 @@ header
         margin-left: 5px
         position: relative
         width: 15px
-        
+
         &.hover
           +rotate(-180deg)
-  
+
   .store-name
     +flex(2)
     +transform(translateZ(0))
@@ -293,16 +293,16 @@ header
 
     &.image
       height: calc(#{$header-height} / 2.8)
-      
+
       @media screen and (max-width: $break-medium)
         height: calc(#{$header-height-tablet} / 2)
-        
+
       @media screen and (max-width: $break-small)
         height: calc(#{$header-height-mobile} / 2)
-        
+
       .store-link
         height: 100%
-      
+
       img
         display: block
         height: auto
@@ -310,7 +310,7 @@ header
         max-height: 100%
         max-width: 100%
         width: auto
-        
+
         @media screen and (max-width: $break-medium)
           float: right
           margin: 0
@@ -318,7 +318,7 @@ header
     @media screen and (max-width: $break-medium)
       max-width: 66.66%
       text-align: right
-    
+
     .store-link
       +vertical-align
       color: $secondary-color
@@ -331,7 +331,7 @@ header
     max-width: 33%
     position: relative
     text-align: right
-    
+
     .cart-num-items
       font-size: 11px
       top: 4px
@@ -343,21 +343,21 @@ header
       z-index: 10
       position: absolute
       right: 0
-    
+
     svg
       fill: $primary-color
       height: 30px
       width: 30px
-    
+
     @media screen and (max-width: $break-medium)
       display: none
 
 .content
   padding: 40px 0 calc(11% + 80px)
-  
+
   @media screen and (max-width: $break-medium)
     padding-top: 40px
-    
+
   @media screen and (max-width: $break-small)
     padding-top: 20px
 
@@ -366,27 +366,27 @@ header
     text-align: center
 
   &.product
-    
+
     .wrapper
       max-width: 1200px
-      
+
   &.custom
-  
+
     .wrapper
       max-width: calc(800px + 7%)
-      
+
     h1
       display: none
-      
+
       @media screen and (max-width: $break-medium)
         display: block
-    
+
     .custom-page-content
       color: $secondary-color
       font-family: $secondary-font
-      font-size: 18px 
+      font-size: 18px
       line-height: 32px
-      
+
       @media screen and (max-width: $break-small)
         font-size: 14px
         line-height: 24px
@@ -394,68 +394,68 @@ header
     a[href]
       +all-transitions
       text-decoration: underline
-      
+
       &:hover
         opacity: .6
-      
+
     img, iframe
       display: block
       max-width: 100%
-    
+
     ol, ul
       margin: 1em 0
       padding: 0
-      
+
     ul
       list-style: disc
       list-style-position: inside
-    
+
     ol
       list-style: decimal
       list-style-position: inside
-    
+
     img
       display: block
       max-width: 800px
       width: 100%
-      
-  &.page-contact 
-  
+
+  &.page-contact
+
     h1
       display: none
-      
+
       @media screen and (max-width: $break-medium)
         display: block
-      
+
     .wrapper
       max-width: calc(680px + 7%)
-      
+
   &.page-cart
-  
+
     .wrapper
       max-width: calc(880px + 7%)
-  
+
   .cart-header
     display: none
-    
+
     @media screen and (max-width: $break-medium)
       display: block
-      
+
     &.cart-empty-title
       display: block
-  
+
   .success-header
     line-height: 40px
-    
+
   .success-message
-    font-size: 14px 
+    font-size: 14px
     line-height: 24px
     text-align: center
-    
+
     .button
       display: inline-block
       margin-top: 40px
-      
+
 .select
   +all-transitions
   +border-radius($border-radius)
@@ -488,6 +488,9 @@ header
       background-color: #FFF
       color: #000
 
+      &:disabled
+        color: graytext
+
     &:focus
       box-shadow: none
       outline: none
@@ -512,10 +515,13 @@ header
 
     select
       color: $primary-color
-      
+
+      option:disabled
+        color: graytext
+
     svg
       fill: $primary-color
-      
+
 button, a.button
   +all-transitions
   +border-radius($border-radius)
@@ -528,10 +534,14 @@ button, a.button
   outline: none
   padding: 20px
   width: 100%
-  
+
   &:hover, &:active, &:focus
     opacity: .8
-  
+
+  &:disabled, &.disabled
+    cursor: not-allowed
+    opacity: .3
+
 input, textarea
   +all-transitions
   +appearance(none)
@@ -543,7 +553,7 @@ input, textarea
   font-size: 16px
   max-width: 100%
   padding: 14px
-  
+
 .overlay
   overflow-y: auto !important
   +transition(opacity 0.3s, visibility 0.3s)
@@ -556,11 +566,11 @@ input, textarea
   visibility: hidden
   width: 100%
   z-index: 4
-  
+
   &.open
     opacity: 1
     visibility: visible
-  
+
   .overlay-background
     +opacity(.97)
     background: $background-color
@@ -570,26 +580,26 @@ input, textarea
     right: 0
     top: 0
     z-index: 5
-  
+
   .wrapper
     height: 100%
     margin: 0 auto
     overflow-y: scroll
     padding-bottom: 140px
     position: relative
-  
+
   .close-container
     height: $header-height
-    
+
     &.smaller
       height: 100px
-  
+
     @media screen and (max-width: $break-medium)
       height: $header-height-tablet
-    
+
     @media screen and (max-width: $break-small)
       height: $header-height-mobile
-    
+
   .close-overlay
     +vertical-align
     cursor: pointer
@@ -598,24 +608,24 @@ input, textarea
     position: relative
     width: 18px
     z-index: 6
-    
+
   .overlay-navigation
     margin: 0
     max-width: 100%
     padding: 0
     position: relative
     z-index: 6
-    
+
     .page-list
       margin: -10px 0 0 -5px
       padding: 0
-      
+
       @media screen and (max-width: $break-small)
         margin-top: 20px
-    
+
       li
         display: block
-        
+
         a
           +all-transitions
           +transform(translateZ(0px))
@@ -624,11 +634,11 @@ input, textarea
           font-size: 32px
           line-height: 60px
           padding: 0 5px
-          
+
           @media screen and (max-width: $break-medium)
             font-size: 22px
             line-height: 44px
-          
+
           &:hover
             color: $secondary-color
 
@@ -643,34 +653,34 @@ input, textarea
       display: inline-block
       font-size: 0
       margin-right: 20px
-      
+
       a
         color: $secondary-color
         display: block
         padding: 5px
-        
+
         svg
           +all-transitions
           fill: $secondary-color
           height: 20px
           width: 20px
-          
+
         &:hover svg
-          opacity: .6    
-  
+          opacity: .6
+
   .bigcartel-credit
     margin: 60px 0 60px 5px
-    
+
     @media screen and (max-width: $break-small)
       font-size: 12px
       margin: 50px 0
-    
+
     a
       +all-transitions
       color: $secondary-color
-      
+
       &:hover
-        color: $primary-color       
+        color: $primary-color
 
 .site-footer
   +pie-clearfix
@@ -686,11 +696,11 @@ input, textarea
   visibility: hidden
   width: 100%
   z-index: 3
-  
+
   @media screen and (max-width: $break-medium)
     opacity: 1
     visibility: visible
-  
+
   .background
     background: $primary-color
     height: 100%
@@ -699,31 +709,31 @@ input, textarea
     position: absolute
     top: 0
     width: 100%
-    
+
   .left-side, .right-side
     +flex
     +flex-grow(1)
     height: 60px
     z-index: 4
-    
+
     a
       color: $background-color
-  
+
   .left-side
-    
+
     a
       +vertical-align
       display: block
       line-height: 60px
-    
+
   .right-side
     position: relative
-    
+
     > a
       +vertical-align
       display: block
       line-height: 60px
-    
+
   .open-options svg
     fill: $background-color
     height: 12px
@@ -731,13 +741,13 @@ input, textarea
     position: relative
     top: 1px
     width: 12px
-    
+
   .cart-link
     display: block
     height: 60px
     position: relative
     text-align: center
-    
+
     .cart-num-items
       +transform(translateY(-50%) translateX(-50%))
       display: inline-block
@@ -749,17 +759,17 @@ input, textarea
       text-align: center
       top: 34px
       z-index: 10
-    
+
     svg
       +vertical-align
       fill: $background-color
       height: 30px
       width: 30px
-    
+
 .left-side + .right-side
   border-left: 2px solid $secondary-color
   left: -1px
-          
+
 .footer-options
   +transition(opacity 0.3s)
   height: 100%
@@ -772,11 +782,11 @@ input, textarea
   visibility: hidden
   width: 100%
   z-index: 6
-  
+
   &.open
     opacity: 1
     visibility: visible
-  
+
   .options-background
     background: $primary-color
     bottom: 0
@@ -786,7 +796,7 @@ input, textarea
     right: 0
     top: 0
     z-index: 5
-    
+
   .footer-options-list
     background: $background-color
     color: $primary-color
@@ -796,14 +806,14 @@ input, textarea
     text-align: left
     width: 100%
     z-index: 6
-    
+
     .options-list-header
       border-top: 1px solid $secondary-color
       font-size: 16px
       padding: 20px 0
       position: relative
       text-align: center
-      
+
       .options-list-divider
         +opacity(.1)
         background-color: $secondary-color
@@ -811,7 +821,7 @@ input, textarea
         height: 1px
         position: absolute
         width: 100%
-      
+
       .close-options-list
         +vertical-align
         cursor: pointer
@@ -821,29 +831,29 @@ input, textarea
         position: absolute
         width: 16px
         z-index: 7
-        
+
         @media screen and (max-width: $break-small)
           left: $mobile-padding
-        
+
     .product-options-list
       margin: 30px 0
       max-height: 200px
       overflow-y: scroll
       padding: 0
-      
+
       li
         cursor: pointer
         display: block
         font-size: 18px
         line-height: 24px
         padding: 10px $tablet-padding
-        
+
         @media screen and (max-width: $break-small)
           padding: 10px $mobile-padding
-        
+
         &.disabled
           opacity: .6
-          
+
 
 #success .header-nav h1
   display: none
