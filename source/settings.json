@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.1.0",
+  "version": "1.1.999",
   "images": [
     {
       "variable": "logo",
@@ -104,6 +104,14 @@
       "description": "Alignment for product details under thumbnail images"
     },
     {
+      "variable": "show_sold_out_product_options",
+      "label": "Show sold out product options",
+      "type": "boolean",
+      "default": true,
+      "description": "Shows sold out product options in the Product page dropdowns",
+      "requires": "inventory"
+    },
+    {
       "variable": "money_format",
       "label": "Price display",
       "type": "select",
@@ -172,7 +180,7 @@
     "content_header_color": "{{ primary_text_color }}",
     "content_color": "{{ primary_text_color }}",
     "content_header_font_size": "18px",
-    "content_border_color": "transparent", 
+    "content_border_color": "transparent",
     "content_border_radius": "0px",
     "error_background_color": "#ea4859",
     "error_color": "#ffffff",
