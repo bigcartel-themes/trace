@@ -3,7 +3,7 @@
   <head>
     <title>{{ page.name | replace: 'Cart','Your bag' }} | {{ store.name }}</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
     {{ head_content }}
   </head>
@@ -19,7 +19,7 @@
           {% endif %}
           {% if show_categories == 1 %}
             <div class="category-nav-title open-menu">Shop</div>
-            <div class="category-nav header-category-nav"> 
+            <div class="category-nav header-category-nav">
               <div class="category-nav-heading">
                 {% if categories.active != blank or artists.active != blank %}
                   <h1 class="category-nav-page">{{ page.name }}</h1>
@@ -70,9 +70,9 @@
         </div>
       </div>
     </header>
-    
+
     <section class="content {{ page.category }} page-{{ page.permalink }}">
-      <div class="wrapper">  
+      <div class="wrapper">
         {% if page.category == 'custom' %}
           <h1 class="page-header custom-header">{{ page.name }}</h1>
           <div class="custom-page-content">{{ page_content | paragraphs }}</div>
@@ -81,7 +81,7 @@
         {% endif %}
       </div>
     </section>
-    
+
     <div class="overlay">
       <div class="overlay-background"></div>
       <div class="wrapper">
@@ -113,7 +113,7 @@
               {% endif %}
               {% if theme.pinterest_url != blank %}
                 <li><a title="Pinterest" href="{{ theme.pinterest_url }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.95-.2-2.405.042-3.44.217-.938 1.406-5.966 1.406-5.966s-.36-.72-.36-1.782c0-1.668.968-2.914 2.172-2.914 1.023 0 1.518.77 1.518 1.69 0 1.03-.655 2.568-.994 3.995-.283 1.194.6 2.17 1.777 2.17 2.132 0 3.77-2.25 3.77-5.496 0-2.872-2.063-4.88-5.01-4.88-3.415 0-5.42 2.56-5.42 5.206 0 1.03.398 2.138.894 2.738.098.12.112.224.083.345l-.333 1.36c-.053.22-.174.266-.402.16-1.5-.698-2.436-2.89-2.436-4.65 0-3.784 2.75-7.26 7.93-7.26 4.162 0 7.397 2.966 7.397 6.93 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.36-.63-2.75-1.378l-.748 2.853c-.27 1.042-1.002 2.35-1.492 3.145C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" fill-rule="evenodd" clip-rule="evenodd"/></svg></a></li>
-              {% endif %}  
+              {% endif %}
               {% if theme.tumblr_url != blank %}
                 <li><a title="Tumblr" href="{{ theme.tumblr_url }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19.512 17.49l-.096-.07h-3.274c-.153 0-.16-.466-.163-.62v-5.715c0-.056.044-.1.1-.1h3.82c.056 0 .1-.046.1-.102V5.117c0-.055-.044-.1-.1-.1h-3.803c-.055 0-.1-.045-.1-.1V.1c0-.055-.045-.1-.1-.1h-7.15c-.49 0-1.054.362-1.136 1.034C7.27 3.812 5.73 5.16 3.336 5.96l-.267.088L3 6.144v4.74c0 .056.045.1.1.1H6v6.157C6 21.8 9.04 24 15.008 24c2.4 0 5.048-.855 5.835-1.89L21 21.9l-1.488-4.41zm.34 4.257c-.75.72-2.555 1.256-4.03 1.28l-.164.002c-4.85 0-5.682-3.702-5.682-5.89V10.1c0-.055-.045-.1-.1-.1H7.094c-.056 0-.1-.045-.1-.1l-.025-3.06.063-.093c2.506-.976 3.905-2.595 4.273-5.593.02-.167.158-.17.16-.17h3.446c.055 0 .1.044.1.1V5.9c0 .056.046.1.1.1h3.804c.056 0 .1.046.1.1v3.802c0 .056-.044.1-.1.1h-3.82c-.055 0-.096.046-.096.102v6.705c.023 1.437.715 2.166 2.065 2.166.544 0 1.116-.126 1.685-.344.053-.02.11.007.13.06l.995 2.95-.024.105z" fill-rule="evenodd" clip-rule="evenodd"/></svg></a></li>
               {% endif %}
@@ -123,22 +123,10 @@
         </div>
       </div>
     </div>
-    
+
     {% if page.permalink == 'product' or page.permalink == 'cart' or cart.item_count > 0 %}
       <div class="site-footer"{% if page.permalink == 'product' and product.status != 'active' and cart.item_count == 0 %} style="display:none;"{% endif %}>
         <div class="background"></div>
-        {% if page.permalink == 'product' and product.status == 'active' %}
-          <form method="post" action="/cart" class="footer-option-form">
-            <input class="footer-option-id" name="cart[add][id]" type="hidden" value="0">
-          </form>
-          <div class="left-side">
-            {% if product.has_default_option %}
-              <a href="#" class="add-single-option" data-option-id="{{ product.options.first.id }}">Add to bag</a>
-            {% else %}
-              <a href="#" class="open-options">Add to bag <svg viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg></a>
-            {% endif %}
-          </div>
-        {% endif %}
         {% if page.permalink == 'cart' %}
           <div class="left-side">
             <a href="/products">Continue shopping</a>
@@ -152,16 +140,16 @@
             <div class="footer-cart">
               <a class="cart-link" href="/cart">
                 <svg viewBox="0 0 30 30"><path d="M22.7 8c-.9-3.4-4-6-7.7-6S8.2 4.6 7.3 8H2l3 20h20l3-20h-5.3zM15 4c2.6 0 4.8 1.7 5.6 4H9.3c.9-2.3 3.1-4 5.7-4zm8.3 22H6.7L4.3 10H7v3h2v-3h12v3h2v-3h2.7l-2.4 16z"/></svg>
-                <span class="cart-num-items">{{ cart.item_count }}</span>              
+                <span class="cart-num-items">{{ cart.item_count }}</span>
               </a>
             </div>
           {% endif %}
         </div>
       </div>
     {% endif %}
-    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js" type="text/javascript"></script>
-    <script src="{{ 'api' | theme_js_url }}" type="text/javascript"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ 'api' | theme_js_url }}"></script>
     <script>
       var formatMoney = Format.money;
       Format.money = function(number) {
@@ -175,6 +163,12 @@
         {% endcase %}
       };
     </script>
-    <script src="{{ theme | theme_js_url }}" type="text/javascript"></script>
+    <script src="{{ theme | theme_js_url }}"></script>
+    {% if page.full_url contains '/product/' %}
+      <script>
+        var show_sold_out_product_options = '{{ theme.show_sold_out_product_options }}';
+        Product.find('{{ product.permalink }}', processProduct)
+      </script>
+    {% endif %}
   </body>
 </html>
