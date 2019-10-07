@@ -125,7 +125,7 @@
     </div>
 
     {% if page.permalink == 'product' or page.permalink == 'cart' or cart.item_count > 0 %}
-      <div class="site-footer"{% if page.permalink == 'product' and product.status != 'active' and cart.item_count == 0 %} style="display:none;"{% endif %}>
+      <div class="site-footer"{% if cart.item_count == 0 %} style="display:none;"{% endif %}>
         <div class="background"></div>
         {% if page.permalink == 'cart' %}
           <div class="left-side">

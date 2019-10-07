@@ -535,7 +535,17 @@ button, a.button
   padding: 20px
   width: 100%
 
-  &:hover, &:active, &:focus
+  &.minimal-button
+    background: none
+    color: $primary-color
+    border: none
+    font-size: 13px
+    padding: 0
+
+    &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
+      text-decoration: underline
+
+  &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
     opacity: .8
 
   &:disabled, &.disabled
