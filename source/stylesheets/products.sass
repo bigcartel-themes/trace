@@ -13,7 +13,7 @@
   text-align: center
   width: auto
   z-index: 3
-    
+
   @media screen and (max-width: $break-medium)
     display: inline-block
     font-size: 18px
@@ -25,14 +25,14 @@
 
   .category-nav-heading
     padding: 10px
-    
+
   .category-nav-title
     display: inline-block
-    
+
   .category-nav-page
     color: $secondary-color
     display: inline-block
-    
+
   .category-nav-arrow
     +all-transitions
     display: inline-block
@@ -40,7 +40,7 @@
     height: 11px
     margin-left: 2px
     width: 15px
-  
+
   .category-dropdown
     +all-transitions
     +border-radius(0 0 4px 4px)
@@ -65,39 +65,39 @@
       top: 0
       width: 100%
       z-index: 3
-    
+
     @media screen and (max-width: $break-small)
       width: 90%
-    
+
     .dropdown-list
       list-style: none
       margin: 0
       padding: 0
       position: relative
       z-index: 4
-    
+
     li
       display: block
-    
+
       a
         color: $secondary-color
         display: block
         font-size: 14px
         padding: 8px 2px
-        
-        &:hover
+
+        &:hover, &:focus
           color: $primary-color
 
-  &.dropdown-open 
-  
+  &.dropdown-open
+
     .category-dropdown
       display: inline-block
       opacity: 1
       visibility: visible
-    
+
     .category-nav-arrow
       +rotate(180deg)
-                    
+
 .product-list
   +flexbox
   +flex-wrap(wrap)
@@ -107,62 +107,62 @@
   list-style: none
   margin: 0 -5.5%
   padding: 0
-  
+
   @media screen and (max-width: $break-small)
     margin: 0
-  
+
   .product
     +flexbox
     +align-self(center)
     padding: 0 3.5% calc(5% + 80px)
     text-align: #{"{% if theme.product_detail_alignment == 'Left' %} left {% else %} center {% endif %}"}
     width: 33%
-    
+
     @media screen and (max-width: $break-medium)
       padding-bottom: 60px
       width: 50%
-    
+
     @media screen and (max-width: $break-small)
       padding-bottom: 40px
       width: 100%
-    
+
     .product-link
       +all-transitions
       color: $primary-color
       display: block
       width: 100%
-      
-      &:hover
+
+      &:hover, &:focus
         opacity: .8
-      
+
       @media screen and (max-width: $break-small)
         padding: 0
-      
+
       .product-image
         display: block
         margin-bottom: 30px
         width: 100%
-        
+
         @media screen and (max-width: $break-medium)
           margin-bottom: 20px
-        
+
       .product-info
         +all-transitions
         +transform(translateZ(0))
         padding: 0
-        
+
         .product-name
           color: $primary-color
           font-size: 22px
           line-height: 26px
           margin-bottom: 9px
-          
+
           @media screen and (max-width: $break-medium)
             font-size: 18px
-          
+
           @media screen and (max-width: $break-small)
             margin-bottom: 7px
-        
+
         .product-price-status
           color: $secondary-color
           font-family: $secondary-font
@@ -171,16 +171,16 @@
 
     &.sold .product-link
       opacity: .6
-      
+
       .product-price
         text-decoration: line-through
-      
-      &:hover
+
+      &:hover, &:focus
         opacity: .8
 
 .no-products-message
   text-align: center
-            
+
 .pagination
   font-family: $secondary-font
   font-size: 14px
@@ -192,7 +192,7 @@
   white-space: nowrap
   width: 100%
   -webkit-overflow-scrolling: touch
-  
+
   a, span
     +border-radius(50%)
     border: 1px solid transparent
@@ -203,11 +203,11 @@
     margin: 0 6px
     text-align: center
     width: 40px
-    
+
     &.previous, &.next
       border: none
       padding: 0 10px
-      
+
       svg
         +all-transitions
         fill: $secondary-color
@@ -215,26 +215,26 @@
         position: relative
         top: 0
         width: 15px
-        
+
     &.previous svg
       +rotate(90deg)
-    
+
     &.next svg
       +rotate(-90deg)
-      
+
     &.current
       border: 1px solid $secondary-color
-      
+
     &.disabled
       display: none
-      
+
 .fade-in
   opacity: 0
   +animation(fadeIn 800ms normal forwards ease-in-out)
-  
+
 +keyframes(fadeIn)
   0%
     opacity: 0
-    
+
   100%
     opacity: 1

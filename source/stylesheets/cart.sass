@@ -4,13 +4,13 @@
   +pie-clearfix
   margin: 0 auto
   width: 100%
-  
+
 .cart-items
   list-style: none
   margin: 0 0 40px
   padding: 0
   width: 100%
-  
+
   .cart-item
     +pie-clearfix
     font-size: 14px
@@ -18,11 +18,11 @@
     line-height: 15px
     padding: 20px 0
     position: relative
-    
+
     @media screen and (max-width: $break-small)
       height: auto
       padding: 30px 0
-      
+
     &:after
       +opacity(.10)
       background: $secondary-color
@@ -32,7 +32,7 @@
       height: 1px
       position: absolute
       width: 100%
-    
+
   .item-image-details
     +pie-clearfix
     +vertical-align
@@ -40,16 +40,16 @@
     max-width: 65%
     float: left
     width: 100%
-    
+
     @media screen and (max-width: $break-medium)
       max-width: 70%
-    
+
     @media screen and (max-width: $break-small)
       +transform(none)
       float: none
       max-width: 100%
       top: auto
-      
+
   .item-image
     background-position: 50%
     background-repeat: no-repeat
@@ -59,32 +59,32 @@
     max-width: 140px
     text-align: center
     width: 100%
-    
+
     @media screen and (max-width: $break-small)
       background-size: cover
-      
+
   .item-details
     +vertical-align
     float: left
-    font-family: $primary-font  
+    font-family: $primary-font
     max-width: calc(100% - 140px)
     padding: 0 30px
     width: 100%
-      
+
     @media screen and (max-width: $break-small)
       padding: 0 20px
-    
+
   .item-product-link
     color: $primary-color
     display: block
     font-size: 22px
-    
+
     @media screen and (max-width: $break-medium)
       font-size: 20px
-      
+
   .item-details-name
     line-height: 26px
-    
+
     @media screen and (max-width: $break-small)
       font-size: 14px
       line-height: 20px
@@ -96,10 +96,10 @@
     font-size: 14px
     line-height: 17px
     margin-top: 6px
-    
+
     @media screen and (max-width: $break-small)
       font-size: 12px
-    
+
   .item-details-price
     color: $secondary-color
     display: none
@@ -107,10 +107,10 @@
     font-size: 14px
     line-height: 17px
     margin-top: 6px
-    
+
     @media screen and (max-width: $break-medium)
       display: block
-      
+
     @media screen and (max-width: $break-small)
       font-size: 12px
 
@@ -119,18 +119,18 @@
     +pie-clearfix
     float: left
     padding-right: 20px
-    
+
     @media screen and (max-width: $break-medium)
       float: right
       padding: 0
-      
+
     @media screen and (max-width: $break-small)
       +transform(none)
       clear: both
       float: none
       padding-top: 18px
       width: 140px
-    
+
     button
       +all-transitions
       +border-radius(3ex)
@@ -143,30 +143,30 @@
       line-height: normal
       padding: 0
       width: 40px
-      
+
       &.increase-qty-button
-      
+
         @media screen and (max-width: $break-small)
           float: right
-      
+
       @media screen and (max-width: $break-small)
         height: 38px
         width: 38px
-      
+
       svg
         fill: $secondary-color
         height: 20px
         position: relative
         top: 1px
         width: 20px
-        
+
         @media screen and (max-width: $break-small)
           height: 18px
           width: 18px
-          
+
       &:focus
         outline: none
-      
+
     input
       +appearance(none)
       background: none
@@ -177,7 +177,7 @@
       height: 40px
       text-align: center
       width: 60px
-      
+
       @media screen and (max-width: $break-small)
         +transform(translateX(-50%))
         font-size: 14px
@@ -185,11 +185,11 @@
         left: 50%
         position: absolute
         width: 56px
-      
+
       &:focus
         box-shadow: none
         outline: none
-          
+
   .price
     +vertical-align
     color: $primary-color
@@ -198,7 +198,7 @@
     font-size: 18px
     padding-left: 20px
     text-align: right
-    
+
     @media screen and (max-width: $break-medium)
       display: none
 
@@ -207,72 +207,75 @@
 
 .cart-footer
   +pie-clearfix
-  
+
   .cart-totals
     float: right
     max-width: 300px
+    text-align: center
     width: 100%
-    
+
     @media screen and (max-width: $break-small)
       float: none
       max-width: 100%
-      
+
     .cart-subtotals
       color: $secondary-color
       margin-bottom: 20px
-      
+
       h4
         margin-bottom: 20px
 
     h3, h4
       text-align: left
-      
+
       >span
         float: right
     h3
       color: $primary-color
       font-size: 22px
       margin-bottom: 40px
-        
+
       @media screen and (max-width: $break-small)
         font-size: 26px
-          
+
     h4
       font-size: 13px
-        
+
     button, .button
       max-width: 100%
-      
+
       @media screen and (max-width: $break-medium)
         display: none
         font-size: 16px
-      
+
       @media screen and (max-width: $break-small)
         font-size: 18px
-      
+
     .continue-shopping
       background: none
       color: $secondary-color
-      font-size: 12px
+      display: inline-block
+      font-size: 14px
       margin-top: 20px
+      padding: 10px
       text-align: center
-      width: 100%
-      
+      width: auto
+
       @media screen and (max-width: $break-medium)
         display: none
-        
+
     .checkout_btn
       @media screen and (max-width: $break-medium)
         display: none
 
 .cart-empty-message
   text-align: center
-  
+
   p
     margin: 80px 0
-    
+
   .button
     display: inline-block
-    
+
   &.hidden-message
     display: none
