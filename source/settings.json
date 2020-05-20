@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "images": [
     {
       "variable": "logo",
@@ -34,12 +34,12 @@
     {
       "variable": "primary_text_color",
       "label": "Primary text",
-      "default": "#222222"
+      "default": "#111111"
     },
     {
       "variable": "secondary_text_color",
       "label": "Secondary text",
-      "default": "#777777"
+      "default": "#444444"
     },
     {
       "variable": "welcome_background_color",
