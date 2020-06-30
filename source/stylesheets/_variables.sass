@@ -8,16 +8,15 @@ $secondary-font: #{"{{ theme.secondary_font | font_family }}"}
 $background-color: #{'{{ theme.background_color }}'}
 
 $primary-color: #{'{{ theme.primary_text_color }}'}
-
 $secondary-color: #{'{{ theme.secondary_text_color }}'}
-
 $border-color: #{'{{ theme.secondary_text_color }}'}
-
 $welcome-background-color: #{'{{ theme.welcome_background_color }}'}
-
 $welcome-text-color: #{'{{ theme.welcome_text_color }}'}
-
 $error-text-color: #{'{{ theme.error_text_color }}'}
+
+$button-text-color: #{'{{ theme.button_text_color }}'}
+$button-background-color: #{'{{ theme.button_background_color }}'}
+$button-background-hover-color: #{'{{ theme.button_background_hover_color }}'}
 
 $header-height: 220px
 $header-height-tablet: 120px
@@ -45,21 +44,9 @@ $break-extra-small: 500px
   @-webkit-keyframes #{$animation}
     @content
 
-  @-moz-keyframes #{$animation}
-    @content
-
-  @-ms-keyframes #{$animation}
-    @content
-
-  @-o-keyframes #{$animation}
-    @content
-
   @keyframes #{$animation}
     @content
 
 @mixin animation($str)
   -webkit-animation: $str
-  -moz-animation: $str
-  -ms-animation: $str
-  -o-animation: $str
   animation: $str
