@@ -3,7 +3,7 @@
     <div class="category-nav-heading">
       <div class="category-nav-title">Shop</div>
       <div class="category-nav-page">{{ page.name }}</div>
-      <svg class="category-nav-arrow" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
+      <svg class="category-nav-arrow" height="14" width="14" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
     </div>
     <div class="category-dropdown">
       <div class="category-dropdown-background"></div>
@@ -54,7 +54,7 @@
       {% endfor %}
     </ul>
     {% if paginate.pages > 1 %}
-      {{ paginate | default_pagination, 'pagination', 'pagination', '<svg class="prev-button" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>', '<svg class="next-button" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>' }}
+      {{ paginate | default_pagination, 'pagination', 'pagination', '<svg height="14" width="14" class="prev-button" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>', '<svg class="next-button" height="14" width="14" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>' }}
     {% endif %}
   {% else %}
     <p class="no-products-message">No products found.</p>
