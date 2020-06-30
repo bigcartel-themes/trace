@@ -31,37 +31,6 @@ API.onError = function(errors) {
   }
 }
 
-var processUpdate = function(input, item_id, new_val, cart) {
-  var sub_total = Format.money(cart.total, true, true);
-  var item_count = cart.item_count;
-  if (item_count == 0) {
-    var empty_title = $('.cart-header').data('empty-text');
-    $('.cart-header').html(empty_title);
-    $('.cart-form').slideUp('fast',function() {
-      $('.cart-empty-message, .cart-header').fadeIn('fast', function() {
-        $('.site-footer').fadeOut('fast');
-      });
-
-      $('.cart-num-items').html('0');
-      $("html, body").animate({ scrollTop: 0 }, "fast");
-    });
-  }
-  else {
-    $('.errors').hide();
-    $('.cart-totals h3 > span').html(sub_total);
-    $('.cart-num-items').html(item_count);
-    input.val(new_val);
-  }
-  if (new_val == 0) {
-    $('.cart-item[data-cart-id="'+item_id+'"]').slideUp('fast');
-  }
-  return false;
-}
-
-var updateCart = function(cart) {
-  var item_count = cart.item_count;
-  $('.cart-num-items').html(item_count);
-}
 
 $(window).on("load resize", function() {
   var window_width = $(window).width();
@@ -103,62 +72,6 @@ $(function() {
     contain: true,
     pageDots: false,
     prevNextButtons: false
-  });
-
-
-  $('.qty').click(function() {
-    var $t = $(this)
-    , input = $(this).parent().find('input')
-    , val = parseInt(input.val())
-    , valMin = 1
-    , item_id = $(this).parent().data("cart-id");
-    if (isNaN(val) || val < valMin) {
-      var new_val = valMin;
-    }
-    if ($t.data('func') == 'plus') {
-      var new_val = val + 1;
-    }
-    else {
-      if (val > valMin) {
-        var new_val = val - 1;
-      }
-    }
-    if (new_val > 0) {
-      Cart.updateItem(item_id, new_val, function(cart) {
-        processUpdate(input, item_id, new_val, cart);
-      });
-    }
-    else {
-      Cart.removeItem(item_id, function(cart) {
-        processUpdate(input, item_id, 0, cart);
-      });
-    }
-  });
-
-  $('.item-quantity-holder input').blur(function(e) {
-    var item_id = $(this).parent().data("cart-id");
-    var new_val = $(this).val();
-    var input = $(this);
-    if (!isNaN(new_val)) {
-      Cart.updateItem(item_id, new_val, function(cart) {
-        processUpdate(input, item_id, new_val, cart);
-      });
-    }
-  });
-
-  $('.item-quantity-holder input').on('keyup',function(e) {
-    if (e.keyCode == 13) {
-      e.preventDefault();
-      var item_id = $(this).parent().data("cart-id");
-      var new_val = $(this).val();
-      var input = $(this);
-      if (!isNaN(new_val)) {
-        Cart.updateItem(item_id, new_val, function(cart) {
-          processUpdate(input, item_id, new_val, cart);
-        });
-      }
-      $(this).blur();
-    }
   });
 });
 $(document).on('keyup',function(e) {
