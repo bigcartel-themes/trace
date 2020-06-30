@@ -20,9 +20,26 @@
     <form method="post" action="/cart" id="cart-form" class="cart-form">
       <ul class="cart-items">
         {% for item in cart.items %}
+          {% assign image_width = item.product.image.width | times: 1.0 %}
+          {% assign image_height = item.product.image.height | times: 1.0 %}
+          {% assign aspect_ratio = image_width | divided_by: image_height %}
           <li class="cart-item" data-item-id="{{ item.id }}">
             <div class="item-image-details">
-              <a class="item-image" href="{{ item.product.url }}" title="View {{ item.product.name }}" style="background-image:url('{{ item.product.image | product_image_url | constrain: 576, 576 }}');"></a>
+              <a class="item-image" href="{{ item.product.url }}" title="View {{ item.product.name }}">
+                <img
+                  alt=""
+                  class="blur-up lazyload"
+                  data-aspectratio="{{ aspect_ratio }}"
+                  src="{{ item.product.image | product_image_url | constrain: 20 }}"
+                  data-srcset="
+                    {{ item.product.image | product_image_url | constrain: 140 }} 140w,
+                    {{ item.product.image | product_image_url | constrain: 280 }} 280w,
+                    {{ item.product.image | product_image_url | constrain: 400 }} 400w,
+                    {{ item.product.image | product_image_url | constrain: 560 }} 560w,
+                  "
+                  data-sizes="auto"
+                >
+              </a>
               <div class="item-details">
                 <a class="item-product-link" title="View {{ item.product.name }}" href="{{ item.product.url }}">
                   <div class="item-details-name">{{ item.product.name }}</div>
