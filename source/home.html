@@ -8,7 +8,24 @@
 
 {% if theme.welcome_image or theme.welcome_message != blank or theme.welcome_button_text != blank %}
   <div class="home-welcome">
-    {% if theme.welcome_image %}<a href="/products"><img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}"></a>{% endif %}
+    {% if theme.welcome_image %}
+      <a href="/products">
+        <img
+          alt="Welcome"
+          class="welcome-image lazyload blur-up"
+          src="{{ theme.images.welcome_image.url | constrain: 600 }}"
+          data-srcset="
+            {{ theme.images.welcome_image.url | constrain: 600 }} 600w,
+            {{ theme.images.welcome_image.url | constrain: 900 }} 900w,
+            {{ theme.images.welcome_image.url | constrain: 1200 }} 1200w,
+            {{ theme.images.welcome_image.url | constrain: 1500 }} 1500w,
+            {{ theme.images.welcome_image.url | constrain: 1800 }} 1800w,
+            {{ theme.images.welcome_image.url | constrain: 2100 }} 2100w,
+          "
+          data-sizes="auto"
+        >
+      </a>
+    {% endif %}
     {% if theme.welcome_message != blank or theme.welcome_button_text != blank %}
       <div class="welcome-message">
         {% if theme.welcome_message != blank %}<h2 class="welcome-header">{{ theme.welcome_message }}</h2>{% endif %}
@@ -24,16 +41,36 @@
       <div class="carousel carousel-main">
         {% for category in categories.active limit:theme.featured_items %}
           {% for product in category.products limit:1 %}
+            {% assign image_width = product.image.width | times: 1.0 %}
+            {% assign image_height = product.image.height | times: 1.0 %}
+            {% assign aspect_ratio = image_width | divided_by: image_height %}
             <a href="{{ category.url }}" class="carousel-cell">
-              <div class="category-image" style="background-image:url('{{ product.image | product_image_url | constrain: 1000,1000 }}');"></div>
-              
+              <div class="category-image">
+                <img
+                  alt=""
+                  class="blur-up lazyload"
+                  data-aspectratio="{{ aspect_ratio }}"
+                  src="{{ product.image | product_image_url | constrain: 20 }}"
+                  data-srcset="
+                    {{ product.image | product_image_url | constrain: 240 }} 240w,
+                    {{ product.image | product_image_url | constrain: 320 }} 320w,
+                    {{ product.image | product_image_url | constrain: 400 }} 400w,
+                    {{ product.image | product_image_url | constrain: 540 }} 540w,
+                    {{ product.image | product_image_url | constrain: 600 }} 600w,
+                    {{ product.image | product_image_url | constrain: 800 }} 800w,
+                    {{ product.image | product_image_url | constrain: 960 }} 960w,
+                    {{ product.image | product_image_url | constrain: 1200 }} 1200w,
+                  "
+                  data-sizes="auto"
+                >
+              </div>
               <div class="category-name">
                 <div class="category-text">
                   <div class="category-title">{{ category.name }}</div>
                   <div class="category-subtitle">Shop now</div>
                 </div>
               </div>
-              
+
             </a>
           {% endfor %}
           {% assign num_categories = forloop.length %}
@@ -46,7 +83,7 @@
       </div>
     </div>
   {% endif %}
-  
+
 {% else %}
   {% if theme.featured_items > 0 %}
     {% get products from products.all limit:theme.featured_items %}
@@ -54,8 +91,29 @@
         <div class="carousel-holder">
           <div class="carousel carousel-main">
             {% for product in products %}
+              {% assign image_width = product.image.width | times: 1.0 %}
+              {% assign image_height = product.image.height | times: 1.0 %}
+              {% assign aspect_ratio = image_width | divided_by: image_height %}
               <a href="{{ product.url }}" class="carousel-cell">
-                <div class="category-image" style="background-image:url('{{ product.image | product_image_url | constrain: 1000,1000 }}');"></div>
+                <div class="category-image">
+                  <img
+                    alt=""
+                    class="blur-up lazyload"
+                    data-aspectratio="{{ aspect_ratio }}"
+                    src="{{ product.image | product_image_url | constrain: 20 }}"
+                    data-srcset="
+                      {{ product.image | product_image_url | constrain: 240 }} 240w,
+                      {{ product.image | product_image_url | constrain: 320 }} 320w,
+                      {{ product.image | product_image_url | constrain: 400 }} 400w,
+                      {{ product.image | product_image_url | constrain: 540 }} 540w,
+                      {{ product.image | product_image_url | constrain: 600 }} 600w,
+                      {{ product.image | product_image_url | constrain: 800 }} 800w,
+                      {{ product.image | product_image_url | constrain: 960 }} 960w,
+                      {{ product.image | product_image_url | constrain: 1200 }} 1200w,
+                    "
+                    data-sizes="auto"
+                  >
+                </div>
                 <div class="category-name">
                   <div class="category-text">
                     <div class="category-title">{{ product.name }}</div>

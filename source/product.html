@@ -13,7 +13,26 @@
 
 <div class="product-images">
   {% for image in product.images %}
-    <img class="fade-in product-image" src="{{ image | product_image_url | constrain: 1000, 1000 }}" alt="Image of {{ product.name | escape }}">
+    <img
+      alt=""
+      class="blur-up fade-in product-image lazyload"
+      src="{{ product.image | product_image_url | constrain: 20 }}"
+      data-srcset="
+        {{ image | product_image_url | constrain: 240 }} 240w,
+        {{ image | product_image_url | constrain: 320 }} 320w,
+        {{ image | product_image_url | constrain: 400 }} 400w,
+        {{ image | product_image_url | constrain: 540 }} 540w,
+        {{ image | product_image_url | constrain: 600 }} 600w,
+        {{ image | product_image_url | constrain: 800 }} 800w,
+        {{ image | product_image_url | constrain: 960 }} 960w,
+        {{ image | product_image_url | constrain: 1280 }} 1280w,
+        {{ image | product_image_url | constrain: 1400 }} 1400w,
+        {{ image | product_image_url | constrain: 1600 }} 1600w,
+        {{ image | product_image_url | constrain: 1800 }} 1800w,
+        {{ image | product_image_url | constrain: 2000 }} 2000w
+      "
+      data-sizes="auto"
+    >
   {% endfor %}
 </div>
 
