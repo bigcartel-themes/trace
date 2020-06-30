@@ -603,12 +603,19 @@ input, textarea
 
   .close-overlay
     +vertical-align
+    background: none
     cursor: pointer
     fill: $primary-color
-    height: 18px
+    padding: 4px
     position: relative
-    width: 18px
     z-index: 6
+    width: auto
+
+    .close-icon
+      display: block
+      fill: $primary-color
+      height: 18px
+      width: 18px
 
   .overlay-navigation
     margin: 0
