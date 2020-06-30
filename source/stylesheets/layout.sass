@@ -71,6 +71,9 @@ a
   color: $primary-color
   text-decoration: none
 
+  &:hover, &:focus
+    color: $secondary-color
+
 h1, h2, h3, h4, h5, h6
   font-weight: normal
   margin: 0
@@ -250,9 +253,6 @@ header
           display: inline-block
           opacity: 1
           visibility: visible
-
-        .category-nav-arrow
-          +rotate(180deg)
 
     h1
       display: inline-block
