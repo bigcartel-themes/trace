@@ -11,25 +11,25 @@
 {% else %}
   <form method="post" action="/contact" class="contact-form">
     <div class="form-block contact-name">
-      <label for="name-input">Name</label>
-      {{ contact | contact_input: 'name', tabindex: 1 }}
+      <label for="name">Name</label>
+      {{ contact | contact_input: 'name' }}
     </div>
     <div class="form-block contact-email">
-      <label for="email-input">Email</label>
-      {{ contact | contact_input: 'email', tabindex: 2 }}
+      <label for="email">Email</label>
+      {{ contact | contact_input: 'email' }}
     </div>
     <div class="form-block contact-subject">
-      <label for="subject-input">Subject</label>
-      {{ contact | contact_input: 'subject', tabindex: 3 }}
+      <label for="subject">Subject</label>
+      {{ contact | contact_input: 'subject' }}
     </div>
     <div class="form-block contact-message">
-      <label for="message-textarea">Message</label>
-      {{ contact | contact_input: 'message', tabindex: 4 }}
+      <label for="message">Message</label>
+      {{ contact | contact_input: 'message' }}
     </div>
     <div class="form-block contact-spam">
-      <label for="captcha-input">Spam check</label>
+      <label for="captcha">Spam check</label>
       <div class="captcha-holder">
-        {{ contact | contact_input: 'captcha', tabindex: 5 }} {{ contact.captcha }}
+        {{ contact | contact_input: 'captcha' }} {{ contact.captcha }}
       </div>
       <span class="captcha-instructions">Please enter the characters from the image.</span>
     </div>
