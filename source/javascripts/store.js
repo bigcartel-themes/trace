@@ -1,19 +1,3 @@
-function init() {
-  window.addEventListener('scroll', function(e){
-    var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-      shrinkOn = 30,
-      elements = $('header, .close-container');
-    if (distanceY > shrinkOn) {
-      elements.addClass('smaller');
-    } else {
-      if (elements.hasClass('smaller')) {
-        elements.removeClass('smaller');
-      }
-    }
-  });
-}
-window.onload = init();
-
 API.onError = function(errors) {
   var $errorList = $('<ul>', { class: 'errors'} )
     , $cartError = $('.cart-form')
@@ -227,3 +211,27 @@ function disableSelectOption(select_option, type) {
     }
   }
 }
+document.addEventListener('DOMContentLoaded', function() {
+  var mn = $('.header'),
+  core = $('#main').eq(0),
+  fix = core.attr('style') || '',
+  mns = 'page-head-scrolled',
+  bit, hdr;
+  $(window).resize(function() {
+    bit = mn.outerHeight();
+    hdr = ($('.announcement-message.visible').outerHeight() > 0) ? $('.announcement-message.visible').outerHeight() : 0;
+  })
+  .resize().scroll(function() {
+    if ($(this).scrollTop() > hdr) {
+      mn.addClass(mns);
+      bit = mn.outerHeight();
+      core.css('margin-top', bit);
+    } else {
+      mn.removeClass(mns);
+      core.attr('style', fix);
+    }
+  })
+  .on('load', function() {
+    $(this).scroll();
+  });
+});

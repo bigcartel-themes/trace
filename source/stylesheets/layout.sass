@@ -13,7 +13,7 @@ body
   font-family: $primary-font
   font-size: 16px
   line-height: 1
-  padding-top: $header-height
+  position: relative
 
   &.overlay-open
     overflow: auto !important
@@ -81,6 +81,9 @@ a
   color: $primary-color
   text-decoration: none
 
+  &:hover
+    text-decoration: underline
+
   &:hover, &:focus
     color: $secondary-color
 
@@ -108,15 +111,16 @@ h1, h2, h3, h4, h5, h6
 
 header
   background: $background-color
-  +transition(height .4s)
+  +transition(height .5s)
   height: $header-height
-  position: fixed
-  top: 0
+  position: relative
   width: 100%
   z-index: 4
 
-  &.smaller
+  &.page-head-scrolled
     height: 100px
+    position: fixed
+    top: 0
 
   @media screen and (max-width: $break-medium)
     height: $header-height-tablet
@@ -621,7 +625,7 @@ input, textarea
     z-index: 6
 
     .page-list
-      margin: -10px 0 0 -5px
+      margin: 0
       padding: 0
 
       @media screen and (max-width: $break-small)
@@ -629,24 +633,17 @@ input, textarea
 
       li
         display: block
+        margin: 15px 0
 
         a
-          +transition(color .2s linear)
-          color: $primary-color
           display: inline-block
           font-size: 32px
-          line-height: 60px
-          padding: 0 5px
+          padding: 10px 0
 
           @media screen and (max-width: $break-medium)
             font-size: 22px
-            line-height: 44px
-
-          &:hover
-            color: $secondary-color
 
   .social-icons
-    margin: 0 0 0 -5px
     margin: 30px 0
     padding: 0
     position: relative
@@ -664,26 +661,20 @@ input, textarea
 
         svg
           +transition(opacity .2s linear)
+          display: block
           fill: $secondary-color
-          height: 20px
-          width: 20px
+          height: 24px
+          width: 24px
 
         &:hover svg
-          opacity: .6
+          opacity: .8
 
   .bigcartel-credit
-    margin: 60px 0 60px 5px
+    margin: 60px 0
 
     @media screen and (max-width: $break-small)
       font-size: 12px
       margin: 50px 0
-
-    a
-      +transition(color .2s linear)
-      color: $secondary-color
-
-      &:hover
-        color: $primary-color
 
 .site-footer
   +flexbox
