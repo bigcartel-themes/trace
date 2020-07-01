@@ -102,25 +102,30 @@
       width: 140px
 
     button
+      +flexbox
+      +align-items(center)
+      +justify-content(center)
       +border-radius(50%)
       background: none
-      border: 1px solid $secondary-color
-      color: $secondary-color
+      border: 1px solid $primary-color
       height: 40px
       line-height: normal
       padding: 0
       width: 40px
 
+      &:hover, &:focus
+        border: 1px solid $secondary-color
+
+        svg
+          fill: $secondary-color
+
       svg
-        fill: $secondary-color
+        display: block
+        fill: $primary-color
         height: 20px
         position: relative
         top: 1px
         width: 20px
-
-        @media screen and (max-width: $break-small)
-          height: 18px
-          width: 18px
 
     input
       +appearance(none)

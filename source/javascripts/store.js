@@ -31,7 +31,6 @@ API.onError = function(errors) {
   }
 }
 
-
 $(window).on("load resize", function() {
   var window_width = $(window).width();
   if (window_width < 669) {
@@ -44,6 +43,7 @@ $(window).on("load resize", function() {
 });
 
 $(function() {
+  $("body").removeClass("preload");
   $('.category-nav').hover(function(e) {
     $(this).toggleClass('dropdown-open');
   });
