@@ -211,6 +211,14 @@ function disableSelectOption(select_option, type) {
     }
   }
 }
+$('.announcement-message-close').click(function(e) {
+  $('.announcement-message').slideUp('fast', function() {
+    $('.announcement-message').removeClass('visible');
+    setCookie('hide-announcement-message',hashedMessage,7);
+    $('.header').css('top',0);
+  });
+})
+
 document.addEventListener('DOMContentLoaded', function() {
   var mn = $('.header'),
   core = $('#main').eq(0),

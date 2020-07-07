@@ -1,0 +1,95 @@
+@import 'variables'
+
+.main-nav
+  position: relative
+
+.products-page-nav
+  +flexbox
+  +align-items(center)
+  +justify-content(center)
+  margin-bottom: 40px
+
+  @media screen and (min-width: $break-medium+1)
+    display: none
+
+.nav, .horizontal-nav-links
+  margin: 0
+  padding: 0
+  list-style: none
+
+.nav-menu-item
+  color: $secondary-color
+  position: relative
+
+  > a
+    +flexbox
+    +align-items(center)
+    color: $secondary-color
+    padding: 4px
+    position: relative
+    text-decoration: none
+
+  .category-nav-arrow
+    fill: $secondary-color
+    margin-left: 8px
+    width: 15px
+
+h1
+  font-size: 18px
+  margin-bottom: 0
+  position: relative
+
+.horizontal-nav-links
+  background: white
+  left: -9999px
+  max-height: 440px
+  min-width: 240px
+  opacity: 0
+  overflow-y: scroll
+  padding: 8px
+  position: absolute
+  top: 100%
+  z-index: 0
+  width: 100%
+
+.horizontal-nav-link
+  margin: 4px 0
+  position: static
+
+  a
+    color: $secondary-color
+    display: block
+    font-size: 16px
+    padding: 6px 8px
+    text-decoration: none
+
+    &:hover, &:focus
+      color: $primary-color
+      text-decoration: underline
+
+.nav li:focus > a,
+.nav li:hover > a,
+.nav li:focus-within > a
+  color: $primary-color
+
+  svg
+    fill: $primary-color
+
+.nav li:hover ul, .nav li:focus ul, ul.show-menu
+  left: -11px
+  right: auto
+  opacity: 1
+  top: calc(100% - 4px)
+  z-index: 1
+
+  .products-page-nav &
+    +transform(translateX(-50%))
+    left: 50%
+    width: 300px
+    top: 100%
+
+    .horizontal-nav-link
+      margin: 4px 0
+
+      a
+        padding: 6px
