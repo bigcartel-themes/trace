@@ -156,9 +156,10 @@ header
 
   button.open-menu
     background: none
-    margin-right: 20px
+    margin-right: 14px
+    padding: 4px
     position: relative
-    width: 24px
+    width: 32px
 
     .hamburger-box
       display: block
@@ -434,20 +435,14 @@ input, textarea
 
 .overlay
   overflow-y: auto !important
-  +transition(opacity 0.3s, visibility 0.3s)
   height: 100%
   left: 0
-  opacity: 0
+  display: none
   position: fixed
   text-align: left
   top: 0
-  visibility: hidden
   width: 100%
   z-index: 5
-
-  &.open
-    opacity: 1
-    visibility: visible
 
   .overlay-background
     +opacity(.97)
@@ -516,7 +511,7 @@ input, textarea
           margin: 5px 0
 
         a
-          display: block
+          display: inline-block
           font-size: 32px
           padding: 10px 0
 
