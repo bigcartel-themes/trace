@@ -119,6 +119,13 @@ $.fn.setup_navigation = function(settings) {
           .attr('tabIndex',-1);
     }
   });
+  $('.open-menu, .store-link').focus(function(e) {
+      $('.'+settings.menuHoverClass)
+        .attr('aria-hidden', 'true')
+        .removeClass(settings.menuHoverClass)
+        .find('a')
+          .attr('tabIndex',-1);
+  });
   $(document).click(function(){
     $('.'+settings.menuHoverClass).attr('aria-hidden', 'true').removeClass(settings.menuHoverClass).find('a').attr('tabIndex',-1);
   });

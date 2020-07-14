@@ -1,101 +1,5 @@
 @import 'variables'
 
-.page-products .category-nav
-  +transform(translateX(-50%))
-  cursor: pointer
-  display: none
-  font-size: 22px
-  left: 50%
-  margin: 0 auto 40px
-  max-width: 600px
-  padding: 10px
-  position: relative
-  text-align: center
-  width: auto
-  z-index: 3
-
-  @media screen and (max-width: $break-medium)
-    display: inline-block
-    font-size: 18px
-    width: 80%
-
-  @media screen and (max-width: $break-small)
-    max-width: 100%
-    width: 100%
-
-  .category-nav-heading
-    padding: 10px
-
-  .category-nav-title
-    display: inline-block
-
-  .category-nav-page
-    color: $secondary-color
-    display: inline-block
-
-  .category-nav-arrow
-    display: inline-block
-    fill: $secondary-color
-    height: 11px
-    margin-left: 2px
-    width: 15px
-
-  .category-dropdown
-    +transition(opacity .2s linear)
-    +border-radius(0 0 4px 4px)
-    +transform(translateX(-50%))
-    left: 50%
-    margin: 0 auto
-    min-width: 250px
-    opacity: 0
-    padding: 10px 0 20px 20px
-    position: absolute
-    text-align: left
-    visibility: hidden
-    z-index: 3
-
-    .category-dropdown-background
-      +opacity(.97)
-      background: $background-color
-      height: 100%
-      left: 0
-      position: absolute
-      right: 0
-      top: 0
-      width: 100%
-      z-index: 3
-
-    @media screen and (max-width: $break-small)
-      width: 90%
-
-    .dropdown-list
-      list-style: none
-      margin: 0
-      padding: 0
-      position: relative
-      z-index: 4
-
-    li
-      display: block
-
-      a
-        color: $secondary-color
-        display: block
-        font-size: 14px
-        padding: 8px 2px
-
-        &:hover, &:focus
-          color: $primary-color
-
-  &.dropdown-open
-
-    .category-dropdown
-      display: inline-block
-      opacity: 1
-      visibility: visible
-
-    .category-nav-arrow
-      +rotate(180deg)
 
 .product-list
   +flexbox
@@ -137,6 +41,7 @@
         padding: 0
 
       .product-image
+        transform: translate3d(0, 0, 0)
         display: block
         margin-bottom: 30px
         width: 100%

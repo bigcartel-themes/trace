@@ -18,6 +18,7 @@ body
   color: $primary-color
   font-family: $primary-font
   font-size: 16px
+  height: auto
   line-height: 1
   margin: 0
 
@@ -111,20 +112,21 @@ h1, h2, h3, h4, h5, h6
   width: 100%
 
 header
-  +transition(height .5s)
-  +flex-shrink(0)
   background: $background-color
   height: $header-height
   font-size: 14px
+  position: sticky
+  top: 0
+  transition: all .4s ease-in-out
+  transform: scaleY(1) translateY(0)
   width: 100%
   z-index: 5
 
-  &.page-head-scrolled
-    position: fixed
-    top: 0
+  &.stuck
+    transform: scaleY(0.5) translateY(-50%)
 
-    @media screen and (min-width: $break-medium + 1)
-      height: $header-height-tablet
+    .wrapper
+      transform: scaleY(2)
 
   @media screen and (max-width: $break-medium)
     height: $header-height-tablet
@@ -140,6 +142,8 @@ header
     position: relative
     z-index: 5
     width: 100%
+    transition: all .4s ease-in-out
+    transform: scaleY(1) translateY(0)
 
 .header-item
   +flexbox
@@ -184,13 +188,15 @@ header
   text-align: center
 
   &.has-image
-    height: 100%
-    max-height: 140px
-    padding: 20px 0
+    max-height: 80px
+
+    .store-link
+      height: 100%
 
   .store-link
-    display: block
-    height: 100%
+    +align-items(center)
+    +justify-content(center)
+    +flexbox
 
   .store-logo
     display: block
@@ -240,6 +246,10 @@ header
   @media screen and (max-width: $break-medium)
     display: none
 
+h1.page-header
+  margin-bottom: 60px
+  text-align: center
+
 .content
   padding: 40px 0 calc(11% + 80px)
 
@@ -248,10 +258,6 @@ header
 
   @media screen and (max-width: $break-small)
     padding-top: 20px
-
-  .page-header
-    margin-bottom: 60px
-    text-align: center
 
   &.product
 
@@ -263,7 +269,7 @@ header
     .wrapper
       max-width: calc(800px + 7%)
 
-    .page-header
+    h1.page-header
       display: none
 
       @media screen and (max-width: $break-medium)
@@ -645,3 +651,49 @@ input, textarea
 .preload *
   -webkit-transition: none !important
   transition: none !important
+
+.announcement-message
+  background-color: $announcement-background-color
+  color: $announcement-text-color
+  display: none
+  padding: 20px 144px
+  position: relative
+  text-align: center
+  width: 100%
+  z-index: 1
+
+  @media screen and (max-width: $break-medium)
+    padding: 20px 64px
+
+  &.visible
+    display: block
+
+.button.announcement-message-close
+  +transform(translateY(-50%))
+  +transition(none)
+  +flexbox
+  +align-items(center)
+  +justify-content(center)
+  background: none
+  height: 32px
+  padding: 0
+  position: absolute
+  right: 16px
+  top: 50%
+  width: 32px
+
+  @media screen and (max-width: $break-small)
+    right: 4px
+
+  &:hover, &:focus
+    background: none !important
+    opacity: .7
+
+    svg
+      fill: $announcement-text-color
+
+  svg
+    display: block
+    fill: $announcement-text-color
+    height: 14px
+    width: 14px

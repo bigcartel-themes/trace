@@ -141,9 +141,11 @@ if (!Array.prototype.includes) {
   });
 }
 
-Array.prototype.count = function(filterMethod) {
-  return this.reduce((count, item) => filterMethod(item)? count + 1 : count, 0);
-}
+Array.prototype.count = function (filterMethod) {
+  return this.reduce(function (count, item) {
+    return filterMethod(item) ? count + 1 : count;
+  }, 0);
+};
 $('.product_option_select').on('change',function() {
   var option_price = $(this).find("option:selected").attr("data-price");
   enableAddButton(option_price);
@@ -217,27 +219,18 @@ $('.announcement-message-close').click(function(e) {
   });
 })
 
-document.addEventListener('DOMContentLoaded', function() {
-  var mn = $('.header'),
-  core = $('#main').eq(0),
-  fix = core.attr('style') || '',
-  mns = 'page-head-scrolled',
-  bit, hdr;
-  $(window).resize(function() {
-    bit = mn.outerHeight();
-    hdr = ($('.announcement-message.visible').outerHeight() > 0) ? $('.announcement-message.visible').outerHeight() : 0;
-  })
-  .resize().scroll(function() {
-    if ($(this).scrollTop() > hdr) {
-      mn.addClass(mns);
-      bit = mn.outerHeight();
-      core.css('margin-top', bit);
-    } else {
-      mn.removeClass(mns);
-      core.attr('style', fix);
+header_nav = document.querySelector('header');
+
+function handleScroll() {
+  function isStuck(el) {
+    if (window.scrollY > 0) {
+      return el.offsetTop - window.scrollY <= 0 ? true : false;
     }
-  })
-  .on('load', function() {
-    $(this).scroll();
-  });
-});
+    else {
+      return false;
+    }
+  }
+  isStuck(header_nav) ? header_nav.classList.add("stuck") : header_nav.classList.remove("stuck");
+}
+
+window.addEventListener('scroll', handleScroll);

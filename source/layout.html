@@ -9,7 +9,7 @@
   </head>
   <body id="{{ page.permalink }}" class="preload {{ page.category }}">
     {% if theme.announcement_message_text != blank %}
-      <aside role="complementary" aria-label="Announcement message" class="announcement-message {% if page.permalink =='home' %}home{% if theme.welcome_header == blank and theme.welcome_subheader == blank and theme.image_sets.slideshow_images.size == 0 %} overlay {% else %} has_featured{% endif %}{% else %}page{% endif %}" id="announce-message">
+      <aside role="complementary" aria-label="Announcement message" class="announcement-message" id="announce-message">
         <div class="announcement-wrapper">
           <div class="announcement-message-text">{{ theme.announcement_message_text }}</div>
         </div>
