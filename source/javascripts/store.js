@@ -48,7 +48,8 @@ $(function() {
     contain: true,
     prevNextButtons: false,
     setGallerySize: false,
-    pageDots: false
+    pageDots: false,
+    accessible: true
   });
 
   $('.carousel-nav').flickity({

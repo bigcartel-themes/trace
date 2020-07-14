@@ -112,6 +112,9 @@ h1, h2, h3, h4, h5, h6
   width: 100%
 
 header
+  +flexbox
+  +align-items(center)
+  +justify-content(center)
   background: $background-color
   height: $header-height
   font-size: 14px
@@ -126,7 +129,7 @@ header
     transform: scaleY(0.5) translateY(-50%)
 
     .wrapper
-      transform: scaleY(2)
+      transform: scaleY(2) translateY(0)
 
   @media screen and (max-width: $break-medium)
     height: $header-height-tablet
@@ -138,7 +141,6 @@ header
     +flexbox
     +align-items(center)
     +justify-content(space-between)
-    height: 100%
     position: relative
     z-index: 5
     width: 100%
