@@ -118,18 +118,21 @@ header
   background: $background-color
   height: $header-height
   font-size: 14px
-  position: sticky
+
   top: 0
-  transition: all .4s ease-in-out
+  transition: scale .4s ease-in-out, transform .4s ease-in-out
   transform: scaleY(1) translateY(0)
   width: 100%
   z-index: 5
 
-  &.stuck
-    transform: scaleY(0.5) translateY(-50%)
+  @media screen and (min-width: $break-small + 1)
+    position: sticky
 
-    .wrapper
-      transform: scaleY(2) translateY(0)
+    &.stuck
+      transform: scaleY(0.5) translateY(-50%)
+
+      .wrapper
+        transform: scaleY(2) translateY(0)
 
   @media screen and (max-width: $break-medium)
     height: $header-height-tablet
@@ -144,7 +147,7 @@ header
     position: relative
     z-index: 5
     width: 100%
-    transition: all .4s ease-in-out
+    transition: scale .4s ease-in-out, transform .4s ease-in-out
     transform: scaleY(1) translateY(0)
 
 .header-item
