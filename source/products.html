@@ -24,50 +24,64 @@
 
 {% paginate products from products.current by theme.products_per_page %}
   {% if products != blank %}
-    <ul class="product-list">
+    <div class="product-list">
       {% for product in products %}
+        {% assign image_width = product.image.width | times: 1.0 %}
+        {% assign image_height = product.image.height | times: 1.0 %}
+        {% assign aspect_ratio = image_width | divided_by: image_height %}
         {% assign product_status = '' %}
         {% case product.status %}
-        	{% when 'active' %}
-        		{% if product.on_sale %}{% assign product_status = 'On sale' %}{% endif %}
-        	{% when 'sold-out' %}
-        		{% assign product_status = 'Sold out' %}
-        	{% when 'coming-soon' %}
-        		{% assign product_status = 'Coming soon' %}
+          {% when 'active' %}
+            {% if product.on_sale %}{% assign product_status = 'On sale' %}{% endif %}
+          {% when 'sold-out' %}
+            {% assign product_status = 'Sold out' %}
+          {% when 'coming-soon' %}
+            {% assign product_status = 'Coming soon' %}
         {% endcase %}
-        <li class="fade-in {{ product.css_class }}">
-          <a class="product-link" href="{{ product.url }}" title="View {{ product.name | escape }}">
-            <img
-              alt=""
-              class="blur-up product-image lazyload"
-              src="{{ product.image | product_image_url | constrain: 20 }}"
-              data-srcset="
-                {{ product.image | product_image_url | constrain: 240 }} 240w,
-                {{ product.image | product_image_url | constrain: 320 }} 320w,
-                {{ product.image | product_image_url | constrain: 400 }} 400w,
-                {{ product.image | product_image_url | constrain: 540 }} 540w,
-                {{ product.image | product_image_url | constrain: 600 }} 600w,
-                {{ product.image | product_image_url | constrain: 800 }} 800w,
-                {{ product.image | product_image_url | constrain: 960 }} 960w,
-                {{ product.image | product_image_url | constrain: 1280 }} 1280w,
-                {{ product.image | product_image_url | constrain: 1400 }} 1400w,
-                {{ product.image | product_image_url | constrain: 1600 }} 1600w,
-                {{ product.image | product_image_url | constrain: 1800 }} 1800w,
-                {{ product.image | product_image_url | constrain: 2000 }} 2000w
-              "
-              data-sizes="auto"
-            >
-            <div class="product-info">
-              <div class="product-name">{{ product.name }}</div>
-              <div class="product-price-status">
-                <span class="product-price">{{ product.default_price | money: theme.money_format }}</span>
-                {% if product_status != blank %}<span class="product-status"> - {{ product_status }}</span>{% endif %}
+        {% capture image_class %}
+          {% if product.image.height > product.image.width %}
+            image-tall
+          {% elsif product.image.height < product.image.width %}
+            image-wide
+          {% else %}
+            image-square
+          {% endif %}
+        {% endcapture %}
+        <div class="fade-in product-list-thumb {{ product.css_class }}">
+          <a class="product-list-link" href="{{ product.url }}" title="View {{ product.name | escape }}">
+            <div class="product-list-image-container product-list-image-container-{{ theme.grid_image_style }}">
+              <img
+                alt=""
+                class="blur-up product-list-image lazyload grid-{{ theme.grid_image_style }}"
+                src="{{ product.image | product_image_url | constrain: 20 }}"
+                {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
+                data-srcset="
+                  {{ product.image | product_image_url | constrain: 240 }} 240w,
+                  {{ product.image | product_image_url | constrain: 320 }} 320w,
+                  {{ product.image | product_image_url | constrain: 400 }} 400w,
+                  {{ product.image | product_image_url | constrain: 540 }} 540w,
+                  {{ product.image | product_image_url | constrain: 600 }} 600w,
+                  {{ product.image | product_image_url | constrain: 800 }} 800w,
+                  {{ product.image | product_image_url | constrain: 1000 }} 1000w,
+                  {{ product.image | product_image_url | constrain: 1200 }} 1200w,
+                  {{ product.image | product_image_url | constrain: 1600 }} 1600w
+                "
+                data-sizes="auto"
+              >
+            </div>
+            <div class="product-list-thumb-info">
+              <div class="product-list-thumb-name">{{ product.name }}</div>
+              <div class="product-list-thumb-price">
+                {{ product.default_price | money: theme.money_format }}
+                {% if product_status != blank %}
+                  <div class="product-list-thumb-status">{{ product_status }}</div>
+                {% endif %}
               </div>
             </div>
           </a>
-        </li>
+        </div>
       {% endfor %}
-    </ul>
+    </div>
     {% if paginate.pages > 1 %}
       {{ paginate | default_pagination, 'pagination', 'pagination', '<svg height="14" width="14" class="prev-button" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>', '<svg class="next-button" height="14" width="14" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>' }}
     {% endif %}

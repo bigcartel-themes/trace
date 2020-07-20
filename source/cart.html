@@ -53,10 +53,14 @@
               </div>
             </div>
             <div class="item-quantity-holder" data-item-id="{{ item.id }}">
-              <button data-item-id="{{ item.id }}" title="Decrease quantity" class="decrease-qty-button qty-button button min-btn" data-func="minus" type="button"><svg aria-hidden="true" height="20" width="20" viewBox="0 0 20 20"><path d="M5 9h10v2H5z"/><path d="M5 9h10v2H5z"/></svg></button>
+              <button data-item-id="{{ item.id }}" title="Decrease quantity" class="decrease-qty-button qty-button button min-btn" data-func="minus" type="button">
+                <svg aria-hidden="true" height="20" width="20" viewBox="0 0 20 20"><path d="M5 9h10v2H5z"/><path d="M5 9h10v2H5z"/></svg>
+              </button>
               <label class="visually-hidden" for="item_{{item.id}}_qty">Quantity</label>
               {{ item | item_quantity_input, nil, 'option-quantity' }}
-              <button data-item-id="{{ item.id }}" title="Increase quantity" class="increase-qty-button qty-button button min-btn" data-func="plus" type="button"><svg aria-hidden="true" height="20" width="20" viewBox="0 0 20 20"><path d="M11 5H9v4H5v2h4v4h2v-4h4V9h-4z"/></svg></button>
+              <button data-item-id="{{ item.id }}" title="Increase quantity" class="increase-qty-button qty-button button min-btn" data-func="plus" type="button">
+                <svg aria-hidden="true" height="20" width="20" viewBox="0 0 20 20"><path d="M11 5H9v4H5v2h4v4h2v-4h4V9h-4z"/></svg>
+              </button>
             </div>
             <div class="item-details-price">{{ item.price | money: theme.money_format }}</div>
           </li>
