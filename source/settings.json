@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.2.6",
+  "version": "1.2.65",
   "images": [
     {
       "variable": "logo",
@@ -34,12 +34,12 @@
     {
       "variable": "primary_text_color",
       "label": "Primary text",
-      "default": "#111111"
+      "default": "#000000"
     },
     {
       "variable": "secondary_text_color",
       "label": "Secondary text",
-      "default": "#444444"
+      "default": "#333333"
     },
     {
       "variable": "welcome_background_color",
@@ -52,12 +52,43 @@
       "default": "#121212"
     },
     {
+      "variable": "button_text_color",
+      "label": "Button text",
+      "default": "#FFFFFF"
+    },
+    {
+      "variable": "button_background_color",
+      "label": "Button background",
+      "default": "#111111"
+    },
+    {
+      "variable": "button_background_hover_color",
+      "label": "Button background hover",
+      "default": "#555555"
+    },
+    {
+      "variable": "announcement_text_color",
+      "label": "Announcement Message Text",
+      "default": "#FFFFFF"
+    },
+    {
+      "variable": "announcement_background_color",
+      "label": "Announcement Message Background",
+      "default": "#000000"
+    },
+    {
       "variable": "error_text_color",
       "label": "Error text",
       "default": "#F04848"
     }
   ],
   "options": [
+    {
+      "variable": "announcement_message_text",
+      "label": "Announcement text",
+      "type": "text",
+      "description": "Displays an announcement message on the top of every page"
+    },
     {
       "variable": "welcome_message",
       "label": "Welcome message",
@@ -92,8 +123,20 @@
       "label": "Products per page",
       "type": "select",
       "options": "1..100",
-      "default": 12,
+      "default": 36,
       "description": "The number of products displayed per page"
+    },
+    {
+      "variable": "grid_image_style",
+      "label": "Product grid image style",
+      "type": "select",
+      "options": [
+        ["Normal", "default"],
+        ["Fit to square", "contain"],
+        ["Crop to square", "cover"]
+      ],
+      "default": "default",
+      "description": "Sets the display of images in the product grid"
     },
     {
       "variable": "product_detail_alignment",
