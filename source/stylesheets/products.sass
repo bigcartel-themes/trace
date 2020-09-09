@@ -15,7 +15,7 @@
 .product-list-thumb
   +flexbox
   +align-self(center)
-  padding: 0 3.5% calc(5% + 80px)
+  padding: 0 3.5% calc(80px)
   text-align: #{"{% if theme.product_detail_alignment == 'Left' %} left {% else %} center {% endif %}"}
   width: 33%
 
@@ -35,6 +35,7 @@
 
   &:hover, &:focus
     opacity: .8
+    text-decoration: none
 
   @media screen and (max-width: $break-small)
     padding: 0
