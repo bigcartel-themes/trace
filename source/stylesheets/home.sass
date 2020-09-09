@@ -44,8 +44,8 @@
 
     a.welcome-button
       +border-radius($border-radius)
-      background-color: $welcome-text-color
-      color: $welcome-background-color
+      background-color: $button-background-color
+      color: $button-text-color
       display: inline-block
       margin-left: auto
       margin-right: auto
@@ -54,6 +54,9 @@
       padding: 20px 60px
       text-decoration: none
       width: auto
+
+      &:hover, &:focus
+        background-color: $button-background-hover-color
 
       @media screen and (max-width: $break-small)
         max-width: 100%
