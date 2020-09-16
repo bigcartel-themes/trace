@@ -103,27 +103,33 @@
   text-align: center
 
 .pagination
+  +flexbox
+  +justify-content(center)
+  +align-items(center)
+  +flex-wrap(wrap)
   font-family: $secondary-font
   font-size: 16px
   margin: 0 auto
   max-width: 700px
-  overflow-x: auto
   padding-bottom: 20px
   text-align: center
-  white-space: nowrap
   width: 100%
-  -webkit-overflow-scrolling: touch
 
   a, span
     +border-radius(50%)
+    +flexbox
+    +align-items(center)
+    +justify-content(center)
     border: 1px solid transparent
     color: $secondary-color
-    display: inline-block
     height: 40px
     line-height: 38px
-    margin: 0 6px
+    margin: 4px 6px
     text-align: center
     width: 40px
+
+    &:hover, &:focus
+      color: $primary-color
 
     &.previous, &.next
       border: none
@@ -131,10 +137,8 @@
 
       svg
         fill: $secondary-color
-        height: 11px
-        position: relative
-        top: 0
-        width: 15px
+        height: 18px
+        width: 18px
 
     &.previous svg
       +rotate(90deg)
