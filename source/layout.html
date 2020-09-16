@@ -32,7 +32,7 @@
             {% endif %}
           {% endif %}
           {% if show_categories == 1 %}
-            <div class="category-nav-title open-menu">Shop</div>
+            <div class="category-nav-title">Shop</div>
             <div class="category-nav header-category-nav">
               {% if categories.active != blank or artists.active != blank %}
                 <nav class="horizontal-nav main-nav header-nav-container" aria-label="Product category navigation">
@@ -60,7 +60,7 @@
             </div>
           {% else %}
             {% if page.permalink != 'product' %}
-              <h1 class="navigation-page-title open-menu">{{ page.name | replace: 'Cart','Your bag' }}</h1>
+              <h1 class="navigation-page-title">{{ page.name | replace: 'Cart','Your bag' }}</h1>
             {% endif %}
           {% endif %}
         </div>
