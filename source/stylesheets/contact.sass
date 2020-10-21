@@ -2,75 +2,60 @@
 
 .contact-form
 
-  .form-block  
+  .form-block
     margin-bottom: 40px
     text-align: left
-  
+
   input
     height: 56px
-    
-  textarea  
+
+  textarea
     height: 140px
     resize: vertical
-    
+
   input, textarea
     width: 100%
-    
+
     &:active, &:focus
       border: 1px solid $primary-color
       outline: none
-  
-  label  
+
+  label
     display: block
     font-size: 18px
     margin-bottom: 20px
-    
+
     @media screen and (max-width: $break-small)
       font-size: 14px
-    
-  .contact-name, .contact-spam, .contact-send, .contact-email 
+
+  .contact-name, .contact-recaptcha, .contact-send, .contact-email
     display: block
     position: relative
     width: 100%
 
-  .contact-spam
-    width: 100%
-    
-    .captcha-instructions
-      color: $secondary-color
-      display: block
-      font-family: $secondary-font
-      font-size: 14px
-      margin-top: 10px
-      
-    .captcha-holder
-      position: relative
-  
-  #captcha
-    &:active, &:focus
-      #captcha_image
-        border-left: 1px solid $secondary-color
-  
-  #captcha_image
-    +border-radius(0 $border-radius $border-radius 0)
-    border-left: 1px solid $secondary-color
-    height: 54px
-    position: absolute
-    right: 1px
-    top: 1px
-    
+  .recaptcha-note
+    color: $secondary-color
+    display: block
+    font-family: $secondary-font
+    font-size: 14px
+    line-height: 1.5em
+    margin-top: 10px
+
+    a
+      text-decoration: underline
+
   .contact-send
     text-align: center
     width: 100%
-    
+
     button
       margin: 30px auto
       width: 300px
-      
+
       @media screen and (max-width: $break-small)
         max-width: 100%
         width: 100%
-        
+
 .message-sent
   line-height: 1.5em
   text-align: center
