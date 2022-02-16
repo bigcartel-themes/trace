@@ -54,7 +54,7 @@
     {
       "variable": "error_text_color",
       "label": "Error text",
-      "default": "#F04848"
+      "default": "#b52833"
     }
   ],
   "options": [

@@ -55,7 +55,7 @@ body
             padding: 0 6px
 
           svg
-            +all-transitions
+            transition: opacity .2s linear
             fill: $secondary-color
             height: 22px
             width: 22px
@@ -128,7 +128,9 @@ header
 
   .header-nav
     +flex(1)
-    display: inline-block
+    +flexbox
+    +align-items(center)
+    +justify-content(flex-start)
     font-size: 18px
     max-width: 33%
     text-align: left
@@ -137,34 +139,20 @@ header
       cursor: pointer
 
     .menu-bars
-      float: left
-      height: 16px
+      +flexbox
+      +align-items(center)
+      +justify-content(center)
+      background: none
+      color: $primary-color
+      padding: 0
+      font-size: 30px
+      height: 36px
+      line-height: 1em
       margin-right: 20px
       position: relative
-      width: 22px
-
-      span
-        +border-radius(2px)
-        +transform(rotate(0deg))
-        display: block
-        background: $primary-color
-        width: 100%
-        height: 2px
-        position: absolute
-        left: 0
-        opacity: 1
-
-        &:nth-child(1)
-          top: 0px
-
-        &:nth-child(2), &:nth-child(3)
-          top: 50%
-
-        &:nth-child(4)
-          top: 99%
+      width: 36px
 
     .category-nav-title
-      float: left
       margin-right: 8px
 
       @media screen and (max-width: $break-medium)
@@ -173,7 +161,6 @@ header
     .category-nav
       +transform(translateZ(0))
       cursor: pointer
-      float: left
       position: relative
       width: auto
       z-index: 3
@@ -191,7 +178,7 @@ header
         display: inline-block
 
       .category-nav-arrow
-        +all-transitions
+        transition: opacity .2s linear
         display: inline-block
         fill: $secondary-color
         height: 11px
@@ -199,7 +186,7 @@ header
         width: 15px
 
       .category-dropdown
-        +all-transitions
+        transition: opacity .2s linear
         +border-radius(0 0 4px 4px)
         left: -23px
         margin: 0 auto
@@ -252,10 +239,7 @@ header
           opacity: 1
           visibility: visible
 
-        .category-nav-arrow
-          +rotate(180deg)
-
-    h1
+    .navigation-page-title, .category-nav-title
       display: inline-block
       font-size: 18px
       position: relative
@@ -393,7 +377,7 @@ header
         line-height: 24px
 
     a[href]
-      +all-transitions
+      transition: opacity .2s linear
       text-decoration: underline
 
       &:hover
@@ -441,7 +425,6 @@ header
       display: block
 
 .select
-  +all-transitions
   +border-radius($border-radius)
   border: 1px solid $secondary-color
   color: $secondary-color
@@ -454,7 +437,6 @@ header
   width: 100%
 
   select
-    +all-transitions
     +appearance(none)
     background: none
     border: 0
@@ -477,13 +459,12 @@ header
 
     &:focus
       box-shadow: none
-      outline: none
 
     &::-ms-expand
       display: none
 
   svg
-    +all-transitions
+    transition: fill .2s linear
     fill: $secondary-color
     height: 8px
     margin-top: -2px
@@ -507,7 +488,6 @@ header
       fill: $primary-color
 
 button, a.button
-  +all-transitions
   +border-radius($border-radius)
   +transform(translateZ(0))
   border: 0px
@@ -515,8 +495,8 @@ button, a.button
   color: $background-color
   display: block
   max-width: 300px
-  outline: none
   padding: 20px
+  transition: opacity .2s linear
   width: 100%
 
   &.minimal-button
@@ -537,7 +517,6 @@ button, a.button
     opacity: .3
 
 input, textarea
-  +all-transitions
   +appearance(none)
   +border-radius($border-radius)
   background: $background-color
@@ -583,6 +562,9 @@ input, textarea
     position: relative
 
   .close-container
+    +flexbox
+    +align-items(center)
+    +justify-content(flex-start)
     height: $header-height
 
     &.smaller
@@ -595,13 +577,20 @@ input, textarea
       height: $header-height-mobile
 
   .close-overlay
-    +vertical-align
-    cursor: pointer
-    fill: $primary-color
-    height: 18px
-    position: relative
-    width: 18px
+    +flexbox
+    +align-items(center)
+    +justify-content(center)
+    background: none
+    height: 36px
+    line-height: 1em
+    padding: 0
+    width: 36px
     z-index: 6
+
+    svg
+      height: 18px
+      fill: $primary-color
+      width: 18px
 
   .overlay-navigation
     margin: 0
@@ -621,7 +610,7 @@ input, textarea
         display: block
 
         a
-          +all-transitions
+          transition: color .2s linear
           +transform(translateZ(0px))
           color: $primary-color
           display: inline-block
@@ -654,7 +643,7 @@ input, textarea
         padding: 5px
 
         svg
-          +all-transitions
+          transition: opacity .2s linear
           fill: $secondary-color
           height: 20px
           width: 20px
@@ -670,7 +659,7 @@ input, textarea
       margin: 50px 0
 
     a
-      +all-transitions
+      transition: color .2s linear
       color: $secondary-color
 
       &:hover
@@ -764,90 +753,12 @@ input, textarea
   border-left: 2px solid $secondary-color
   left: -1px
 
-.footer-options
-  +transition(opacity 0.3s)
-  height: 100%
-  left: 0
-  opacity: 0
-  position: fixed
-  right: 0
-  text-align: left
-  top: 0
-  visibility: hidden
-  width: 100%
-  z-index: 6
-
-  &.open
-    opacity: 1
-    visibility: visible
-
-  .options-background
-    background: $primary-color
-    bottom: 0
-    left: 0
-    opacity: .5
-    position: absolute
-    right: 0
-    top: 0
-    z-index: 5
-
-  .footer-options-list
-    background: $background-color
-    color: $primary-color
-    bottom: 0
-    left: 0
-    position: fixed
-    text-align: left
-    width: 100%
-    z-index: 6
-
-    .options-list-header
-      border-top: 1px solid $secondary-color
-      font-size: 16px
-      padding: 20px 0
-      position: relative
-      text-align: center
-
-      .options-list-divider
-        +opacity(.1)
-        background-color: $secondary-color
-        bottom: 0
-        height: 1px
-        position: absolute
-        width: 100%
-
-      .close-options-list
-        +vertical-align
-        cursor: pointer
-        fill: $primary-color
-        height: 16px
-        left: $tablet-padding
-        position: absolute
-        width: 16px
-        z-index: 7
-
-        @media screen and (max-width: $break-small)
-          left: $mobile-padding
-
-    .product-options-list
-      margin: 30px 0
-      max-height: 200px
-      overflow-y: scroll
-      padding: 0
-
-      li
-        cursor: pointer
-        display: block
-        font-size: 18px
-        line-height: 24px
-        padding: 10px $tablet-padding
-
-        @media screen and (max-width: $break-small)
-          padding: 10px $mobile-padding
-
-        &.disabled
-          opacity: .6
-
-
-#success .header-nav h1
-  display: none
+.visually-hidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px

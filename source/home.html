@@ -19,6 +19,7 @@
 {% endif %}
 
 {% if theme.featured_items_type == 'Categories' %}
+  <h1 class="page-header visually-hidden">Featured categories</h1>
   {% if categories.active != blank and theme.featured_items > 0 %}
     <div class="carousel-holder">
       <div class="carousel carousel-main">
@@ -26,14 +27,14 @@
           {% for product in category.products limit:1 %}
             <a href="{{ category.url }}" class="carousel-cell">
               <div class="category-image" style="background-image:url('{{ product.image | product_image_url | constrain: 1000,1000 }}');"></div>
-              
+
               <div class="category-name">
                 <div class="category-text">
                   <div class="category-title">{{ category.name }}</div>
                   <div class="category-subtitle">Shop now</div>
                 </div>
               </div>
-              
+
             </a>
           {% endfor %}
           {% assign num_categories = forloop.length %}
@@ -46,8 +47,9 @@
       </div>
     </div>
   {% endif %}
-  
+
 {% else %}
+  <h1 class="page-header visually-hidden">Featured products</h1>
   {% if theme.featured_items > 0 %}
     {% get products from products.all limit:theme.featured_items %}
       {% if products != blank %}
