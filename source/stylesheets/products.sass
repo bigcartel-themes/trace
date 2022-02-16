@@ -34,7 +34,7 @@
     display: inline-block
 
   .category-nav-arrow
-    +all-transitions
+    transition: fill .2s linear
     display: inline-block
     fill: $secondary-color
     height: 11px
@@ -42,7 +42,6 @@
     width: 15px
 
   .category-dropdown
-    +all-transitions
     +border-radius(0 0 4px 4px)
     +transform(translateX(-50%))
     left: 50%
@@ -95,9 +94,6 @@
       opacity: 1
       visibility: visible
 
-    .category-nav-arrow
-      +rotate(180deg)
-
 .product-list
   +flexbox
   +flex-wrap(wrap)
@@ -127,7 +123,6 @@
       width: 100%
 
     .product-link
-      +all-transitions
       color: $primary-color
       display: block
       width: 100%
@@ -147,7 +142,6 @@
           margin-bottom: 20px
 
       .product-info
-        +all-transitions
         +transform(translateZ(0))
         padding: 0
 
@@ -209,7 +203,6 @@
       padding: 0 10px
 
       svg
-        +all-transitions
         fill: $secondary-color
         height: 11px
         position: relative
