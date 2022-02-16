@@ -59,6 +59,13 @@
   ],
   "options": [
     {
+      "variable": "maintenance_message",
+      "label": "Maintenance mode message",
+      "type": "text",
+      "description": "A message visitors see when your shop is in Maintenance Mode",
+      "default": "We're working on our shop right now.<br /><br />Please check back soon."
+    },
+    {
       "variable": "welcome_message",
       "label": "Welcome message",
       "type": "text",
@@ -123,22 +130,16 @@
       "description": "Sets the display of prices in your shop"
     },
     {
-      "variable": "twitter_url",
-      "label": "Twitter URL",
+      "variable": "bandcamp_url",
+      "label": "Bandcamp URL",
       "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel"
+      "description": "Ex: http://bigcartel.bandcamp.com"
     },
     {
       "variable": "facebook_url",
       "label": "Facebook URL",
       "type": "text",
       "description": "Ex: http://facebook.com/bigcartel"
-    },
-    {
-      "variable": "tumblr_url",
-      "label": "Tumblr URL",
-      "type": "text",
-      "description": "Ex: http://bigcartel.tumblr.com"
     },
     {
       "variable": "instagram_url",
@@ -151,6 +152,24 @@
       "label": "Pinterest URL",
       "type": "text",
       "description": "Ex: http://pinterest.com/bigcartel"
+    },
+    {
+      "variable": "tumblr_url",
+      "label": "Tumblr URL",
+      "type": "text",
+      "description": "Ex: http://bigcartel.tumblr.com"
+    },
+    {
+      "variable": "twitter_url",
+      "label": "Twitter URL",
+      "type": "text",
+      "description": "Ex: http://twitter.com/bigcartel"
+    },
+    {
+      "variable": "youtube_url",
+      "label": "YouTube URL",
+      "type": "text",
+      "description": "Ex: https://www.youtube.com/channel/bigcartel"
     }
   ],
   "checkout": {
@@ -167,7 +186,7 @@
     "body_font": "{{ secondary_font }}",
     "body_font_size": "14px",
     "step_border_color": "{{ secondary_text_color }}",
-    "step_header_color": "{{ primary_color }}",
+    "step_header_color": "{{ primary_text_color }}",
     "step_border_width": "2px",
     "step_border_style": "solid",
     "step_border_radius": "0px",
@@ -210,7 +229,6 @@
     "button_text_transform": "none",
     "link_color": "{{ secondary_text_color }}",
     "link_hover_color": "{{ secondary_text_color }}",
-    "step_header_color": "{{ primary_text_color }}",
     "step_header_font_size": "18px",
     "summary_color": "{{ primary_text_color }}",
     "summary_secondary_color": "{{ secondary_text_color }}",
