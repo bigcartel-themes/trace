@@ -92,7 +92,7 @@
       "type": "select",
       "options": "0..5",
       "default": 3,
-      "description": "The number of items featured on the Home page"
+      "description": "The number of items featured on the Home page carousel"
     },
     {
       "variable": "products_per_page",
