@@ -55,7 +55,7 @@
     z-index: 3
 
     .category-dropdown-background
-      +opacity(.97)
+      opacity: .97
       background: $background-color
       height: 100%
       left: 0
@@ -210,10 +210,10 @@
         width: 15px
 
     &.previous svg
-      +rotate(90deg)
+      +transform(rotate(90deg))
 
     &.next svg
-      +rotate(-90deg)
+      +transform(rotate(-90deg))
 
     &.current
       border: 1px solid $secondary-color

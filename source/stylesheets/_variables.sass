@@ -1,5 +1,3 @@
-@import 'compass/css3'
-@import 'compass'
 @import 'flexbox'
 
 $primary-font: #{"{{ theme.primary_font | font_family }}"}
@@ -38,17 +36,14 @@ $break-extra-small: 500px
   position: relative
   top: 50%
 
+@mixin pie-clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both
+
 @mixin keyframes($animation)
   @-webkit-keyframes #{$animation}
-    @content
-
-  @-moz-keyframes #{$animation}
-    @content
-
-  @-ms-keyframes #{$animation}
-    @content
-
-  @-o-keyframes #{$animation}
     @content
 
   @keyframes #{$animation}
@@ -56,7 +51,19 @@ $break-extra-small: 500px
 
 @mixin animation($str)
   -webkit-animation: $str
-  -moz-animation: $str
-  -ms-animation: $str
-  -o-animation: $str
   animation: $str
+
+@mixin transform($str)
+  -webkit-transform: $str
+  transform: $str
+
+@mixin transition($str...)
+  -webkit-transition: #{$str}
+  transition: #{$str}
+
+@mixin border-radius($str)
+  -webkit-border-radius: $str
+  border-radius: $str
+
+@mixin appearance($str)
+  appearance: $str
