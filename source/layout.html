@@ -12,7 +12,7 @@
       <div class="wrapper">
         <div class="header-nav">
           <button class="open-menu menu-bars" aria-label="Open navigation menu">
-            <svg x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50"><path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path></svg>
+            <svg aria-hidden="true" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50"><path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path></svg>
           </button>
           {% if page.permalink != 'product' %}
             {% if page.permalink == 'products' %}
@@ -22,12 +22,12 @@
           {% if show_categories == 1 %}
             <div class="category-nav-title open-menu">Shop</div>
             <div class="category-nav header-category-nav">
-              <div class="category-nav-heading">
+              <button class="category-nav-heading" aria-label="Open category navigation">
                 {% if categories.active != blank or artists.active != blank %}
                   <div class="category-nav-page">{{ page.name }}</div>
                   <svg class="category-nav-arrow" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
                 {% endif %}
-              </div>
+              </button>
               {% if categories.active != blank or artists.active != blank %}
                 <div class="category-dropdown">
                   <div class="category-dropdown-background"></div>
@@ -63,8 +63,8 @@
           {% endif %}
         </div>
         <div class="cart-link">
-          <a href="/cart" title="Cart">
-            <svg viewBox="0 0 30 30"><path d="M22.7 8c-.9-3.4-4-6-7.7-6S8.2 4.6 7.3 8H2l3 20h20l3-20h-5.3zM15 4c2.6 0 4.8 1.7 5.6 4H9.3c.9-2.3 3.1-4 5.7-4zm8.3 22H6.7L4.3 10H7v3h2v-3h12v3h2v-3h2.7l-2.4 16z"/></svg>
+          <a href="/cart" title="View bag ({{ cart.item_count | pluralize: 'Item', 'Items' }})">
+            <svg aria-hidden="true" viewBox="0 0 30 30"><path d="M22.7 8c-.9-3.4-4-6-7.7-6S8.2 4.6 7.3 8H2l3 20h20l3-20h-5.3zM15 4c2.6 0 4.8 1.7 5.6 4H9.3c.9-2.3 3.1-4 5.7-4zm8.3 22H6.7L4.3 10H7v3h2v-3h12v3h2v-3h2.7l-2.4 16z"/></svg>
             {% if cart.item_count > 0 %}
               <span class="cart-num-items">{{ cart.item_count }}</span>
             {% endif %}
@@ -88,8 +88,8 @@
       <div class="overlay-background"></div>
       <div class="wrapper">
         <div class="close-container">
-          <button id="close-btn" class="close-overlay" type="button" aria-label="Close navigation menu">
-            <svg viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"/></svg>
+          <button class="close-overlay" type="button" aria-label="Close navigation menu">
+            <svg aria-hidden="true" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"/></svg>
           </button>
         </div>
         <nav class="overlay-navigation">

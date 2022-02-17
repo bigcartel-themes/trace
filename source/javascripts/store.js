@@ -75,8 +75,8 @@ $(window).on("load resize", function() {
 });
 
 $(function() {
-  $('.category-nav').hover(function(e) {
-    $(this).toggleClass('dropdown-open');
+  $('.category-nav-heading').click(function(e) {
+    $(this).parent().toggleClass('dropdown-open');
   });
 
   $('.carousel-main').flickity({
@@ -301,7 +301,7 @@ function disableSelectOption(select_option, type) {
 
 let menuElement = document.querySelector(".overlay");
 let openMenuButton = document.querySelector(".open-menu");
-let closeMenuButton = document.querySelector("#close-btn");
+let closeMenuButton = document.querySelector(".close-overlay");
 
 let openMenu = function() {
   document.body.classList.add('overlay-open');
