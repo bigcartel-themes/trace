@@ -86,7 +86,7 @@
     line-height: 26px
 
     @media screen and (max-width: $break-small)
-      font-size: 14px
+      font-size: 16px
       line-height: 20px
 
   .item-details-option
@@ -96,9 +96,6 @@
     font-size: 14px
     line-height: 17px
     margin-top: 6px
-
-    @media screen and (max-width: $break-small)
-      font-size: 12px
 
   .item-details-price
     color: $secondary-color
@@ -110,9 +107,6 @@
 
     @media screen and (max-width: $break-medium)
       display: block
-
-    @media screen and (max-width: $break-small)
-      font-size: 12px
 
   .item-quantity-holder
     +vertical-align
@@ -132,7 +126,6 @@
       width: 140px
 
     button
-      +all-transitions
       +border-radius(3ex)
       +transform(translateZ(0px))
       background: none
@@ -164,9 +157,6 @@
           height: 18px
           width: 18px
 
-      &:focus
-        outline: none
-
     input
       +appearance(none)
       background: none
@@ -187,7 +177,6 @@
 
       &:focus
         box-shadow: none
-        outline: none
 
   .price
     +vertical-align

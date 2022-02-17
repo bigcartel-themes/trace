@@ -8,12 +8,27 @@
   		{% assign product_status = 'Coming soon' %}
   {% endcase %}
   <h1 class="product-title">{{ product.name }}</h1>
-  <h2 class="product-subtitle {{ product.css_class }}"><span class="product-price">{% if product.variable_pricing %}{{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}{% else %}{{ product.default_price | money: theme.money_format }}{% endif %}</span>{% if product_status != blank %}<span class="product-status"> - {{ product_status }}</span>{% endif %}</h2>
+  <div class="product-subtitle {{ product.css_class }}">
+    <span class="product-price">{% if product.variable_pricing %}{{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}{% else %}{{ product.default_price | money: theme.money_format }}{% endif %}</span>
+    {% if product_status != blank %}<span class="product-status"> - {{ product_status }}</span>{% endif %}
+  </div>
 </div>
 
 <div class="product-images">
   {% for image in product.images %}
-    <img class="fade-in product-image" src="{{ image | product_image_url | constrain: 1000, 1000 }}" alt="Image of {{ product.name | escape }}">
+    <img
+      alt="Image of {{ product.name | escape }}"
+      class="lazyload product-image"
+      src="{{ image | product_image_url | constrain: 60 }}"
+      data-srcset="
+        {{ image | product_image_url | constrain: 500 }} 500w,
+        {{ image | product_image_url | constrain: 650 }} 650w,
+        {{ image | product_image_url | constrain: 800 }} 800w,
+        {{ image | product_image_url | constrain: 1000 }} 1000w,
+        {{ image | product_image_url | constrain: 2000 }} 2000w
+      "
+      data-sizes="auto"
+    >
   {% endfor %}
 </div>
 
@@ -69,20 +84,3 @@
     </div>
   {% endif %}
 </div>
-{% if product.has_default_option == false %}
-  <div class="footer-options">
-    <div class="options-background"></div>
-    <div class="footer-options-list">
-      <div class="options-list-header">
-        <svg class="close-options-list" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"/></svg>
-        <span class="options-list-title">Select option</span>
-        <div class="options-list-divider"></div>
-      </div>
-      <ul class="product-options-list">
-        {% for option in product.options %}
-          <li data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>{{ option.name }} - {{ option.price | money: theme.money_format }} {% if option.sold_out %}(Sold out){% endif %}</li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-{% endif %}
