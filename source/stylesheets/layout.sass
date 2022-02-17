@@ -142,6 +142,7 @@ header
       cursor: pointer
 
       svg
+        fill: $primary-color
         height: 24px
         width: 24px
 
@@ -276,7 +277,7 @@ header
   .store-name
     +flex(2)
     +transform(translateZ(0))
-    color: $secondary-color
+    color: $primary-color
     display: inline-block
     font-size: 22px
     height: 100%
@@ -631,6 +632,7 @@ input, textarea
 
           &:hover
             color: $secondary-color
+            text-decoration: underline
 
   .social-icons
     margin: 0 0 0 -5px
