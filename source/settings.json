@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "images": [
     {
       "variable": "logo",
@@ -130,46 +130,58 @@
       "description": "Sets the display of prices in your shop"
     },
     {
-      "variable": "bandcamp_url",
-      "label": "Bandcamp URL",
-      "type": "text",
-      "description": "Ex: http://bigcartel.bandcamp.com"
-    },
-    {
-      "variable": "facebook_url",
-      "label": "Facebook URL",
-      "type": "text",
-      "description": "Ex: http://facebook.com/bigcartel"
-    },
-    {
       "variable": "instagram_url",
       "label": "Instagram URL",
       "type": "text",
-      "description": "Ex: http://instagram.com/bigcartel"
+      "description": "Ex: https://instagram.com/bigcartel"
     },
     {
-      "variable": "pinterest_url",
-      "label": "Pinterest URL",
+      "variable": "tiktok_url",
+      "label": "TikTok URL",
       "type": "text",
-      "description": "Ex: http://pinterest.com/bigcartel"
-    },
-    {
-      "variable": "tumblr_url",
-      "label": "Tumblr URL",
-      "type": "text",
-      "description": "Ex: http://bigcartel.tumblr.com"
+      "description": "Ex: https://tiktok.com/@bigcartelofficial"
     },
     {
       "variable": "twitter_url",
       "label": "Twitter URL",
       "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel"
+      "description": "Ex: https://twitter.com/bigcartel"
+    },
+    {
+      "variable": "facebook_url",
+      "label": "Facebook URL",
+      "type": "text",
+      "description": "Ex: https://facebook.com/bigcartel"
+    },
+    {
+      "variable": "snapchat_url",
+      "label": "Snapchat URL",
+      "type": "text",
+      "description": "Ex: https://snapchat.com/add/bigcartel"
+    },
+    {
+      "variable": "pinterest_url",
+      "label": "Pinterest URL",
+      "type": "text",
+      "description": "Ex: https://pinterest.com/big_cartel"
     },
     {
       "variable": "youtube_url",
       "label": "YouTube URL",
       "type": "text",
-      "description": "Ex: https://www.youtube.com/channel/bigcartel"
+      "description": "Ex: https://youtube.com/@BigCartelDotCom"
+    },
+    {
+      "variable": "tumblr_url",
+      "label": "Tumblr URL",
+      "type": "text",
+      "description": "Ex: https://bigcartel.tumblr.com"
+    },
+    {
+      "variable": "bandcamp_url",
+      "label": "Bandcamp URL",
+      "type": "text",
+      "description": "Ex: https://bigcartel.bandcamp.com"
     }
   ],
   "checkout": {

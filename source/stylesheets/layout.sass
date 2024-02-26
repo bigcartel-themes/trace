@@ -34,40 +34,39 @@ body
     @media screen and (max-width: $break-medium)
       padding: 80px 20px
 
+    .maintenance-message
+      display: flex
+      flex-direction: column
+      gap: 48px
+
     h1
-      font-size: 22px
-      line-height: 1.6em
+      font-size: 2em
       text-align: center
 
-    .maintenance-text
-      margin-top: 15px
-
     .maintenance-icons
-      display: block
-      margin: 40px 0 0
+      display: flex
+      align-items: center
+      column-gap: 24px
+      row-gap: 16px
+      flex-wrap: wrap
+      justify-content: center
       padding: 0
 
       li
         display: inline-block
 
         a
+          color: $secondary-color
           display: block
-          padding: 0 15px
-
-          @media screen and (max-width: $break-small)
-            padding: 0 6px
+          padding: 0 4px
+          transition: opacity .2s linear
 
           svg
-            transition: opacity .2s linear
-            fill: $secondary-color
+            fill: currentColor
             height: 22px
             width: 22px
 
-            @media screen and (max-width: $break-small)
-              height: 18px
-              width: 18px
-
-          &:hover svg
+          &:hover
             opacity: .6
 
 a, a:visited
@@ -662,24 +661,27 @@ input, textarea
     padding: 0
     position: relative
     z-index: 6
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    column-gap: 20px
+    row-gap: 16px
+    list-style: none
+    flex-wrap: wrap
 
     li
-      display: inline-block
-      font-size: 0
-      margin-right: 20px
-
       a
         color: $secondary-color
         display: block
         padding: 5px
+        transition: opacity .2s linear
 
         svg
-          transition: opacity .2s linear
-          fill: $secondary-color
+          fill: currentColor
           height: 20px
           width: 20px
 
-        &:hover svg
+        &:hover
           opacity: .6
 
   .bigcartel-credit
