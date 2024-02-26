@@ -83,22 +83,6 @@ $(function() {
     $(this).parent().toggleClass('dropdown-open');
   });
 
-  $('.carousel-main').flickity({
-    cellAlign: 'center',
-    contain: true,
-    prevNextButtons: false,
-    setGallerySize: false,
-    pageDots: false
-  });
-
-  $('.carousel-nav').flickity({
-    asNavFor: '.carousel-main',
-    contain: true,
-    pageDots: false,
-    prevNextButtons: false
-  });
-
-
   $('.qty').click(function() {
     var $t = $(this)
     , input = $(this).parent().find('input')

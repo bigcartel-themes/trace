@@ -1,5 +1,3 @@
-@import 'variables'
-
 .cart-form
   +pie-clearfix
   margin: 0 auto
@@ -121,8 +119,10 @@
       width: 140px
 
     button
-      +border-radius(3ex)
-      +transform(translateZ(0px))
+      border-radius: 3ex
+      display: flex
+      align-items: center
+      justify-content: center
       background: none
       border: 1px solid $secondary-color
       color: $secondary-color

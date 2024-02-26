@@ -1,4 +1,5 @@
-@import 'flexbox'
+\:root
+  --border-radius: 4px
 
 $primary-font: #{"{{ theme.primary_font | font_family }}"}
 $secondary-font: #{"{{ theme.secondary_font | font_family }}"}
@@ -31,39 +32,3 @@ $break-medium: 800px
 $break-small: 668px
 $break-extra-small: 500px
 
-@mixin vertical-align
-  +transform(translateY(-50%))
-  position: relative
-  top: 50%
-
-@mixin pie-clearfix
-  &:after
-    content: ""
-    display: table
-    clear: both
-
-@mixin keyframes($animation)
-  @-webkit-keyframes #{$animation}
-    @content
-
-  @keyframes #{$animation}
-    @content
-
-@mixin animation($str)
-  -webkit-animation: $str
-  animation: $str
-
-@mixin transform($str)
-  -webkit-transform: $str
-  transform: $str
-
-@mixin transition($str...)
-  -webkit-transition: #{$str}
-  transition: #{$str}
-
-@mixin border-radius($str)
-  -webkit-border-radius: $str
-  border-radius: $str
-
-@mixin appearance($str)
-  appearance: $str
