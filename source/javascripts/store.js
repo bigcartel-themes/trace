@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   document.body.classList.remove("preloader");
-  let contactFields = document.querySelectorAll(".form-block input, .form-block textarea");
+  let contactFields = document.querySelectorAll(".contact-form input, .contact-form textarea");
   contactFields.forEach(function (contactField) {
     contactField.removeAttribute("tabindex");
   });
@@ -36,25 +36,6 @@ window.addEventListener("load", () => {
   document.body.classList.remove("transition-preloader");
 });
 
-function init() {
-  window.addEventListener('scroll', function(e){
-    var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-      shrinkOn = 30,
-      elements = $('header, .close-container');
-    if (distanceY > shrinkOn) {
-      elements.addClass('smaller');
-    } else {
-      if (elements.hasClass('smaller')) {
-        elements.removeClass('smaller');
-      }
-    }
-  });
-  let contactFields = document.querySelectorAll('.contact-form input, .contact-form textarea');
-  contactFields.forEach(function(contactField) {
-    contactField.removeAttribute('tabindex');
-  });
-}
-window.onload = init();
 
 API.onError = function(errors) {
   var $errorList = $('<ul>', { class: 'errors'} )

@@ -14,6 +14,9 @@
   --product-status-background-color: var(--background-color)
   --product-status-text-color: var(--primary-text-color)
 
+  --announcement-background-color: #{"{{ theme.announcement_background_color }}"}
+  --announcement-text-color: #{"{{ theme.announcement_text_color }}"}
+
   --primary-font: #{'{{ theme.primary_font | font_family }}'}
   --secondary-font: #{'{{ theme.secondary_font | font_family }}'}
 
@@ -34,7 +37,7 @@ $welcome-text-color: #{'{{ theme.welcome_text_color }}'}
 
 $error-text-color: #{'{{ theme.error_text_color }}'}
 
-$header-height: 180px
+$header-height: 120px
 $header-height-tablet: 120px
 $header-height-mobile: 100px
 $border-radius: 4px
