@@ -94,13 +94,10 @@ h1, h2, h3, h4, h5, h6
 .wrapper
   +pie-clearfix
   margin: 0 auto
-  padding: 0 7%
+  padding: 0 var(--padding-size)
   position: relative
   width: 100%
   max-width: 1600px
-
-  @media screen and (max-width: $break-small)
-    padding: 0 20px
 
 header
   background: var(--background-color)
@@ -157,7 +154,6 @@ header
         display: none
 
     .category-nav
-      +transform(translateZ(0))
       cursor: pointer
       position: relative
       width: auto
@@ -204,6 +200,10 @@ header
         scrollbar-color: var(--secondary-text-color) transparent
         scrollbar-gutter: stable
 
+        &[aria-hidden="false"]
+          opacity: 1
+          visibility: visible
+
         &::-webkit-scrollbar
           height: .375rem
           width: .75rem
@@ -216,17 +216,6 @@ header
           border: 3px solid transparent
           background-color: var(--secondary-text-color)
           background-clip: content-box
-
-        .category-dropdown-background
-          opacity: 1
-          border-radius: var(--border-radius)
-          height: 100%
-          left: 0
-          position: absolute
-          right: 0
-          top: 0
-          width: 100%
-          z-index: 3
 
         .dropdown-list
           list-style: none
@@ -242,18 +231,11 @@ header
               color: var(--secondary-text-color)
               display: block
               font-size: 15px
-              padding: 10px
+              padding: 8px 10px
 
               &:hover
                 color: var(--primary-text-color)
                 text-decoration: underline
-
-      &.dropdown-open
-
-        .category-dropdown
-          display: inline-block
-          opacity: 1
-          visibility: visible
 
     .navigation-page-title, .category-nav-title
       display: inline-block
@@ -283,14 +265,16 @@ header
           +transform(rotate(-180deg))
 
   .store-name
-    +transform(translateZ(0))
     color: var(--primary-text-color)
     display: flex
     align-items: center
     justify-content: center
-    font-size: 1.5em
+    font-size: 1.75em
     height: 100%
     text-align: center
+
+    @media screen and (max-width: $break-small)
+      font-size: 1.5em
 
     &.image
       height: calc(#{$header-height} / 2.8)
@@ -312,10 +296,6 @@ header
         max-width: 100%
         width: auto
 
-        @media screen and (max-width: $break-medium)
-          float: right
-          margin: 0
-
     .store-link
       color: var(--secondary-text-color)
       display: block
@@ -335,6 +315,7 @@ header
       height: 60px
       position: relative
       text-align: center
+      flex-shrink: 0
 
       .cart-num-items
         font-size: 12px
@@ -348,10 +329,6 @@ header
       fill: var(--primary-text-color)
       height: 30px
       width: 30px
-
-.category-nav-heading
-  background: none
-  padding: 0
 
 .content
   padding: 40px 0 calc(11% + 80px)
@@ -374,7 +351,7 @@ header
   &.custom
 
     .wrapper
-      max-width: calc(800px + 7%)
+      max-width: calc(800px + var(--padding-size))
 
     .custom-page-content
       color: var(--secondary-text-color)
@@ -403,11 +380,11 @@ header
 
   &.page-contact
     .wrapper
-      max-width: calc(760px + 7%)
+      max-width: calc(760px + var(--padding-size))
 
   &.page-cart
     .wrapper
-      max-width: calc(880px + 7%)
+      max-width: calc(880px + var(--padding-size))
 
 .select
   border-radius: var(--border-radius)
@@ -593,10 +570,9 @@ input, textarea
 
         a
           transition: color .2s linear
-          +transform(translateZ(0px))
           color: var(--primary-text-color)
           display: inline-block
-          font-size: 2em
+          font-size: 1.75em
           padding: 0 5px
 
           @media screen and (max-width: $break-medium)

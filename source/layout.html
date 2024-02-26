@@ -41,8 +41,7 @@
                 {% endif %}
               </button>
               {% if categories.active != blank or artists.active != blank %}
-                <div class="category-dropdown">
-                  <div class="category-dropdown-background"></div>
+                <div class="category-dropdown" aria-hidden="true">
                   {% if categories.active != blank %}
                     <ul class="dropdown-list categories-list">
                       <li><a href="/products">All products</a></li>
@@ -61,10 +60,6 @@
                 </div>
               {% endif %}
             </div>
-          {% else %}
-            {% if page.permalink != 'product' %}
-              <div class="navigation-page-title open-menu">{{ page.name }}</div>
-            {% endif %}
           {% endif %}
         </div>
         <div class="store-name {% if theme.logo != blank %}image{% else %}text{% endif %}">

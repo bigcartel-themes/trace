@@ -39,7 +39,9 @@ window.addEventListener("load", () => {
 
 $(function() {
   $('.category-nav-heading').click(function(e) {
-    $(this).parent().toggleClass('dropdown-open');
+    $('.category-dropdown').attr('aria-hidden', function(i, attr) {
+      return attr === 'true' ? 'false' : 'true';
+    });
   });
 });
 

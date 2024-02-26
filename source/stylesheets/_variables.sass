@@ -1,3 +1,17 @@
+$header-height: 120px
+$header-height-tablet: 120px
+$header-height-mobile: 100px
+$border-radius: 4px
+
+$tablet-padding: 40px
+$mobile-padding: 20px
+
+$break-extra-large: 1200px
+$break-large: 945px
+$break-medium: 800px
+$break-small: 668px
+$break-extra-small: 500px
+
 \:root
   --background-color: #{'{{ theme.background_color }}'}
   --primary-text-color: #{'{{ theme.primary_text_color }}'}
@@ -24,6 +38,11 @@
   --border-radius-sm: 2px
   --spacing-unit: 16px
 
+  --padding-size: 40px
+
+  @media screen and (max-width: $break-small)
+    --padding-size: 20px
+
 $primary-font: #{"{{ theme.primary_font | font_family }}"}
 $secondary-font: #{"{{ theme.secondary_font | font_family }}"}
 
@@ -34,18 +53,3 @@ $welcome-background-color: #{'{{ theme.welcome_background_color }}'}
 $welcome-text-color: #{'{{ theme.welcome_text_color }}'}
 
 $error-text-color: #{'{{ theme.error_text_color }}'}
-
-$header-height: 120px
-$header-height-tablet: 120px
-$header-height-mobile: 100px
-$border-radius: 4px
-
-$tablet-padding: 40px
-$mobile-padding: 20px
-
-$break-extra-large: 1200px
-$break-large: 945px
-$break-medium: 800px
-$break-small: 668px
-$break-extra-small: 500px
-
