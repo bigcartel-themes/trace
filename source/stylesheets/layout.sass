@@ -4,7 +4,7 @@ html
 
 body
   background-color: $background-color
-  color: $primary-color
+  color: var(--primary-text-color)
   font-family: $primary-font
   font-size: 16px
   line-height: 1.5
@@ -22,7 +22,7 @@ body
     padding-top: $header-height-mobile
 
   &.standalone-page
-    color: $primary-color
+    color: var(--primary-text-color)
     padding: 140px 60px
     text-align: center
 
@@ -51,7 +51,7 @@ body
         display: inline-block
 
         a
-          color: $secondary-color
+          color: var(--secondary-text-color)
           display: block
           padding: 0 4px
           transition: opacity .2s linear
@@ -65,7 +65,7 @@ body
             opacity: .6
 
 a, a:visited
-  color: $primary-color
+  color: var(--primary-text-color)
   text-decoration: none
 
 h1, h2, h3, h4, h5, h6
@@ -88,6 +88,9 @@ h1, h2, h3, h4, h5, h6
   position: relative
   width: 100%
   max-width: 2000px
+
+  @media screen and (max-width: $break-small)
+    padding: 0 20px
 
 header
   background: $background-color
@@ -135,7 +138,7 @@ header
       cursor: pointer
 
       svg
-        fill: $primary-color
+        fill: var(--primary-text-color)
         height: 24px
         width: 24px
 
@@ -144,7 +147,7 @@ header
       +align-items(center)
       +justify-content(center)
       background: none
-      color: $primary-color
+      color: var(--primary-text-color)
       padding: 0
       font-size: 30px
       height: 36px
@@ -175,13 +178,13 @@ header
         max-width: 100%
 
       .category-nav-page
-        color: $secondary-color
+        color: var(--secondary-text-color)
         display: inline-block
 
       .category-nav-arrow
         transition: opacity .2s linear
         display: inline-block
-        fill: $secondary-color
+        fill: var(--secondary-text-color)
         height: 11px
         margin-left: 2px
         width: 15px
@@ -190,7 +193,7 @@ header
         background: $background-color
         transition: opacity .2s linear
         border-radius: var(--border-radius)
-        border: 1px solid $secondary-color
+        border: 1px solid var(--secondary-text-color)
         left: -23px
         margin: 0 auto
         min-width: 250px
@@ -204,7 +207,7 @@ header
         z-index: 3
         top: calc(100% + 10px)
         scrollbar-width: thin
-        scrollbar-color: $secondary-color transparent
+        scrollbar-color: var(--secondary-text-color) transparent
         scrollbar-gutter: stable
 
         &::-webkit-scrollbar
@@ -217,7 +220,7 @@ header
         &::-webkit-scrollbar-thumb
           border-radius: .375rem
           border: 3px solid transparent
-          background-color: $secondary-color
+          background-color: var(--secondary-text-color)
           background-clip: content-box
 
         .category-dropdown-background
@@ -242,13 +245,13 @@ header
             display: block
 
             a
-              color: $secondary-color
+              color: var(--secondary-text-color)
               display: block
               font-size: 15px
               padding: 10px
 
               &:hover
-                color: $primary-color
+                color: var(--primary-text-color)
                 text-decoration: underline
 
       &.dropdown-open
@@ -271,12 +274,12 @@ header
       position: relative
 
     .open-categories
-      color: $secondary-color
+      color: var(--secondary-text-color)
       padding: 10px 0
 
       svg
         +transition(250ms linear all)
-        fill: $secondary-color
+        fill: var(--secondary-text-color)
         height: 11px
         margin-left: 5px
         position: relative
@@ -288,7 +291,7 @@ header
   .store-name
     +flex(2)
     +transform(translateZ(0))
-    color: $primary-color
+    color: var(--primary-text-color)
     display: flex
     align-items: center
     justify-content: center
@@ -326,7 +329,7 @@ header
       text-align: right
 
     .store-link
-      color: $secondary-color
+      color: var(--secondary-text-color)
       display: inline-block
 
   .header-cart
@@ -366,7 +369,7 @@ header
       right: 0
 
     svg
-      fill: $primary-color
+      fill: var(--primary-text-color)
       height: 30px
       width: 30px
 
@@ -407,7 +410,7 @@ header
         display: block
 
     .custom-page-content
-      color: $secondary-color
+      color: var(--secondary-text-color)
       font-family: $secondary-font
       font-size: 18px
 
@@ -464,23 +467,15 @@ header
 
 .select
   border-radius: var(--border-radius)
-  border: 1px solid $secondary-color
-  color: $secondary-color
+  border: 1px solid var(--secondary-text-color)
+  color: var(--secondary-text-color)
   font-family: $secondary-font
   height: 60px
-  margin-bottom: 20px
-  max-width: 300px
   padding: 0
   position: relative
   width: 100%
 
   select
-    +appearance(none)
-    background: none
-    border: 0
-    color: $secondary-color
-    font-family: $secondary-font
-    font-size: 16px
     height: 100%
     padding: 0 50px 0 20px
     position: relative
@@ -502,7 +497,7 @@ header
 
   svg
     transition: fill .2s linear
-    fill: $secondary-color
+    fill: var(--secondary-text-color)
     height: 8px
     margin-top: -2px
     position: absolute
@@ -512,53 +507,65 @@ header
     z-index: 1
 
   &:hover
-    color: $secondary-color
-    border-color: $secondary-color
+    color: var(--secondary-text-color)
+    border-color: var(--secondary-text-color)
 
     select
-      color: $primary-color
+      color: var(--primary-text-color)
 
       option:disabled
         color: graytext
 
     svg
-      fill: $primary-color
+      fill: var(--primary-text-color)
 
-button, a.button
+.button, a.button
+  +transition(all .2s linear)
+  background-color: var(--button-background-color)
   border-radius: var(--border-radius)
-  +transform(translateZ(0))
-  border: 0px
-  background: $primary-color
-  color: $background-color
-  display: block
-  max-width: 300px
-  padding: 20px
-  transition: opacity .2s linear
+  color: var(--button-text-color)
+  height: 60px
+  display: flex
+  align-items: center
+  justify-content: center
+  max-width: 275px
+  padding: 0 20px
+  text-align: center
+  white-space: pre-wrap
   width: 100%
 
   &.minimal-button
+    +transform(none)
     background: none
-    color: $primary-color
+    color: var(--primary-text-color)
     border: none
-    font-size: 14px
     padding: 0
+    text-decoration: underline
+    text-underline-offset: 4px
 
     &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
-      text-decoration: underline
-
-  &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
-    opacity: .8
+      +transform(none)
+      box-shadow: none
+      background: none
+      color: var(--secondary-text-color)
 
   &:disabled, &.disabled
     cursor: not-allowed
-    opacity: .3
+
+  &.centered-button
+    margin: 60px auto
+
+  &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
+    background-color: var(--button-hover-background-color)
+    color: var(--button-text-color)
+    opacity: .8
 
 input, textarea
   +appearance(none)
   border-radius: var(--border-radius)
   background: $background-color
-  border: 1px solid $secondary-color
-  color: $secondary-color
+  border: 1px solid var(--secondary-text-color)
+  color: var(--secondary-text-color)
   font-family: $secondary-font
   font-size: 16px
   max-width: 100%
@@ -626,7 +633,7 @@ input, textarea
 
     svg
       height: 18px
-      fill: $primary-color
+      fill: var(--primary-text-color)
       width: 18px
 
   .overlay-navigation
@@ -652,7 +659,7 @@ input, textarea
         a
           transition: color .2s linear
           +transform(translateZ(0px))
-          color: $primary-color
+          color: var(--primary-text-color)
           display: inline-block
           font-size: 2em
           padding: 0 5px
@@ -661,7 +668,7 @@ input, textarea
             font-size: 1.25em
 
           &:hover
-            color: $secondary-color
+            color: var(--secondary-text-color)
             text-decoration: underline
 
   .social-icons
@@ -680,7 +687,7 @@ input, textarea
 
     li
       a
-        color: $secondary-color
+        color: var(--secondary-text-color)
         display: block
         padding: 5px
         transition: opacity .2s linear
@@ -739,7 +746,7 @@ input, textarea
     visibility: visible
 
   .background
-    background: $primary-color
+    background: var(--primary-text-color)
     height: 100%
     left: 0
     opacity: .9
@@ -799,7 +806,7 @@ input, textarea
       width: 30px
 
 .left-side + .right-side
-  border-left: 2px solid $secondary-color
+  border-left: 2px solid var(--secondary-text-color)
   left: -1px
 
 .visually-hidden
@@ -811,3 +818,22 @@ input, textarea
   padding: 0
   position: absolute
   width: 1px
+
+.message-banner
+  padding: 16px
+  margin: 0 auto 32px
+  text-align: center
+  width: 100%
+  max-width: 760px
+
+  &--centered
+    text-align: center
+
+  &--no-bg
+    color: var(--primary-text-color)
+    background: none
+    padding: 0
+
+  &--errors
+    background-color: var(--error-background-color)
+    color: var(--error-text-color)

@@ -32,7 +32,7 @@
             },
             "colors": {
               "background_color": "#FFFFFF",
-              "primary_text_color": "#FFFFFF",
+              "primary_text_color": "#000000",
               "secondary_text_color": "#000000",
               "welcome_background_color": "#F9F9F9",
               "welcome_text_color": "#000000",
@@ -179,20 +179,62 @@
       "default": "Start shopping"
     },
     {
+      "variable": "featured_header",
+      "label": "Featured header",
+      "type": "text",
+      "description": "Displays above your featured products or categories on the Home page",
+      "default": "Featured"
+    },
+    {
       "variable": "featured_items_type",
       "label": "Featured items type",
       "type": "select",
       "options": ["Categories", "Products"],
       "default": "Products",
-      "description": "Display featured products or categories on the Home page"
+      "description": "Displays featured products or categories on the Home page"
     },
     {
       "variable": "featured_items",
       "label": "Featured items",
       "type": "select",
-      "options": "0..5",
+      "options": "0..100",
+      "default": 12,
+      "description": "The number of items featured on the Home page"
+    },
+    {
+      "variable": "all_products_button_text",
+      "label": "All products button text",
+      "type": "text",
+      "description": "Displays underneath featured items and links to your Product Page",
+      "default": "All Products"
+    },
+    {
+      "variable": "max_products_per_row",
+      "label": "Maximum products per row",
+      "type": "select",
+      "options": "1..4",
       "default": 3,
-      "description": "The number of items featured on the Home page carousel"
+      "description": "The maximum number of products displayed per row on larger screens"
+    },
+    {
+      "variable": "max_products_per_row_mobile",
+      "label": "Maximum products per row (mobile)",
+      "type": "select",
+      "options": "1..2",
+      "default": 2,
+      "description": "The number of products displayed per row on smaller screens"
+    },
+    {
+      "variable": "grid_image_style",
+      "label": "Product grid image style",
+      "type": "select",
+      "options": [
+        ["Normal", "default"],
+        ["Fit to square", "contain"],
+        ["Crop to square", "cover"]
+      ],
+      "default": "cover",
+      "description": "Sets the display of images in the product grid"
     },
     {
       "variable": "products_per_page",
@@ -209,6 +251,37 @@
       "options": ["Left", "Centered"],
       "default": "Left",
       "description": "Alignment for product details under thumbnail images"
+    },
+    {
+      "variable": "product_image_zoom",
+      "label": "Enable product image zoom",
+      "type": "boolean",
+      "default": true,
+      "description": "Click to open a larger version of the Product page image"
+    },
+    {
+      "variable": "desktop_product_page_images",
+      "label": "Desktop product page images",
+      "type": "select",
+      "options": [
+        ["Thumbnails", "thumbnails"],
+        ["Carousel", "carousel"],
+        ["Stacked 2 column", "two-column"],
+        ["Stacked full width", "stacked"]
+      ],
+      "default": "carousel",
+      "description": "Sets the display of the Product page gallery"
+    },
+    {
+      "variable": "mobile_product_page_images",
+      "label": "Mobile product page image carousel",
+      "type": "select",
+      "options": [
+        ["Show thumbnails", "show-thumbnails"],
+        ["Hide thumbnails", "hide-thumbnails"]
+      ],
+      "default": "show-thumbnails",
+      "description": "Choose to hide or show thumbnails on the mobile Product page carousel"
     },
     {
       "variable": "show_sold_out_product_options",

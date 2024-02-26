@@ -1,13 +1,14 @@
 <!doctype html>
 <html>
   <head>
-    <title>{{ page.name | replace: 'Cart','Your bag' }} | {{ store.name }}</title>
+    <title>{{ page.name }} | {{ store.name }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
     {{ head_content }}
+    <style>.preloader * { opacity: 0; }.transition-preloader * { transition: none !important }</style>
   </head>
-  <body id="{{ page.permalink }}" class="{{ page.category }}">
+  <body id="{{ page.permalink }}" class="{{ page.category }} preloader transition-preloader">
     <header class="header">
       <div class="wrapper">
         <div class="header-nav">
@@ -51,7 +52,7 @@
             </div>
           {% else %}
             {% if page.permalink != 'product' %}
-              <div class="navigation-page-title open-menu">{{ page.name | replace: 'Cart','Your bag' }}</div>
+              <div class="navigation-page-title open-menu">{{ page.name }}</div>
             {% endif %}
           {% endif %}
         </div>
@@ -181,7 +182,18 @@
         </div>
       </div>
     {% endif %}
-
+    <script>
+      const themeOptions = {
+        showSoldOutOptions: {{ theme.show_sold_out_product_options }},
+        desktopProductPageImages: '{{ theme.desktop_product_page_images }}',
+        mobileProductPageImages: '{{ theme.mobile_product_page_images }}',
+        productImageZoom: {{ theme.product_image_zoom }},
+      }
+      const themeColors = {
+        backgroundColor: '{{ theme.background_color }}',
+        primaryTextColor: '{{ theme.primary_text_color }}',
+      }
+    </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script>
