@@ -80,10 +80,7 @@ var processUpdate = function(input, item_id, new_val, cart) {
     var empty_title = $('.cart-header').data('empty-text');
     $('.cart-header').html(empty_title);
     $('.cart-form').slideUp('fast',function() {
-      $('.cart-empty-message, .cart-header').fadeIn('fast', function() {
-        $('.site-footer').fadeOut('fast');
-      });
-
+      $('.cart-empty-message, .cart-header').fadeIn('fast');
       $('.cart-num-items').html('0');
       $("html, body").animate({ scrollTop: 0 }, "fast");
     });

@@ -158,30 +158,6 @@
         </nav>
       </div>
     </div>
-
-    {% if page.permalink == 'product' or page.permalink == 'cart' or cart.item_count > 0 %}
-      <div class="site-footer"{% if cart.item_count == 0 %} style="display:none;"{% endif %}>
-        <div class="background"></div>
-        {% if page.permalink == 'cart' %}
-          <div class="left-side">
-            <a href="/products">Continue shopping</a>
-          </div>
-        {% endif %}
-        <div class="right-side"{% if cart.item_count == 0 %} style="display: none"{% endif %}>
-          <div class="footer-divider"></div>
-          {% if page.permalink == 'cart' %}
-            <a href="/checkout">Checkout</a>
-          {% else %}
-            <div class="footer-cart">
-              <a class="cart-link" href="/cart" title="View cart ({{ cart.item_count | pluralize: 'Item', 'Items' }})">
-                <svg viewBox="0 0 30 30"><path d="M22.7 8c-.9-3.4-4-6-7.7-6S8.2 4.6 7.3 8H2l3 20h20l3-20h-5.3zM15 4c2.6 0 4.8 1.7 5.6 4H9.3c.9-2.3 3.1-4 5.7-4zm8.3 22H6.7L4.3 10H7v3h2v-3h12v3h2v-3h2.7l-2.4 16z"/></svg>
-                <span class="cart-num-items">{{ cart.item_count }}</span>
-              </a>
-            </div>
-          {% endif %}
-        </div>
-      </div>
-    {% endif %}
     <script>
       const themeOptions = {
         showSoldOutOptions: {{ theme.show_sold_out_product_options }},
