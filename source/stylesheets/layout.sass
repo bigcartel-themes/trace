@@ -12,7 +12,7 @@ body
   color: $primary-color
   font-family: $primary-font
   font-size: 16px
-  line-height: 1
+  line-height: 1.5
   padding-top: $header-height
 
   &.overlay-open
@@ -81,8 +81,6 @@ h1, h2, h3, h4, h5, h6
 
 .errors
   color: $error-text-color
-  font-size: 16px
-  line-height: 24px
   list-style: none
   margin: 0 0 40px
   padding: 0
@@ -94,6 +92,7 @@ h1, h2, h3, h4, h5, h6
   padding: 0 7%
   position: relative
   width: 100%
+  max-width: 2000px
 
 header
   background: $background-color
@@ -295,7 +294,9 @@ header
     +flex(2)
     +transform(translateZ(0))
     color: $primary-color
-    display: inline-block
+    display: flex
+    align-items: center
+    justify-content: center
     font-size: 22px
     height: 100%
     max-width: 33%
@@ -330,17 +331,33 @@ header
       text-align: right
 
     .store-link
-      +vertical-align
       color: $secondary-color
       display: inline-block
-      line-height: 1.2em
 
-  .cart-link
+  .header-cart
     +flex(3)
-    display: inline-block
+    display: flex
+    align-items: center
+    justify-content: flex-end
     max-width: 33%
     position: relative
     text-align: right
+
+    .cart-link
+      display: flex
+      align-items: center
+      justify-content: center
+      height: 60px
+      position: relative
+      text-align: center
+
+      .cart-num-items
+        font-size: 12px
+        height: 30px
+        position: absolute
+        text-align: center
+        top: 24px
+        z-index: 10
 
     .cart-num-items
       font-size: 11px
@@ -349,7 +366,6 @@ header
       height: 30px
       display: inline-block
       text-align: center
-      line-height: 30px
       z-index: 10
       position: absolute
       right: 0
@@ -399,11 +415,9 @@ header
       color: $secondary-color
       font-family: $secondary-font
       font-size: 18px
-      line-height: 32px
 
       @media screen and (max-width: $break-small)
-        font-size: 14px
-        line-height: 24px
+        font-size: 16px
 
     a[href]
       transition: opacity .2s linear
@@ -473,7 +487,6 @@ header
     font-family: $secondary-font
     font-size: 16px
     height: 100%
-    line-height: 2em
     padding: 0 50px 0 20px
     position: relative
     width: 100%
@@ -574,7 +587,7 @@ input, textarea
     visibility: visible
 
   .overlay-background
-    opacity: .97
+    opacity: 1
     background: $background-color
     bottom: 0
     left: 0
@@ -629,27 +642,28 @@ input, textarea
     z-index: 6
 
     .page-list
+      list-style: none
+      display: flex
+      flex-direction: column
       margin: -10px 0 0 -5px
       padding: 0
+      row-gap: 20px
 
       @media screen and (max-width: $break-small)
         margin-top: 20px
 
       li
-        display: block
 
         a
           transition: color .2s linear
           +transform(translateZ(0px))
           color: $primary-color
           display: inline-block
-          font-size: 32px
-          line-height: 60px
+          font-size: 2em
           padding: 0 5px
 
           @media screen and (max-width: $break-medium)
-            font-size: 22px
-            line-height: 44px
+            font-size: 1.25em
 
           &:hover
             color: $secondary-color
@@ -752,7 +766,6 @@ input, textarea
     a
       +vertical-align
       display: block
-      line-height: 60px
 
   .right-side
     position: relative
@@ -760,7 +773,6 @@ input, textarea
     > a
       +vertical-align
       display: block
-      line-height: 60px
 
   .open-options svg
     fill: $background-color
@@ -771,25 +783,22 @@ input, textarea
     width: 12px
 
   .cart-link
-    display: block
+    display: flex
+    align-items: center
+    justify-content: center
     height: 60px
     position: relative
     text-align: center
 
     .cart-num-items
-      +transform(translateY(-50%) translateX(-50%))
-      display: inline-block
-      font-size: 11px
+      font-size: 12px
       height: 30px
-      line-height: 30px
-      left: 50%
       position: absolute
       text-align: center
-      top: 34px
+      top: 24px
       z-index: 10
 
     svg
-      +vertical-align
       fill: $background-color
       height: 30px
       width: 30px
