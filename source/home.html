@@ -1,9 +1,9 @@
 {% if errors != blank %}
-  <ul class="errors">
+  <div class="errors">
     {% for error in errors %}
-    <li>{{ error }}</li>
+      <div>{{ error }}</div>
     {% endfor %}
-  </ul>
+  </div>
 {% endif %}
 
 {% if theme.welcome_image or theme.welcome_message != blank or theme.welcome_button_text != blank %}

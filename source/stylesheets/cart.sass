@@ -1,245 +1,211 @@
-.cart-form
-  +pie-clearfix
+.cart-container
+  margin: 0 auto
+  max-width: 800px
+  width: 100%
+
+  @media screen and (max-width: $break-small)
+    max-width: 100%
+
+.cart-empty
+  display: flex
+  flex-direction: column
+  gap: 16px
+  max-width: 600px
+  align-items: center
   margin: 0 auto
   width: 100%
 
-.cart-items
-  list-style: none
-  margin: 0 0 40px
-  padding: 0
-  width: 100%
+.cart-columns
+  display: grid
+  align-items: flex-start
+  grid-template-columns: 1fr
+  column-gap: 64px
 
-  .cart-item
-    +pie-clearfix
-    height: 220px
-    padding: 20px 0
-    position: relative
+  @media screen and (max-width: $break-large)
+    grid-template-columns: 1fr
 
-    @media screen and (max-width: $break-small)
-      height: auto
-      padding: 30px 0
+.cart-header
+  display: flex
+  align-items: flex-end
+  justify-content: flex-start
+  margin-bottom: 32px
 
-    &:after
-      opacity: .1
-      background: var(--secondary-text-color)
-      bottom: 0
-      content: ""
-      display: block
-      height: 1px
-      position: absolute
-      width: 100%
-
-  .item-image-details
-    +pie-clearfix
-    +vertical-align
-    height: 180px
-    max-width: 65%
-    float: left
-    width: 100%
-
-    @media screen and (max-width: $break-medium)
-      max-width: 70%
-
-    @media screen and (max-width: $break-small)
-      +transform(none)
-      float: none
-      max-width: 100%
-      top: auto
-
-  .item-image
-    background-position: 50%
-    background-repeat: no-repeat
-    background-size: contain
-    float: left
-    height: 100%
-    max-width: 140px
-    text-align: center
-    width: 100%
-
-    @media screen and (max-width: $break-small)
-      background-size: cover
-
-  .item-details
-    +vertical-align
-    float: left
-    font-family: $primary-font
-    max-width: calc(100% - 140px)
-    padding: 0 30px
-    width: 100%
-
-    @media screen and (max-width: $break-small)
-      padding: 0 20px
-
-  .item-product-link
-    color: var(--primary-text-color)
-    display: block
-    font-size: 22px
-
-    @media screen and (max-width: $break-medium)
-      font-size: 20px
-
-  .item-details-name
-    line-height: 1.5em
-
-    @media screen and (max-width: $break-small)
-      font-size: 1em
-
-  .item-details-option
-    color: var(--secondary-text-color)
-    display: block
-    font-family: $secondary-font
-    font-size: 15px
-    margin-top: 6px
-
-  .item-details-price
-    color: var(--secondary-text-color)
-    display: none
-    font-family: $secondary-font
-    font-size: 15px
-    margin-top: 6px
-
-    @media screen and (max-width: $break-medium)
-      display: block
-
-  .item-quantity-holder
-    +vertical-align
-    +pie-clearfix
-    float: left
-    padding-right: 20px
-
-    @media screen and (max-width: $break-medium)
-      float: right
-      padding: 0
-
-    @media screen and (max-width: $break-small)
-      +transform(none)
-      clear: both
-      float: none
-      padding-top: 18px
-      width: 140px
-
-    button
-      border-radius: 3ex
-      display: flex
-      align-items: center
-      justify-content: center
-      background: none
-      border: 1px solid var(--secondary-text-color)
-      color: var(--secondary-text-color)
-      float: left
-      height: 40px
-      line-height: normal
-      padding: 0
-      width: 40px
-
-      &.increase-qty-button
-
-        @media screen and (max-width: $break-small)
-          float: right
-
-      @media screen and (max-width: $break-small)
-        height: 38px
-        width: 38px
-
-      svg
-        fill: var(--secondary-text-color)
-        height: 20px
-        position: relative
-        top: 1px
-        width: 20px
-
-        @media screen and (max-width: $break-small)
-          height: 18px
-          width: 18px
-
-    input
-      +appearance(none)
-      background: none
-      border: none
-      color: var(--primary-text-color)
-      float: left
-      font-size: 16px
-      height: 40px
-      text-align: center
-      width: 60px
-
-      @media screen and (max-width: $break-small)
-        +transform(translateX(-50%))
-        height: 36px
-        left: 50%
-        position: absolute
-        width: 56px
-
-      &:focus
-        box-shadow: none
-
-  .price
-    +vertical-align
-    color: var(--primary-text-color)
-    float: right
-    font-family: $secondary-font
-    font-size: 18px
-    padding-left: 20px
-    text-align: right
-
-    @media screen and (max-width: $break-medium)
-      display: none
-
-  &:last-child
+  .page-title
     margin-bottom: 0
 
-.cart-footer
-  +pie-clearfix
+.cart-items
+  border-bottom: 1px solid var(--border-color)
 
-  .cart-totals
-    float: right
-    max-width: 300px
+.cart-item
+  display: grid
+  grid-template-columns: auto 1fr 148px auto
+  justify-content: flex-start
+  align-items: flex-start
+  border-top: 1px solid var(--border-color)
+  padding: 24px 0
+  gap: 16px
+
+  @media (max-width: $break-large)
+    grid-template-columns: auto 1fr auto
+    grid-template-rows: repeat(2, auto)
+
+  .cart-item-image-holder
+    @media screen and (max-width: $break-large)
+      grid-area: 1 / 1 / 3 / 2
+
+  .cart-item-image-link
+    display: block
+    height: 90px
+    overflow: hidden
+    width: 90px
+
+    @media screen and (max-width: $break-large)
+      height: 64px
+      width: 64px
+
+    img
+      border-radius: var(--border-radius)
+      height: 100%
+      object-fit: cover
+      width: 100%
+
+  .cart-item-detail
+    padding-right: 24px
+
+    @media (max-width: $break-large)
+      grid-area: 1 / 2 / 2 / 3
+      padding-right: 0
+
+  .product-name
+    font-size: 1.2em
+    word-break: break-word
+
+  .option-name
+    font-size: 1em
+    margin-top: 4px
+
+  input
+    border: none
+    height: 100%
+    padding: 8px
     text-align: center
-    width: 100%
+    width: 48px
 
-    @media screen and (max-width: $break-small)
-      float: none
-      max-width: 100%
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+      display: none
 
-    .cart-subtotals
+  .cart-qty
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    width: 148px
+    gap: 8px
+
+    @media (max-width: $break-large)
+      align-items: center
+      grid-area: 2 / 2 / 3 / 4
+      justify-content: flex-start
+      flex-direction: row
+      width: 100%
+      gap: 24px
+
+  .qty-holder
+    display: flex
+    align-items: center
+    border: 1px solid var(--border-color)
+    border-radius: var(--border-radius)
+    gap: 8px
+
+    &.disabled
+      > *
+        opacity: .7
+        cursor: not-allowed
+        user-select: none
+        pointer-events: none
+
+  .qty-button
+    +appearance(none)
+    color: var(--primary-text-color)
+    display: flex
+    align-items: center
+    justify-content: center
+    border: none
+    background: none
+    cursor: pointer
+    height: 44px
+    width: 36px
+
+    &:hover, &:focus
       color: var(--secondary-text-color)
-      margin-bottom: 20px
 
-      h4
-        margin-bottom: 20px
+    svg
+      width: 14px
+      height: 16px
 
-    h3, h4
-      text-align: left
+  .cart-remove-item--link
+    +appearance(none)
+    display: inline-block
+    height: auto
+    padding: .5em
+    line-height: 1em
+    font-weight: normal
+    font-size: .925em
+    padding: 8px 16px
+    text-decoration: underline
+    width: auto
 
-      >span
-        float: right
-    h3
-      color: var(--primary-text-color)
-      font-size: 22px
-      margin-bottom: 40px
+    @media (max-width: $break-large)
+      padding: 4px 0
+      margin-left: auto
 
-      @media screen and (max-width: $break-small)
-        font-size: 26px
+  .cart-item-price
+    font-size: 1.1em
+    margin-left: auto
+    min-width: 100px
+    min-height: 42px
+    display: flex
+    justify-content: flex-end
+    text-align: right
 
-    h4
-      font-size: 13px
+    @media screen and (max-width: $break-large)
+      font-size: 1.2rem
+      min-height: 0
+      min-width: 0
+      grid-area: 1 / 3 / 2 / 4
+      margin-left: 0
 
-    button, .button
-      max-width: 100%
+.cart-footer
+  display: grid
+  place-items: center
+  gap: 2rem
+  margin-top: 24px
+  margin-left: auto
+  width: 100%
+  max-width: 300px
 
-    .continue-shopping
-      margin-top: 20px
-      text-align: center
-      width: auto
+  @media screen and (max-width: $break-small)
+    max-width: 100%
 
-.cart-empty-message
-  text-align: center
+.cart-subtotal
+  display: flex
+  gap: 16px
+  font-size: 1.25rem
+  align-items: flex-start
+  width: 100%
 
-  p
-    margin: 80px 0
+  &__label
+    font-weight: 700
+
+  &__amount
+    margin-left: auto
+
+.cart-submit
+  display: flex
+  flex-direction: column
+  gap: 8px
+  width: 100%
 
   .button
-    display: inline-block
-
-  &.hidden-message
-    display: none
+    max-width: 100%
+    width: 100%

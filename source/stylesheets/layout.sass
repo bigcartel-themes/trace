@@ -3,7 +3,7 @@ html
   position: relative
 
 body
-  background-color: $background-color
+  background-color: var(--background-color)
   color: var(--primary-text-color)
   font-family: $primary-font
   font-size: 16px
@@ -83,10 +83,12 @@ h1, h2, h3, h4, h5, h6
   text-align: left
 
 .errors
+  border: 2px solid $error-text-color
+  border-radius: var(--border-radius)
+  padding: 12px
   color: $error-text-color
   list-style: none
   margin: 0 0 40px
-  padding: 0
   text-align: center
 
 .wrapper
@@ -95,13 +97,13 @@ h1, h2, h3, h4, h5, h6
   padding: 0 7%
   position: relative
   width: 100%
-  max-width: 2000px
+  max-width: 1600px
 
   @media screen and (max-width: $break-small)
     padding: 0 20px
 
 header
-  background: $background-color
+  background: var(--background-color)
   +transition(height .4s)
   height: $header-height
   position: sticky
@@ -182,7 +184,7 @@ header
         width: 15px
 
       .category-dropdown
-        background: $background-color
+        background: var(--background-color)
         transition: opacity .2s linear
         border-radius: var(--border-radius)
         border: 1px solid var(--secondary-text-color)
@@ -374,67 +376,38 @@ header
     .wrapper
       max-width: calc(800px + 7%)
 
-    h1
-      display: none
-
-      @media screen and (max-width: $break-medium)
-        display: block
-
     .custom-page-content
       color: var(--secondary-text-color)
       font-family: $secondary-font
-      font-size: 18px
 
-      @media screen and (max-width: $break-small)
-        font-size: 16px
+      p
+        margin: revert
 
-    a[href]
-      transition: opacity .2s linear
-      text-decoration: underline
+      &>:first-child
+        margin-top: 0
 
-      &:hover
-        opacity: .6
+      &>:last-child
+        margin-bottom: 0
 
-    img, iframe
-      display: block
-      max-width: 100%
+      ol, ul
+        margin: 1em
 
-    ol, ul
-      margin: 1em 0
-      padding: 0
+      ul
+        list-style: disc
 
-    ul
-      list-style: disc
-      list-style-position: inside
+      ol
+        list-style: decimal
 
-    ol
-      list-style: decimal
-      list-style-position: inside
+      a
+        text-decoration: underline
 
   &.page-contact
-
-    h1
-      display: none
-
-      @media screen and (max-width: $break-medium)
-        display: block
-
     .wrapper
-      max-width: calc(680px + 7%)
+      max-width: calc(760px + 7%)
 
   &.page-cart
-
     .wrapper
       max-width: calc(880px + 7%)
-
-  .cart-header
-    display: none
-
-    @media screen and (max-width: $break-medium)
-      display: block
-
-    &.cart-empty-title
-      display: block
 
 .select
   border-radius: var(--border-radius)
@@ -534,7 +507,7 @@ header
 input, textarea
   +appearance(none)
   border-radius: var(--border-radius)
-  background: $background-color
+  background: var(--background-color)
   border: 1px solid var(--secondary-text-color)
   color: var(--secondary-text-color)
   font-family: $secondary-font
@@ -561,7 +534,7 @@ input, textarea
 
   .overlay-background
     opacity: 1
-    background: $background-color
+    background: var(--background-color)
     bottom: 0
     left: 0
     position: absolute
@@ -712,7 +685,3 @@ input, textarea
     color: var(--primary-text-color)
     background: none
     padding: 0
-
-  &--errors
-    background-color: var(--error-background-color)
-    color: var(--error-text-color)
