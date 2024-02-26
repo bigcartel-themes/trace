@@ -13,6 +13,106 @@
       "description": "1200px by 800px images recommended"
     }
   ],
+  "preset_styles": {
+    "preview": {
+      "title_font": "primary_font",
+      "body_font": "secondary_font",
+      "text_color": "primary_text_color",
+      "background_color": "background_color"
+    },
+    "presets": [
+      {
+        "group_name": "Classic",
+        "styles": [
+          {
+            "style_name": "Classic #1",
+            "fonts": {
+              "primary_font": "Work Sans",
+              "secondary_font": "Work Sans"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "primary_text_color": "#FFFFFF",
+              "secondary_text_color": "#000000",
+              "welcome_background_color": "#F9F9F9",
+              "welcome_text_color": "#000000",
+              "error_text_color": "#B52833"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Elegant",
+        "styles": [
+          {
+            "style_name": "Elegant #1",
+            "fonts": {
+              "primary_font": "Marcellus",
+              "secondary_font": "Lato"
+            },
+            "colors": {
+              "background_color": "#141415",
+              "primary_text_color": "#F8F8F8",
+              "secondary_text_color": "#F8F8F8",
+              "welcome_background_color": "#242424",
+              "welcome_text_color": "#F8F8F8",
+              "error_text_color": "#F2A7AC"
+            }
+          },
+          {
+            "style_name": "Elegant #2",
+            "fonts": {
+              "primary_font": "Prata",
+              "secondary_font": "Karla"
+            },
+            "colors": {
+              "background_color": "#E9E5E5",
+              "primary_text_color": "#0F1B27",
+              "secondary_text_color": "#0F1B27",
+              "welcome_background_color": "#F0EEEE",
+              "welcome_text_color": "#0F1B27",
+              "error_text_color": "#B52833"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Playful",
+        "styles": [
+          {
+            "style_name": "Playful #1",
+            "fonts": {
+              "primary_font": "Syne",
+              "secondary_font": "Inter"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "primary_text_color": "#0000FF",
+              "secondary_text_color": "#0000FF",
+              "welcome_background_color": "#FFEE54",
+              "welcome_text_color": "#0000FF",
+              "error_text_color": "#B52833"
+            }
+          },
+          {
+            "style_name": "Playful #2",
+            "fonts": {
+              "primary_font": "Quicksand",
+              "secondary_font": "Quicksand"
+            },
+            "colors": {
+              "background_color": "#FFE9F4",
+              "primary_text_color": "#243588",
+              "secondary_text_color": "#243588",
+              "welcome_background_color": "#FFF6FB",
+              "welcome_text_color": "#243588",
+              "error_text_color": "#B52833"
+            }
+          }
+        ]
+      }
+    ]
+  },
   "fonts": [
     {
       "variable": "primary_font",
