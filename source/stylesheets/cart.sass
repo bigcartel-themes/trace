@@ -125,26 +125,17 @@
         pointer-events: none
 
   .qty-button
-    +appearance(none)
-    color: var(--primary-text-color)
     display: flex
     align-items: center
     justify-content: center
-    border: none
-    background: none
-    cursor: pointer
     height: 44px
     width: 36px
-
-    &:hover, &:focus
-      color: var(--secondary-text-color)
 
     svg
       width: 14px
       height: 16px
 
   .cart-remove-item--link
-    +appearance(none)
     display: inline-block
     height: auto
     padding: .5em
@@ -190,12 +181,9 @@
 .cart-subtotal
   display: flex
   gap: 16px
-  font-size: 1.25rem
+  font-size: 1.5rem
   align-items: flex-start
   width: 100%
-
-  &__label
-    font-weight: 700
 
   &__amount
     margin-left: auto

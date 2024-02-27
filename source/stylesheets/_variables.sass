@@ -12,14 +12,14 @@ $break-extra-small: 500px
   --background-color: #{'{{ theme.background_color }}'}
   --primary-text-color: #{'{{ theme.primary_text_color }}'}
   --secondary-text-color: #{'{{ theme.secondary_text_color }}'}
-  --border-color: #{'{{ theme.secondary_text_color }}'}
+  --border-color: #{'{{ theme.primary_text_color }}'}
   --welcome-background-color: #{'{{ theme.welcome_background_color }}'}
   --welcome-text-color: #{'{{ theme.welcome_text_color }}'}
   --error-text-color: #{'{{ theme.error_text_color }}'}
 
   --button-text-color: var(--background-color)
   --button-background-color: var(--primary-text-color)
-  --button-hover-background-color: var(--secondary-text-color)
+  --button-hover-background-color: #{'rgba(var(--primary-text-color-rgb), .8)'}
 
   --product-status-background-color: var(--background-color)
   --product-status-text-color: var(--primary-text-color)
@@ -29,6 +29,8 @@ $break-extra-small: 500px
 
   --primary-font: #{'{{ theme.primary_font | font_family }}'}
   --secondary-font: #{'{{ theme.secondary_font | font_family }}'}
+
+  --error-text-color: #{'{{ theme.error_text_color }}'}
 
   --border-radius: 4px
   --border-radius-sm: 2px
@@ -41,11 +43,3 @@ $break-extra-small: 500px
 
 $primary-font: #{"{{ theme.primary_font | font_family }}"}
 $secondary-font: #{"{{ theme.secondary_font | font_family }}"}
-
-$border-color: #{'{{ theme.secondary_text_color }}'}
-
-$welcome-background-color: #{'{{ theme.welcome_background_color }}'}
-
-$welcome-text-color: #{'{{ theme.welcome_text_color }}'}
-
-$error-text-color: #{'{{ theme.error_text_color }}'}

@@ -32,6 +32,10 @@ a.skip-link
 a, a:visited
   color: var(--primary-text-color)
   text-decoration: none
+  transition: color .2s linear
+
+  &:hover
+    color: var(--secondary-text-color)
 
 h1, h2, h3, h4, h5, h6
   font-weight: normal
@@ -40,10 +44,10 @@ h1, h2, h3, h4, h5, h6
   text-align: left
 
 .errors
-  border: 2px solid $error-text-color
+  border: 2px solid var(--error-text-color)
   border-radius: var(--border-radius)
   padding: 12px
-  color: $error-text-color
+  color: var(--error-text-color)
   list-style: none
   margin: 0 0 40px
   text-align: center
@@ -58,7 +62,6 @@ h1, h2, h3, h4, h5, h6
 
 header
   background: var(--background-color)
-  +transition(height .4s)
   height: $header-height
   position: sticky
   top: 0
@@ -76,7 +79,6 @@ header
     z-index: 5
 
   .header-nav
-    +flex(1)
     +flexbox
     +align-items(center)
     +justify-content(flex-start)
@@ -84,54 +86,50 @@ header
     text-align: left
     gap: 20px
 
-    .open-menu
-      cursor: pointer
-
-      svg
-        fill: var(--primary-text-color)
-        height: 24px
-        width: 24px
-
     .menu-bars
       +flexbox
       +align-items(center)
       +justify-content(center)
-      background: none
       color: var(--primary-text-color)
       padding: 0
       height: 36px
       position: relative
       width: 36px
+      transition: color .2s linear
 
-    .category-nav-title
-      margin-right: 8px
+      &:hover
+        color: var(--secondary-text-color)
 
-      @media screen and (max-width: $break-medium)
-        display: none
+      svg
+        fill: currentColor
+        height: 24px
+        width: 24px
 
-    .category-nav-heading
+    .open-category-nav
       display: flex
       align-items: center
       gap: 8px
+      transition: color .2s linear
 
-    .category-nav
+      &:hover
+        color: var(--secondary-text-color)
+
+    .header-category-nav
       position: relative
-      width: auto
-      z-index: 3
+
+      @media screen and (max-width: $break-small)
+        display: none
 
     .category-nav-arrow
-      transition: opacity .2s linear
-      display: inline-block
-      fill: var(--secondary-text-color)
+      fill: currentColor
       height: 11px
-      margin-left: 2px
       width: 15px
 
     .category-dropdown
       background: var(--background-color)
       transition: opacity .2s linear
       border-radius: var(--border-radius)
-      border: 1px solid var(--secondary-text-color)
+      border: 1px solid var(--primary-text-color)
       left: -23px
       margin: 0 auto
       min-width: 250px
@@ -145,7 +143,7 @@ header
       z-index: 3
       top: calc(100% + 10px)
       scrollbar-width: thin
-      scrollbar-color: var(--secondary-text-color) transparent
+      scrollbar-color: var(--primary-text-color) transparent
       scrollbar-gutter: stable
 
       &[aria-hidden="false"]
@@ -162,7 +160,7 @@ header
       &::-webkit-scrollbar-thumb
         border-radius: .375rem
         border: 3px solid transparent
-        background-color: var(--secondary-text-color)
+        background-color: var(--primary-text-color)
         background-clip: content-box
 
       .dropdown-list
@@ -176,17 +174,14 @@ header
           display: block
 
           a
-            color: var(--secondary-text-color)
             display: block
             font-size: 15px
             padding: 8px 10px
 
             &:hover
-              color: var(--primary-text-color)
               text-decoration: underline
 
   .store-name
-    color: var(--primary-text-color)
     display: flex
     align-items: center
     justify-content: center
@@ -218,14 +213,12 @@ header
         width: auto
 
     .store-link
-      color: var(--secondary-text-color)
       display: block
 
   .header-cart
     display: flex
     align-items: center
-    justify-self: flex-end
-    max-width: 33%
+    justify-content: flex-end
     position: relative
     text-align: right
 
@@ -237,6 +230,13 @@ header
       position: relative
       text-align: center
       flex-shrink: 0
+      transition: color .2s linear
+
+      svg
+        fill: currentColor
+
+      &:hover
+        color: var(--secondary-text-color)
 
       .cart-num-items
         font-size: 12px
@@ -276,7 +276,6 @@ header
       max-width: calc(800px + var(--padding-size))
 
     .custom-page-content
-      color: var(--secondary-text-color)
       font-family: $secondary-font
 
       p
@@ -338,7 +337,6 @@ header
       display: none
 
   svg
-    transition: fill .2s linear
     fill: currentColor
     pointer-events: none
     height: 8px
@@ -350,8 +348,8 @@ header
     z-index: 1
 
 .button, a.button
-  +transition(all .2s linear)
-  background-color: var(--button-background-color)
+  transition: background .2s linear
+  background: var(--button-background-color)
   border-radius: var(--border-radius)
   color: var(--button-text-color)
   height: 60px
@@ -365,19 +363,19 @@ header
   width: 100%
 
   &.minimal-button
-    +transform(none)
     background: none
     color: var(--primary-text-color)
     border: none
     padding: 0
     text-decoration: underline
+    transition: color .2s linear
     text-underline-offset: 4px
 
-    &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
-      +transform(none)
+    &:not(:disabled):hover, &:not(:disabled):active
       box-shadow: none
       background: none
       color: var(--secondary-text-color)
+      opacity: 1
 
   &:disabled, &.disabled
     cursor: not-allowed
@@ -385,25 +383,22 @@ header
   &.centered-button
     margin: 60px auto
 
-  &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
-    background-color: var(--button-hover-background-color)
+  &:not(:disabled):hover, &:not(:disabled):active
+    background: var(--button-hover-background-color)
     color: var(--button-text-color)
-    opacity: .8
 
 input, textarea
-  +appearance(none)
   border-radius: var(--border-radius)
   background: var(--background-color)
-  border: 1px solid var(--secondary-text-color)
-  color: var(--secondary-text-color)
+  border: 1px solid var(--primary-text-color)
+  color: var(--primary-text-color)
   font-family: $secondary-font
   font-size: 16px
   max-width: 100%
   padding: 14px
 
 .overlay
-  overflow-y: auto !important
-  +transition(opacity 0.3s, visibility 0.3s)
+  transition: opacity 0.2s, visibility 0.2s
   height: 100%
   left: 0
   opacity: 0
@@ -412,28 +407,19 @@ input, textarea
   top: 0
   visibility: hidden
   width: 100%
-  z-index: 4
+  z-index: 1000
+  overscroll-behavior: contain
+  background: var(--background-color)
 
   &.open
     opacity: 1
     visibility: visible
 
-  .overlay-background
-    opacity: 1
-    background: var(--background-color)
-    bottom: 0
-    left: 0
-    position: absolute
-    right: 0
-    top: 0
-    z-index: 5
-
   .wrapper
     height: 100%
-    margin: 0 auto
     overflow-y: scroll
-    padding-bottom: 140px
     position: relative
+    padding-bottom: 90px
 
   .close-container
     +flexbox
@@ -446,15 +432,20 @@ input, textarea
     +align-items(center)
     +justify-content(center)
     background: none
+    color: var(--primary-text-color)
     height: 36px
     line-height: 1em
     padding: 0
     width: 36px
     z-index: 6
+    transition: color .2s linear
+
+    &:hover
+      color: var(--secondary-text-color)
 
     svg
+      fill: currentColor
       height: 18px
-      fill: var(--primary-text-color)
       width: 18px
 
   .overlay-navigation
@@ -478,8 +469,6 @@ input, textarea
       li
 
         a
-          transition: color .2s linear
-          color: var(--primary-text-color)
           display: inline-block
           font-size: 1.75em
           padding: 0 5px
@@ -488,7 +477,6 @@ input, textarea
             font-size: 1.25em
 
           &:hover
-            color: var(--secondary-text-color)
             text-decoration: underline
 
   .social-icons
@@ -507,18 +495,13 @@ input, textarea
 
     li
       a
-        color: var(--secondary-text-color)
         display: block
         padding: 5px
-        transition: opacity .2s linear
 
         svg
           fill: currentColor
           height: 20px
           width: 20px
-
-        &:hover
-          opacity: .6
 
   .bigcartel-credit
     line-height: 1em

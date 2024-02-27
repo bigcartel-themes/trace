@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
 
 
 $(function() {
-  $('.category-nav-heading').click(function(e) {
+  $('.open-category-nav').click(function(e) {
     $('.category-dropdown').attr('aria-hidden', function(i, attr) {
       return attr === 'true' ? 'false' : 'true';
     });

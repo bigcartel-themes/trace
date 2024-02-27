@@ -26,8 +26,8 @@
           <button class="open-menu menu-bars" aria-label="Open navigation menu">
             <svg aria-hidden="true" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50"><path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path></svg>
           </button>
-          <div class="category-nav header-category-nav">
-            <button class="category-nav-heading" aria-label="Open category navigation">
+          <div class="header-category-nav">
+            <button class="open-category-nav" aria-label="Open category navigation">
               {% if categories.active != blank or artists.active != blank %}
                 <div class="category-nav-page">Shop</div>
                 <svg class="category-nav-arrow" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
@@ -86,7 +86,6 @@
     </main>
 
     <div class="overlay">
-      <div class="overlay-background"></div>
       <div class="wrapper">
         <div class="close-container">
           <button class="close-overlay" type="button" aria-label="Close navigation menu">
@@ -100,7 +99,7 @@
             {% for page in pages.all %}
               <li>{{ page | link_to }}</li>
             {% endfor %}
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/contact">{{ pages.contact.name }}</a></li>
             {% if store.website != blank %}
               <li><a href="{{ store.website }}">Back to site</a></li>
             {% endif %}

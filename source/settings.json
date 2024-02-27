@@ -148,7 +148,7 @@
     },
     {
       "variable": "secondary_text_color",
-      "label": "Secondary text",
+      "label": "Link hover",
       "default": "#444444"
     },
     {
