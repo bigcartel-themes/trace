@@ -60,7 +60,7 @@
 
                 {% if product_status != blank %}<div class="product-list-thumb-status">{{ product_status }}</div>{% endif %}
               </div>
-              <div class="product-list-thumb-info">
+              <div class="product-list-thumb-info product-list-thumb-info--{{ theme.product_detail_alignment }}">
                 <div class="product-list-thumb-name">{{ product.name }}</div>
                 <div class="product-list-thumb-price">
                   {% if product.variable_pricing %}
