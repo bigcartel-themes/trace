@@ -5,3 +5,4 @@
 //= require javascripts/product-option-groups
 //= require javascripts/product
 //= require javascripts/product-carousel
+//= require javascripts/search

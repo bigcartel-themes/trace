@@ -192,6 +192,13 @@
       "description": "Displays an announcement message on the top of every page"
     },
     {
+      "variable": "show_search",
+      "label": "Show search",
+      "type": "boolean",
+      "default": true,
+      "description": "Displays a search field"
+    },
+    {
       "variable": "welcome_message",
       "label": "Welcome message",
       "type": "text",
