@@ -3,16 +3,21 @@ html
   position: relative
 
 body
+  display: flex
+  flex-direction: column
   background-color: var(--background-color)
   color: var(--primary-text-color)
   font-family: $primary-font
   font-size: 16px
   line-height: 1.5
+  height: 100%
+  min-height: 100vh
 
   &.overlay-open
-    overflow: auto !important
-    overflow-x: hidden !important
-    padding-right: 0 !important
+    height: 100vh
+    width: 100vw
+    overflow: hidden
+    overscroll-behavior: none
 
 a.skip-link
   +transition(all .3s)
@@ -44,16 +49,15 @@ h1, h2, h3, h4, h5, h6
   text-align: left
 
 .errors
-  border: 2px solid var(--error-text-color)
   border-radius: var(--border-radius)
-  padding: 12px
-  color: var(--error-text-color)
+  padding: 16px
   list-style: none
   margin: 0 0 40px
   text-align: center
+  background-color: var(--error-background-color)
+  color: var(--error-text-color)
 
 .wrapper
-  +pie-clearfix
   margin: 0 auto
   padding: 0 var(--padding-size)
   position: relative
@@ -62,11 +66,8 @@ h1, h2, h3, h4, h5, h6
 
 header
   background: var(--background-color)
-  height: $header-height
-  position: sticky
-  top: 0
+  padding: 24px 0
   width: 100%
-  z-index: 4
 
   .wrapper
     display: grid
@@ -77,6 +78,7 @@ header
     height: 100%
     position: relative
     z-index: 5
+    column-gap: 16px
 
   .header-nav
     +flexbox
@@ -90,9 +92,11 @@ header
       +flexbox
       +align-items(center)
       +justify-content(center)
+      flex-shrink: 0
       color: var(--primary-text-color)
       padding: 0
       height: 36px
+      left: -4px
       position: relative
       width: 36px
       transition: color .2s linear
@@ -110,12 +114,14 @@ header
       align-items: center
       gap: 8px
       transition: color .2s linear
+      outline-offset: 4px
 
       &:hover
         color: var(--secondary-text-color)
 
     .header-category-nav
       position: relative
+      width: 100%
 
       @media screen and (max-width: $break-small)
         display: none
@@ -189,18 +195,17 @@ header
     font-size: 1.75em
     height: 100%
     text-align: center
+    padding: 0 16px
+    word-break: break-all
 
     @media screen and (max-width: $break-small)
       font-size: 1.5em
 
     &.image
-      height: calc(#{$header-height} / 2.8)
-
-      @media screen and (max-width: $break-medium)
-        height: calc(#{$header-height-tablet} / 2)
+      height: 80px
 
       @media screen and (max-width: $break-small)
-        height: calc(#{$header-height-mobile} / 2)
+        height: 48px
 
       .store-link
         height: 100%
@@ -214,7 +219,9 @@ header
         width: auto
 
     .store-link
-      display: block
+      display: flex
+      align-items: center
+      justify-content: center
 
   .header-cart
     display: flex
@@ -223,13 +230,18 @@ header
     position: relative
     text-align: right
     column-gap: 16px
+    right: -4px
+
+    @media screen and (max-width: $break-small)
+      column-gap: 8px
+      right: -8px
 
     .cart-link
       display: flex
       align-items: center
       justify-content: center
-      height: 40px
-      width: 40px
+      height: 36px
+      width: 36px
       position: relative
       text-align: center
       flex-shrink: 0
@@ -243,44 +255,55 @@ header
 
       .cart-num-items
         font-size: 12px
-        height: 30px
         position: absolute
-        text-align: center
-        top: 24px
-        z-index: 10
+        top: 12px
 
     svg
       fill: var(--primary-text-color)
       height: 30px
       width: 30px
 
+      @media screen and (max-width: $break-small)
+        height: 26px
+        width: 26px
+
     .open-search
       display: flex
       align-items: center
       justify-content: center
-      width: 40px
-      height: 40px
+      width: 36px
+      height: 36px
 
       svg
-        height: 24px
+        height: 22px
         position: relative
         fill: currentColor
         top: 1px
-        width: 24px
+        width: 22px
+
+        @media screen and (max-width: $break-small)
+          height: 20px
+          width: 20px
 
 .content
-  padding: 40px 0 calc(11% + 80px)
+  flex: 1
+  padding: 48px 0 120px
 
   @media screen and (max-width: $break-medium)
     padding-top: 40px
+    padding-bottom: 80px
 
   @media screen and (max-width: $break-small)
     padding-top: 20px
+    padding-bottom: 60px
 
   h1
     font-size: 2em
     margin-bottom: 60px
     text-align: center
+
+    @media screen and (max-width: $break-small)
+      margin-bottom: 40px
 
   &.product
 
@@ -323,6 +346,88 @@ header
   &.page-cart
     .wrapper
       max-width: calc(880px + var(--padding-size))
+
+
+footer
+  .wrapper
+    display: flex
+    flex-direction: column
+    gap: 40px
+    align-items: center
+    margin: 0 auto
+    padding-bottom: 40px
+
+.footer__pages
+  border-top: 1px solid var(--footer-border-color)
+  padding-top: 40px
+  width: 100%
+  display: flex
+  column-gap: 30px
+  flex-wrap: wrap
+  margin: 0 auto
+  align-items: center
+  justify-content: center
+  row-gap: 12px
+
+  @media screen and (max-width: $break-small)
+    flex-direction: column
+
+  a
+    display: block
+    padding: 2px
+
+    &:hover
+      text-decoration: underline
+
+.social-icons
+  display: flex
+  gap: 20px
+  list-style: none
+  margin: 0
+  padding: 0
+  flex-wrap: wrap
+  justify-content: center
+
+  @media screen and (max-width: $break-small)
+    gap: 16px
+
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-shrink: 0
+    width: 36px
+    height: 36px
+
+    svg
+      fill: currentColor
+      height: 22px
+      width: 22px
+
+      &.tumblr-icon
+        width: 14px
+
+.bigcartel-credit
+  line-height: 1em
+  font-size: 15px
+  display: inline-flex
+  align-items: center
+  gap: 8px
+  outline-offset: 4px
+  padding: 2px 0
+  text-decoration: none
+
+  &:hover
+    text-decoration: none
+
+  &__text
+    position: relative
+
+  &__lockup
+    display: block
+    fill: currentColor
+    padding-top: 1px
+    width: 80px
 
 .select
   border-radius: var(--border-radius)
@@ -369,12 +474,12 @@ header
   background: var(--button-background-color)
   border-radius: var(--border-radius)
   color: var(--button-text-color)
-  height: 60px
+  min-height: 60px
   display: flex
   align-items: center
   justify-content: center
   max-width: 275px
-  padding: 0 20px
+  padding: 20px
   text-align: center
   white-space: pre-wrap
   width: 100%
@@ -413,138 +518,6 @@ input, textarea
   font-size: 16px
   max-width: 100%
   padding: 14px
-
-.overlay
-  transition: opacity 0.2s, visibility 0.2s
-  height: 100%
-  left: 0
-  opacity: 0
-  position: fixed
-  text-align: left
-  top: 0
-  visibility: hidden
-  width: 100%
-  z-index: 1000
-  overscroll-behavior: contain
-  background: var(--background-color)
-
-  &.open
-    opacity: 1
-    visibility: visible
-
-  .wrapper
-    height: 100%
-    overflow-y: scroll
-    position: relative
-    padding-bottom: 90px
-
-  .close-container
-    +flexbox
-    +align-items(center)
-    +justify-content(flex-start)
-    height: $header-height
-
-  .close-overlay
-    +flexbox
-    +align-items(center)
-    +justify-content(center)
-    background: none
-    color: var(--primary-text-color)
-    height: 36px
-    line-height: 1em
-    padding: 0
-    width: 36px
-    z-index: 6
-    transition: color .2s linear
-
-    &:hover
-      color: var(--secondary-text-color)
-
-    svg
-      fill: currentColor
-      height: 18px
-      width: 18px
-
-  .overlay-navigation
-    margin: 0
-    max-width: 100%
-    padding: 0
-    position: relative
-    z-index: 6
-
-    .page-list
-      list-style: none
-      display: flex
-      flex-direction: column
-      margin: -10px 0 0 -5px
-      padding: 0
-      row-gap: 20px
-
-      @media screen and (max-width: $break-small)
-        margin-top: 20px
-
-      li
-
-        a
-          display: inline-block
-          font-size: 1.75em
-          padding: 0 5px
-
-          @media screen and (max-width: $break-medium)
-            font-size: 1.25em
-
-          &:hover
-            text-decoration: underline
-
-  .social-icons
-    margin: 0 0 0 -5px
-    margin: 30px 0
-    padding: 0
-    position: relative
-    z-index: 6
-    display: flex
-    align-items: center
-    justify-content: flex-start
-    column-gap: 20px
-    row-gap: 16px
-    list-style: none
-    flex-wrap: wrap
-
-    li
-      a
-        display: block
-        padding: 5px
-
-        svg
-          fill: currentColor
-          height: 20px
-          width: 20px
-
-  .bigcartel-credit
-    line-height: 1em
-    font-size: 15px
-    display: inline-flex
-    align-items: center
-    gap: 8px
-    outline-offset: 4px
-    padding: 2px 0
-    text-decoration: none
-    margin: 60px 0 60px 2px
-
-    @media screen and (max-width: $break-small)
-      margin: 50px 0
-
-    &:hover, &:focus
-      text-decoration: none
-
-    &__text
-      position: relative
-
-    &__lockup
-      display: block
-      fill: currentColor
-      padding-top: 1px
-      width: 86px
 
 .visually-hidden
   border: 0

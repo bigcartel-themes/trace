@@ -6,3 +6,5 @@
 //= require javascripts/product
 //= require javascripts/product-carousel
 //= require javascripts/search
+//= require javascripts/overlay
+//= require javascripts/navigation

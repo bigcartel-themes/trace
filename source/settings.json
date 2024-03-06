@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "images": [
     {
       "variable": "logo",
@@ -36,7 +36,6 @@
               "secondary_text_color": "#000000",
               "welcome_background_color": "#F9F9F9",
               "welcome_text_color": "#000000",
-              "error_text_color": "#B52833",
               "announcement_text_color": "#FFFFFF",
               "announcement_background_color": "#000000"
             }
@@ -58,7 +57,6 @@
               "secondary_text_color": "#F8F8F8",
               "welcome_background_color": "#242424",
               "welcome_text_color": "#F8F8F8",
-              "error_text_color": "#F2A7AC",
               "announcement_text_color": "#FFFFFF",
               "announcement_background_color": "#000000"
             }
@@ -75,7 +73,6 @@
               "secondary_text_color": "#0F1B27",
               "welcome_background_color": "#F0EEEE",
               "welcome_text_color": "#0F1B27",
-              "error_text_color": "#B52833",
               "announcement_text_color": "#FFFFFF",
               "announcement_background_color": "#000000"
             }
@@ -97,7 +94,6 @@
               "secondary_text_color": "#0000FF",
               "welcome_background_color": "#FFEE54",
               "welcome_text_color": "#0000FF",
-              "error_text_color": "#B52833",
               "announcement_text_color": "#FFFFFF",
               "announcement_background_color": "#000000"
             }
@@ -114,7 +110,6 @@
               "secondary_text_color": "#243588",
               "welcome_background_color": "#FFF6FB",
               "welcome_text_color": "#243588",
-              "error_text_color": "#B52833",
               "announcement_text_color": "#FFFFFF",
               "announcement_background_color": "#000000"
             }
@@ -170,11 +165,6 @@
       "variable": "announcement_background_color",
       "label": "Announcement Message Background",
       "default": "#000000"
-    },
-    {
-      "variable": "error_text_color",
-      "label": "Error text",
-      "default": "#b52833"
     }
   ],
   "options": [
@@ -238,8 +228,8 @@
       "variable": "all_products_button_text",
       "label": "All products button text",
       "type": "text",
-      "description": "Displays underneath featured items and links to your Product Page",
-      "default": "All Products"
+      "description": "Displays underneath featured items and links to your Products Page",
+      "default": "View all products"
     },
     {
       "variable": "max_products_per_row",
@@ -281,8 +271,11 @@
       "variable": "product_detail_alignment",
       "label": "Product detail alignment",
       "type": "select",
-      "options": ["Left", "Centered"],
-      "default": "Left",
+      "options": [
+        ["Left", "left"],
+        ["Centered", "center"]
+      ],
+      "default": "center",
       "description": "Alignment for product details under thumbnail images"
     },
     {
@@ -334,6 +327,19 @@
       ],
       "default": "sign",
       "description": "Sets the display of prices in your shop"
+    },
+    {
+      "variable": "border_radius",
+      "label": "Rounded corners",
+      "type": "select",
+      "options": [
+        ["Off", "0"],
+        ["Small", "2px"],
+        ["Medium", "4px"],
+        ["Large", "8px"]
+      ],
+      "default": "4px",
+      "description": "Controls the rounded corner style on images and other site elements"
     },
     {
       "variable": "instagram_url",

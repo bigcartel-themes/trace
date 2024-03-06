@@ -1,0 +1,106 @@
+.navigation-modal
+  transition: opacity 0.2s, visibility 0s 0.2s
+  height: 100%
+  left: 0
+  opacity: 0
+  position: fixed
+  top: 0
+  visibility: hidden
+  width: 100%
+  z-index: 1000
+  overscroll-behavior: contain
+  background: var(--background-color)
+
+  &[aria-hidden="false"]
+    transition: opacity 0.2s
+    opacity: 1
+    visibility: visible
+
+    .navigation-modal__content
+      display: block
+
+  &__content
+    display: none
+    height: 100%
+    overflow-y: scroll
+    padding: 0 0 90px
+
+    .wrapper
+      padding-top: 32px
+      padding-bottom: 32px
+
+  &__header
+    padding: 24px 0
+    display: flex
+    align-items: center
+    justify-content: flex-start
+
+  &__close
+    cursor: pointer
+    height: 40px
+    display: flex
+    left: -8px
+    align-items: center
+    justify-content: center
+    position: relative
+    padding: 0px
+    width: 40px
+
+    svg
+      fill: currentColor
+      height: 18px
+      width: 18px
+
+  &__main
+    padding: 0
+
+  &__list
+    text-align: left
+    font-size: 2em
+    display: flex
+    flex-direction: column
+    gap: 24px
+    margin: 16px 0 32px
+
+    @media screen and (max-width: $break-small)
+      font-size: 1.5em
+
+    a
+      &:hover
+        text-decoration: underline
+
+  .social-icons
+    justify-content: flex-start
+    gap: 16px
+    position: relative
+    left: -4px
+
+.navigation-modal__categories
+  &-toggle
+    display: flex
+    align-items: center
+    gap: 8px
+    text-underline-offset: 4px
+
+    &:hover
+      text-decoration: underline
+
+    &[aria-expanded="true"]
+      svg
+        transform: rotate(180deg)
+    svg
+      width: 14px
+
+  .category-list
+    display: block
+    margin-top: 8px
+    margin-left: 16px
+
+    ul
+      display: flex
+      flex-direction: column
+      gap: 12px
+      font-size: .9em
+
+    &[aria-hidden="true"]
+      display: none
