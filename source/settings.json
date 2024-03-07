@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "images": [
     {
       "variable": "logo",
@@ -13,6 +13,101 @@
       "description": "1200px by 800px images recommended"
     }
   ],
+  "preset_styles": {
+    "preview": {
+      "title_font": "primary_font",
+      "body_font": "secondary_font",
+      "text_color": "primary_text_color",
+      "background_color": "background_color"
+    },
+    "presets": [
+      {
+        "group_name": "Classic",
+        "styles": [
+          {
+            "style_name": "Classic #1",
+            "fonts": {
+              "primary_font": "Work Sans",
+              "secondary_font": "Work Sans"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "primary_text_color": "#000000",
+              "secondary_text_color": "#444444",
+              "welcome_background_color": "#F9F9F9",
+              "welcome_text_color": "#000000",
+              "error_text_color": "#B52833"
+            }
+          },
+          {
+            "style_name": "Classic #2",
+            "fonts": {
+              "primary_font": "Marcellus",
+              "secondary_font": "Lato"
+            },
+            "colors": {
+              "background_color": "#141415",
+              "primary_text_color": "#F8F8F8",
+              "secondary_text_color": "#F8F8F8",
+              "welcome_background_color": "#242424",
+              "welcome_text_color": "#F8F8F8",
+              "error_text_color": "#F2A7AC"
+            }
+          },
+          {
+            "style_name": "Classic #3",
+            "fonts": {
+              "primary_font": "Prata",
+              "secondary_font": "Karla"
+            },
+            "colors": {
+              "background_color": "#E9E5E5",
+              "primary_text_color": "#0F1B27",
+              "secondary_text_color": "#0F1B27",
+              "welcome_background_color": "#F0EEEE",
+              "welcome_text_color": "#0F1B27",
+              "error_text_color": "#B52833"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Playful",
+        "styles": [
+          {
+            "style_name": "Playful #1",
+            "fonts": {
+              "primary_font": "Syne",
+              "secondary_font": "Inter"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "primary_text_color": "#0000FF",
+              "secondary_text_color": "#0000FF",
+              "welcome_background_color": "#FFEE54",
+              "welcome_text_color": "#0000FF",
+              "error_text_color": "#B52833"
+            }
+          },
+          {
+            "style_name": "Playful #2",
+            "fonts": {
+              "primary_font": "Quicksand",
+              "secondary_font": "Quicksand"
+            },
+            "colors": {
+              "background_color": "#FFE9F4",
+              "primary_text_color": "#243588",
+              "secondary_text_color": "#243588",
+              "welcome_background_color": "#FFF6FB",
+              "welcome_text_color": "#243588",
+              "error_text_color": "#B52833"
+            }
+          }
+        ]
+      }
+    ]
+  },
   "fonts": [
     {
       "variable": "primary_font",
@@ -34,7 +129,7 @@
     {
       "variable": "primary_text_color",
       "label": "Primary text",
-      "default": "#111111"
+      "default": "#000000"
     },
     {
       "variable": "secondary_text_color",
@@ -130,46 +225,58 @@
       "description": "Sets the display of prices in your shop"
     },
     {
-      "variable": "bandcamp_url",
-      "label": "Bandcamp URL",
-      "type": "text",
-      "description": "Ex: http://bigcartel.bandcamp.com"
-    },
-    {
-      "variable": "facebook_url",
-      "label": "Facebook URL",
-      "type": "text",
-      "description": "Ex: http://facebook.com/bigcartel"
-    },
-    {
       "variable": "instagram_url",
       "label": "Instagram URL",
       "type": "text",
-      "description": "Ex: http://instagram.com/bigcartel"
+      "description": "Ex: https://instagram.com/bigcartel"
     },
     {
-      "variable": "pinterest_url",
-      "label": "Pinterest URL",
+      "variable": "tiktok_url",
+      "label": "TikTok URL",
       "type": "text",
-      "description": "Ex: http://pinterest.com/bigcartel"
-    },
-    {
-      "variable": "tumblr_url",
-      "label": "Tumblr URL",
-      "type": "text",
-      "description": "Ex: http://bigcartel.tumblr.com"
+      "description": "Ex: https://tiktok.com/@bigcartelofficial"
     },
     {
       "variable": "twitter_url",
       "label": "Twitter URL",
       "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel"
+      "description": "Ex: https://twitter.com/bigcartel"
+    },
+    {
+      "variable": "facebook_url",
+      "label": "Facebook URL",
+      "type": "text",
+      "description": "Ex: https://facebook.com/bigcartel"
+    },
+    {
+      "variable": "snapchat_url",
+      "label": "Snapchat URL",
+      "type": "text",
+      "description": "Ex: https://snapchat.com/add/bigcartel"
+    },
+    {
+      "variable": "pinterest_url",
+      "label": "Pinterest URL",
+      "type": "text",
+      "description": "Ex: https://pinterest.com/big_cartel"
     },
     {
       "variable": "youtube_url",
       "label": "YouTube URL",
       "type": "text",
-      "description": "Ex: https://www.youtube.com/channel/bigcartel"
+      "description": "Ex: https://youtube.com/@BigCartelDotCom"
+    },
+    {
+      "variable": "tumblr_url",
+      "label": "Tumblr URL",
+      "type": "text",
+      "description": "Ex: https://bigcartel.tumblr.com"
+    },
+    {
+      "variable": "bandcamp_url",
+      "label": "Bandcamp URL",
+      "type": "text",
+      "description": "Ex: https://bigcartel.bandcamp.com"
     }
   ],
   "checkout": {
