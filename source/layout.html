@@ -58,8 +58,8 @@
               <img
                 class="store-logo"
                 alt="{{ store.name }} Home"
-                src="{{ theme.images.logo.url | constrain: '800', '160' }}"
-                srcset="{{ theme.images.logo.url | constrain: '800', '160' }} 2x, {{ theme.images.logo.url | constrain: '400', '80' }} 1x">
+                src="{{ theme.images.logo.url | constrain: '600', '160' }}"
+                srcset="{{ theme.images.logo.url | constrain: '600', '160' }} 2x, {{ theme.images.logo.url | constrain: '300', '80' }} 1x">
             {% else %}
               {{ store.name }}
             {% endif %}
