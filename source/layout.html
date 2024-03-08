@@ -53,11 +53,17 @@
           {% endif %}
         </div>
         <div class="store-name {% if theme.logo != blank %}image{% else %}text{% endif %}">
-          {% if theme.logo != blank %}
-            <a class="store-link" href="/" title="{{ store.name | escape }}"><img alt="{{ store.name | escape }}" src="{{ theme.images.logo.url | constrain: 400, 100 }}"></a>
-          {% else %}
-            <a class="store-link" href="/" title="{{ store.name | escape }}">{{ store.name }}</a>
-          {% endif %}
+          <a href="/" class="store-link" title="{{ store.name | escape }}">
+            {% if theme.logo != blank %}
+              <img
+                class="store-logo"
+                alt="{{ store.name }} Home"
+                src="{{ theme.images.logo.url | constrain: '800', '160' }}"
+                srcset="{{ theme.images.logo.url | constrain: '800', '160' }} 2x, {{ theme.images.logo.url | constrain: '400', '80' }} 1x">
+            {% else %}
+              {{ store.name }}
+            {% endif %}
+          </a>
         </div>
         <div class="header-cart">
           {% if theme.show_search %}

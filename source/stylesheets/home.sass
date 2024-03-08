@@ -13,11 +13,15 @@
   .welcome-message
     background: var(--welcome-background-color)
     color: var(--welcome-text-color)
-    padding: 80px
+    padding: 40px
     text-align: center
+    display: flex
+    flex-direction: column
+    gap: 40px
 
     @media screen and (max-width: $break-small)
-      padding: 40px
+      padding: 20px
+      gap: 20px
 
     .welcome-header
       color: var(--welcome-text-color)
@@ -30,9 +34,7 @@
 
       @media screen and (max-width: $break-small)
         font-size: 1.1em
-
-    .welcome-header + .welcome-button
-      margin-top: 40px
+        padding: 20px 0
 
     a.welcome-button
       display: inline-flex
