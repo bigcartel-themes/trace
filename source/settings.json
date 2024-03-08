@@ -139,7 +139,7 @@
     {
       "variable": "primary_text_color",
       "label": "Primary text",
-      "default": "#111111"
+      "default": "#000000"
     },
     {
       "variable": "secondary_text_color",
