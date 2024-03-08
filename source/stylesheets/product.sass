@@ -1,8 +1,23 @@
 .product-breadcrumb
-  margin-bottom: 16px
+  margin-bottom: 12px
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  gap: 12px
+
+  @media screen and (max-width: $break-small)
+    font-size: .925em
+
+  .next-arrow
+    width: 5px
+    fill: var(--primary-text-color)
+    opacity: .8
 
   a
-    text-decoration: underline
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
 
 .product-container
   display: grid
