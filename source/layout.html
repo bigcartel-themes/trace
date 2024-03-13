@@ -67,7 +67,7 @@
         </div>
         <div class="header-cart">
           {% if theme.show_search %}
-            <button class="open-search" aria-label="Open search menu">
+            <button class="open-search" type="button" aria-haspopup="dialog" aria-controls="search-modal" title="Open search menu">
               <svg fill="currentColor" aria-hidden="true" viewBox="3.9 3.8 22.2 22.4"><path d="M26.1 24.7l-5.9-5.9c1.3-1.6 2-3.6 2-5.8 0-5.1-4.1-9.2-9.2-9.2S3.9 8 3.9 13.1s4.1 9.2 9.2 9.2c2.2 0 4.2-.8 5.8-2l5.9 5.9 1.3-1.5zM5.9 13.1c0-4 3.2-7.2 7.2-7.2s7.2 3.2 7.2 7.2-3.2 7.2-7.2 7.2-7.2-3.2-7.2-7.2z"></path></svg>
             </button>
           {% endif %}
@@ -258,7 +258,7 @@
     </div>
 
     {% if theme.show_search %}
-      <div class="search-modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="search-modal__content">
           <div class="search-modal__wrapper">
             <button class="search-modal__close" aria-label="Close search dialog" data-dismiss="modal" type="button">
