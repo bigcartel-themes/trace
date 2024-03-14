@@ -1,148 +1,110 @@
-@import 'variables'
+.product-breadcrumb
+  margin-bottom: 12px
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  column-gap: 12px
+  row-gap: 4px
+  flex-wrap: wrap
 
-.product-heading, .product-details
-  float: left
-  max-width: 600px
-  padding-right: 60px
-  width: 40%
+  @media screen and (max-width: $break-small)
+    font-size: .925em
+
+  .next-arrow
+    width: 5px
+    fill: var(--primary-text-color)
+    opacity: .8
+
+  a
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
+
+.product-container
+  display: grid
+  grid-template-columns: 1fr 400px
+  column-gap: 60px
+  row-gap: 40px
 
   @media screen and (max-width: $break-large)
-    padding-right: 40px
-    width: 50%
+    column-gap: 40px
+    grid-template-columns: 1fr 360px
 
   @media screen and (max-width: $break-medium)
-    padding-right: 40px
-    max-width: 100%
-    width: 48%
+    grid-template-columns: minmax(0, 1fr)
 
-  @media screen and (max-width: $break-small)
-    float: none
-    max-width: 100%
-    padding-right: 0
-    width: 100%
-
-h1.product-title
-  font-size: 32px
-  line-height: 42px
-  margin-bottom: 13px
-  text-align: left
-
-  @media screen and (max-width: $break-medium)
-    font-size: 22px
-    line-height: 26px
-    margin-bottom: 10px
-
-.product-subtitle
-  color: $secondary-color
-  font-family: $secondary-font
-  font-size: 18px
-  margin-bottom: 50px
-
-  &.sold .product-price
-    text-decoration: line-through
-
-  @media screen and (max-width: $break-medium)
-    font-size: 14px
-    margin-bottom: 40px
-
-  @media screen and (max-width: $break-small)
-    margin-bottom: 20px
-
-.product-details
-  clear: left
-
-.product-form
-  margin-bottom: 40px
-
-  .option-select
-    margin-bottom: 20px
-
-    @media screen and (max-width: $break-medium)
-      max-width: 100%
-
-  .add-to-cart-button
-    max-width: 300px
-
-    @media screen and (max-width: $break-small)
-      max-width: 100%
-
-  .reset-selection-button-container
-    max-width: 300px
-    text-align: center
-    width: 100%
-
-    @media screen and (max-width: $break-small)
-      max-width: 100%
+.reset-selection-button-container
+  text-align: center
+  width: 100%
 
   button.reset-selection-button
     display: none
-    height: auto
+
+.product-form
+  width: 100%
+
+  button
     max-width: 100%
-    line-height: normal
-    margin: 20px auto 0
-    padding: 4px
-    width: auto
-
-.product-description
-  color: $secondary-color
-  font-family: $secondary-font
-  line-height: 1.5em
-
-  p
-    margin: 0 0 1em
-
-  a[href]
-    transition: opacity .2s linear
-    text-decoration: underline
-
-    &:hover
-      opacity: .6
-
-  img, iframe
-    display: block
-    max-width: 100%
-
-  ol, ul
-    margin: 1em 0
-    padding: 0
-
-  ul
-    list-style: disc
-    list-style-position: inside
-
-  ol
-    list-style: decimal
-    list-style-position: inside
-
-.product-images
-  float: right
-  max-width: 1000px
-  width: 60%
-
-  @media screen and (max-width: $break-extra-large)
-    max-width: 55%
 
   @media screen and (max-width: $break-large)
-    max-width: 50%
-
-  @media screen and (max-width: $break-medium)
-    max-width: 48%
-
-  @media screen and (max-width: $break-small)
-    float: none
-    margin-bottom: 35px
     max-width: 100%
-    width: 100%
 
-  .product-image
-    display: block
-    margin-bottom: 2px
-    width: 100%
+.product-selects
+  margin-bottom: 20px
+
+.product-option-groups
+  display: flex
+  flex-direction: column
+  gap: 16px
+
+.product-detail
+  display: flex
+  flex-direction: column
+  row-gap: 36px
+
+  &__header
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+  &__status
+    font-size: .875em
+    line-height: normal
+    display: inline-block
+    margin-left: 8px
+
+  &__pricing
+    display: flex
+    align-items: center
+    font-size: 1.5em
+    color: var(--primary-text-color)
+
+  &__description
+    p
+      margin: revert
+
+    &>:first-child
+      margin-top: 0
+
+    &>:last-child
+      margin-bottom: 0
+
+    ol, ul
+      margin: 1em
+
+    ul
+      list-style: disc
+
+    ol
+      list-style: decimal
+
+    a
+      text-decoration: underline
+
+  .page-title
+    margin-bottom: 0
+    text-align: left
 
 #instant-checkout-button
-  width: 100%
-  max-width: 300px
   margin-top: 12px
-
-  @media screen and (max-width: $break-small)
-    max-width: 100%

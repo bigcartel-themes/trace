@@ -1,78 +1,46 @@
-@import 'variables'
-
-*
-  box-sizing: border-box
-
 html
   min-height: 100%
   position: relative
 
 body
-  background-color: $background-color
-  color: $primary-color
-  font-family: $primary-font
+  display: flex
+  flex-direction: column
+  background-color: var(--background-color)
+  color: var(--primary-text-color)
+  font-family: var(--primary-font)
   font-size: 16px
-  line-height: 1
-  padding-top: $header-height
+  line-height: 1.5
+  height: 100%
+  min-height: 100vh
 
   &.overlay-open
-    overflow: auto !important
-    overflow-x: hidden !important
-    padding-right: 0 !important
+    height: 100vh
+    width: 100vw
+    overflow: hidden
+    overscroll-behavior: none
 
-  @media screen and (max-width: $break-medium)
-    padding-top: $header-height-tablet
+a.skip-link
+  +transition(all .3s)
+  background: var(--background-color)
+  border: 1px solid var(--primary-text-color)
+  color: var(--primary-text-color)
+  left: 25px
+  padding: 15px 20px
+  position: absolute
+  text-decoration: underline
+  top: -150px
+  z-index: 100
 
-  @media screen and (max-width: $break-small)
-    padding-top: $header-height-mobile
-
-  &.standalone-page
-    color: $primary-color
-    padding: 140px 60px
-    text-align: center
-
-    @media screen and (max-width: $break-medium)
-      padding: 80px 20px
-
-    h1
-      font-size: 22px
-      line-height: 1.6em
-      text-align: center
-
-    .maintenance-text
-      margin-top: 15px
-
-    .maintenance-icons
-      display: block
-      margin: 40px 0 0
-      padding: 0
-
-      li
-        display: inline-block
-
-        a
-          display: block
-          padding: 0 15px
-
-          @media screen and (max-width: $break-small)
-            padding: 0 6px
-
-          svg
-            transition: opacity .2s linear
-            fill: $secondary-color
-            height: 22px
-            width: 22px
-
-            @media screen and (max-width: $break-small)
-              height: 18px
-              width: 18px
-
-          &:hover svg
-            opacity: .6
+  &:focus
+    top: 20px
 
 a, a:visited
-  color: $primary-color
+  color: var(--primary-text-color)
   text-decoration: none
+  transition: color .2s linear
+
+  &:hover
+    color: var(--secondary-text-color)
 
 h1, h2, h3, h4, h5, h6
   font-weight: normal
@@ -81,235 +49,165 @@ h1, h2, h3, h4, h5, h6
   text-align: left
 
 .errors
-  color: $error-text-color
-  font-size: 16px
-  line-height: 24px
+  border-radius: var(--border-radius)
+  padding: 16px
   list-style: none
   margin: 0 0 40px
-  padding: 0
   text-align: center
+  background-color: var(--error-background-color)
+  color: var(--error-text-color)
 
 .wrapper
-  +pie-clearfix
   margin: 0 auto
-  padding: 0 7%
+  padding: 0 var(--padding-size)
   position: relative
   width: 100%
+  max-width: 1300px
 
 header
-  background: $background-color
-  +transition(height .4s)
-  height: $header-height
-  position: fixed
-  top: 0
+  background: var(--background-color)
+  padding: 36px 0
   width: 100%
-  z-index: 4
-
-  &.smaller
-    height: 100px
-
-  @media screen and (max-width: $break-medium)
-    height: $header-height-tablet
-
-  @media screen and (max-width: $break-small)
-    height: $header-height-mobile
-    position: absolute
+  z-index: 10
 
   .wrapper
-    +flexbox
+    display: grid
+    grid-template-columns: 1fr 2fr 1fr
+    grid-template-rows: 1fr
     +align-items(center)
     +justify-content(space-between)
     height: 100%
     position: relative
     z-index: 5
-
-    @media screen and (max-width: $break-medium)
-      height: 100%
-
-    @media screen and (max-width: $break-small)
-      height: 100%
+    column-gap: 16px
 
   .header-nav
-    +flex(1)
     +flexbox
     +align-items(center)
     +justify-content(flex-start)
-    font-size: 18px
-    max-width: 33%
+    left: -4px
+    font-size: 1.1em
+    position: relative
     text-align: left
-
-    .open-menu
-      cursor: pointer
-
-      svg
-        fill: $primary-color
-        height: 24px
-        width: 24px
+    gap: 20px
 
     .menu-bars
       +flexbox
       +align-items(center)
       +justify-content(center)
-      background: none
-      color: $primary-color
+      flex-shrink: 0
+      color: var(--primary-text-color)
       padding: 0
-      font-size: 30px
       height: 36px
-      line-height: 1em
-      margin-right: 20px
       position: relative
       width: 36px
+      transition: color .2s linear
 
-    .category-nav-title
-      margin-right: 8px
-
-      @media screen and (max-width: $break-medium)
-        display: none
-
-    .category-nav
-      +transform(translateZ(0))
-      cursor: pointer
-      position: relative
-      width: auto
-      z-index: 3
-
-      @media screen and (max-width: $break-medium)
-        display: none
-        font-size: 18px
-
-      @media screen and (max-width: $break-small)
-        font-size: 16px
-        max-width: 100%
-
-      .category-nav-page
-        color: $secondary-color
-        display: inline-block
-
-      .category-nav-arrow
-        transition: opacity .2s linear
-        display: inline-block
-        fill: $secondary-color
-        height: 11px
-        margin-left: 2px
-        width: 15px
-
-      .category-dropdown
-        background: $background-color
-        transition: opacity .2s linear
-        +border-radius(4px)
-        border: 1px solid $secondary-color
-        left: -23px
-        margin: 0 auto
-        min-width: 250px
-        opacity: 0
-        overflow-y: scroll
-        padding: 15px
-        position: absolute
-        text-align: left
-        visibility: hidden
-        max-height: 500px
-        z-index: 3
-        top: calc(100% + 10px)
-        scrollbar-width: thin
-        scrollbar-color: $secondary-color transparent
-        scrollbar-gutter: stable
-
-        &::-webkit-scrollbar
-          height: .375rem
-          width: .75rem
-
-        &::-webkit-scrollbar-track
-          background-color: transparent
-
-        &::-webkit-scrollbar-thumb
-          border-radius: .375rem
-          border: 3px solid transparent
-          background-color: $secondary-color
-          background-clip: content-box
-
-        .category-dropdown-background
-          opacity: 1
-          +border-radius(4px)
-          height: 100%
-          left: 0
-          position: absolute
-          right: 0
-          top: 0
-          width: 100%
-          z-index: 3
-
-        .dropdown-list
-          list-style: none
-          margin: 0
-          padding: 0
-          position: relative
-          z-index: 4
-
-          li
-            display: block
-
-            a
-              color: $secondary-color
-              display: block
-              font-size: 15px
-              padding: 10px
-
-              &:hover
-                color: $primary-color
-                text-decoration: underline
-
-      &.dropdown-open
-
-        .category-dropdown
-          display: inline-block
-          opacity: 1
-          visibility: visible
-
-    .navigation-page-title, .category-nav-title
-      display: inline-block
-      font-size: 18px
-      position: relative
-
-      @media screen and (max-width: $break-medium)
-        display: none
-
-    .dropdown-section
-      display: inline-block
-      position: relative
-
-    .open-categories
-      color: $secondary-color
-      padding: 10px 0
+      &:hover
+        color: var(--secondary-text-color)
 
       svg
-        +transition(250ms linear all)
-        fill: $secondary-color
-        height: 11px
-        margin-left: 5px
-        position: relative
-        width: 15px
+        fill: currentColor
+        height: 24px
+        width: 24px
 
-        &.hover
-          +transform(rotate(-180deg))
+    .open-category-nav
+      display: flex
+      align-items: center
+      gap: 8px
+      transition: color .2s linear
+      outline-offset: 4px
 
-  .store-name
-    +flex(2)
-    +transform(translateZ(0))
-    color: $primary-color
-    display: inline-block
-    font-size: 22px
-    height: 100%
-    max-width: 33%
-    text-align: center
+      &:hover
+        color: var(--secondary-text-color)
 
-    &.image
-      height: calc(#{$header-height} / 2.8)
-
-      @media screen and (max-width: $break-medium)
-        height: calc(#{$header-height-tablet} / 2)
+    .header-category-nav
+      position: relative
+      width: 100%
 
       @media screen and (max-width: $break-small)
-        height: calc(#{$header-height-mobile} / 2)
+        display: none
+
+    .category-nav-arrow
+      flex-shrink: 0
+      fill: currentColor
+      height: 11px
+      width: 15px
+
+    .category-dropdown
+      background: var(--background-color)
+      transition: opacity .2s linear
+      border-radius: var(--border-radius)
+      border: 1px solid var(--primary-text-color)
+      left: -23px
+      margin: 0 auto
+      min-width: 250px
+      opacity: 0
+      overflow-y: scroll
+      padding: 15px
+      position: absolute
+      text-align: left
+      visibility: hidden
+      max-height: 500px
+      z-index: 3
+      top: calc(100% + 10px)
+      scrollbar-width: thin
+      scrollbar-color: var(--primary-text-color) transparent
+      scrollbar-gutter: stable
+
+      &[aria-hidden="false"]
+        opacity: 1
+        visibility: visible
+
+      &::-webkit-scrollbar
+        height: .375rem
+        width: .75rem
+
+      &::-webkit-scrollbar-track
+        background-color: transparent
+
+      &::-webkit-scrollbar-thumb
+        border-radius: .375rem
+        border: 3px solid transparent
+        background-color: var(--primary-text-color)
+        background-clip: content-box
+
+      .dropdown-list
+        list-style: none
+        margin: 0
+        padding: 0
+        position: relative
+        z-index: 4
+
+        li
+          display: block
+
+          a
+            display: block
+            font-size: .95rem
+            padding: 8px 10px
+
+            &:hover
+              text-decoration: underline
+
+  .store-name
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 1.75em
+    height: 100%
+    text-align: center
+    padding: 0 16px
+    word-break: break-word
+
+    @media screen and (max-width: $break-small)
+      font-size: 1.5em
+
+    &.image
+      height: 80px
+
+      @media screen and (max-width: $break-small)
+        height: 48px
 
       .store-link
         height: 100%
@@ -322,63 +220,98 @@ header
         max-width: 100%
         width: auto
 
-        @media screen and (max-width: $break-medium)
-          float: right
-          margin: 0
-
-    @media screen and (max-width: $break-medium)
-      max-width: 66.66%
-      text-align: right
-
     .store-link
-      +vertical-align
-      color: $secondary-color
-      display: inline-block
-      line-height: 1.2em
+      display: flex
+      align-items: center
+      justify-content: center
 
-  .cart-link
-    +flex(3)
-    display: inline-block
-    max-width: 33%
+  .header-cart
+    display: flex
+    align-items: center
+    justify-content: flex-end
     position: relative
     text-align: right
+    column-gap: 16px
+    right: -4px
 
-    .cart-num-items
-      font-size: 11px
-      top: 4px
-      width: 30px
-      height: 30px
-      display: inline-block
+    .cart-link, .open-search
+      border-radius: var(--border-radius)
+
+      &:hover
+        color: var(--secondary-text-color)
+
+    @media screen and (max-width: $break-small)
+      column-gap: 8px
+      right: -8px
+
+    .cart-link
+      display: flex
+      align-items: center
+      justify-content: center
+      height: 36px
+      width: 36px
+      position: relative
       text-align: center
-      line-height: 30px
-      z-index: 10
-      position: absolute
-      right: 0
+      flex-shrink: 0
+      transition: color .2s linear
+
+      svg
+        fill: currentColor
+
+      &:hover
+        color: var(--secondary-text-color)
+
+      .cart-num-items
+        font-size: 12px
+        position: absolute
+        top: 12px
 
     svg
-      fill: $primary-color
+      fill: var(--primary-text-color)
       height: 30px
       width: 30px
 
-    @media screen and (max-width: $break-medium)
-      display: none
+      @media screen and (max-width: $break-small)
+        height: 26px
+        width: 26px
 
-.category-nav-heading
-  background: none
-  padding: 0
+    .open-search
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 36px
+      height: 36px
+
+      svg
+        height: 22px
+        position: relative
+        fill: currentColor
+        top: 2px
+        width: 22px
+
+        @media screen and (max-width: $break-small)
+          height: 20px
+          width: 20px
 
 .content
-  padding: 40px 0 calc(11% + 80px)
+  flex: 1
+  padding: 48px 0 120px
 
   @media screen and (max-width: $break-medium)
     padding-top: 40px
+    padding-bottom: 80px
 
   @media screen and (max-width: $break-small)
     padding-top: 20px
+    padding-bottom: 60px
 
   h1
+    font-size: 2em
     margin-bottom: 60px
     text-align: center
+
+    @media screen and (max-width: $break-small)
+      margin-bottom: 40px
 
   &.product
 
@@ -388,93 +321,133 @@ header
   &.custom
 
     .wrapper
-      max-width: calc(800px + 7%)
-
-    h1
-      display: none
-
-      @media screen and (max-width: $break-medium)
-        display: block
+      max-width: calc(800px + var(--padding-size))
 
     .custom-page-content
-      color: $secondary-color
-      font-family: $secondary-font
-      font-size: 18px
-      line-height: 32px
+      font-family: var(--secondary-font)
 
-      @media screen and (max-width: $break-small)
-        font-size: 14px
-        line-height: 24px
+      p
+        margin: revert
 
-    a[href]
-      transition: opacity .2s linear
-      text-decoration: underline
+      &>:first-child
+        margin-top: 0
 
-      &:hover
-        opacity: .6
+      &>:last-child
+        margin-bottom: 0
 
-    img, iframe
-      display: block
-      max-width: 100%
+      ol, ul
+        margin: 1em
 
-    ol, ul
-      margin: 1em 0
-      padding: 0
+      ul
+        list-style: disc
 
-    ul
-      list-style: disc
-      list-style-position: inside
+      ol
+        list-style: decimal
 
-    ol
-      list-style: decimal
-      list-style-position: inside
+      a
+        text-decoration: underline
 
   &.page-contact
-
-    h1
-      display: none
-
-      @media screen and (max-width: $break-medium)
-        display: block
-
     .wrapper
-      max-width: calc(680px + 7%)
+      max-width: calc(760px + var(--padding-size))
 
   &.page-cart
-
     .wrapper
-      max-width: calc(880px + 7%)
+      max-width: calc(880px + var(--padding-size))
 
-  .cart-header
-    display: none
 
-    @media screen and (max-width: $break-medium)
-      display: block
+footer
+  .wrapper
+    display: flex
+    flex-direction: column
+    gap: 40px
+    align-items: center
+    margin: 0 auto
+    padding-bottom: 40px
 
-    &.cart-empty-title
-      display: block
+.footer__pages
+  border-top: 1px solid var(--footer-border-color)
+  padding-top: 40px
+  width: 100%
+  display: flex
+  column-gap: 30px
+  flex-wrap: wrap
+  margin: 0 auto
+  align-items: center
+  justify-content: center
+  row-gap: 12px
+
+  @media screen and (max-width: $break-small)
+    flex-direction: column
+
+  a
+    display: block
+    padding: 2px
+
+    &:hover
+      text-decoration: underline
+
+.social-icons
+  display: flex
+  gap: 20px
+  list-style: none
+  margin: 0
+  padding: 0
+  flex-wrap: wrap
+  justify-content: center
+
+  @media screen and (max-width: $break-small)
+    gap: 16px
+
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-shrink: 0
+    width: 36px
+    height: 36px
+
+    svg
+      fill: currentColor
+      height: 22px
+      width: 22px
+
+      &.tumblr-icon
+        width: 14px
+
+.bigcartel-credit
+  line-height: 1em
+  font-size: .975em
+  display: inline-flex
+  align-items: center
+  gap: 8px
+  outline-offset: 4px
+  padding: 2px 0
+  text-decoration: none
+
+  &:hover
+    text-decoration: none
+
+  &__text
+    position: relative
+
+  &__lockup
+    display: block
+    fill: currentColor
+    padding-top: 1px
+    width: 80px
 
 .select
-  +border-radius($border-radius)
-  border: 1px solid $secondary-color
-  color: $secondary-color
-  font-family: $secondary-font
+  border-radius: var(--border-radius)
+  border: 1px solid var(--primary-text-color)
+  font-family: var(--secondary-font)
   height: 60px
-  margin-bottom: 20px
-  max-width: 300px
   padding: 0
   position: relative
   width: 100%
 
   select
-    +appearance(none)
-    background: none
-    border: 0
-    color: $secondary-color
-    font-family: $secondary-font
-    font-size: 16px
     height: 100%
-    line-height: 2em
     padding: 0 50px 0 20px
     position: relative
     width: 100%
@@ -494,8 +467,8 @@ header
       display: none
 
   svg
-    transition: fill .2s linear
-    fill: $secondary-color
+    fill: currentColor
+    pointer-events: none
     height: 8px
     margin-top: -2px
     position: absolute
@@ -504,297 +477,55 @@ header
     width: 13px
     z-index: 1
 
-  &:hover
-    color: $secondary-color
-    border-color: $secondary-color
-
-    select
-      color: $primary-color
-
-      option:disabled
-        color: graytext
-
-    svg
-      fill: $primary-color
-
-button, a.button
-  +border-radius($border-radius)
-  +transform(translateZ(0))
-  border: 0px
-  background: $primary-color
-  color: $background-color
-  display: block
-  max-width: 300px
+.button, a.button
+  transition: background .2s linear
+  background: var(--button-background-color)
+  border-radius: var(--border-radius)
+  color: var(--button-text-color)
+  min-height: 60px
+  display: flex
+  align-items: center
+  justify-content: center
+  max-width: 275px
   padding: 20px
-  transition: opacity .2s linear
+  text-align: center
+  white-space: pre-wrap
   width: 100%
 
   &.minimal-button
     background: none
-    color: $primary-color
+    color: var(--primary-text-color)
     border: none
-    font-size: 14px
-    padding: 0
+    height: auto
+    min-height: 0
+    text-decoration: underline
+    transition: color .2s linear
+    text-underline-offset: 4px
 
-    &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
-      text-decoration: underline
-
-  &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
-    opacity: .8
+    &:not(:disabled):hover, &:not(:disabled):active
+      box-shadow: none
+      background: none
+      color: var(--secondary-text-color)
+      opacity: 1
 
   &:disabled, &.disabled
     cursor: not-allowed
-    opacity: .3
+
+  &.centered-button
+    margin: 60px auto
+
+  &:not(:disabled):hover, &:not(:disabled):active
+    background: var(--button-hover-background-color)
+    color: var(--button-text-color)
 
 input, textarea
-  +appearance(none)
-  +border-radius($border-radius)
-  background: $background-color
-  border: 1px solid $secondary-color
-  color: $secondary-color
-  font-family: $secondary-font
-  font-size: 16px
+  border-radius: var(--border-radius)
+  background: var(--background-color)
+  border: 1px solid var(--primary-text-color)
+  color: var(--primary-text-color)
+  font-family: var(--secondary-font)
   max-width: 100%
   padding: 14px
-
-.overlay
-  overflow-y: auto !important
-  +transition(opacity 0.3s, visibility 0.3s)
-  height: 100%
-  left: 0
-  opacity: 0
-  position: fixed
-  text-align: left
-  top: 0
-  visibility: hidden
-  width: 100%
-  z-index: 4
-
-  &.open
-    opacity: 1
-    visibility: visible
-
-  .overlay-background
-    opacity: .97
-    background: $background-color
-    bottom: 0
-    left: 0
-    position: absolute
-    right: 0
-    top: 0
-    z-index: 5
-
-  .wrapper
-    height: 100%
-    margin: 0 auto
-    overflow-y: scroll
-    padding-bottom: 140px
-    position: relative
-
-  .close-container
-    +flexbox
-    +align-items(center)
-    +justify-content(flex-start)
-    height: $header-height
-
-    &.smaller
-      height: 100px
-
-    @media screen and (max-width: $break-medium)
-      height: $header-height-tablet
-
-    @media screen and (max-width: $break-small)
-      height: $header-height-mobile
-
-  .close-overlay
-    +flexbox
-    +align-items(center)
-    +justify-content(center)
-    background: none
-    height: 36px
-    line-height: 1em
-    padding: 0
-    width: 36px
-    z-index: 6
-
-    svg
-      height: 18px
-      fill: $primary-color
-      width: 18px
-
-  .overlay-navigation
-    margin: 0
-    max-width: 100%
-    padding: 0
-    position: relative
-    z-index: 6
-
-    .page-list
-      margin: -10px 0 0 -5px
-      padding: 0
-
-      @media screen and (max-width: $break-small)
-        margin-top: 20px
-
-      li
-        display: block
-
-        a
-          transition: color .2s linear
-          +transform(translateZ(0px))
-          color: $primary-color
-          display: inline-block
-          font-size: 32px
-          line-height: 60px
-          padding: 0 5px
-
-          @media screen and (max-width: $break-medium)
-            font-size: 22px
-            line-height: 44px
-
-          &:hover
-            color: $secondary-color
-            text-decoration: underline
-
-  .social-icons
-    margin: 0 0 0 -5px
-    margin: 30px 0
-    padding: 0
-    position: relative
-    z-index: 6
-
-    li
-      display: inline-block
-      font-size: 0
-      margin-right: 20px
-
-      a
-        color: $secondary-color
-        display: block
-        padding: 5px
-
-        svg
-          transition: opacity .2s linear
-          fill: $secondary-color
-          height: 20px
-          width: 20px
-
-        &:hover svg
-          opacity: .6
-
-  .bigcartel-credit
-    line-height: 1em
-    font-size: 15px
-    display: inline-flex
-    align-items: center
-    gap: 8px
-    outline-offset: 4px
-    padding: 2px 0
-    text-decoration: none
-    margin: 60px 0 60px 2px
-
-    @media screen and (max-width: $break-small)
-      margin: 50px 0
-
-    &:hover, &:focus
-      text-decoration: none
-
-    &__text
-      position: relative
-
-    &__lockup
-      display: block
-      fill: currentColor
-      padding-top: 1px
-      width: 86px
-
-.site-footer
-  +pie-clearfix
-  +flexbox
-  +align-items(center)
-  bottom: 0
-  color: $background-color
-  height: 60px
-  left: 0
-  opacity: 0
-  position: fixed
-  text-align: center
-  visibility: hidden
-  width: 100%
-  z-index: 3
-
-  @media screen and (max-width: $break-medium)
-    opacity: 1
-    visibility: visible
-
-  .background
-    background: $primary-color
-    height: 100%
-    left: 0
-    opacity: .9
-    position: absolute
-    top: 0
-    width: 100%
-
-  .left-side, .right-side
-    +flex
-    +flex-grow(1)
-    height: 60px
-    z-index: 4
-
-    a
-      color: $background-color
-
-  .left-side
-
-    a
-      +vertical-align
-      display: block
-      line-height: 60px
-
-  .right-side
-    position: relative
-
-    > a
-      +vertical-align
-      display: block
-      line-height: 60px
-
-  .open-options svg
-    fill: $background-color
-    height: 12px
-    left: 5px
-    position: relative
-    top: 1px
-    width: 12px
-
-  .cart-link
-    display: block
-    height: 60px
-    position: relative
-    text-align: center
-
-    .cart-num-items
-      +transform(translateY(-50%) translateX(-50%))
-      display: inline-block
-      font-size: 11px
-      height: 30px
-      line-height: 30px
-      left: 50%
-      position: absolute
-      text-align: center
-      top: 34px
-      z-index: 10
-
-    svg
-      +vertical-align
-      fill: $background-color
-      height: 30px
-      width: 30px
-
-.left-side + .right-side
-  border-left: 2px solid $secondary-color
-  left: -1px
 
 .visually-hidden
   border: 0
@@ -805,3 +536,18 @@ input, textarea
   padding: 0
   position: absolute
   width: 1px
+
+.message-banner
+  padding: 16px
+  margin: 0 auto 32px
+  text-align: center
+  width: 100%
+  max-width: 760px
+
+  &--centered
+    text-align: center
+
+  &--no-bg
+    color: var(--primary-text-color)
+    background: none
+    padding: 0

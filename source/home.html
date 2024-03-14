@@ -1,80 +1,158 @@
 {% if errors != blank %}
-  <ul class="errors">
+  <div class="errors">
     {% for error in errors %}
-    <li>{{ error }}</li>
+      <div>{{ error }}</div>
     {% endfor %}
-  </ul>
+  </div>
 {% endif %}
 
 {% if theme.welcome_image or theme.welcome_message != blank or theme.welcome_button_text != blank %}
   <div class="home-welcome">
-    {% if theme.welcome_image %}<a href="/products"><img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}"></a>{% endif %}
+    {% if theme.welcome_image %}
+      <a href="/products" aria-label="All products">
+        <img
+          alt=""
+          class="lazyload welcome-image blur-up"
+          src="{{ theme.images.welcome_image.url | constrain: 400 }}"
+          data-srcset="
+            {{ theme.images.welcome_image.url | constrain: 800 }} 800w,
+            {{ theme.images.welcome_image.url | constrain: 1200 }} 1200w,
+            {{ theme.images.welcome_image.url | constrain: 1600 }} 1600w,
+            {{ theme.images.welcome_image.url | constrain: 2000 }} 2000w,
+          "
+          data-sizes="auto"
+        >
+      </a>
+    {% endif %}
     {% if theme.welcome_message != blank or theme.welcome_button_text != blank %}
       <div class="welcome-message">
-        {% if theme.welcome_message != blank %}<h2 class="welcome-header">{{ theme.welcome_message }}</h2>{% endif %}
-        {% if theme.welcome_button_text != blank %}<a class="button welcome-button" href="/products" title="{{ theme.welcome_button_text }}">{{ theme.welcome_button_text }}</a>{% endif %}
+        {% if theme.welcome_message != blank %}<div class="welcome-header">{{ theme.welcome_message }}</div>{% endif %}
+        {% if theme.welcome_button_text != blank %}<a class="button welcome-button" href="/products">{{ theme.welcome_button_text }}</a>{% endif %}
       </div>
     {% endif %}
   </div>
 {% endif %}
 
 {% if theme.featured_items_type == 'Categories' %}
-  <h1 class="page-header visually-hidden">Featured categories</h1>
   {% if categories.active != blank and theme.featured_items > 0 %}
-    <div class="carousel-holder">
-      <div class="carousel carousel-main">
-        {% for category in categories.active limit:theme.featured_items %}
-          {% for product in category.products limit:1 %}
-            <a href="{{ category.url }}" class="carousel-cell">
-              <div class="category-image" style="background-image:url('{{ product.image | product_image_url | constrain: 1000,1000 }}');"></div>
-
-              <div class="category-name">
-                <div class="category-text">
-                  <div class="category-title">{{ category.name }}</div>
-                  <div class="category-subtitle">Shop now</div>
-                </div>
+    <div class="home-featured-categories">
+      <h1 class="page-title">{{ theme.featured_header }}</h1>
+      {% assign num_results = 0 %}
+      {% for category in categories.active limit:theme.featured_items %}
+        {% assign num_results = num_results | plus: 1 %}
+      {% endfor %}
+      <div class="product-list-container">
+        <div class="product-list {% if num_results < 4 %}product-list--center{% endif %}">
+          {% for category in categories.active limit:theme.featured_items %}
+            {% for product in category.products limit: 1 %}
+              {% assign image_width = product.image.width | times: 1.0 %}
+              {% assign image_height = product.image.height | times: 1.0 %}
+              {% assign aspect_ratio = image_width | divided_by: image_height %}
+              <div class="product-list-thumb {{ product.css_class }}">
+                <a
+                  class="product-list-link"
+                  href="{{ category.url }}" title="View {{ category.name | escape }}">
+                  <div class="product-list-image-container product-list-image-container-{{ theme.grid_image_style }}">
+                    <img
+                      alt=""
+                      class="blur-up product-list-image product-list-image--primary lazyload grid-{{ theme.grid_image_style }}"
+                      src="{{ product.image | product_image_url | constrain: 20 }}"
+                      {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
+                      data-srcset="
+                        {{ product.image | product_image_url | constrain: 240 }} 240w,
+                        {{ product.image | product_image_url | constrain: 320 }} 320w,
+                        {{ product.image | product_image_url | constrain: 400 }} 400w,
+                        {{ product.image | product_image_url | constrain: 540 }} 540w,
+                        {{ product.image | product_image_url | constrain: 600 }} 600w,
+                        {{ product.image | product_image_url | constrain: 800 }} 800w,
+                        {{ product.image | product_image_url | constrain: 960 }} 960w
+                      "
+                      data-sizes="auto"
+                    >
+                  </div>
+                  <div class="product-list-thumb-info product-list-thumb-info--{{ theme.product_detail_alignment }}">
+                    <div class="product-list-thumb-name">{{ category.name }}</div>
+                  </div>
+                </a>
               </div>
-
-            </a>
+            {% endfor %}
           {% endfor %}
-          {% assign num_categories = forloop.length %}
-        {% endfor %}
-      </div>
-      <div class="carousel carousel-nav"{% if num_categories == 1 %} style="display:none;"{% endif %}>
-        {% for category in categories.active limit:theme.featured_items %}
-          <div class="carousel-cell">{{ forloop.index }}</div>
-        {% endfor %}
+        </div>
       </div>
     </div>
+    {% if theme.all_products_button_text != blank %}<a class="button centered-button" href="/products">{{ theme.all_products_button_text }}</a>{% endif %}
   {% endif %}
 
 {% else %}
-  <h1 class="page-header visually-hidden">Featured products</h1>
   {% if theme.featured_items > 0 %}
-    {% get products from products.all limit:theme.featured_items %}
-      {% if products != blank %}
-        <div class="carousel-holder">
-          <div class="carousel carousel-main">
-            {% for product in products %}
-              <a href="{{ product.url }}" class="carousel-cell">
-                <div class="category-image" style="background-image:url('{{ product.image | product_image_url | constrain: 1000,1000 }}');"></div>
-                <div class="category-name">
-                  <div class="category-text">
-                    <div class="category-title">{{ product.name }}</div>
-                    <div class="category-subtitle">Shop now</div>
-                  </div>
+    <div class="home-featured-products">
+      <h1 class="page-title">{{ theme.featured_header }}</h1>
+      {% paginate products from products.current by theme.featured_items order:theme.featured_order %}
+        {% assign num_results = paginate.items %}
+        {% if paginate.next.is_link %}
+          {% assign num_results = paginate.current_offset | plus: paginate.page_size %}
+        {% endif %}
+        {% if products != blank %}
+          <div class="product-list-container">
+            <div class="product-list {% if num_results < 4 %}product-list--center{% endif %}">
+              {% for product in products %}
+                {% assign image_width = product.image.width | times: 1.0 %}
+                {% assign image_height = product.image.height | times: 1.0 %}
+                {% assign aspect_ratio = image_width | divided_by: image_height %}
+                {% assign product_status = '' %}
+                {% case product.status %}
+                  {% when 'active' %}
+                    {% if product.on_sale %}{% assign product_status = 'On sale' %}{% endif %}
+                  {% when 'sold-out' %}
+                    {% assign product_status = 'Sold out' %}
+                  {% when 'coming-soon' %}
+                    {% assign product_status = 'Coming soon' %}
+                {% endcase %}
+                <div class="product-list-thumb {{ product.css_class }}">
+                  <a
+                    class="product-list-link"
+                    href="{{ product.url }}" title="View {{ product.name | escape }}">
+                    <div class="product-list-image-container product-list-image-container-{{ theme.grid_image_style }}">
+                      <img
+                        alt=""
+                        class="blur-up product-list-image product-list-image--primary lazyload grid-{{ theme.grid_image_style }}"
+                        src="{{ product.image | product_image_url | constrain: 20 }}"
+                        {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
+                        data-srcset="
+                          {{ product.image | product_image_url | constrain: 240 }} 240w,
+                          {{ product.image | product_image_url | constrain: 320 }} 320w,
+                          {{ product.image | product_image_url | constrain: 400 }} 400w,
+                          {{ product.image | product_image_url | constrain: 540 }} 540w,
+                          {{ product.image | product_image_url | constrain: 600 }} 600w,
+                          {{ product.image | product_image_url | constrain: 800 }} 800w,
+                          {{ product.image | product_image_url | constrain: 960 }} 960w
+                        "
+                        data-sizes="auto"
+                      >
+                      {% if product_status != blank %}<div class="product-list-thumb-status">{{ product_status }}</div>{% endif %}
+                    </div>
+                    <div class="product-list-thumb-info product-list-thumb-info--{{ theme.product_detail_alignment }}">
+                      <div class="product-list-thumb-name">{{ product.name }}</div>
+                      <div class="product-list-thumb-price">
+                        {% if product.variable_pricing %}
+                          {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
+                        {% else %}
+                          {{ product.default_price | money: theme.money_format }}
+                        {% endif %}
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-              {% assign num_products = forloop.length %}
-            {% endfor %}
+              {% endfor %}
+            </div>
           </div>
-          <div class="carousel carousel-nav"{% if num_products == 1 %} style="display:none;"{% endif %}>
-            {% for product in products %}
-              <div class="carousel-cell">{{ forloop.index }}</div>
-            {% endfor %}
-          </div>
-        </div>
-      {% endif %}
-    {% endget %}
+          {% if paginate.pages > 1 %}
+            {% if theme.all_products_button_text != blank %}<a class="button centered-button" href="/products">{{ theme.all_products_button_text }}</a>{% endif %}
+          {% endif %}
+        {% else %}
+          <div class="message-banner message-banner--centered message-banner--no-bg">No products found.</div>
+        {% endif %}
+      {% endpaginate %}
+    </div>
   {% endif %}
 {% endif %}

@@ -1,69 +1,39 @@
-@import 'flexbox'
-
-$primary-font: #{"{{ theme.primary_font | font_family }}"}
-$secondary-font: #{"{{ theme.secondary_font | font_family }}"}
-
-$background-color: #{'{{ theme.background_color }}'}
-
-$primary-color: #{'{{ theme.primary_text_color }}'}
-
-$secondary-color: #{'{{ theme.secondary_text_color }}'}
-
-$border-color: #{'{{ theme.secondary_text_color }}'}
-
-$welcome-background-color: #{'{{ theme.welcome_background_color }}'}
-
-$welcome-text-color: #{'{{ theme.welcome_text_color }}'}
-
-$error-text-color: #{'{{ theme.error_text_color }}'}
-
-$header-height: 220px
-$header-height-tablet: 120px
-$header-height-mobile: 100px
-$border-radius: 4px
-
-$tablet-padding: 40px
-$mobile-padding: 20px
-
 $break-extra-large: 1200px
 $break-large: 945px
 $break-medium: 800px
 $break-small: 668px
 $break-extra-small: 500px
 
-@mixin vertical-align
-  +transform(translateY(-50%))
-  position: relative
-  top: 50%
+\:root
+  --background-color: #{'{{ theme.background_color }}'}
+  --primary-text-color: #{'{{ theme.primary_text_color }}'}
+  --secondary-text-color: #{'{{ theme.secondary_text_color }}'}
+  --border-color: #{'{{ theme.primary_text_color }}'}
+  --footer-border-color: #{'rgba(var(--primary-text-color-rgb), .4)'}
+  --welcome-background-color: #{'{{ theme.welcome_background_color }}'}
+  --welcome-text-color: #{'{{ theme.welcome_text_color }}'}
 
-@mixin pie-clearfix
-  &:after
-    content: ""
-    display: table
-    clear: both
+  --button-text-color: var(--background-color)
+  --button-background-color: var(--primary-text-color)
+  --button-hover-background-color: #{'rgba(var(--primary-text-color-rgb), .8)'}
 
-@mixin keyframes($animation)
-  @-webkit-keyframes #{$animation}
-    @content
+  --product-status-background-color: #{"{{ theme.announcement_background_color }}"}
+  --product-status-text-color: #{"{{ theme.announcement_text_color }}"}
 
-  @keyframes #{$animation}
-    @content
+  --announcement-background-color: #{"{{ theme.announcement_background_color }}"}
+  --announcement-text-color: #{"{{ theme.announcement_text_color }}"}
 
-@mixin animation($str)
-  -webkit-animation: $str
-  animation: $str
+  --primary-font: #{'{{ theme.primary_font | font_family }}'}
+  --secondary-font: #{'{{ theme.secondary_font | font_family }}'}
 
-@mixin transform($str)
-  -webkit-transform: $str
-  transform: $str
+  --error-background-color: #950f1e
+  --error-text-color: #FFFFFF
 
-@mixin transition($str...)
-  -webkit-transition: #{$str}
-  transition: #{$str}
+  --border-radius: #{'{{ theme.border_radius }}'}
+  --border-radius-sm: 2px
+  --spacing-unit: 16px
 
-@mixin border-radius($str)
-  -webkit-border-radius: $str
-  border-radius: $str
+  --padding-size: 40px
 
-@mixin appearance($str)
-  appearance: $str
+  @media screen and (max-width: $break-small)
+    --padding-size: 20px

@@ -1,28 +1,25 @@
-@import 'variables'
-
 .contact-form
 
   .form-block
-    margin-bottom: 40px
+    margin-bottom: 24px
     text-align: left
 
   input
-    height: 56px
+    height: 54px
 
   textarea
-    height: 140px
+    height: 220px
     resize: vertical
 
   input, textarea
     width: 100%
 
     &:active, &:focus
-      border: 1px solid $primary-color
+      border: 1px solid var(--primary-text-color)
 
   label
     display: block
-    font-size: 18px
-    margin-bottom: 10px
+    margin-bottom: 8px
 
   .contact-name, .contact-recaptcha, .contact-send, .contact-email
     display: block
@@ -30,12 +27,11 @@
     width: 100%
 
   .recaptcha-note
-    color: $secondary-color
     display: block
-    font-family: $secondary-font
-    font-size: 14px
-    line-height: 1.5em
+    font-family: var(--secondary-font)
+    font-size: .975em
     margin-top: 10px
+    text-align: center
 
     a
       text-decoration: underline
@@ -53,5 +49,4 @@
         width: 100%
 
 .message-sent
-  line-height: 1.5em
   text-align: center

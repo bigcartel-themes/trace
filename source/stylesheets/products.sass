@@ -1,233 +1,162 @@
-@import 'variables'
+.product-list
+  --gap: calc(var(--spacing-unit) * 4)
+  --row-gap: 56px
+  --columns: #{"{{ theme.max_products_per_row }}"}
+  --spacing-unit: 10px
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-start
+  margin: var(--spacing-unit) 0 0
+  gap: var(--gap)
+  row-gap: var(--row-gap)
+  margin-top: 36px
 
-.page-products .category-nav
-  +transform(translateX(-50%))
-  cursor: pointer
-  display: none
-  font-size: 22px
-  left: 50%
-  margin: 0 auto 40px
-  max-width: 600px
-  padding: 10px
-  position: relative
-  text-align: center
-  width: auto
-  z-index: 3
+  &--center
+    justify-content: center
+
+  @media screen and (max-width: $break-extra-large)
+    --columns: Max(#{"{{ theme.max_products_per_row_mobile }}"}, calc(#{"{{ theme.max_products_per_row }}"} - 1))
 
   @media screen and (max-width: $break-medium)
-    display: inline-block
-    font-size: 18px
-    width: 80%
+    --columns: #{"{{ theme.max_products_per_row_mobile }}"}
+    --gap: calc(var(--spacing-unit) * 2)
+    justify-content: flex-start
 
   @media screen and (max-width: $break-small)
-    max-width: 100%
-    width: 100%
+    --row-gap: 24px
 
-  button.category-nav-heading
-    padding: 10px
+.product-list-thumb
+  position: relative
+  text-decoration: none
+  width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
 
-  .category-nav-title
-    display: inline-block
+a.product-list-link
+  text-decoration: none
+  outline-offset: 4px
+  position: relative
 
-  .category-nav-page
-    color: $secondary-color
-    display: inline-block
+  @media (hover: hover)
+    &:hover
+      .product-list-thumb-name
+        text-decoration: underline
 
-  .category-nav-arrow
-    transition: fill .2s linear
-    display: inline-block
-    fill: $secondary-color
-    height: 11px
-    margin-left: 2px
-    width: 15px
+.product-list-image-container
+  border-radius: var(--border-radius)
+  margin: 0
+  overflow: hidden
+  padding-bottom: 100%
+  position: relative
+  width: 100%
 
-  .category-dropdown
-    +border-radius(0 0 4px 4px)
-    +transform(translateX(-50%))
-    left: 50%
-    margin: 0 auto
-    min-width: 250px
-    opacity: 0
-    padding: 10px 0 20px 20px
-    position: absolute
-    text-align: left
-    visibility: hidden
-    z-index: 3
+  &-default
+    padding-bottom: 0
 
-    .category-dropdown-background
-      opacity: .97
-      background: $background-color
-      height: 100%
-      left: 0
-      position: absolute
-      right: 0
-      top: 0
-      width: 100%
-      z-index: 3
+.product-list-image
+  border-radius: var(--border-radius)
+  transform: translate3d(0, 0, 0)
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 1
 
-    @media screen and (max-width: $break-small)
-      width: 90%
+  &.grid-default
+    position: relative
 
-    .dropdown-list
-      list-style: none
-      margin: 0
-      padding: 0
-      position: relative
-      z-index: 4
+  &.grid-cover
+    object-fit: cover
 
-    li
-      display: block
+  &.grid-contain
+    object-fit: contain
 
-      a
-        color: $secondary-color
-        display: block
-        font-size: 14px
-        padding: 8px 2px
+.product-list-thumb-status
+  top: 12px
+  right: 12px
+  position: absolute
+  z-index: 2
+  font-size: .925rem
+  line-height: normal
+  display: inline-block
+  padding: 6px 8px
+  color: var(--product-status-text-color)
+  background: var(--product-status-background-color)
+  border-radius: var(--border-radius-sm)
 
-        &:hover, &:focus
-          color: $primary-color
-
-  &.dropdown-open
-
-    .category-dropdown
-      display: inline-block
-      opacity: 1
-      visibility: visible
-
-.product-list
-  +flexbox
-  +flex-wrap(wrap)
-  +flex(flex-grow)
-  +flex-direction(row)
-  +justify-content(space-around)
-  list-style: none
-  margin: 0 -5.5%
-  padding: 0
-
-  @media screen and (max-width: $break-small)
-    margin: 0
-
-  .product
-    +flexbox
-    +align-self(center)
-    padding: 0 3.5% calc(5% + 80px)
-    text-align: #{"{% if theme.product_detail_alignment == 'Left' %} left {% else %} center {% endif %}"}
-    width: 33%
-
-    @media screen and (max-width: $break-medium)
-      padding-bottom: 60px
-      width: 50%
-
-    @media screen and (max-width: $break-small)
-      padding-bottom: 40px
-      width: 100%
-
-    .product-link
-      color: $primary-color
-      display: block
-      width: 100%
-
-      &:hover, &:focus
-        opacity: .8
-
-      @media screen and (max-width: $break-small)
-        padding: 0
-
-      .product-image
-        display: block
-        margin-bottom: 30px
-        width: 100%
-
-        @media screen and (max-width: $break-medium)
-          margin-bottom: 10px
-
-      .product-info
-        +transform(translateZ(0))
-        padding: 0
-
-        .product-name
-          color: $primary-color
-          font-size: 22px
-          line-height: 26px
-          margin-bottom: 9px
-
-          @media screen and (max-width: $break-medium)
-            font-size: 18px
-
-          @media screen and (max-width: $break-small)
-            margin-bottom: 7px
-
-        .product-price-status
-          color: $secondary-color
-          font-family: $secondary-font
-          font-size: 14px
-          line-height: 17px
-
-    &.sold .product-link
-      opacity: .8
-
-      .product-price
-        text-decoration: line-through
-
-      &:hover, &:focus
-        opacity: .8
-
-.no-products-message
+.product-list-thumb-info
+  line-height: normal
+  padding: 12px 0 0
+  position: relative
   text-align: center
+  display: grid
+  gap: 8px
+
+  &--left
+    text-align: left
+
+.product-list-thumb-name
+  font-size: 1.3em
+  word-break: break-word
+
+  @media screen and (max-width: $break-small)
+    font-size: 1em
+
+.product-list-thumb-price
+  font-size: .975rem
 
 .pagination
-  font-family: $secondary-font
-  font-size: 14px
-  margin: 0 auto
-  max-width: 700px
-  overflow-x: auto
-  padding-bottom: 20px
+  display: flex
+  align-items: center
+  justify-content: center
+  color: var(--primary-text-color)
+  position: relative
   text-align: center
-  white-space: nowrap
   width: 100%
-  -webkit-overflow-scrolling: touch
+  gap: 16px
+  padding-top: 80px
 
-  a, span
-    +border-radius(50%)
-    border: 1px solid transparent
-    color: $secondary-color
-    display: inline-block
-    height: 40px
-    line-height: 38px
-    margin: 0 6px
-    text-align: center
-    width: 40px
+  .page-link
+    display: flex
+    flex-shrink: 0
+    align-items: center
+    gap: 12px
+    padding: 0 8px
 
-    &.previous, &.next
-      border: none
-      padding: 0 10px
-
-      svg
-        fill: $secondary-color
-        height: 11px
-        position: relative
-        top: 0
-        width: 15px
-
-    &.previous svg
-      +transform(rotate(90deg))
-
-    &.next svg
-      +transform(rotate(-90deg))
-
-    &.current
-      border: 1px solid $secondary-color
+    &:hover
+      text-decoration: underline
 
     &.disabled
       display: none
 
-.fade-in
-  opacity: 0
-  +animation(fadeIn 800ms normal forwards ease-in-out)
+    svg
+      width: 10px
+      height: 14px
 
-+keyframes(fadeIn)
-  0%
-    opacity: 0
+  .previous, .next
+    display: none
 
-  100%
-    opacity: 1
+.page-numbers
+  display: flex
+  gap: 12px
+
+  .current
+    text-underline-offset: 4px
+    text-decoration: underline
+
+  > a, span
+    padding: 2px 10px
+
+  > a:hover
+    text-decoration: underline
+
+.pagination-arrow
+  display: block
+  fill: currentColor
+  height: 17px
+  width: 17px
+
+  &.prev-arrow
+    margin-right: auto
+
+  &.next-arrow
+    margin-left: auto
