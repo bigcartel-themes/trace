@@ -79,9 +79,15 @@ a.product-list-link
   line-height: normal
   display: inline-block
   padding: 6px 8px
-  color: var(--product-status-text-color)
-  background: var(--product-status-background-color)
   border-radius: var(--border-radius-sm)
+
+  &.status-primary
+    background: var(--badge-background-color-primary)
+    color: var(--badge-text-color-primary)
+
+  &.status-secondary
+    background: var(--badge-background-color-secondary)
+    color: var(--badge-text-color-secondary)
 
 .product-list-thumb-info
   line-height: normal
