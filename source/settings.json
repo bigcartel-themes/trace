@@ -32,6 +32,7 @@
             },
             "colors": {
               "background_color": "#FFFFFF",
+              "primary_heading_text_color": "#000000",
               "primary_text_color": "#000000",
               "secondary_text_color": "#000000",
               "welcome_background_color": "#F9F9F9",
@@ -53,6 +54,7 @@
             },
             "colors": {
               "background_color": "#141415",
+              "primary_heading_text_color": "#F8F8F8",
               "primary_text_color": "#F8F8F8",
               "secondary_text_color": "#F8F8F8",
               "welcome_background_color": "#242424",
@@ -69,6 +71,7 @@
             },
             "colors": {
               "background_color": "#E9E5E5",
+              "primary_heading_text_color": "#0F1B27",
               "primary_text_color": "#0F1B27",
               "secondary_text_color": "#0F1B27",
               "welcome_background_color": "#F0EEEE",
@@ -90,8 +93,9 @@
             },
             "colors": {
               "background_color": "#FFFFFF",
-              "primary_text_color": "#0000FF",
-              "secondary_text_color": "#0000FF",
+              "primary_heading_text_color": "#0088FF",
+              "primary_text_color": "#222222",
+              "secondary_text_color": "#FFD700",
               "welcome_background_color": "#FFEE54",
               "welcome_text_color": "#0000FF",
               "announcement_text_color": "#FFFFFF",
@@ -106,6 +110,7 @@
             },
             "colors": {
               "background_color": "#FFE9F4",
+              "primary_heading_text_color": "#243588",
               "primary_text_color": "#243588",
               "secondary_text_color": "#243588",
               "welcome_background_color": "#FFF6FB",
@@ -135,6 +140,11 @@
       "variable": "background_color",
       "label": "Background",
       "default": "#FFFFFF"
+    },
+    {
+      "variable": "primary_heading_text_color",
+      "label": "Primary heading text",
+      "default": "#000000"
     },
     {
       "variable": "primary_text_color",
