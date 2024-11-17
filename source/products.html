@@ -50,15 +50,16 @@
                       {{ product.images[1] | product_image_url | constrain: 320 }} 320w,
                       {{ product.images[1] | product_image_url | constrain: 400 }} 400w,
                       {{ product.images[1] | product_image_url | constrain: 540 }} 540w,
-                      {{ product.images[1] | product_image_url | constrain: 600 }} 600w,
+                    {{ product.images[1] | product_image_url | constrain: 600 }} 600w,
                       {{ product.images[1] | product_image_url | constrain: 800 }} 800w,
                       {{ product.images[1] | product_image_url | constrain: 960 }} 960w
                     "
                     data-sizes="auto"
                   >
                 {% endif %}
-
-                {% if product_status != blank %}<div class="product-list-thumb-status">{{ product_status }}</div>{% endif %}
+                
+                {% capture product-status-class %}{% if product.status == 'active' and product.on_sale %}status-primary{% else %}status-secondary{% endif %}{% endcapture %}
+                {% if product_status != blank %}<div class="product-list-thumb-status {{ product-status-class }}">{{ product_status }}</div>{% endif %}
               </div>
               <div class="product-list-thumb-info product-list-thumb-info--{{ theme.product_detail_alignment }}">
                 <div class="product-list-thumb-name">{{ product.name }}</div>
