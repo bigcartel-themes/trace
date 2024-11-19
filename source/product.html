@@ -128,6 +128,13 @@
 
   <section class="product-detail">
     <div class="product-detail__header">
+      {% assign hide_price = false %}
+      {% if theme.show_sold_out_product_prices == false %}
+        {% case product.status %}
+          {% when 'sold-out' %}
+            {% assign hide_price = true %}
+        {% endcase %}
+      {% endif %}
       {% capture product_pricing %}
         {% if product.variable_pricing %}
           {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
@@ -136,7 +143,11 @@
         {% endif %}
       {% endcapture %}
       <h1 class="page-title page-title--left product-detail__title">{{ product.name }}</h1>
-      <div class="product-detail__pricing"><span>{{ product_pricing }}</span> {% if product_status != blank %}<div class="product-detail__status">&mdash; {{ product_status }}</div>{% endif %}</div>
+      <div class="product-detail__pricing">
+        {% unless hide_price %}<span>{{ product_pricing }}</span>{% endunless %}
+        {% if hide_price == false and product_status != blank %}<span class="product-detail__separator">&mdash;</span>{% endif %}
+        {% if product_status != blank %}<div class="product-detail__status">{{ product_status }}</div>{% endif %}
+      </div>
     </div>
     {% if product.status == 'active' %}
       <form method="post" class="product-form {% if theme.show_sold_out_product_options %}show-sold-out{% else %}hide-sold-out{% endif %}" action="/cart" accept-charset="utf8">
