@@ -1,11 +1,11 @@
 {
   "name": "Trace",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "images": [
     {
       "variable": "logo",
       "label": "Header logo",
-      "description": "Good for an image up to 300 x 80 pixels"
+      "description": "Recommend transparent background and 300 x 80 size"
     },
     {
       "variable": "welcome_image",
@@ -180,6 +180,20 @@
       "label": "Announcement text",
       "type": "text",
       "description": "Displays an announcement message on the top of every page"
+    },
+    {
+      "variable": "logo_max_height",
+      "label": "Header logo image height",
+      "type": "select",
+      "options": [
+        ["Small", "60"],
+        ["Medium", "80"],
+        ["Large", "120"],
+        ["Extra Large", "140"],
+        ["XX Large", "180"]
+      ],
+      "default": "80",
+      "description": "Controls the maximum height of your header logo"
     },
     {
       "variable": "show_search",
