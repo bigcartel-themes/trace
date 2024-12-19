@@ -204,10 +204,11 @@ header
       font-size: 1.3em
 
     &.image
-      height: 80px
+      height: calc(var(--logo-max-height) * 1px)
 
       @media screen and (max-width: $break-small)
-        height: 48px
+        // Min 60px, Max 110px
+        height: clamp(60px, calc(var(--logo-max-height) * 0.8 * 1px), 110px)
 
       .store-link
         height: 100%
