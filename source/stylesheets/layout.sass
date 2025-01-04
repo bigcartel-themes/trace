@@ -40,6 +40,7 @@ a, a:visited
   transition: color .2s linear
 
   &:hover
+    text-decoration: underline
     color: var(--secondary-text-color)
 
 h1, h2, h3, h4, h5, h6
@@ -502,11 +503,12 @@ footer
     border: none
     height: auto
     min-height: 0
-    text-decoration: underline
+    text-decoration: none
     transition: color .2s linear
     text-underline-offset: 4px
 
     &:not(:disabled):hover, &:not(:disabled):active
+      text-decoration: underline
       box-shadow: none
       background: none
       color: var(--secondary-text-color)
