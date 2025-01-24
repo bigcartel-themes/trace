@@ -270,10 +270,7 @@
       "label": "Featured header",
       "type": "text",
       "description": "Displays above your featured products or categories on the Home page",
-      "default": "Featured",
-      "requires": [
-        "featured_items gt 0"
-      ]
+      "default": "Featured"
     },
     {
       "variable": "featured_items_type",
