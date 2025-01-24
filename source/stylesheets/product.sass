@@ -114,5 +114,32 @@
     margin-bottom: 0
     text-align: left
 
+.related-products-container
+  margin-top: 100px
+
+.related-products-header
+  display: flex
+  align-items: center
+
+  .related-products-view-all-link
+    margin-left: auto
+
+    &:hover
+      text-decoration: underline
+      text-underline-offset: 3px
+
+.related-product-list.product-list
+  --columns: 4
+
+  @media screen and (max-width: $break-medium)
+    justify-content: flex-start
+
+  @media screen and (max-width: $break-large)
+    --columns: 3
+    --gap: calc(var(--spacing-unit) * 2)
+  
+  @media screen and (max-width: $break-small)
+    --columns: #{"{{ theme.max_products_per_row_mobile }}"}
+
 #instant-checkout-button
   margin-top: 12px

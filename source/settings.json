@@ -270,7 +270,10 @@
       "label": "Featured header",
       "type": "text",
       "description": "Displays above your featured products or categories on the Home page",
-      "default": "Featured"
+      "default": "Featured",
+      "requires": [
+        "featured_items gt 0"
+      ]
     },
     {
       "variable": "featured_items_type",
@@ -278,7 +281,10 @@
       "type": "select",
       "options": ["Categories", "Products"],
       "default": "Products",
-      "description": "Displays featured products or categories on the Home page"
+      "description": "Select which items appear on your homepage: products or categories",
+      "requires": [
+        "featured_items gt 0"
+      ]
     },
     {
       "variable": "featured_items",
@@ -388,6 +394,46 @@
       "default": true,
       "description": "Show the price of sold out products on product grids and product pages",
       "requires": "inventory"
+    },
+    {
+      "variable": "show_related_products",
+      "label": "Show related products",
+      "type": "boolean",
+      "default": true,
+      "description": "Display recommended products on Product pages starting with same category"
+    },
+    {
+      "variable": "related_products",
+      "label": "Related products",
+      "type": "select",
+      "options": "1..6",
+      "default": 3,
+      "description": "The maximum number of related items to show on Product pages",
+      "requires": [
+        "show_related_products eq true"
+      ]
+    },
+    {
+      "variable": "related_products_header",
+      "label": "Related products header",
+      "type": "text",
+      "max_length": 75,
+      "description": "Displays above related products on Products pages",
+      "default": "You might also like",
+      "requires": [
+        "show_related_products eq true"
+      ]
+    },
+    {
+      "variable": "related_products_order",
+      "label": "Related products order",
+      "type": "select",
+      "options": "product_orders",
+      "default": "top-selling",
+      "description": "The order of related products on the Product pages",
+      "requires": [
+        "show_related_products eq true"
+      ]
     },
     {
       "variable": "money_format",
