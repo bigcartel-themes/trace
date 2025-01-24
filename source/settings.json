@@ -256,14 +256,14 @@
       "variable": "welcome_message",
       "label": "Welcome message",
       "type": "text",
-      "description": "Displays a welcome message on the Home page"
+      "description": "Displays a message above the welcome button on the Home page. Requires a welcome image to be set."
     },
     {
       "variable": "welcome_button_text",
       "label": "Welcome button",
       "type": "text",
-      "description": "Displays a link to the Products page on the Home page",
-      "default": "Start shopping"
+      "description": "Displays a link to the Products page on the Home page. Requires a welcome image to be set.",
+      "default": "Shop now"
     },
     {
       "variable": "featured_header",
