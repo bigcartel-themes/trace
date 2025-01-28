@@ -97,6 +97,9 @@
     </main>
     <footer class="footer" data-bc-hook="footer">
       <div class="wrapper">
+        {% if theme.footer_text != blank and theme.footer_text_position == "start" %}
+          <div class="footer-custom-content">{{ theme.footer_text }} </div>
+        {% endif %}
         <ul class="footer__pages">
           <li><a href="/">{{ pages.home.name }}</a></li>
           <li><a href="/products">{{ pages.products.name }}</a></li>
@@ -181,6 +184,9 @@
               {% endif %}
             </ul>
           </nav>
+        {% endif %}
+        {% if theme.footer_text != blank and theme.footer_text_position == "end" %}
+          <div class="footer-custom-content">{{ theme.footer_text }} </div>
         {% endif %}
         <div class="footer-store-credit">{{ powered_by_big_cartel }}</div>
       </div>

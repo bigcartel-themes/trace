@@ -457,6 +457,34 @@
       "description": "Controls the rounded corner style on images and other site elements"
     },
     {
+      "variable": "show_categories_in_footer",
+      "label": "Show categories in footer",
+      "type": "boolean",
+      "default": true,
+      "description": "Show categories in the footer"
+    },
+    {
+      "variable": "footer_text",
+      "label": "Footer text",
+      "type": "text",
+      "max_length": 2048,
+      "description": "Show a custom message to your shop's footer"
+    },
+    {
+      "variable": "footer_text_position",
+      "label": "Footer text position",
+      "type": "select",
+      "options": [
+        ["Start of footer", "start"],
+        ["End of footer", "end"]
+      ],
+      "default": "end",
+      "description": "Choose where to show your footer message",
+      "requires": [
+        "footer_text present"
+      ]
+    },
+    {
       "variable": "instagram_url",
       "label": "Instagram URL",
       "type": "text",
