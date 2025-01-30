@@ -41,8 +41,53 @@
               "badge_background_color_primary": "#FFD700",
               "badge_text_color_secondary": "#222222",
               "badge_background_color_secondary": "#B7B7B7",
+              "inventory_status_text_color": "#E15C2A",
               "announcement_text_color": "#FFFFFF",
               "announcement_background_color": "#000000"
+            }
+          },
+          {
+            "style_name": "Classic #2",
+            "fonts": {
+              "primary_font": "Georgia",
+              "secondary_font": "Helvetica"
+            },
+            "colors": {
+              "background_color": "#F8F8F8",
+              "primary_heading_text_color": "#2B2B2B",
+              "primary_text_color": "#2B2B2B",
+              "secondary_text_color": "#4B4B4B",
+              "welcome_background_color": "#EDEDED",
+              "welcome_text_color": "#2B2B2B",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#C0C0C0",
+              "badge_text_color_secondary": "#2B2B2B",
+              "badge_background_color_secondary": "#A9A9A9",
+              "inventory_status_text_color": "#C62828",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#333333"
+            }
+          },
+          {
+            "style_name": "Classic #3",
+            "fonts": {
+              "primary_font": "Times New Roman",
+              "secondary_font": "Arial"
+            },
+            "colors": {
+              "background_color": "#FAFAFA",
+              "primary_heading_text_color": "#1A1A1A",
+              "primary_text_color": "#1A1A1A",
+              "secondary_text_color": "#4A4A4A",
+              "welcome_background_color": "#F0F0F0",
+              "welcome_text_color": "#1A1A1A",
+              "badge_text_color_primary": "#000000",
+              "badge_background_color_primary": "#DAA520",
+              "badge_text_color_secondary": "#1A1A1A",
+              "badge_background_color_secondary": "#D3D3D3",
+              "inventory_status_text_color": "#B71C1C",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#222222"
             }
           }
         ]
@@ -64,9 +109,10 @@
               "welcome_background_color": "#242424",
               "welcome_text_color": "#F8F8F8",
               "badge_text_color_primary": "#222222",
-              "badge_background_color_primary": "#ffc65c",
+              "badge_background_color_primary": "#FFC65C",
               "badge_text_color_secondary": "#222222",
               "badge_background_color_secondary": "#B7B7B7",
+              "inventory_status_text_color": "#FF9E3B",
               "announcement_text_color": "#FFFFFF",
               "announcement_background_color": "#000000"
             }
@@ -88,8 +134,31 @@
               "badge_background_color_primary": "#E64946",
               "badge_text_color_secondary": "#222222",
               "badge_background_color_secondary": "#B7B7B7",
+              "inventory_status_text_color": "#BF2121",
               "announcement_text_color": "#FFFFFF",
               "announcement_background_color": "#000000"
+            }
+          },
+          {
+            "style_name": "Elegant #3",
+            "fonts": {
+              "primary_font": "Libre Baskerville",
+              "secondary_font": "Merriweather"
+            },
+            "colors": {
+              "background_color": "#F5F5F5",
+              "primary_heading_text_color": "#222222",
+              "primary_text_color": "#333333",
+              "secondary_text_color": "#555555",
+              "welcome_background_color": "#EAEAEA",
+              "welcome_text_color": "#222222",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#6C757D",
+              "badge_text_color_secondary": "#FFFFFF",
+              "badge_background_color_secondary": "#B7B7B7",
+              "inventory_status_text_color": "#C91F37",
+              "announcement_text_color": "#333333",
+              "announcement_background_color": "#E5E5E5"
             }
           }
         ]
@@ -114,6 +183,8 @@
               "badge_background_color_primary": "#0088FF",
               "badge_text_color_secondary": "#222222",
               "badge_background_color_secondary": "#B7B7B7",
+              "inventory_status_text_color": "#0088FF",
+
               "announcement_text_color": "#000000",
               "announcement_background_color": "#FFEE54"
             }
@@ -135,8 +206,54 @@
               "badge_background_color_primary": "#243588",
               "badge_text_color_secondary": "#222222",
               "badge_background_color_secondary": "#B7B7B7",
+              "inventory_status_text_color": "#E15C2A",
+
               "announcement_text_color": "#FFFFFF",
               "announcement_background_color": "#243588"
+            }
+          },
+          {
+            "style_name": "Playful #3",
+            "fonts": {
+              "primary_font": "Poppins",
+              "secondary_font": "Lato"
+            },
+            "colors": {
+              "background_color": "#FFF7E5",
+              "primary_heading_text_color": "#FF6F61",
+              "primary_text_color": "#4B4B4B",
+              "secondary_text_color": "#FFAB40",
+              "welcome_background_color": "#FFE082",
+              "welcome_text_color": "#FF6F61",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#FF6F61",
+              "badge_text_color_secondary": "#4B4B4B",
+              "badge_background_color_secondary": "#FFD54F",
+              "inventory_status_text_color": "#D32F2F",
+              "announcement_text_color": "#4B4B4B",
+              "announcement_background_color": "#FFD54F"
+            }
+          },
+          {
+            "style_name": "Playful #4",
+            "fonts": {
+              "primary_font": "Quicksand",
+              "secondary_font": "Roboto"
+            },
+            "colors": {
+              "background_color": "#E3F2FD",
+              "primary_heading_text_color": "#1976D2",
+              "primary_text_color": "#424242",
+              "secondary_text_color": "#64B5F6",
+              "welcome_background_color": "#BBDEFB",
+              "welcome_text_color": "#1976D2",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#1976D2",
+              "badge_text_color_secondary": "#424242",
+              "badge_background_color_secondary": "#90CAF9",
+              "inventory_status_text_color": "#D32F2F",
+              "announcement_text_color": "#424242",
+              "announcement_background_color": "#90CAF9"
             }
           }
         ]
@@ -205,6 +322,11 @@
       "variable": "badge_background_color_secondary",
       "label": "Badge background (secondary)",
       "default": "#B7B7B7"
+    },
+    {
+      "variable": "inventory_status_text_color",
+      "label": "Low Inventory messages",
+      "default": "#E15C2A"
     },
     {
       "variable": "announcement_text_color",
@@ -391,6 +513,53 @@
       "default": true,
       "description": "Show the price of sold out products on product grids and product pages",
       "requires": "inventory"
+    },
+    {
+      "variable": "show_low_inventory_messages",
+      "label": "Show product stock alerts",
+      "type": "boolean",
+      "default": true,
+      "description": "Show shoppers alerts on Product pages when it's running low on stock",
+      "requires": [
+        "inventory"
+      ]
+    },
+    {
+      "variable": "low_inventory_threshold",
+      "label": "Low stock alert",
+      "options": "1..100",
+      "type": "select",
+      "default": "10",
+      "description": "When stock drops below this number, shoppers will see low stock message. 'Almost sold out' message shows at half this amount",
+      "requires": [
+        "inventory",
+        "show_low_inventory_messages eq true"
+      ]
+    },
+    {
+      "variable": "low_inventory_message",
+      "label": "Low stock message",
+      "type": "text",
+      "max_length": 50,
+      "description": "Message shown when stock drops below your alert level",
+      "default": "Limited quantities available",
+      "requires": [
+        "inventory",
+        "show_low_inventory_messages eq true"
+      ]
+    },
+    {
+      "variable": "almost_sold_out_message",
+      "label": "Almost sold out message",
+      "type": "text",
+      "max_length": 50,
+      "description": "Message shown when stock drops below half your alert level",
+      "default": "Only a few left!",
+      "requires": [
+        "inventory",
+        "show_low_inventory_messages eq true",
+        "low_inventory_threshold gt 1"
+      ]
     },
     {
       "variable": "show_related_products",
