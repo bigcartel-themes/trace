@@ -204,6 +204,7 @@
   {% assign related_products_header = theme.related_products_header | default: 'You might also like' %}
   {% assign related_products_collection = product.related_products %}  
   
+  {% if related_products_collection.size > 0 %}
     <div class="related-products-container" data-num-products="{{ related_products_limit }}" role="complementary" aria-label="{{ related_products_header }}">
       <div class="related-products-header">
         <h2 class="related-products-title">{{ related_products_header }}</h2>
@@ -274,5 +275,5 @@
         {% endfor %}
       </div>
     </div>
-  </div>
+  {% endif %}
 {% endif %}
