@@ -49,45 +49,45 @@
           {
             "style_name": "Classic #2",
             "fonts": {
-              "primary_font": "Lora",
-              "secondary_font": "Karla"
+              "primary_font": "PT Serif",
+              "secondary_font": "Work Sans"
             },
             "colors": {
-              "background_color": "#F8F1E9",
-              "primary_heading_text_color": "#2B4C7E",
-              "primary_text_color": "#2B4C7E",
-              "secondary_text_color": "#567EBB",
-              "welcome_background_color": "#FFFFFF",
-              "welcome_text_color": "#2B4C7E",
+              "background_color": "#F9F6F2",
+              "primary_heading_text_color": "#3F2E1A",
+              "primary_text_color": "#3F2E1A",
+              "secondary_text_color": "#6B563C",
+              "welcome_background_color": "#F2EDE6",
+              "welcome_text_color": "#3F2E1A",
               "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#2B4C7E",
-              "badge_text_color_secondary": "#2B4C7E",
-              "badge_background_color_secondary": "#E6DFD7",
-              "inventory_status_text_color": "#B94A48",
+              "badge_background_color_primary": "#8B6E47",
+              "badge_text_color_secondary": "#3F2E1A",
+              "badge_background_color_secondary": "#E5DDD3",
+              "inventory_status_text_color": "#B7562A",
               "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#2B4C7E"
+              "announcement_background_color": "#8B6E47"
             }
           },
           {
             "style_name": "Classic #3",
             "fonts": {
-              "primary_font": "PT Serif",
-              "secondary_font": "Work Sans"
+              "primary_font": "Lora",
+              "secondary_font": "DM Sans"
             },
             "colors": {
-              "background_color": "#002D40",
+              "background_color": "#1A2632",
               "primary_heading_text_color": "#FFFFFF",
               "primary_text_color": "#FFFFFF",
-              "secondary_text_color": "#B8D4E0",
-              "welcome_background_color": "#00384E",
+              "secondary_text_color": "#B8C4CF",
+              "welcome_background_color": "#243241",
               "welcome_text_color": "#FFFFFF",
-              "badge_text_color_primary": "#002D40",
-              "badge_background_color_primary": "#E6C992",
+              "badge_text_color_primary": "#1A2632",
+              "badge_background_color_primary": "#93B5E5",
               "badge_text_color_secondary": "#FFFFFF",
-              "badge_background_color_secondary": "#004C6D",
-              "inventory_status_text_color": "#E6C992",
-              "announcement_text_color": "#002D40",
-              "announcement_background_color": "#E6C992"
+              "badge_background_color_secondary": "#2D3B48",
+              "inventory_status_text_color": "#93B5E5",
+              "announcement_text_color": "#1A2632",
+              "announcement_background_color": "#93B5E5"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "style_name": "Bold #1",
             "fonts": {
               "primary_font": "Montserrat",
-              "secondary_font": "Work Sans"
+              "secondary_font": "Source Sans Pro"
             },
             "colors": {
               "background_color": "#000000",
@@ -111,7 +111,7 @@
               "badge_text_color_primary": "#000000",
               "badge_background_color_primary": "#FF3D00",
               "badge_text_color_secondary": "#FFFFFF",
-              "badge_background_color_secondary": "#424242",
+              "badge_background_color_secondary": "#333333",
               "inventory_status_text_color": "#FF3D00",
               "announcement_text_color": "#000000",
               "announcement_background_color": "#FFFFFF"
@@ -120,116 +120,45 @@
           {
             "style_name": "Bold #2",
             "fonts": {
-              "primary_font": "Oswald",
-              "secondary_font": "Source Sans Pro"
+              "primary_font": "Syne",
+              "secondary_font": "Inter"
             },
             "colors": {
-              "background_color": "#FFFFFF",
-              "primary_heading_text_color": "#000000",
-              "primary_text_color": "#000000",
-              "secondary_text_color": "#555555",
-              "welcome_background_color": "#000000",
+              "background_color": "#003CD4",
+              "primary_heading_text_color": "#FFFFFF",
+              "primary_text_color": "#FFFFFF",
+              "secondary_text_color": "#B3CCFF",
+              "welcome_background_color": "#002DB3",
               "welcome_text_color": "#FFFFFF",
-              "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#000000",
-              "badge_text_color_secondary": "#000000",
-              "badge_background_color_secondary": "#E0E0E0",
-              "inventory_status_text_color": "#D50000",
-              "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#000000"
+              "badge_text_color_primary": "#003CD4",
+              "badge_background_color_primary": "#FFDD00",
+              "badge_text_color_secondary": "#FFFFFF",
+              "badge_background_color_secondary": "#1A51E0",
+              "inventory_status_text_color": "#FFDD00",
+              "announcement_text_color": "#003CD4",
+              "announcement_background_color": "#FFDD00"
             }
           },
           {
             "style_name": "Bold #3",
             "fonts": {
-              "primary_font": "Syne",
+              "primary_font": "Oswald",
               "secondary_font": "DM Sans"
             },
             "colors": {
-              "background_color": "#2C0735",
-              "primary_heading_text_color": "#FFFFFF",
-              "primary_text_color": "#FFFFFF",
-              "secondary_text_color": "#D8B4E8",
-              "welcome_background_color": "#420D52",
-              "welcome_text_color": "#FFFFFF",
-              "badge_text_color_primary": "#2C0735",
-              "badge_background_color_primary": "#00FFB2",
-              "badge_text_color_secondary": "#FFFFFF",
-              "badge_background_color_secondary": "#8A2DA6",
-              "inventory_status_text_color": "#00FFB2",
-              "announcement_text_color": "#2C0735",
-              "announcement_background_color": "#00FFB2"
-            }
-          }
-        ]
-      },
-      {
-        "group_name": "Elegant",
-        "styles": [
-          {
-            "style_name": "Elegant #1",
-            "fonts": {
-              "primary_font": "Marcellus",
-              "secondary_font": "Lato"
-            },
-            "colors": {
-              "background_color": "#141415",
-              "primary_heading_text_color": "#F8F8F8",
-              "primary_text_color": "#F8F8F8",
-              "secondary_text_color": "#F8F8F8",
-              "welcome_background_color": "#242424",
-              "welcome_text_color": "#F8F8F8",
-              "badge_text_color_primary": "#222222",
-              "badge_background_color_primary": "#FFC65C",
-              "badge_text_color_secondary": "#222222",
-              "badge_background_color_secondary": "#B7B7B7",
-              "inventory_status_text_color": "#FF9E3B",
-              "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#000000"
-            }
-          },
-          {
-            "style_name": "Elegant #2",
-            "fonts": {
-              "primary_font": "Prata",
-              "secondary_font": "Karla"
-            },
-            "colors": {
-              "background_color": "#E9E5E5",
-              "primary_heading_text_color": "#0F1B27",
-              "primary_text_color": "#0F1B27",
-              "secondary_text_color": "#0F1B27",
-              "welcome_background_color": "#F0EEEE",
-              "welcome_text_color": "#0F1B27",
+              "background_color": "#FFFFFF",
+              "primary_heading_text_color": "#D91A1A",
+              "primary_text_color": "#D91A1A",
+              "secondary_text_color": "#666666",
+              "welcome_background_color": "#FFF5F5",
+              "welcome_text_color": "#D91A1A",
               "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#E64946",
-              "badge_text_color_secondary": "#222222",
-              "badge_background_color_secondary": "#B7B7B7",
-              "inventory_status_text_color": "#BF2121",
+              "badge_background_color_primary": "#D91A1A",
+              "badge_text_color_secondary": "#D91A1A",
+              "badge_background_color_secondary": "#FFE5E5",
+              "inventory_status_text_color": "#D91A1A",
               "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#000000"
-            }
-          },
-          {
-            "style_name": "Elegant #3",
-            "fonts": {
-              "primary_font": "Libre Baskerville",
-              "secondary_font": "Merriweather"
-            },
-            "colors": {
-              "background_color": "#F5F5F5",
-              "primary_heading_text_color": "#222222",
-              "primary_text_color": "#333333",
-              "secondary_text_color": "#555555",
-              "welcome_background_color": "#EAEAEA",
-              "welcome_text_color": "#222222",
-              "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#6C757D",
-              "badge_text_color_secondary": "#FFFFFF",
-              "badge_background_color_secondary": "#B7B7B7",
-              "inventory_status_text_color": "#C91F37",
-              "announcement_text_color": "#333333",
-              "announcement_background_color": "#E5E5E5"
+              "announcement_background_color": "#D91A1A"
             }
           }
         ]
@@ -244,19 +173,19 @@
               "secondary_font": "Nunito Sans"
             },
             "colors": {
-              "background_color": "#FFF5E4",
-              "primary_heading_text_color": "#FF6B6B",
-              "primary_text_color": "#333333",
-              "secondary_text_color": "#666666",
-              "welcome_background_color": "#FFE0E0",
-              "welcome_text_color": "#FF6B6B",
-              "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#FF6B6B",
-              "badge_text_color_secondary": "#333333",
-              "badge_background_color_secondary": "#FFB4B4",
-              "inventory_status_text_color": "#FF3D3D",
-              "announcement_text_color": "#333333",
-              "announcement_background_color": "#FFE0E0"
+              "background_color": "#01ACAB",
+              "primary_heading_text_color": "#FFFFFF",
+              "primary_text_color": "#FFFFFF",
+              "secondary_text_color": "#B4E9E9",
+              "welcome_background_color": "#019494",
+              "welcome_text_color": "#FFFFFF",
+              "badge_text_color_primary": "#01ACAB",
+              "badge_background_color_primary": "#FFEC3C",
+              "badge_text_color_secondary": "#FFFFFF",
+              "badge_background_color_secondary": "#02C4C3",
+              "inventory_status_text_color": "#FFEC3C",
+              "announcement_text_color": "#01ACAB",
+              "announcement_background_color": "#FFEC3C"
             }
           },
           {
@@ -266,41 +195,41 @@
               "secondary_font": "DM Sans"
             },
             "colors": {
-              "background_color": "#F0FFF4",
-              "primary_heading_text_color": "#2D87FF",
-              "primary_text_color": "#1A1A1A",
-              "secondary_text_color": "#4A4A4A",
-              "welcome_background_color": "#CCFFD8",
-              "welcome_text_color": "#2D87FF",
+              "background_color": "#FFE0F1",
+              "primary_heading_text_color": "#FF1493",
+              "primary_text_color": "#FF1493",
+              "secondary_text_color": "#FF69B4",
+              "welcome_background_color": "#FFD4EA",
+              "welcome_text_color": "#FF1493",
               "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#2D87FF",
-              "badge_text_color_secondary": "#1A1A1A",
-              "badge_background_color_secondary": "#98FFB3",
-              "inventory_status_text_color": "#FF5722",
-              "announcement_text_color": "#1A1A1A",
-              "announcement_background_color": "#CCFFD8"
+              "badge_background_color_primary": "#FF1493",
+              "badge_text_color_secondary": "#FF1493",
+              "badge_background_color_secondary": "#FFB6E1",
+              "inventory_status_text_color": "#FF1493",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#FF1493"
             }
           },
           {
             "style_name": "Playful #3",
             "fonts": {
-              "primary_font": "Delius",
+              "primary_font": "Chewy",
               "secondary_font": "Poppins"
             },
             "colors": {
-              "background_color": "#6B4BFF",
-              "primary_heading_text_color": "#FFFFFF",
-              "primary_text_color": "#FFFFFF",
-              "secondary_text_color": "#E0D6FF",
-              "welcome_background_color": "#5539DD",
-              "welcome_text_color": "#FFFFFF",
-              "badge_text_color_primary": "#6B4BFF",
-              "badge_background_color_primary": "#FFDE59",
-              "badge_text_color_secondary": "#FFFFFF",
-              "badge_background_color_secondary": "#8469FF",
-              "inventory_status_text_color": "#FFDE59",
-              "announcement_text_color": "#6B4BFF",
-              "announcement_background_color": "#FFDE59"
+              "background_color": "#FFFFFF",
+              "primary_heading_text_color": "#FF6B2B",
+              "primary_text_color": "#FF6B2B",
+              "secondary_text_color": "#666666",
+              "welcome_background_color": "#FFF4EE",
+              "welcome_text_color": "#FF6B2B",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#FF6B2B",
+              "badge_text_color_secondary": "#FF6B2B",
+              "badge_background_color_secondary": "#FFE1D3",
+              "inventory_status_text_color": "#FF6B2B",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#FF6B2B"
             }
           }
         ]
@@ -315,63 +244,63 @@
               "secondary_font": "Source Sans Pro"
             },
             "colors": {
-              "background_color": "#F4EDE4",
-              "primary_heading_text_color": "#3A2E27",
-              "primary_text_color": "#3A2E27",
-              "secondary_text_color": "#796B60",
-              "welcome_background_color": "#E8DFD3",
-              "welcome_text_color": "#3A2E27",
+              "background_color": "#EFEBE5",
+              "primary_heading_text_color": "#4B392D",
+              "primary_text_color": "#4B392D",
+              "secondary_text_color": "#7D6B5D",
+              "welcome_background_color": "#E6E0D8",
+              "welcome_text_color": "#4B392D",
               "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#8B6F5C",
-              "badge_text_color_secondary": "#3A2E27",
-              "badge_background_color_secondary": "#D5C5B5",
-              "inventory_status_text_color": "#CC5500",
+              "badge_background_color_primary": "#9C7A5B",
+              "badge_text_color_secondary": "#4B392D",
+              "badge_background_color_secondary": "#D5CAC0",
+              "inventory_status_text_color": "#B36A3D",
               "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#8B6F5C"
+              "announcement_background_color": "#9C7A5B"
             }
           },
           {
             "style_name": "Earthy #2",
             "fonts": {
-              "primary_font": "Enriqueta",
-              "secondary_font": "DM Sans"
+              "primary_font": "Andada Pro",
+              "secondary_font": "Work Sans"
             },
             "colors": {
-              "background_color": "#40594C",
-              "primary_heading_text_color": "#F7F3E9",
-              "primary_text_color": "#F7F3E9",
-              "secondary_text_color": "#C5D1C8",
-              "welcome_background_color": "#344A3D",
-              "welcome_text_color": "#F7F3E9",
-              "badge_text_color_primary": "#40594C",
-              "badge_background_color_primary": "#E5B95F",
-              "badge_text_color_secondary": "#F7F3E9",
-              "badge_background_color_secondary": "#567568",
-              "inventory_status_text_color": "#E5B95F",
-              "announcement_text_color": "#40594C",
-              "announcement_background_color": "#E5B95F"
+              "background_color": "#1F3A2C",
+              "primary_heading_text_color": "#E6DED0",
+              "primary_text_color": "#E6DED0",
+              "secondary_text_color": "#A5BBA8",
+              "welcome_background_color": "#182D22",
+              "welcome_text_color": "#E6DED0",
+              "badge_text_color_primary": "#1F3A2C",
+              "badge_background_color_primary": "#D4B374",
+              "badge_text_color_secondary": "#E6DED0",
+              "badge_background_color_secondary": "#2D4F3E",
+              "inventory_status_text_color": "#D4B374",
+              "announcement_text_color": "#1F3A2C",
+              "announcement_background_color": "#D4B374"
             }
           },
           {
             "style_name": "Earthy #3",
             "fonts": {
-              "primary_font": "Andada Pro",
-              "secondary_font": "Work Sans"
+              "primary_font": "Enriqueta",
+              "secondary_font": "DM Sans"
             },
             "colors": {
-              "background_color": "#FFFFFF",
-              "primary_heading_text_color": "#8B4513",
-              "primary_text_color": "#8B4513",
-              "secondary_text_color": "#A67B5B",
-              "welcome_background_color": "#F9F1EC",
-              "welcome_text_color": "#8B4513",
+              "background_color": "#F8F1E9",
+              "primary_heading_text_color": "#B05E36",
+              "primary_text_color": "#B05E36",
+              "secondary_text_color": "#C18263",
+              "welcome_background_color": "#F2E7DC",
+              "welcome_text_color": "#B05E36",
               "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#A0522D",
-              "badge_text_color_secondary": "#8B4513",
-              "badge_background_color_secondary": "#DBC1AC",
+              "badge_background_color_primary": "#B05E36",
+              "badge_text_color_secondary": "#B05E36",
+              "badge_background_color_secondary": "#E6D5C7",
               "inventory_status_text_color": "#D35400",
               "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#A0522D"
+              "announcement_background_color": "#B05E36"
             }
           }
         ]
@@ -386,63 +315,63 @@
               "secondary_font": "Karla"
             },
             "colors": {
-              "background_color": "#F8F5FF",
-              "primary_heading_text_color": "#6B4E71",
-              "primary_text_color": "#6B4E71",
-              "secondary_text_color": "#9B8B9D",
-              "welcome_background_color": "#F0EBFF",
-              "welcome_text_color": "#6B4E71",
+              "background_color": "#F6F0FF",
+              "primary_heading_text_color": "#6D5B8C",
+              "primary_text_color": "#6D5B8C",
+              "secondary_text_color": "#9B8BB5",
+              "welcome_background_color": "#EEE6F9",
+              "welcome_text_color": "#6D5B8C",
               "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#9B6B9D",
-              "badge_text_color_secondary": "#6B4E71",
-              "badge_background_color_secondary": "#E5D9FF",
-              "inventory_status_text_color": "#FF69B4",
+              "badge_background_color_primary": "#8E77B5",
+              "badge_text_color_secondary": "#6D5B8C",
+              "badge_background_color_secondary": "#E2D6F5",
+              "inventory_status_text_color": "#B784B7",
               "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#9B6B9D"
+              "announcement_background_color": "#8E77B5"
             }
           },
           {
             "style_name": "Dreamy #2",
             "fonts": {
-              "primary_font": "Spectral",
-              "secondary_font": "Quicksand"
+              "primary_font": "Marcellus",
+              "secondary_font": "DM Sans"
             },
             "colors": {
-              "background_color": "#E8F3F5",
-              "primary_heading_text_color": "#537780",
-              "primary_text_color": "#537780",
-              "secondary_text_color": "#89A7AE",
-              "welcome_background_color": "#DCE9EC",
-              "welcome_text_color": "#537780",
+              "background_color": "#E9F5F9",
+              "primary_heading_text_color": "#4C828F",
+              "primary_text_color": "#4C828F",
+              "secondary_text_color": "#7DA7B2",
+              "welcome_background_color": "#DCF0F5",
+              "welcome_text_color": "#4C828F",
               "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#7EA9B1",
-              "badge_text_color_secondary": "#537780",
-              "badge_background_color_secondary": "#C5DDE2",
-              "inventory_status_text_color": "#FF8E6E",
+              "badge_background_color_primary": "#7DA7B2",
+              "badge_text_color_secondary": "#4C828F",
+              "badge_background_color_secondary": "#D0E8EE",
+              "inventory_status_text_color": "#FF9E80",
               "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#7EA9B1"
+              "announcement_background_color": "#7DA7B2"
             }
           },
           {
             "style_name": "Dreamy #3",
             "fonts": {
-              "primary_font": "Marcellus",
-              "secondary_font": "DM Sans"
+              "primary_font": "Spectral",
+              "secondary_font": "Quicksand"
             },
             "colors": {
-              "background_color": "#2C2635",
-              "primary_heading_text_color": "#E8DFF5",
-              "primary_text_color": "#E8DFF5",
-              "secondary_text_color": "#B3A4C9",
-              "welcome_background_color": "#362D42",
-              "welcome_text_color": "#E8DFF5",
-              "badge_text_color_primary": "#2C2635",
-              "badge_background_color_primary": "#C7B7E5",
-              "badge_text_color_secondary": "#E8DFF5",
-              "badge_background_color_secondary": "#4A3D59",
-              "inventory_status_text_color": "#FFB2EF",
-              "announcement_text_color": "#2C2635",
-              "announcement_background_color": "#C7B7E5"
+              "background_color": "#F5E6E8",
+              "primary_heading_text_color": "#96757C",
+              "primary_text_color": "#96757C",
+              "secondary_text_color": "#B598A0",
+              "welcome_background_color": "#ECD9DC",
+              "welcome_text_color": "#96757C",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#B598A0",
+              "badge_text_color_secondary": "#96757C",
+              "badge_background_color_secondary": "#E5D3D6",
+              "inventory_status_text_color": "#D4A5BD",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#B598A0"
             }
           }
         ]
