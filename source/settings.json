@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "images": [
     {
       "variable": "logo",
@@ -27,69 +27,138 @@
           {
             "style_name": "Classic #1",
             "fonts": {
-              "primary_font": "Work Sans",
-              "secondary_font": "Work Sans"
+              "primary_font": "Libre Baskerville",
+              "secondary_font": "Source Sans Pro"
             },
             "colors": {
               "background_color": "#FFFFFF",
-              "primary_heading_text_color": "#000000",
-              "primary_text_color": "#000000",
-              "secondary_text_color": "#000000",
-              "welcome_background_color": "#F9F9F9",
-              "welcome_text_color": "#000000",
-              "badge_text_color_primary": "#000000",
-              "badge_background_color_primary": "#FFD700",
-              "badge_text_color_secondary": "#222222",
-              "badge_background_color_secondary": "#B7B7B7",
+              "primary_heading_text_color": "#1C2833",
+              "primary_text_color": "#1C2833",
+              "secondary_text_color": "#5D6D7E",
+              "welcome_background_color": "#F5F6F7",
+              "welcome_text_color": "#1C2833",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#34495E",
+              "badge_text_color_secondary": "#1C2833",
+              "badge_background_color_secondary": "#D5D8DC",
+              "inventory_status_text_color": "#C0392B",
               "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#000000"
+              "announcement_background_color": "#34495E"
+            }
+          },
+          {
+            "style_name": "Classic #2",
+            "fonts": {
+              "primary_font": "PT Serif",
+              "secondary_font": "Work Sans"
+            },
+            "colors": {
+              "background_color": "#F9F6F2",
+              "primary_heading_text_color": "#3F2E1A",
+              "primary_text_color": "#3F2E1A",
+              "secondary_text_color": "#6B563C",
+              "welcome_background_color": "#F2EDE6",
+              "welcome_text_color": "#3F2E1A",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#8B6E47",
+              "badge_text_color_secondary": "#3F2E1A",
+              "badge_background_color_secondary": "#E5DDD3",
+              "inventory_status_text_color": "#B7562A",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#8B6E47"
+            }
+          },
+          {
+            "style_name": "Classic #3",
+            "fonts": {
+              "primary_font": "Lora",
+              "secondary_font": "DM Sans"
+            },
+            "colors": {
+              "background_color": "#1A2632",
+              "primary_heading_text_color": "#FFFFFF",
+              "primary_text_color": "#FFFFFF",
+              "secondary_text_color": "#B8C4CF",
+              "welcome_background_color": "#243241",
+              "welcome_text_color": "#FFFFFF",
+              "badge_text_color_primary": "#1A2632",
+              "badge_background_color_primary": "#93B5E5",
+              "badge_text_color_secondary": "#FFFFFF",
+              "badge_background_color_secondary": "#2D3B48",
+              "inventory_status_text_color": "#93B5E5",
+              "announcement_text_color": "#1A2632",
+              "announcement_background_color": "#93B5E5"
             }
           }
         ]
       },
       {
-        "group_name": "Elegant",
+        "group_name": "Bold",
         "styles": [
           {
-            "style_name": "Elegant #1",
+            "style_name": "Bold #1",
             "fonts": {
-              "primary_font": "Marcellus",
-              "secondary_font": "Lato"
+              "primary_font": "Montserrat",
+              "secondary_font": "Source Sans Pro"
             },
             "colors": {
-              "background_color": "#141415",
-              "primary_heading_text_color": "#F8F8F8",
-              "primary_text_color": "#F8F8F8",
-              "secondary_text_color": "#F8F8F8",
-              "welcome_background_color": "#242424",
-              "welcome_text_color": "#F8F8F8",
-              "badge_text_color_primary": "#222222",
-              "badge_background_color_primary": "#ffc65c",
-              "badge_text_color_secondary": "#222222",
-              "badge_background_color_secondary": "#B7B7B7",
-              "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#000000"
+              "background_color": "#000000",
+              "primary_heading_text_color": "#FFFFFF",
+              "primary_text_color": "#FFFFFF",
+              "secondary_text_color": "#B0B0B0",
+              "welcome_background_color": "#1A1A1A",
+              "welcome_text_color": "#FFFFFF",
+              "badge_text_color_primary": "#000000",
+              "badge_background_color_primary": "#FF3D00",
+              "badge_text_color_secondary": "#FFFFFF",
+              "badge_background_color_secondary": "#333333",
+              "inventory_status_text_color": "#FF3D00",
+              "announcement_text_color": "#000000",
+              "announcement_background_color": "#FFFFFF"
             }
           },
           {
-            "style_name": "Elegant #2",
+            "style_name": "Bold #2",
             "fonts": {
-              "primary_font": "Prata",
-              "secondary_font": "Karla"
+              "primary_font": "Syne",
+              "secondary_font": "Inter"
             },
             "colors": {
-              "background_color": "#E9E5E5",
-              "primary_heading_text_color": "#0F1B27",
-              "primary_text_color": "#0F1B27",
-              "secondary_text_color": "#0F1B27",
-              "welcome_background_color": "#F0EEEE",
-              "welcome_text_color": "#0F1B27",
+              "background_color": "#003CD4",
+              "primary_heading_text_color": "#FFFFFF",
+              "primary_text_color": "#FFFFFF",
+              "secondary_text_color": "#B3CCFF",
+              "welcome_background_color": "#002DB3",
+              "welcome_text_color": "#FFFFFF",
+              "badge_text_color_primary": "#003CD4",
+              "badge_background_color_primary": "#FFDD00",
+              "badge_text_color_secondary": "#FFFFFF",
+              "badge_background_color_secondary": "#1A51E0",
+              "inventory_status_text_color": "#FFDD00",
+              "announcement_text_color": "#003CD4",
+              "announcement_background_color": "#FFDD00"
+            }
+          },
+          {
+            "style_name": "Bold #3",
+            "fonts": {
+              "primary_font": "Oswald",
+              "secondary_font": "DM Sans"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "primary_heading_text_color": "#D91A1A",
+              "primary_text_color": "#D91A1A",
+              "secondary_text_color": "#666666",
+              "welcome_background_color": "#FFF5F5",
+              "welcome_text_color": "#D91A1A",
               "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#E64946",
-              "badge_text_color_secondary": "#222222",
-              "badge_background_color_secondary": "#B7B7B7",
+              "badge_background_color_primary": "#D91A1A",
+              "badge_text_color_secondary": "#D91A1A",
+              "badge_background_color_secondary": "#FFE5E5",
+              "inventory_status_text_color": "#D91A1A",
               "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#000000"
+              "announcement_background_color": "#D91A1A"
             }
           }
         ]
@@ -100,43 +169,209 @@
           {
             "style_name": "Playful #1",
             "fonts": {
-              "primary_font": "Syne",
-              "secondary_font": "Inter"
+              "primary_font": "Concert One",
+              "secondary_font": "Nunito Sans"
             },
             "colors": {
-              "background_color": "#FFFFFF",
-              "primary_heading_text_color": "#0088FF",
-              "primary_text_color": "#222222",
-              "secondary_text_color": "#FFD700",
-              "welcome_background_color": "#FFEE54",
-              "welcome_text_color": "#0088FF",
-              "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#0088FF",
-              "badge_text_color_secondary": "#222222",
-              "badge_background_color_secondary": "#B7B7B7",
-              "announcement_text_color": "#000000",
-              "announcement_background_color": "#FFEE54"
+              "background_color": "#01ACAB",
+              "primary_heading_text_color": "#FFFFFF",
+              "primary_text_color": "#FFFFFF",
+              "secondary_text_color": "#B4E9E9",
+              "welcome_background_color": "#019494",
+              "welcome_text_color": "#FFFFFF",
+              "badge_text_color_primary": "#01ACAB",
+              "badge_background_color_primary": "#FFEC3C",
+              "badge_text_color_secondary": "#FFFFFF",
+              "badge_background_color_secondary": "#02C4C3",
+              "inventory_status_text_color": "#FFEC3C",
+              "announcement_text_color": "#01ACAB",
+              "announcement_background_color": "#FFEC3C"
             }
           },
           {
             "style_name": "Playful #2",
             "fonts": {
               "primary_font": "Quicksand",
+              "secondary_font": "DM Sans"
+            },
+            "colors": {
+              "background_color": "#FFE0F1",
+              "primary_heading_text_color": "#FF1493",
+              "primary_text_color": "#FF1493",
+              "secondary_text_color": "#FF69B4",
+              "welcome_background_color": "#FFD4EA",
+              "welcome_text_color": "#FF1493",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#FF1493",
+              "badge_text_color_secondary": "#FF1493",
+              "badge_background_color_secondary": "#FFB6E1",
+              "inventory_status_text_color": "#FF1493",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#FF1493"
+            }
+          },
+          {
+            "style_name": "Playful #3",
+            "fonts": {
+              "primary_font": "Chewy",
+              "secondary_font": "Poppins"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "primary_heading_text_color": "#FF6B2B",
+              "primary_text_color": "#FF6B2B",
+              "secondary_text_color": "#666666",
+              "welcome_background_color": "#FFF4EE",
+              "welcome_text_color": "#FF6B2B",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#FF6B2B",
+              "badge_text_color_secondary": "#FF6B2B",
+              "badge_background_color_secondary": "#FFE1D3",
+              "inventory_status_text_color": "#FF6B2B",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#FF6B2B"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Earthy",
+        "styles": [
+          {
+            "style_name": "Earthy #1",
+            "fonts": {
+              "primary_font": "Cormorant",
+              "secondary_font": "Source Sans Pro"
+            },
+            "colors": {
+              "background_color": "#EFEBE5",
+              "primary_heading_text_color": "#4B392D",
+              "primary_text_color": "#4B392D",
+              "secondary_text_color": "#7D6B5D",
+              "welcome_background_color": "#E6E0D8",
+              "welcome_text_color": "#4B392D",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#9C7A5B",
+              "badge_text_color_secondary": "#4B392D",
+              "badge_background_color_secondary": "#D5CAC0",
+              "inventory_status_text_color": "#B36A3D",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#9C7A5B"
+            }
+          },
+          {
+            "style_name": "Earthy #2",
+            "fonts": {
+              "primary_font": "Andada Pro",
+              "secondary_font": "Work Sans"
+            },
+            "colors": {
+              "background_color": "#1F3A2C",
+              "primary_heading_text_color": "#E6DED0",
+              "primary_text_color": "#E6DED0",
+              "secondary_text_color": "#A5BBA8",
+              "welcome_background_color": "#182D22",
+              "welcome_text_color": "#E6DED0",
+              "badge_text_color_primary": "#1F3A2C",
+              "badge_background_color_primary": "#D4B374",
+              "badge_text_color_secondary": "#E6DED0",
+              "badge_background_color_secondary": "#2D4F3E",
+              "inventory_status_text_color": "#D4B374",
+              "announcement_text_color": "#1F3A2C",
+              "announcement_background_color": "#D4B374"
+            }
+          },
+          {
+            "style_name": "Earthy #3",
+            "fonts": {
+              "primary_font": "Enriqueta",
+              "secondary_font": "DM Sans"
+            },
+            "colors": {
+              "background_color": "#F8F1E9",
+              "primary_heading_text_color": "#B05E36",
+              "primary_text_color": "#B05E36",
+              "secondary_text_color": "#C18263",
+              "welcome_background_color": "#F2E7DC",
+              "welcome_text_color": "#B05E36",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#B05E36",
+              "badge_text_color_secondary": "#B05E36",
+              "badge_background_color_secondary": "#E6D5C7",
+              "inventory_status_text_color": "#D35400",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#B05E36"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Dreamy",
+        "styles": [
+          {
+            "style_name": "Dreamy #1",
+            "fonts": {
+              "primary_font": "Playfair Display",
+              "secondary_font": "Karla"
+            },
+            "colors": {
+              "background_color": "#F6F0FF",
+              "primary_heading_text_color": "#6D5B8C",
+              "primary_text_color": "#6D5B8C",
+              "secondary_text_color": "#9B8BB5",
+              "welcome_background_color": "#EEE6F9",
+              "welcome_text_color": "#6D5B8C",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#8E77B5",
+              "badge_text_color_secondary": "#6D5B8C",
+              "badge_background_color_secondary": "#E2D6F5",
+              "inventory_status_text_color": "#B784B7",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#8E77B5"
+            }
+          },
+          {
+            "style_name": "Dreamy #2",
+            "fonts": {
+              "primary_font": "Marcellus",
+              "secondary_font": "DM Sans"
+            },
+            "colors": {
+              "background_color": "#E9F5F9",
+              "primary_heading_text_color": "#4C828F",
+              "primary_text_color": "#4C828F",
+              "secondary_text_color": "#7DA7B2",
+              "welcome_background_color": "#DCF0F5",
+              "welcome_text_color": "#4C828F",
+              "badge_text_color_primary": "#FFFFFF",
+              "badge_background_color_primary": "#7DA7B2",
+              "badge_text_color_secondary": "#4C828F",
+              "badge_background_color_secondary": "#D0E8EE",
+              "inventory_status_text_color": "#FF9E80",
+              "announcement_text_color": "#FFFFFF",
+              "announcement_background_color": "#7DA7B2"
+            }
+          },
+          {
+            "style_name": "Dreamy #3",
+            "fonts": {
+              "primary_font": "Spectral",
               "secondary_font": "Quicksand"
             },
             "colors": {
-              "background_color": "#FFE9F4",
-              "primary_heading_text_color": "#243588",
-              "primary_text_color": "#243588",
-              "secondary_text_color": "#0088FF",
-              "welcome_background_color": "#FFF6FB",
-              "welcome_text_color": "#243588",
+              "background_color": "#F5E6E8",
+              "primary_heading_text_color": "#96757C",
+              "primary_text_color": "#96757C",
+              "secondary_text_color": "#B598A0",
+              "welcome_background_color": "#ECD9DC",
+              "welcome_text_color": "#96757C",
               "badge_text_color_primary": "#FFFFFF",
-              "badge_background_color_primary": "#243588",
-              "badge_text_color_secondary": "#222222",
-              "badge_background_color_secondary": "#B7B7B7",
+              "badge_background_color_primary": "#B598A0",
+              "badge_text_color_secondary": "#96757C",
+              "badge_background_color_secondary": "#E5D3D6",
+              "inventory_status_text_color": "#D4A5BD",
               "announcement_text_color": "#FFFFFF",
-              "announcement_background_color": "#243588"
+              "announcement_background_color": "#B598A0"
             }
           }
         ]
@@ -147,12 +382,12 @@
     {
       "variable": "primary_font",
       "label": "Primary Font",
-      "default": "Work Sans"
+      "default": "Libre Baskerville"
     },
     {
       "variable": "secondary_font",
       "label": "Secondary Font",
-      "default": "Work Sans"
+      "default": "Source Sans Pro"
     }
   ],
   "colors": [
@@ -164,47 +399,52 @@
     {
       "variable": "primary_heading_text_color",
       "label": "Primary heading text",
-      "default": "#000000"
+      "default": "#1C2833"
     },
     {
       "variable": "primary_text_color",
       "label": "Primary text",
-      "default": "#000000"
+      "default": "#1C2833"
     },
     {
       "variable": "secondary_text_color",
       "label": "Link hover",
-      "default": "#444444"
+      "default": "#5D6D7E"
     },
     {
       "variable": "welcome_background_color",
       "label": "Welcome background",
-      "default": "#F9F9F9"
+      "default": "#F5F6F7"
     },
     {
       "variable": "welcome_text_color",
       "label": "Welcome text",
-      "default": "#121212"
+      "default": "#1C2833"
     },
     {
       "variable": "badge_text_color_primary",
       "label": "Badge text (primary)",
-      "default": "#222222"
+      "default": "#FFFFFF"
     },
     {
       "variable": "badge_background_color_primary",
       "label": "Badge background (primary)",
-      "default": "#FFD700"
+      "default": "#34495E"
     },
     {
       "variable": "badge_text_color_secondary",
       "label": "Badge text (secondary)",
-      "default": "#222222"
+      "default": "#1C2833"
     },
     {
       "variable": "badge_background_color_secondary",
       "label": "Badge background (secondary)",
-      "default": "#B7B7B7"
+      "default": "#D5D8DC"
+    },
+    {
+      "variable": "inventory_status_text_color",
+      "label": "Low Inventory messages",
+      "default": "#C0392B"
     },
     {
       "variable": "announcement_text_color",
@@ -214,7 +454,7 @@
     {
       "variable": "announcement_background_color",
       "label": "Announcement message background",
-      "default": "#000000"
+      "default": "#34495E"
     }
   ],
   "options": [
@@ -256,14 +496,15 @@
       "variable": "welcome_message",
       "label": "Welcome message",
       "type": "text",
-      "description": "Displays a welcome message on the Home page"
+      "description": "Displays a message above the welcome button on the Home page. Requires a welcome image to be set"
+
     },
     {
       "variable": "welcome_button_text",
       "label": "Welcome button",
       "type": "text",
-      "description": "Displays a link to the Products page on the Home page",
-      "default": "Start shopping"
+      "description": "Displays a link to the Products page on the Home page. Requires a welcome image to be set",
+      "default": "Shop now"
     },
     {
       "variable": "featured_header",
@@ -278,7 +519,10 @@
       "type": "select",
       "options": ["Categories", "Products"],
       "default": "Products",
-      "description": "Displays featured products or categories on the Home page"
+      "description": "Select which items appear on your homepage: products or categories",
+      "requires": [
+        "featured_items gt 0"
+      ]
     },
     {
       "variable": "featured_items",
@@ -390,6 +634,93 @@
       "requires": "inventory"
     },
     {
+      "variable": "show_low_inventory_messages",
+      "label": "Show product stock alerts",
+      "type": "boolean",
+      "default": true,
+      "description": "Show shoppers alerts on Product pages when it's running low on stock",
+      "requires": [
+        "inventory"
+      ]
+    },
+    {
+      "variable": "low_inventory_threshold",
+      "label": "Low stock alert",
+      "options": "1..100",
+      "type": "select",
+      "default": "10",
+      "description": "When stock drops below this number, shoppers will see low stock message. 'Almost sold out' message shows at half this amount",
+      "requires": [
+        "inventory",
+        "show_low_inventory_messages eq true"
+      ]
+    },
+    {
+      "variable": "low_inventory_message",
+      "label": "Low stock message",
+      "type": "text",
+      "max_length": 50,
+      "description": "Message shown when stock drops below your alert level",
+      "default": "Limited quantities available",
+      "requires": [
+        "inventory",
+        "show_low_inventory_messages eq true"
+      ]
+    },
+    {
+      "variable": "almost_sold_out_message",
+      "label": "Almost sold out message",
+      "type": "text",
+      "max_length": 50,
+      "description": "Message shown when stock drops below half your alert level",
+      "default": "Only a few left!",
+      "requires": [
+        "inventory",
+        "show_low_inventory_messages eq true",
+        "low_inventory_threshold gt 1"
+      ]
+    },
+    {
+      "variable": "show_related_products",
+      "label": "Show related products",
+      "type": "boolean",
+      "default": true,
+      "description": "Display recommended products on Product pages starting with same category"
+    },
+    {
+      "variable": "related_products",
+      "label": "Related products",
+      "type": "select",
+      "options": "1..6",
+      "default": 3,
+      "description": "The maximum number of related items to show on Product pages",
+      "requires": [
+        "show_related_products eq true"
+      ]
+    },
+    {
+      "variable": "related_products_header",
+      "label": "Related products header",
+      "type": "text",
+      "max_length": 75,
+      "description": "Displays above related products on Products pages",
+      "default": "You might also like",
+      "requires": [
+        "show_related_products eq true"
+      ]
+    },
+    {
+      "variable": "related_products_order",
+      "label": "Related products order",
+      "type": "select",
+      "options": "product_orders",
+      "default": "top-selling",
+      "description": "The order of related products on the Product pages",
+      "requires": [
+        "show_related_products eq true"
+      ]
+    },
+    {
       "variable": "money_format",
       "label": "Price display",
       "type": "select",
@@ -412,6 +743,34 @@
       ],
       "default": "4px",
       "description": "Controls the rounded corner style on images and other site elements"
+    },
+    {
+      "variable": "show_categories_in_footer",
+      "label": "Show categories in footer",
+      "type": "boolean",
+      "default": true,
+      "description": "Show categories in the footer"
+    },
+    {
+      "variable": "footer_text",
+      "label": "Footer text",
+      "type": "text",
+      "max_length": 2048,
+      "description": "Show a custom message to your shop's footer"
+    },
+    {
+      "variable": "footer_text_position",
+      "label": "Footer text position",
+      "type": "select",
+      "options": [
+        ["Start of footer", "start"],
+        ["End of footer", "end"]
+      ],
+      "default": "end",
+      "description": "Choose where to show your footer message",
+      "requires": [
+        "footer_text present"
+      ]
     },
     {
       "variable": "instagram_url",
@@ -466,6 +825,24 @@
       "label": "YouTube URL",
       "type": "text",
       "description": "Ex: https://youtube.com/@BigCartelDotCom"
+    },
+    {
+      "variable": "spotify_url",
+      "label": "Spotify URL",
+      "type": "text",
+      "description": "Ex: https://open.spotify.com/artist/0gxy..."
+    },
+    {
+      "variable": "linkedin_url",
+      "label": "LinkedIn URL",
+      "type": "text",
+      "description": "Ex: https://linkedin.com/in/bigcartel"
+    },
+    {
+      "variable": "twitch_url",
+      "label": "Twitch URL",
+      "type": "text",
+      "description": "Ex: https://twitch.tv/username"
     },
     {
       "variable": "tumblr_url",
