@@ -114,7 +114,7 @@
           </ul>
         {% endif %}
 
-        {% if pages.all.size > 0 %}
+        {% if theme.show_custom_pages_in_footer and pages.all.size > 0 %}
           <ul class="footer__pages footer__pages--pages" aria-label="Footer pages">
             {% for page in pages.all %}
               <li>{{ page | link_to }}</li>

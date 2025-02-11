@@ -749,7 +749,14 @@
       "label": "Show categories in footer",
       "type": "boolean",
       "default": true,
-      "description": "Show categories in the footer"
+      "description": "Display product category links at the bottom of every page"
+    },
+    {
+      "variable": "show_custom_pages_in_footer",
+      "label": "Show custom pages in footer",
+      "type": "boolean",
+      "default": true,
+      "description": "Display links to your custom pages at the bottom of every page"
     },
     {
       "variable": "footer_text",
