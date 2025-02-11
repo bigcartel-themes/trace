@@ -106,13 +106,6 @@
           <li><a href="/contact">{{ pages.contact.name }}</a></li>
         </ul>
 
-        {% if pages.all.size > 0 %}
-          <ul class="footer__pages footer__pages--pages" aria-label="Footer pages">
-            {% for page in pages.all %}
-              <li>{{ page | link_to }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
         {% if theme.show_categories_in_footer and categories.active.size > 0 %}
           <ul class="footer__pages footer__pages--categories" aria-label="Footer categories">
             {% for category in categories.active %}
@@ -120,6 +113,15 @@
             {% endfor %}
           </ul>
         {% endif %}
+
+        {% if pages.all.size > 0 %}
+          <ul class="footer__pages footer__pages--pages" aria-label="Footer pages">
+            {% for page in pages.all %}
+              <li>{{ page | link_to }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
         {% if theme.instagram_url != blank
           or theme.tiktok_url != blank
           or theme.bluesky_url != blank
