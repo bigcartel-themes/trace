@@ -106,13 +106,6 @@
           <li><a href="/contact">{{ pages.contact.name }}</a></li>
         </ul>
 
-        {% if pages.all.size > 0 %}
-          <ul class="footer__pages footer__pages--pages" aria-label="Footer pages">
-            {% for page in pages.all %}
-              <li>{{ page | link_to }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
         {% if theme.show_categories_in_footer and categories.active.size > 0 %}
           <ul class="footer__pages footer__pages--categories" aria-label="Footer categories">
             {% for category in categories.active %}
@@ -120,6 +113,15 @@
             {% endfor %}
           </ul>
         {% endif %}
+
+        {% if theme.show_custom_pages_in_footer and pages.all.size > 0 %}
+          <ul class="footer__pages footer__pages--pages" aria-label="Footer pages">
+            {% for page in pages.all %}
+              <li>{{ page | link_to }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
         {% if theme.instagram_url != blank
           or theme.tiktok_url != blank
           or theme.bluesky_url != blank
@@ -351,8 +353,8 @@
       const themeOptions = {
         showSoldOutOptions: {{ theme.show_sold_out_product_options }},
         showLowInventoryMessages: {{ theme.show_low_inventory_messages }},
-        lowInventoryMessage: '{{ theme.low_inventory_message }}',
-        almostSoldOutMessage: '{{ theme.almost_sold_out_message }}',
+        lowInventoryMessage: "{{ theme.low_inventory_message | replace: '"', '\"' | replace: "'", "\\'" }}",
+        almostSoldOutMessage: "{{ theme.almost_sold_out_message | replace: '"', '\"' | replace: "'", "\\'" }}",
         desktopProductPageImages: '{{ theme.desktop_product_page_images }}',
         mobileProductPageImages: '{{ theme.mobile_product_page_images }}',
         productImageZoom: {{ theme.product_image_zoom }},

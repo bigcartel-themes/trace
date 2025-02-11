@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "images": [
     {
       "variable": "logo",
@@ -623,7 +623,9 @@
       "type": "boolean",
       "default": true,
       "description": "Shows sold out product variants in the Product page dropdowns",
-      "requires": "inventory"
+      "requires": [
+        "inventory"
+      ]
     },
     {
       "variable": "show_sold_out_product_prices",
@@ -631,7 +633,9 @@
       "type": "boolean",
       "default": true,
       "description": "Show the price of sold out products on product grids and product pages",
-      "requires": "inventory"
+      "requires": [
+        "inventory" 
+      ]
     },
     {
       "variable": "show_low_inventory_messages",
@@ -749,7 +753,14 @@
       "label": "Show categories in footer",
       "type": "boolean",
       "default": true,
-      "description": "Show categories in the footer"
+      "description": "Display product category links at the bottom of every page"
+    },
+    {
+      "variable": "show_custom_pages_in_footer",
+      "label": "Show custom pages in footer",
+      "type": "boolean",
+      "default": true,
+      "description": "Display links to your custom pages at the bottom of every page"
     },
     {
       "variable": "footer_text",
