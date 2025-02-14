@@ -472,6 +472,13 @@
       "description": "Displays an announcement message on the top of every page"
     },
     {
+      "variable": "contact_text",
+      "label": "Contact page text",
+      "type": "text",
+      "max_length": 1024,
+      "description": "Displays a message on your contact page"
+    },
+    {
       "variable": "logo_max_height",
       "label": "Header logo image height",
       "type": "select",
