@@ -514,6 +514,20 @@
       "default": "Shop now"
     },
     {
+      "variable": "welcome_button_behavior",
+      "label": "Welcome Button Behavior",
+      "type": "select",
+      "options": [
+        ["Scroll down page", "scroll"],
+        ["Go to Products Page", "navigate"]
+      ],
+      "default": "scroll",
+      "description": "Controls the behavior of the welcome button on the Home page",
+      "requires": [
+        "welcome_button_text present"
+      ]
+    },
+    {
       "variable": "featured_header",
       "label": "Featured header",
       "type": "text",
