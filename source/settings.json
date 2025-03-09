@@ -10,7 +10,14 @@
     {
       "variable": "welcome_image",
       "label": "Welcome image",
-      "description": "1200px by 800px images recommended"
+      "description": "1200 x 800 image recommended"
+    }
+  ],
+  "image_sets": [
+    {
+      "variable": "slideshow",
+      "label": "Slideshow",
+      "description": "Adds a slideshow to your Home page.  Use same-sized images, recommend at least 1200 wide. Overrides welcome image if both are set."
     }
   ],
   "preset_styles": {
@@ -518,6 +525,30 @@
       "description": "Controls the behavior of the welcome button on the Home page",
       "requires": [
         "welcome_button_text present"
+      ]
+    },
+    {
+      "variable": "homepage_slideshow_autoplay",
+      "label": "Auto-play homepage slideshow",
+      "type": "boolean",
+      "default": true,
+      "description": "Automatically advances slides in the homepage slideshow"
+    },
+    {
+      "variable": "homepage_slideshow_speed",
+      "label": "Slideshow speed",
+      "type": "select",
+      "options": [
+        ["Slowest", 6000],
+        ["Slower", 5000],
+        ["Normal", 4000],
+        ["Faster", 3500],
+        ["Fastest", 3000]
+      ],
+      "default": 4000,
+      "description": "Controls how quickly slides advance in the auto-playing slideshow",
+      "requires": [
+        "homepage_slideshow_autoplay eq true"
       ]
     },
     {
