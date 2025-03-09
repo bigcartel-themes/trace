@@ -68,10 +68,17 @@
     flex-direction: column
     align-items: flex-start
 
-  &__title
+  &__title, .page-title
     color: var(--primary-heading-text-color)
+    font-size: 2em
     line-height: 1.2
     padding-bottom: 10px
+
+    @media screen and (max-width: $break-large)
+      font-size: 1.9em
+
+    @media screen and (max-width: $break-small)
+      font-size: 1.7em
 
   &__status
     font-size: .875em
@@ -81,8 +88,11 @@
   &__pricing
     display: flex
     align-items: center
-    font-size: 1.5em
+    font-size: 1.3em
     color: var(--primary-text-color)
+
+    @media screen and (max-width: $break-small)
+      font-size: 1.1em
 
   &__separator
     margin: 0 8px
