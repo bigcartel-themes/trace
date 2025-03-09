@@ -493,13 +493,6 @@
       "description": "Controls the maximum height of your header logo"
     },
     {
-      "variable": "show_search",
-      "label": "Show search",
-      "type": "boolean",
-      "default": true,
-      "description": "Displays a search field"
-    },
-    {
       "variable": "welcome_message",
       "label": "Welcome message",
       "type": "text",
@@ -637,6 +630,13 @@
       ],
       "default": "show-thumbnails",
       "description": "Choose to hide or show thumbnails on the mobile Product page carousel"
+    },
+    {
+      "variable": "show_search",
+      "label": "Show search",
+      "type": "boolean",
+      "default": true,
+      "description": "Displays a search field"
     },
     {
       "variable": "show_sold_out_product_options",
