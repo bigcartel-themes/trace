@@ -6,7 +6,7 @@
   </div>
 {% endif %}
 
-{% if theme.welcome_image %}
+{% if theme.welcome_image or theme.image_sets.slideshow.size > 0 %}
   <div class="home-welcome">
     {% if theme.image_sets.slideshow.size > 0 %}
       <div class="{% if theme.image_sets.slideshow.size > 1 %}splide{% endif %} home-slideshow">
