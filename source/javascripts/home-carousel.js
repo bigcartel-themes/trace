@@ -1,7 +1,7 @@
-const homeSlideshowContainer = document.querySelector('.home-slideshow');
+const homeSlideshowContainer = document.querySelector('.splide.home-slideshow');
 if (homeSlideshowContainer) {
   document.addEventListener( 'DOMContentLoaded', function() {
-    var splide = new Splide( '.home-slideshow', {
+    var splide = new Splide( '.splide.home-slideshow', {
       arrows: false,
       type: 'slide',
       autoplay: themeOptions.homepageSlideshowAutoplay,
