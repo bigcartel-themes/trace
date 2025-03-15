@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
     welcomeButton.addEventListener("click", function (event) {
       if (themeOptions.welcomeButtonBehavior === "scroll") {
         event.preventDefault();
-        const targetElement = document.querySelector(".home-featured-categories");
+        const targetElement = document.querySelector(".home-featured-categories") ?? 
+                             document.querySelector(".home-featured-products");
         if (targetElement) {
           smoothScroll(targetElement, 1000);
         }
