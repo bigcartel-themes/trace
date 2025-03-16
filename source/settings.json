@@ -487,7 +487,7 @@
     },
     {
       "variable": "logo_max_height",
-      "label": "Header logo image height",
+      "label": "Header logo image size",
       "type": "select",
       "options": [
         ["Small", "60"],
@@ -497,7 +497,7 @@
         ["XX Large", "180"]
       ],
       "default": "80",
-      "description": "Controls the maximum height of your header logo"
+      "description": "Controls the maximum size of your header logo"
     },
     {
       "variable": "welcome_message",
