@@ -68,10 +68,17 @@
     flex-direction: column
     align-items: flex-start
 
-  &__title
+  &__title, .page-title
     color: var(--primary-heading-text-color)
+    font-size: 2em
     line-height: 1.2
     padding-bottom: 10px
+
+    @media screen and (max-width: $break-large)
+      font-size: 1.9em
+
+    @media screen and (max-width: $break-small)
+      font-size: 1.7em
 
   &__status
     font-size: .875em
@@ -81,8 +88,11 @@
   &__pricing
     display: flex
     align-items: center
-    font-size: 1.5em
+    font-size: 1.3em
     color: var(--primary-text-color)
+
+    @media screen and (max-width: $break-small)
+      font-size: 1.1em
 
   &__separator
     margin: 0 8px
@@ -108,6 +118,12 @@
 
     a
       text-decoration: underline
+    
+    img
+      display: inline-block
+      margin: 0 auto
+      max-width: 100%
+      margin-bottom: 16px
 
   .page-title
     color: var(--primary-heading-text-color)
@@ -151,3 +167,39 @@
   text-align: center
   padding: 8px 0
   font-weight: 500
+
+#payment-processor-messaging
+  margin: 20px 0 0
+  width: 100%
+  display: block
+  
+  body[data-bc-page-type="product"] &
+    margin: 0
+
+  body[data-bc-page-type="cart"] &
+    margin-bottom: 20px
+
+  &.display-flex
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    &.dual-messaging
+      gap: 15px
+  
+  &.display-grid
+    display: grid
+  
+  &.hidden
+    position: absolute
+    left: -9999px
+    top: -9999px
+
+  > div
+    margin-bottom: 0
+  
+  // Only apply the margin for non-flex layouts when dual messaging is present
+  &:not(.display-flex)
+    &.dual-messaging > div.visible:first-of-type
+      margin-bottom: 15px

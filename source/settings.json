@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "images": [
     {
       "variable": "logo",
@@ -10,7 +10,14 @@
     {
       "variable": "welcome_image",
       "label": "Welcome image",
-      "description": "1200px by 800px images recommended"
+      "description": "1200 x 800 image recommended"
+    }
+  ],
+  "image_sets": [
+    {
+      "variable": "slideshow",
+      "label": "Slideshow",
+      "description": "Adds a slideshow to your Home page.  Use same-sized images, recommend at least 1200 wide. Overrides welcome image if both are set."
     }
   ],
   "preset_styles": {
@@ -480,7 +487,7 @@
     },
     {
       "variable": "logo_max_height",
-      "label": "Header logo image height",
+      "label": "Header logo image size",
       "type": "select",
       "options": [
         ["Small", "60"],
@@ -490,14 +497,7 @@
         ["XX Large", "180"]
       ],
       "default": "80",
-      "description": "Controls the maximum height of your header logo"
-    },
-    {
-      "variable": "show_search",
-      "label": "Show search",
-      "type": "boolean",
-      "default": true,
-      "description": "Displays a search field"
+      "description": "Controls the maximum size of your header logo"
     },
     {
       "variable": "welcome_message",
@@ -512,6 +512,44 @@
       "type": "text",
       "description": "Displays a link to the Products page on the Home page. Requires a welcome image to be set",
       "default": "Shop now"
+    },
+    {
+      "variable": "welcome_button_behavior",
+      "label": "Welcome Button Behavior",
+      "type": "select",
+      "options": [
+        ["Scroll down page", "scroll"],
+        ["Go to Products Page", "navigate"]
+      ],
+      "default": "scroll",
+      "description": "Controls the behavior of the welcome button on the Home page",
+      "requires": [
+        "welcome_button_text present"
+      ]
+    },
+    {
+      "variable": "homepage_slideshow_autoplay",
+      "label": "Auto-play homepage slideshow",
+      "type": "boolean",
+      "default": true,
+      "description": "Automatically advances slides in the homepage slideshow"
+    },
+    {
+      "variable": "homepage_slideshow_speed",
+      "label": "Slideshow speed",
+      "type": "select",
+      "options": [
+        ["Slowest", 6000],
+        ["Slower", 5000],
+        ["Normal", 4000],
+        ["Faster", 3500],
+        ["Fastest", 3000]
+      ],
+      "default": 4000,
+      "description": "Controls how quickly slides advance in the auto-playing slideshow",
+      "requires": [
+        "homepage_slideshow_autoplay eq true"
+      ]
     },
     {
       "variable": "featured_header",
@@ -625,6 +663,13 @@
       "description": "Choose to hide or show thumbnails on the mobile Product page carousel"
     },
     {
+      "variable": "show_search",
+      "label": "Show search",
+      "type": "boolean",
+      "default": true,
+      "description": "Displays a search field"
+    },
+    {
       "variable": "show_sold_out_product_options",
       "label": "Show sold out product variants",
       "type": "boolean",
@@ -732,30 +777,6 @@
       ]
     },
     {
-      "variable": "money_format",
-      "label": "Price display",
-      "type": "select",
-      "options": [
-        ["Currency sign", "sign"],
-        ["Currency code with sign", "sign_and_code"]
-      ],
-      "default": "sign",
-      "description": "Sets the display of prices in your shop"
-    },
-    {
-      "variable": "border_radius",
-      "label": "Rounded corners",
-      "type": "select",
-      "options": [
-        ["Off", "0"],
-        ["Small", "2px"],
-        ["Medium", "4px"],
-        ["Large", "8px"]
-      ],
-      "default": "4px",
-      "description": "Controls the rounded corner style on images and other site elements"
-    },
-    {
       "variable": "show_categories_in_footer",
       "label": "Show categories in footer",
       "type": "boolean",
@@ -789,6 +810,37 @@
       "requires": [
         "footer_text present"
       ]
+    },
+    {
+      "variable": "border_radius",
+      "label": "Rounded corners",
+      "type": "select",
+      "options": [
+        ["Off", "0"],
+        ["Small", "2px"],
+        ["Medium", "4px"],
+        ["Large", "8px"]
+      ],
+      "default": "4px",
+      "description": "Controls the rounded corner style on images and other site elements"
+    },
+    {
+      "variable": "show_bnpl_messaging",
+      "label": "Buy Now, Pay Later Messaging",
+      "type": "boolean",
+      "default": true,
+      "description": "Show payment options prior to checkout on product and cart pages. Requires paid plan."
+    },
+    {
+      "variable": "money_format",
+      "label": "Price display",
+      "type": "select",
+      "options": [
+        ["Currency sign", "sign"],
+        ["Currency code with sign", "sign_and_code"]
+      ],
+      "default": "sign",
+      "description": "Sets the display of prices in your shop"
     },
     {
       "variable": "instagram_url",
