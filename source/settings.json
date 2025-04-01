@@ -584,9 +584,10 @@
       "label": "Featured categories image style",
       "type": "select",
       "options": [
-        ["First product from category", "first_product"],
-        ["Random product from category", "random_product"],
-        ["Collage of products", "collage"]
+        ["First product", "first_product"],
+        ["Random product", "random_product"],
+        ["Collage of first products", "collage"],
+        ["Collage of random products", "collage_random"]
       ],
       "default": "collage",
       "upgrade_default": "first_product",
