@@ -580,6 +580,41 @@
       "description": "The number of items featured on the Home page"
     },
     {
+      "variable": "home_page_categories_image_style",
+      "label": "Featured categories image style",
+      "type": "select",
+      "options": [
+        ["First product from category", "first_product"],
+        ["Random product from category", "random_product"],
+        ["Collage of products", "collage"]
+      ],
+      "default": "collage",
+      "upgrade_default": "first_product",
+      "description": "Choose which image to display for featured categories",
+      "requires": [
+        "featured_items_type eq Categories"
+      ]
+    },
+    {
+      "variable": "home_page_categories_product_count_display",
+      "label": "Featured categories product count display",
+      "type": "select",
+      "options": [
+        ["Hide product count", "none"],
+        ["Show next to category name", "text"],
+        ["Circle badge overlay", "circle"],
+        ["Square badge overlay", "square"],
+        ["Pill badge overlay", "pill"],
+        ["Sunburst badge overlay", "sunburst"]
+      ],
+      "default": "circle",
+      "upgrade_default": "none",
+      "description": "Choose how to display product counts for categories. Badge overlays appear on category images, while text displays next to category names. Note: Collages show counts for categories with 5+ products.",
+      "requires": [
+        "featured_items_type eq Categories"
+      ]
+    },
+    {
       "variable": "all_products_button_text",
       "label": "All products button text",
       "type": "text",
