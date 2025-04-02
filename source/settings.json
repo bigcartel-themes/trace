@@ -683,7 +683,7 @@
       "upgrade_default": "first_product",
       "description": "Choose which image to display for featured categories",
       "requires": [
-        "feature:theme_category_collages eq opted_in",
+        "feature:theme_category_collages eq visible",
         "featured_items_type eq Categories"
       ]
     },
@@ -704,7 +704,7 @@
       "upgrade_default": "none",
       "description": "Choose how to display product counts for categories. Badge overlays appear on category images, while text displays next to category names. Note: Collages show counts for categories with 5+ products.",
       "requires": [
-        "feature:theme_category_collages eq opted_in",
+        "feature:theme_category_collages eq visible",
         "featured_items_type eq Categories",
         "home_page_categories_image_style neq collage",
         "home_page_categories_image_style neq collage_random"
@@ -866,7 +866,7 @@
       "default": true,
       "description": "Show payment options prior to checkout on product and cart pages. Requires paid plan.",
       "requires": [
-        "feature:theme_bnpl_messaging neq opted_out"
+        "feature:theme_bnpl_messaging eq visible"
       ],
       "plan_type": "paid"
     },
