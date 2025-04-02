@@ -48,9 +48,14 @@
   </div>
 {% endif %}
 
+{% assign category_list_style = theme.home_page_categories_style %}
+{% assign category_collages_enabled = false %}
+{% if theme.features.opt_ins contains "theme_category_collages" %}
+  {% assign category_collages_enabled = true %}
+{% endif %}
 {% if theme.featured_items_type == 'Categories' %}
   {% if categories.active != blank and theme.featured_items > 0 %}
-    <div class="home-featured-categories">
+    <div class="home-featured-categories" data-category-collages-enabled="{{ category_collages_enabled }}">
       <h1 class="page-title">{{ theme.featured_header }}</h1>
       {% assign num_results = 0 %}
       {% for category in categories.active limit:theme.featured_items %}
@@ -59,66 +64,101 @@
       <div class="product-list-container">
         <div class="product-list {% if num_results < 4 %}product-list--center{% endif %}">
           {% for category in categories.active limit:theme.featured_items %}
-            <div class="product-list-thumb {{ product.css_class }}">
-              <a class="product-list-link category-link" href="{{ category.url }}" title="View {{ category.name | escape }}">
-                {% if category.products.size > 0 %}
-                  {% assign first_product = category.products.first %}
-                  {% assign image_width = first_product.image.width | times: 1.0 %}
-                  {% assign image_height = first_product.image.height | times: 1.0 %}
-                  {% assign aspect_ratio = image_width | divided_by: image_height %}
-                  
-                  {% comment %}
-                    Determine which image URLs to use based on the image style setting
-                  {% endcomment %}
-                  {% assign image_urls = "" %}
-      
-                  {% if theme.home_page_categories_image_style == "collage" %}
-                    {% capture image_urls %}
-                      [{% for product in category.products limit:4 %}"{{ product.image | product_image_url | constrain: 760 }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
-                    {% endcapture %}
-                  {% elsif theme.home_page_categories_image_style == "first_product" %}
-                    {% capture image_urls %}
-                      ["{{ first_product.image | product_image_url | constrain: 760 }}"]
-                    {% endcapture %}
-                  {% elsif theme.home_page_categories_image_style == "random_product" or theme.home_page_categories_image_style == "collage_random" %}
-                    {% comment %} Pass up to 20 product image URLs to JS for random selection {% endcomment %}
-                    {% assign max_pool_size = 20 %}
-                    {% capture limited_image_urls %}
-                      [{% for product in category.products limit:max_pool_size %}"{{ product.image | product_image_url | constrain: 400 }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
-                    {% endcapture %}
-                    {% assign image_urls = limited_image_urls %}
-                  {% endif %}
-      
-                  <div 
-                    class="product-list-image-container product-list-image-container-cover" 
-                    id="category-collage-{{ category.id }}"
-                    data-image-urls='{{ image_urls | strip }}'
-                    data-product-count="{{ category.products.size }}"
-                    data-font-family="{{ theme.secondary_font }}"
-                    data-image-style="{{ theme.home_page_categories_image_style }}"
-                    data-indicator-color="#000000"
-                    data-grid-indicator-color="#000000"
-                    data-count-display="{{ theme.home_page_categories_product_count_display }}"
-                  >
-                    <!-- Default placeholder while image is being loaded -->
-                    <img
-                      alt=""
-                      class="blur-up product-list-image lazyload grid-cover"
-                      src="{{ first_product.image | product_image_url | constrain: 30 }}"
-                      {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
-                    >
-                  </div>
-                  <div class="product-list-thumb-info">
-                    <div class="product-list-thumb-name">
-                      {{ category.name }}
-                      {% if theme.home_page_categories_product_count_display == 'text' %}
-                        <span class="category-count">({{ category.products.size }})</span>
-                      {% endif %}
+            {% if category_collages_enabled == false %}
+              {% for product in category.products limit: 1 %}
+                {% assign image_width = product.image.width | times: 1.0 %}
+                {% assign image_height = product.image.height | times: 1.0 %}
+                {% assign aspect_ratio = image_width | divided_by: image_height %}
+                <div class="product-list-thumb {{ product.css_class }}">
+                  <a
+                    class="product-list-link"
+                    href="{{ category.url }}" title="View {{ category.name | escape }}">
+                    <div class="product-list-image-container product-list-image-container-{{ theme.grid_image_style }}">
+                      <img
+                        alt=""
+                        class="blur-up product-list-image product-list-image--primary lazyload grid-{{ theme.grid_image_style }}"
+                        src="{{ product.image | product_image_url | constrain: 20 }}"
+                        {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
+                        data-srcset="
+                          {{ product.image | product_image_url | constrain: 240 }} 240w,
+                          {{ product.image | product_image_url | constrain: 320 }} 320w,
+                          {{ product.image | product_image_url | constrain: 400 }} 400w,
+                          {{ product.image | product_image_url | constrain: 540 }} 540w,
+                          {{ product.image | product_image_url | constrain: 600 }} 600w,
+                          {{ product.image | product_image_url | constrain: 800 }} 800w,
+                          {{ product.image | product_image_url | constrain: 960 }} 960w
+                        "
+                        data-sizes="auto"
+                      >
                     </div>
-                  </div>
-                {% endif %}
-              </a>
-            </div>
+                    <div class="product-list-thumb-info product-list-thumb-info--{{ theme.product_detail_alignment }}">
+                      <div class="product-list-thumb-name">{{ category.name }}</div>
+                    </div>
+                  </a>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="product-list-thumb {{ product.css_class }}">
+                <a class="product-list-link category-link" href="{{ category.url }}" title="View {{ category.name | escape }}">
+                  {% if category.products.size > 0 %}
+                    {% assign first_product = category.products.first %}
+                    {% assign image_width = first_product.image.width | times: 1.0 %}
+                    {% assign image_height = first_product.image.height | times: 1.0 %}
+                    {% assign aspect_ratio = image_width | divided_by: image_height %}
+                    
+                    {% comment %}
+                      Determine which image URLs to use based on the image style setting
+                    {% endcomment %}
+                    {% assign image_urls = "" %}
+        
+                    {% if theme.home_page_categories_image_style == "collage" %}
+                      {% capture image_urls %}
+                        [{% for product in category.products limit:4 %}"{{ product.image | product_image_url | constrain: 760 }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
+                      {% endcapture %}
+                    {% elsif theme.home_page_categories_image_style == "first_product" %}
+                      {% capture image_urls %}
+                        ["{{ first_product.image | product_image_url | constrain: 760 }}"]
+                      {% endcapture %}
+                    {% elsif theme.home_page_categories_image_style == "random_product" or theme.home_page_categories_image_style == "collage_random" %}
+                      {% comment %} Pass up to 20 product image URLs to JS for random selection {% endcomment %}
+                      {% assign max_pool_size = 20 %}
+                      {% capture limited_image_urls %}
+                        [{% for product in category.products limit:max_pool_size %}"{{ product.image | product_image_url | constrain: 400 }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
+                      {% endcapture %}
+                      {% assign image_urls = limited_image_urls %}
+                    {% endif %}
+        
+                    <div 
+                      class="product-list-image-container product-list-image-container-cover" 
+                      id="category-collage-{{ category.id }}"
+                      data-image-urls='{{ image_urls | strip }}'
+                      data-product-count="{{ category.products.size }}"
+                      data-font-family="{{ theme.secondary_font }}"
+                      data-image-style="{{ theme.home_page_categories_image_style }}"
+                      data-indicator-color="#000000"
+                      data-grid-indicator-color="#000000"
+                      data-count-display="{{ theme.home_page_categories_product_count_display }}"
+                    >
+                      <!-- Default placeholder while image is being loaded -->
+                      <img
+                        alt=""
+                        class="blur-up product-list-image lazyload grid-cover"
+                        src="{{ first_product.image | product_image_url | constrain: 30 }}"
+                        {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
+                      >
+                    </div>
+                    <div class="product-list-thumb-info">
+                      <div class="product-list-thumb-name">
+                        {{ category.name }}
+                        {% if theme.home_page_categories_product_count_display == 'text' %}
+                          <span class="category-count">({{ category.products.size }})</span>
+                        {% endif %}
+                      </div>
+                    </div>
+                  {% endif %}
+                </a>
+              </div>
+            {% endif %}
           {% endfor %}
         </div>
       </div>

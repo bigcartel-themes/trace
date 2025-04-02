@@ -22,12 +22,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
 
-      setupCategoryCollages({ 
-        collage: { 
-          width: 760, 
-          height: 760 
-        } 
-      });
+
+      
+
+      const featuredCategoriesContainerSelector = '.home-featured-categories';
+      const featuredCategoriesContainer = document.querySelector(featuredCategoriesContainerSelector);
+      const categoryCollagesEnabled = featuredCategoriesContainer?.dataset.categoryCollagesEnabled === 'true';
+
+      if (categoryCollagesEnabled) {
+        setupCategoryCollages({ 
+          collage: { 
+            width: 760, 
+            height: 760 
+          } 
+        });
+      }
       
       break;
     case 'contact':
