@@ -705,7 +705,9 @@
       "description": "Choose how to display product counts for categories. Badge overlays appear on category images, while text displays next to category names. Note: Collages show counts for categories with 5+ products.",
       "requires": [
         "feature:theme_category_collages eq opted_in",
-        "featured_items_type eq Categories"
+        "featured_items_type eq Categories",
+        "home_page_categories_image_style neq collage",
+        "home_page_categories_image_style neq collage_random"
       ]
     },
     {
