@@ -129,16 +129,17 @@
   <section class="product-detail">
     <div class="product-detail__header">
       {% assign hide_price = false %}
-      {% if theme.show_sold_out_product_prices == false %}
-        {% case product.status %}
-          {% when 'sold-out' %}
-            {% assign hide_price = true %}
-        {% endcase %}
+      {% if product.status == 'sold-out' and theme.show_sold_out_product_prices == false %}
+        {% assign hide_price = true %}
+      {% endif -%}
+      {% if product.status == 'coming-soon' and theme.show_coming_soon_product_prices == false %}
+        {% assign hide_price = true %}
       {% endif %}
+
       {% capture product_pricing %}
-        {% if product.variable_pricing %}
+        {% if product.variable_pricing and hide_price == false %}
           {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
-        {% else %}
+        {% elsif hide_price == false %}
           {{ product.default_price | money: theme.money_format }}
         {% endif %}
       {% endcapture %}
