@@ -679,7 +679,7 @@
         ["Collage of first products", "collage"],
         ["Collage of random products", "collage_random"]
       ],
-      "default": "collage",
+      "default": "first_product",
       "upgrade_default": "first_product",
       "description": "Choose which image to display for featured categories",
       "requires": [
@@ -700,7 +700,7 @@
         ["Pill badge overlay", "pill"],
         ["Sunburst badge overlay", "sunburst"]
       ],
-      "default": "circle",
+      "default": "text",
       "upgrade_default": "none",
       "description": "Choose how to display product counts for categories. Badge overlays appear on category images, while text displays next to category names. Note: Collages show counts for categories with 5+ products.",
       "requires": [
