@@ -205,13 +205,9 @@ header
       font-size: 1.3em
 
     &.image
-      height: calc(var(--logo-max-height) * 1px)
       display: flex
       align-items: center
       justify-content: center
-      
-      @media screen and (max-width: $break-small)
-        height: clamp(40px, calc(var(--logo-max-height) * 0.8 * 1px), 110px)
 
       .store-link
         height: 100%
@@ -222,11 +218,18 @@ header
       img
         display: block
         margin: 0 auto
-        height: 100%
-        max-width: calc(var(--logo-max-height) * 2.5 * 1px)
+        max-height: calc(var(--logo-max-height) * 1px)
+        max-width: 100%
         width: auto
         object-fit: contain
 
+        @media screen and (max-width: $break-medium)
+          // Scale down max-height for medium screens, clamped between 60px and 120px
+          max-height: clamp(60px, calc(var(--logo-max-height) * 0.75 * 1px), 120px)
+
+        @media screen and (max-width: $break-small)
+          // Further scale down max-height for small screens, clamped between 40px and 100px (adjusted)
+          max-height: clamp(40px, calc(var(--logo-max-height) * 0.65 * 1px), 100px)
     .store-link
       display: flex
       align-items: center

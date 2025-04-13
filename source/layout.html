@@ -55,8 +55,8 @@
         <div class="store-name {% if theme.logo != blank %}image{% else %}text{% endif %}">
           <a href="/" class="store-link" title="{{ store.name | escape }}">
             {% if theme.logo != blank %}
-              {% assign logo_image_height_1x = theme.logo_max_height | times: 3 %}
-              {% assign logo_image_height_2x = logo_image_height_1x | times: 2 %}
+              {% assign logo_image_height_1x = theme.logo_max_height %}
+              {% assign logo_image_height_2x = theme.logo_max_height | times: 2 %}
               <img
                 class="store-logo"
                 alt="{{ store.name }} Home"
