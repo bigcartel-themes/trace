@@ -868,7 +868,11 @@
       "requires": [
         "feature:theme_bnpl_messaging eq visible"
       ],
-      "plan_type": "paid"
+      "requires_upsell": {
+        "unless": "feature:buy_now_pay_later",
+        "default": false,
+        "analytics_label": "BNPL"
+      }
     },
     {
       "variable": "show_sold_out_product_prices",
