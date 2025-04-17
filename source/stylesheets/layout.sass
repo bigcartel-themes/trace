@@ -82,6 +82,9 @@ header
     z-index: 5
     column-gap: 16px
 
+    @media screen and (max-width: $break-small)
+      grid-template-columns: 0.75fr 2.5fr 0.75fr
+
   .header-nav
     +flexbox
     +align-items(center)
@@ -405,12 +408,23 @@ footer
     &:hover
       text-decoration: underline
 
+.footer-custom-content
+  display: grid
+  grid-template-columns: 1fr
+  justify-content: center
+  text-align: center
+  padding: 10px 50px 20px 50px
+  gap: 20px
+
+  > *
+    justify-self: center
+
 .social-icons
   display: flex
   gap: 20px
   list-style: none
   margin: 0
-  padding: 0
+  padding: 10px 50px 20px 50px
   flex-wrap: wrap
   justify-content: center
 
