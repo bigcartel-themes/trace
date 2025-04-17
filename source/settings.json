@@ -864,7 +864,7 @@
       "section": "product_page",
       "type": "boolean",
       "default": true,
-      "description": "Show payment options prior to checkout on product and cart pages. Requires paid plan.",
+      "description": "Show payment options prior to checkout on product and cart pages. <a href='https://www.bigcartel.com/resources/help/article/boost-sales-and-conversions-with-buy-now-pay-later-payments' target='_blank'>Learn more</a>",
       "requires": [
         "feature:theme_bnpl_messaging eq visible"
       ],
