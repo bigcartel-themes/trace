@@ -82,6 +82,9 @@ header
     z-index: 5
     column-gap: 16px
 
+    @media screen and (max-width: $break-small)
+      grid-template-columns: 0.75fr 2.5fr 0.75fr
+
   .header-nav
     +flexbox
     +align-items(center)
