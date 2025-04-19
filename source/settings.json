@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.14.2",
+  "version": "1.15.0",
   "images": [
     {
       "variable": "logo",
@@ -923,7 +923,7 @@
       "variable": "maintenance_message",
       "label": "Maintenance mode message",
       "section": "messaging",
-      "type": "text",
+      "type": "textarea",
       "max_length": 2048,
       "description": "A message visitors see when your shop is in Maintenance Mode",
       "default": "We're working on our shop right now.<br /><br />Please check back soon."
@@ -933,14 +933,14 @@
       "label": "Announcement text",
       "section": "messaging",
       "max_length": 500,
-      "type": "text",
+      "type": "textarea",
       "description": "Displays an announcement message on the top of every page"
     },
     {
       "variable": "contact_text",
       "label": "Contact page text",
       "section": "messaging",
-      "type": "text",
+      "type": "textarea",
       "max_length": 1024,
       "description": "Displays a message on your contact page"
     },
