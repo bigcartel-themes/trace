@@ -7,7 +7,7 @@ body
   flex-direction: column
   background-color: var(--background-color)
   color: var(--primary-text-color)
-  font-family: var(--primary-font)
+  font-family: var(--secondary-font)
   font-size: 16px
   line-height: 1.5
   height: 100%
@@ -45,6 +45,7 @@ a, a:visited
 
 h1, h2, h3, h4, h5, h6
   font-weight: normal
+  font-family: var(--primary-font)
   margin: 0
   padding: 0
   text-align: left
@@ -233,10 +234,12 @@ header
         @media screen and (max-width: $break-small)
           // Further scale down max-height for small screens, clamped between 40px and 100px (adjusted)
           max-height: clamp(40px, calc(var(--logo-max-height) * 0.65 * 1px), 100px)
+
     .store-link
       display: flex
       align-items: center
       justify-content: center
+      font-family: var(--primary-font)
 
   .header-cart
     display: flex
