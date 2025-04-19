@@ -74,7 +74,7 @@ header
 
   .wrapper
     display: grid
-    grid-template-columns: 1fr 2fr 1fr
+    grid-template-columns: 0.75fr 2.5fr 0.75fr
     grid-template-rows: 1fr
     +align-items(center)
     +justify-content(space-between)
@@ -84,7 +84,7 @@ header
     column-gap: 16px
 
     @media screen and (max-width: $break-small)
-      grid-template-columns: 0.75fr 2.5fr 0.75fr
+      grid-template-columns: 0.5fr 2.75fr 0.5fr
 
   .header-nav
     +flexbox
@@ -130,7 +130,7 @@ header
       position: relative
       width: 100%
 
-      @media screen and (max-width: $break-small)
+      @media screen and (max-width: $break-medium)
         display: none
 
     .category-nav-arrow
@@ -199,14 +199,17 @@ header
     display: flex
     align-items: center
     justify-content: center
-    font-size: 1.75em
+    font-size: 2.5em
     height: 100%
     text-align: center
     padding: 0 16px
     word-break: break-word
 
+    @media screen and (max-width: $break-medium)
+      font-size: 2em
+
     @media screen and (max-width: $break-small)
-      font-size: 1.3em
+      font-size: 1.7em
 
     &.image
       display: flex
