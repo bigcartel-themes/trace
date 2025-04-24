@@ -477,10 +477,11 @@
         ["Small", "60"],
         ["Medium", "80"],
         ["Large", "120"],
-        ["Extra Large", "140"],
-        ["XX Large", "180"]
+        ["Extra Large", "160"],
+        ["XX Large", "200"],
+        ["XXX Large", "240"]
       ],
-      "default": "80",
+      "default": "120",
       "description": "Controls the maximum size of your header logo"
     },
     {
