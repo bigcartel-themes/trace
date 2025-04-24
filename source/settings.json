@@ -576,7 +576,7 @@
       "variable": "footer_text",
       "label": "Footer text",
       "section": "global_navigation",
-      "type": "text",
+      "type": "textarea",
       "max_length": 2048,
       "description": "Show a custom message to your shop's footer"
     },
