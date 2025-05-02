@@ -713,14 +713,40 @@
         ["Pill badge overlay", "pill"],
         ["Sunburst badge overlay", "sunburst"]
       ],
-      "default": "text",
-      "upgrade_default": "none",
+      "default": "circle",
+      "upgrade_default": "text",
       "description": "Choose how to display product counts for categories. Badge overlays appear on category images, while text displays next to category names. Note: Collages show counts for categories with 5+ products.",
       "requires": [
         "feature:theme_category_collages eq visible",
         "featured_items_type eq Categories",
         "home_page_categories_image_style neq collage",
         "home_page_categories_image_style neq collage_random"
+      ]
+    },
+    {
+      "variable": "home_page_categories_count_overlay_opacity",
+      "label": "Featured categories product count overlay opacity",
+      "section": "homepage",
+      "type": "select",
+      "options": [
+        ["Barely-there", "0.1"],
+        ["Extra-light", "0.2"],
+        ["Light", "0.3"],
+        ["Soft", "0.4"],
+        ["Medium", "0.5"],
+        ["Dim", "0.6"],
+        ["Dark", "0.7"],
+        ["Darker", "0.8"],
+        ["Darkest", "0.9"]
+      ],
+      "default": "0.5",
+      "description": "Controls the opacity of the product count overlay on your featured category photos",
+      "requires": [
+        "feature:theme_category_collages eq visible",
+        "show_home_page_categories eq true",
+        "home_page_categories_style eq thumbnails",
+        "home_page_categories_product_count_display neq none",
+        "home_page_categories_product_count_display neq text"
       ]
     },
     {
