@@ -56,7 +56,7 @@
 {% if theme.featured_items_type == 'Categories' %}
   {% if categories.active != blank and theme.featured_items > 0 %}
     <div class="home-featured-categories" data-category-collages-enabled="{{ category_collages_enabled }}">
-      <h1 class="page-title">{{ theme.featured_header }}</h1>
+      <h1 class="page-title">{{ t['home.featured'] }}</h1>
       {% assign num_results = 0 %}
       {% for category in categories.active limit:theme.featured_items %}
         {% assign num_results = num_results | plus: 1 %}
@@ -72,7 +72,7 @@
                 <div class="product-list-thumb {{ product.css_class }}">
                   <a
                     class="product-list-link"
-                    href="{{ category.url }}" title="View {{ category.name | escape }}">
+                    href="{{ category.url }}" title="{{ category.name | escape }}">
                     <div class="product-list-image-container product-list-image-container-{{ theme.grid_image_style }}">
                       <img
                         alt=""
@@ -99,7 +99,7 @@
               {% endfor %}
             {% else %}
               <div class="product-list-thumb {{ product.css_class }}">
-                <a class="product-list-link category-link" href="{{ category.url }}" title="View {{ category.name | escape }}">
+                <a class="product-list-link category-link" href="{{ category.url }}" title="{{ category.name | escape }}">
                   {% if category.products.size > 0 %}
                     {% assign first_product = category.products.first %}
                     {% assign image_width = first_product.image.width | times: 1.0 %}
@@ -170,7 +170,7 @@
 {% else %}
   {% if theme.featured_items > 0 %}
     <div class="home-featured-products">
-      <h1 class="page-title">{{ theme.featured_header }}</h1>
+      <h1 class="page-title">{{ t['home.featured'] }}</h1>
       {% paginate products from products.current by theme.featured_items order:theme.featured_order %}
         {% assign num_results = paginate.items %}
         {% if paginate.next.is_link %}
@@ -186,16 +186,18 @@
                 {% assign product_status = '' %}
                 {% case product.status %}
                   {% when 'active' %}
-                    {% if product.on_sale %}{% assign product_status = 'On sale' %}{% endif %}
+                    {% if product.on_sale %}
+                      {% assign product_status = t['products.on_sale'] %}
+                    {% endif %}
                   {% when 'sold-out' %}
-                    {% assign product_status = 'Sold out' %}
+                    {% assign product_status = t['products.sold_out'] %}
                   {% when 'coming-soon' %}
-                    {% assign product_status = 'Coming soon' %}
+                    {% assign product_status = t['products.coming_soon'] %}
                 {% endcase %}
                 <div class="product-list-thumb {{ product.css_class }}">
                   <a
                     class="product-list-link"
-                    href="{{ product.url }}" title="View {{ product.name | escape }}">
+                    href="{{ product.url }}" title="{{ product.name | escape }}">
                     <div class="product-list-image-container product-list-image-container-{{ theme.grid_image_style }}">
                       <img
                         alt=""
@@ -242,10 +244,10 @@
             </div>
           </div>
           {% if paginate.pages > 1 %}
-            {% if theme.all_products_button_text != blank %}<a class="button centered-button" href="/products">{{ theme.all_products_button_text }}</a>{% endif %}
+            {% if theme.all_products_button_text != blank %}<a class="button centered-button" href="/products">{{ t['home.all_products'] }}</a>{% endif %}
           {% endif %}
         {% else %}
-          <div class="message-banner message-banner--centered message-banner--no-bg">No products found.</div>
+          <div class="message-banner message-banner--centered message-banner--no-bg">{{ t['products.no_products'] }}</div>
         {% endif %}
       {% endpaginate %}
     </div>
