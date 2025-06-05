@@ -102,7 +102,7 @@
     </header>
 
     <main class="content {{ page.category }} page-{{ page.permalink }}" id="main">
-      <div class="wrapper">
+      <div class="wrapper" data-bc-hook="content">
         {% if page.category == 'custom' %}
           <h1 class="page-header custom-header">{{ page.name }}</h1>
           <div class="custom-page-content">{{ page_content | paragraphs }}</div>
