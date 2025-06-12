@@ -1,7 +1,24 @@
+{% comment %} Define a consistent title suffix {% endcomment %}
+{% capture title_suffix %} | {{ store.name }}{% endcapture %}
+
+{% comment %} Set default page title {% endcomment %}
+{% assign page_title = page.name | append: title_suffix %}
+
+{% comment %} Handle special page cases {% endcomment %}
+{% if page.name == 'Home' %}
+  {% assign page_title = store.name %}
+{% elsif page.full_url contains '/products' %}
+  {% if page.full_url contains 'search=' %}
+    {% assign page_title = t['products.search_results'] | append: title_suffix %}
+  {% elsif theme.collections %}
+    {% assign page_title = t['navigation.categories'] | append: title_suffix %}
+  {% endif %}
+{% endif %}
+
 <!doctype html>
 <html>
   <head>
-    <title>{{ page.name }} | {{ store.name }}</title>
+    <title>{{ page_title }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
@@ -9,7 +26,6 @@
     <style>.preloader * { opacity: 0; }.transition-preloader * { transition: none !important }</style>
   </head>
   <body id="{{ page.permalink }}" class="{{ page.category }} preloader transition-preloader" data-bc-page-type="{% if page.category == 'custom' %}custom{% else %}{{ page.permalink }}{% endif %}">
-    <a class="skip-link" href="#main">Skip to main content</a>
     {% if theme.announcement_message_text != blank %}
       <div aria-label="Announcement message" class="announcement-message">
         <div class="announcement-message__text">{{ theme.announcement_message_text }}</div>
@@ -29,13 +45,13 @@
           {% if categories.active != blank or artists.active != blank %}
             <div class="header-category-nav">
               <button class="open-category-nav" aria-label="Open category navigation" aria-controls="header-dropdown" aria-expanded="false">
-                <div class="category-nav-page">Shop</div>
+                <div class="category-nav-page">{{ t['navigation.shop'] }}</div>
                 <svg class="category-nav-arrow" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
               </button>
               <div id="header-dropdown" class="category-dropdown" aria-hidden="true">
                 {% if categories.active != blank %}
                   <ul class="dropdown-list categories-list">
-                    <li><a href="/products">All products</a></li>
+                    <li><a href="/products">{{ t['navigation.all_products'] }}</a></li>
                     {% for category in categories.active %}
                       <li>{{ category | link_to }}</li>
                     {% endfor %}
@@ -78,15 +94,15 @@
             {% if cart.item_count > 0 %}
               <span class="cart-num-items" aria-hidden="true">{{ cart.item_count }}</span>
             {% endif %}
-            <span class="visually-hidden">View cart</span>
-            <span class="cart-num-items-hidden visually-hidden" aria-live="polite" aria-atomic="true">{{ cart.item_count | pluralize: 'item', 'items' }}</span>
+            <span class="visually-hidden">{{ t['cart.view_cart'] }}</span>
+            <span class="cart-num-items-hidden visually-hidden" aria-live="polite" aria-atomic="true">{{ cart.item_count | pluralize: t['navigation.item'], t['navigation.items'] }}</span>
           </a>
         </div>
       </div>
     </header>
 
     <main class="content {{ page.category }} page-{{ page.permalink }}" id="main">
-      <div class="wrapper">
+      <div class="wrapper" data-bc-hook="content">
         {% if page.category == 'custom' %}
           <h1 class="page-header custom-header">{{ page.name }}</h1>
           <div class="custom-page-content">{{ page_content | paragraphs }}</div>
@@ -101,9 +117,9 @@
           <div class="footer-custom-content">{{ theme.footer_text }} </div>
         {% endif %}
         <ul class="footer__pages footer__pages--main" aria-label="Footer main">
-          <li><a href="/">{{ pages.home.name }}</a></li>
-          <li><a href="/products">{{ pages.products.name }}</a></li>
-          <li><a href="/contact">{{ pages.contact.name }}</a></li>
+          <li><a href="/">{{ t['navigation.home'] }}</a></li>
+          <li><a href="/products">{{ t['navigation.products'] }}</a></li>
+          <li><a href="/contact">{{ t['navigation.contact'] }}</a></li>
         </ul>
 
         {% if theme.show_categories_in_footer and categories.active.size > 0 %}
@@ -199,7 +215,11 @@
         {% if theme.footer_text != blank and theme.footer_text_position == "end" %}
           <div class="footer-custom-content">{{ theme.footer_text }} </div>
         {% endif %}
-        <div class="footer-store-credit" data-bc-hook="credit">{{ big_cartel_credit_logo }}</div>
+        {% unless theme.hide_big_cartel_credit %}
+          <div class="footer-store-credit" data-bc-hook="credit">
+            {{ big_cartel_credit_logo }}
+          </div>
+        {% endunless %}
       </div>
     </footer>
     <div id="navigation-modal" class="navigation-modal" role="dialog" aria-modal="true" aria-hidden="true">
@@ -215,17 +235,17 @@
           <div class="navigation-modal__main">
             <nav class="pages-nav" aria-label="Primary navigation">
               <ul class="navigation-modal__list">
-                <li><a href="/">{{ pages.home.name }}</a></li>
+                <li><a href="/">{{ t['navigation.home'] }}</a></li>
                 {% if categories.active != blank %}
                   <li class="navigation-modal__categories">
                     <button class="navigation-modal__categories-toggle" aria-label="Open category navigation" aria-controls="modal-category-list" aria-expanded="false">
-                      <div>Shop</div>
+                      <div>{{ t['navigation.shop'] }}</div>
                       <svg aria-hidden="true" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
                     </button>
                     <div class="category-list" id="modal-category-list" aria-hidden="true">
                       {% if categories.active != blank %}
                         <ul class="dropdown-list categories-list">
-                          <li><a href="/products">All products</a></li>
+                          <li><a href="/products">{{ t['navigation.all_products'] }}</a></li>
                           {% for category in categories.active %}
                             <li>{{ category | link_to }}</li>
                           {% endfor %}
@@ -235,15 +255,15 @@
                   </li>
                 {% else %}
                   <li>
-                    <a href="/products">{{ pages.products.name }}</a>
+                    <a href="/products">{{ t['navigation.products'] }}</a>
                   </li>
                 {% endif %}
                 {% for page in pages.all %}
                   <li>{{ page | link_to }}</li>
                 {% endfor %}
-                <li><a href="/contact">{{ pages.contact.name }}</a></li>
+                <li><a href="/contact">{{ t['navigation.contact'] }}</a></li>
                 {% if store.website != blank %}
-                  <li><a href="{{ store.website }}">Back to site</a></li>
+                  <li><a href="{{ store.website }}">{{ t['navigation.back_to_site'] }}</a></li>
                 {% endif %}
               </ul>
             </nav>
@@ -337,7 +357,7 @@
             </button>
             <form class="search-modal__form" name="search" action="/products" method="get" accept-charset="utf8" role="search">
               <input type="hidden" name="utf8" value='✓'>
-              <label class="search-modal__label" for="search-input">Search products</label>
+              <label class="search-modal__label" for="search-input">{{ t['navigation.search'] }}</label>
               <input class="search-modal__input" id="search-input" name="search" type="search" autocomplete="off" />
               <button type="submit" class="search-modal__submit" aria-label="Submit search form">
                 <svg class="search-modal__submit-icon" aria-hidden="true" fill="currentColor" height="22" width="22" viewBox="0 0 30 30">
@@ -362,8 +382,8 @@
       const themeOptions = {
         showSoldOutOptions: {{ theme.show_sold_out_product_options }},
         showLowInventoryMessages: {{ theme.show_low_inventory_messages }},
-        lowInventoryMessage: "{{ theme.low_inventory_message | replace: '"', '\"' | replace: "'", "\\'" }}",
-        almostSoldOutMessage: "{{ theme.almost_sold_out_message | replace: '"', '\"' | replace: "'", "\\'" }}",
+        lowInventoryMessage: "{{ t['products.low_inventory'] | replace: '"', '\"' | replace: "'", "\\'" }}",
+        almostSoldOutMessage: "{{ t['products.almost_sold_out'] | replace: '"', '\"' | replace: "'", "\\'" }}",
         desktopProductPageImages: '{{ theme.desktop_product_page_images }}',
         mobileProductPageImages: '{{ theme.mobile_product_page_images }}',
         productImageZoom: {{ theme.product_image_zoom }},
@@ -371,10 +391,18 @@
         homepageSlideshowAutoplay: {{ theme.homepage_slideshow_autoplay }},
         homepageSlideshowSpeed: {{ theme.homepage_slideshow_speed }},
         showBnplMessaging: {{ theme.show_bnpl_messaging }} && !themeFeatures.optOuts.includes("theme_bnpl_messaging"),
+        homeFeaturedVideoUrl: "{{ theme.home_featured_video_url }}",
+        homeFeaturedVideoSize: "{{ theme.home_featured_video_size }}",
+        homeFeaturedVideoBorder: "{{ theme.home_featured_video_border }}",
       };
       const themeColors = {
         backgroundColor: '{{ theme.background_color }}',
         primaryTextColor: '{{ theme.primary_text_color }}',
+      };
+      const themeTranslations = {
+        cart: {
+          shareThisCartLinkCopySuccess: "{{ t['cart.share_this_cart_link_copy_success'] | replace: '"', '\"' | replace: "'", "\\'" }}"
+        }
       };
     </script>
     {% if theme.announcement_message_text != blank %}
@@ -403,17 +431,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script>
-      var formatMoney = Format.money;
-      Format.money = function(number) {
-        {% case theme.money_format %}
-        {% when 'sign' %}
-          return formatMoney(number, true, true, false);
-        {% when 'code' %}
-          return formatMoney(number, true, false, true);
-        {% when 'sign_and_code' %}
-          return formatMoney(number, true, true, true);
-        {% endcase %}
-      };
+      window.bigcartel = window.bigcartel || {};
+      window.bigcartel.account = window.bigcartel.account || {};
+      window.bigcartel.account.currency = window.bigcartel.account.currency || "{{ store.currency.code }}";
+      window.bigcartel.account.moneyFormat = "{{ theme.money_format }}";
     </script>
     <script src="{{ theme | theme_js_url }}"></script>
     {% if page.full_url contains '/product/' %}
