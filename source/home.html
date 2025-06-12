@@ -48,6 +48,16 @@
   </div>
 {% endif %}
 
+{% if theme.home_featured_video_url %}
+  {% assign featured_video_header = t['home.featured_video'] %}
+  <div class="home-featured-video-section">
+    {% if featured_video_header != blank %}
+      <h1 class="page-title">{{ featured_video_header }}</h1>
+    {% endif %}
+    <div id="featured-video"></div>
+  </div>
+{% endif %}
+
 {% assign category_list_style = theme.home_page_categories_style %}
 {% assign category_collages_enabled = false %}
 {% if theme.features.has_theme_category_collages %}
