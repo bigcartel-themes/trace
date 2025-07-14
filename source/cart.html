@@ -17,7 +17,7 @@
   {% endif %}
   {% if cart.items == blank %}
     <div class="cart-empty">
-      <div class="message-banner message-banner--no-bg message-banner--centered message-banner--empty-cart">Your cart is empty!</div>
+      <div class="message-banner message-banner--no-bg message-banner--centered message-banner--empty-cart">{{ t['cart.empty_cart'] }}</div>
       <a href="/" class="button">{{ t['cart.continue_shopping'] }}</a>
     </div>
   {% else %}
