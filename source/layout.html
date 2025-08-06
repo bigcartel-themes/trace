@@ -119,7 +119,13 @@
         <ul class="footer__pages footer__pages--main" aria-label="Footer main">
           <li><a href="/">{{ t['navigation.home'] }}</a></li>
           <li><a href="/products">{{ t['navigation.products'] }}</a></li>
-          <li><a href="/contact">{{ t['navigation.contact'] }}</a></li>
+          {% if pages.subscribe_page %}
+            <li class="artist-support"><a href="{{ pages.subscribe_page.url }}">{{ t['navigation.subscribe'] }}</a></li>
+          {% endif %}
+          {% if theme.nav_page_display_footer == "all" or theme.nav_page_display_footer == "contact_only" %}
+            <li><a href="/contact">{{ t['navigation.contact'] }}</a></li>
+          {% endif %}
+          <li><a href="/cart">{{ t['navigation.cart'] }} (<span class="cart-num-items">{{ cart.item_count }}</span>)</a></li>
         </ul>
 
         {% if theme.show_categories_in_footer and categories.active.size > 0 %}
@@ -130,12 +136,19 @@
           </ul>
         {% endif %}
 
-        {% if theme.show_custom_pages_in_footer and pages.all.size > 0 %}
-          <ul class="footer__pages footer__pages--pages" aria-label="Footer pages">
-            {% for page in pages.all %}
-              <li>{{ page | link_to }}</li>
-            {% endfor %}
-          </ul>
+        {% if theme.nav_page_display == "all" or theme.nav_page_display == "pages_only" %}
+          {% if pages.custom_pages.size > 0 or pages.required_pages.size > 0 %}
+            <ul class="footer__pages footer__pages--pages" aria-label="Footer pages">
+              {% for custom_page in pages.custom_pages limit: theme.nav_items_footer %}
+                <li>{{ custom_page | link_to }}</li>
+              {% endfor %}
+              {% if pages.required_pages.size > 0 %}
+                {% for required_page in pages.required_pages %}
+                  <li><a href="{{ required_page.url }}">{{ required_page.name }}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          {% endif %}
         {% endif %}
 
         {% if theme.instagram_url != blank
@@ -256,34 +269,60 @@
             <nav class="pages-nav" aria-label="Primary navigation">
               <ul class="navigation-modal__list">
                 <li><a href="/">{{ t['navigation.home'] }}</a></li>
-                {% if categories.active != blank %}
-                  <li class="navigation-modal__categories">
-                    <button class="navigation-modal__categories-toggle" aria-label="Open category navigation" aria-controls="modal-category-list" aria-expanded="false">
-                      <div>{{ t['navigation.shop'] }}</div>
-                      <svg aria-hidden="true" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
-                    </button>
-                    <div class="category-list" id="modal-category-list" aria-hidden="true">
-                      {% if categories.active != blank %}
+                {% if theme.nav_page_display == "none" or theme.nav_page_display == "contact_only" %}
+                  <li><a href="/products">{{ t['navigation.all_products'] }}</a></li>
+                  {% if categories.active != blank %}
+                    {% for category in categories.active %}
+                      <li>{{ category | link_to }}</li>
+                    {% endfor %}
+                  {% endif %}
+                {% endif %}
+
+                {% if theme.nav_page_display == "all" or theme.nav_page_display == "pages_only" %}
+                  {% if categories.active != blank %}
+                    <li class="navigation-modal__categories">
+                        <button class="navigation-modal__categories-toggle" aria-label="Open category navigation" aria-controls="modal-category-list" aria-expanded="false">
+                          <div>{{ t['navigation.shop'] }}</div>
+                          <svg aria-hidden="true" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
+                        </button>
+                      <div class="category-list" id="modal-category-list" aria-hidden="true">
                         <ul class="dropdown-list categories-list">
                           <li><a href="/products">{{ t['navigation.all_products'] }}</a></li>
                           {% for category in categories.active %}
                             <li>{{ category | link_to }}</li>
                           {% endfor %}
                         </ul>
-                      {% endif %}
-                    </div>
-                  </li>
-                {% else %}
-                  <li>
-                    <a href="/products">{{ t['navigation.products'] }}</a>
-                  </li>
+                      </div>
+                    </li>
+                  {% else %}
+                    <li>
+                      <a href="/products">{{ t['navigation.products'] }}</a>
+                    </li>
+                  {% endif %}
+
+                  {% if pages.subscribe_page %}
+                    <li class="artist-support"><a href="{{ pages.subscribe_page.url }}">{{ t['navigation.subscribe'] }}</a></li>
+                  {% endif %}
+
+                  {% if theme.nav_page_display == "all" or theme.nav_page_display == "pages_only" %}
+                    {% for custom_page in pages.custom_pages limit: theme.nav_items_footer %}
+                      <li>{{ custom_page | link_to }}</li>
+                    {% endfor %}
+                  {% endif %}
                 {% endif %}
-                {% for page in pages.all %}
-                  <li>{{ page | link_to }}</li>
-                {% endfor %}
-                <li><a href="/contact">{{ t['navigation.contact'] }}</a></li>
+
+                {% if theme.nav_page_display == "all" or theme.nav_page_display == "contact_only" %}
+                  <li><a href="/contact">{{ t['navigation.contact'] }}</a></li>
+                {% endif %}
+
                 {% if store.website != blank %}
                   <li><a href="{{ store.website }}">{{ t['navigation.back_to_site'] }}</a></li>
+                {% endif %}
+
+                {% if pages.required_pages.size > 0 %}
+                  {% for required_page in pages.required_pages %}
+                    <li>{{ required_page | link_to }}</li>
+                  {% endfor %}
                 {% endif %}
               </ul>
             </nav>
