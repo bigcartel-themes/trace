@@ -1,6 +1,6 @@
 const homeSlideshowContainer = document.querySelector('.splide.home-slideshow');
 if (homeSlideshowContainer) {
-  document.addEventListener( 'DOMContentLoaded', function() {
+  function initSplide() {
     var splide = new Splide( '.splide.home-slideshow', {
       arrows: false,
       type: 'slide',
@@ -12,5 +12,11 @@ if (homeSlideshowContainer) {
       pagination: false,
     } );
     splide.mount();
-  });
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSplide);
+  } else {
+    initSplide();
+  }
 }
