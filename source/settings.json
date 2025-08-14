@@ -650,7 +650,10 @@
         ["Fade", "fade"]
       ],
       "default": "slide",
-      "description": "Controls how homepage slideshow transitions between images"
+      "description": "Controls how homepage slideshow transitions between images",
+      "requires": [
+        "slideshow present"
+      ]
     },
     {
       "variable": "homepage_slideshow_autoplay",
@@ -658,7 +661,10 @@
       "section": "homepage",
       "type": "boolean",
       "default": true,
-      "description": "Automatically advances slides in the homepage slideshow"
+      "description": "Automatically advances slides in the homepage slideshow",
+      "requires": [
+        "slideshow present"
+      ]
     },
     {
       "variable": "homepage_slideshow_speed",
@@ -675,6 +681,7 @@
       "default": 4000,
       "description": "Controls how quickly slides advance in the auto-playing slideshow",
       "requires": [
+        "slideshow present",
         "homepage_slideshow_autoplay eq true"
       ]
     },
@@ -701,12 +708,37 @@
       "type": "select",
       "options": [
         ["Scroll down page", "scroll"],
-        ["Go to Products Page", "navigate"]
+        ["Navigate", "navigate"]
       ],
       "default": "scroll",
       "description": "Controls the behavior of the welcome button on the Home page",
       "requires": [
         "welcome_button_text present"
+      ]
+    },
+    {
+      "variable": "hero_button_link",
+      "label": "Hero button link",
+      "section": "homepage",
+      "type": "text",
+      "default": "/products",
+      "description": "Link destination for the hero button. Accepts relative paths (e.g. /products) or full URLs.",
+      "requires": [
+        { "any": ["welcome_image present", "slideshow present"] },
+        "welcome_button_text present",
+        "welcome_button_behavior eq navigate"
+      ]
+    },
+    {
+      "variable": "hero_image_link",
+      "label": "Hero image link", 
+      "section": "homepage",
+      "type": "text",
+      "default": "",
+      "description": "Optionally makes the hero image or slideshow clickable. Leave blank to disable. Accepts relative paths (e.g. /products) or full URLs.",
+      "requires": [
+        { "any": ["welcome_image present", "slideshow present"] },
+        "welcome_button_text neq present"
       ]
     },
     {

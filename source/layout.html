@@ -448,12 +448,12 @@
         </div>
       </div>
     {% endif %}
+    {% comment %}
+      Manual array construction needed for themeFeatures for Liquid 3.0.6 since standard JSON filters 
+      (json, jsonify) don't work properly. This ensures proper JavaScript array 
+      formatting with quoted elements and commas.
+    {% endcomment %}
     <script>
-      {% comment %}
-        Manual array construction needed for Liquid 3.0.6 since standard JSON filters 
-        (json, jsonify) don't work properly. This ensures proper JavaScript array 
-        formatting with quoted elements and commas.
-      {% endcomment %}
       const themeFeatures = {
         optIns: [{% if theme.features.opt_ins %}{% for opt in theme.features.opt_ins %}"{{ opt }}"{% unless forloop.last %}, {% endunless %}{% endfor %}{% endif %}],
         optOuts: [{% if theme.features.opt_outs %}{% for opt in theme.features.opt_outs %}"{{ opt }}"{% unless forloop.last %}, {% endunless %}{% endfor %}{% endif %}],
@@ -471,6 +471,8 @@
         homepageSlideshowSpeed: {{ theme.homepage_slideshow_speed }},
         homepageSlideshowTransition: "{{ theme.homepage_slideshow_transition }}",
         showBnplMessaging: {{ theme.show_bnpl_messaging }} && !themeFeatures.optOuts.includes("theme_bnpl_messaging"),
+        heroButtonLink: "{{ theme.hero_button_link }}",
+        heroImageLink: "{{ theme.hero_image_link }}",
         homeFeaturedVideoUrl: "{{ theme.home_featured_video_url }}",
         homeFeaturedVideoSize: "{{ theme.home_featured_video_size }}",
         homeFeaturedVideoBorder: "{{ theme.home_featured_video_border }}",

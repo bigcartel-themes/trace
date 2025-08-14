@@ -55,22 +55,11 @@
         min-width: 0
         width: 100%
 
-  .home-slideshow
+  // Only apply background when welcome message is present
+  &.has-welcome-text .home-slideshow
     background: var(--welcome-background-color)
 
-    // Hide navigation when autoplay is enabled (Trace requirement)
-    &[data-autoplay="true"]
-      .splide__arrow
-        display: none !important
-      .splide__pagination
-        display: none !important
-
-    // Show navigation on hover when autoplay is disabled  
-    &[data-autoplay="false"]:hover,
-    &[data-autoplay="false"]:focus-within
-      .splide__arrow:not(:disabled)
-        opacity: 0.8
-
+  .home-slideshow
     .splide__slide
       width: 100%
 
@@ -142,6 +131,10 @@
   .featured-title
     margin-bottom: 0
 
+    @media screen and (max-width: $break-small)
+      .featured-title
+        font-size: 1.75em
+
   .featured-message
     text-align: center
     margin: 20px auto 40px auto
@@ -202,3 +195,11 @@
 .video-embed-container
   margin-top: 28px
   padding-bottom: 20px
+
+// Hero clickable styling
+.hero-clickable
+  cursor: pointer
+
+  &:hover
+    opacity: 0.9
+    transition: opacity 0.2s ease
