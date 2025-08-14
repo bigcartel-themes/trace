@@ -84,7 +84,9 @@ header
     column-gap: 16px
 
     @media screen and (max-width: $break-small)
-      grid-template-columns: 0.5fr 2.75fr 0.5fr
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: auto auto
+      row-gap: 16px
 
   .header-nav
     +flexbox
@@ -95,6 +97,10 @@ header
     position: relative
     text-align: left
     gap: 20px
+
+    @media screen and (max-width: $break-small)
+      grid-column: 1
+      grid-row: 1
 
     *
       text-transform: #{"{{ theme.nav_text_transform_header }}"}
@@ -213,6 +219,10 @@ header
 
     @media screen and (max-width: $break-small)
       font-size: 1.7em
+      grid-column: 1 / -1
+      grid-row: 2
+      padding: 0
+      height: auto
 
     &.image
       display: flex
@@ -265,6 +275,8 @@ header
     @media screen and (max-width: $break-small)
       column-gap: 8px
       right: -8px
+      grid-column: 2
+      grid-row: 1
 
     .cart-link
       display: flex

@@ -37,6 +37,17 @@
     display: flex
     align-items: center
     justify-content: flex-start
+    // Position to align with the main header
+    position: sticky
+    top: 0
+    height: var(--header-height)
+    
+    @media screen and (max-width: $break-large)
+      // On mobile, position X button to align with hamburger
+      // Default positioning when no announcement bar
+      padding: 0
+      height: 80px
+      margin-top: 16px
 
   &__close
     cursor: pointer
@@ -49,13 +60,16 @@
     padding: 0px
     width: 40px
 
+    @media screen and (max-width: $break-small)
+      left: -4px
+
     svg
       fill: currentColor
       height: 18px
       width: 18px
 
   &__main
-    padding: 0
+    padding: 0 0 0 5px
     display: flex
     flex-direction: column
     gap: 36px
@@ -108,3 +122,8 @@
 
     &[aria-hidden="true"]
       display: none
+
+// When announcement bar is visible, increase margin-top to account for its height
+body.has-announcement .navigation-modal__header
+  @media screen and (max-width: $break-small)
+    margin-top: 62px

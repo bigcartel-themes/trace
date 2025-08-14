@@ -498,6 +498,7 @@
         function closeAnnouncement() {
           let announcementElement = document.querySelector(".announcement-message");
           announcementElement?.remove();
+          document.body.classList.remove('has-announcement');
           document.cookie = `announcementClosed=${hashedAnnouncement};path=/`;
         }
 
@@ -505,6 +506,7 @@
           let hasClosedAnnouncement = document.cookie.includes(`announcementClosed=${hashedAnnouncement}`);
           if (!hasClosedAnnouncement) {
             announcementElement.classList.add('visible');
+            document.body.classList.add('has-announcement');
           }
           closeAnnouncementBtn.addEventListener("click", closeAnnouncement);
         }
