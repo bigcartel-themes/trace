@@ -5,11 +5,6 @@ const focusableNavElements = navModal.querySelectorAll('button, [href], input, s
 
 const openNavigation = () => {
   document.addEventListener('keydown', closeNavOnEscape);
-  const headerTop = document.querySelector('header').offsetTop;
-  const headerHeight = document.querySelector('header').offsetHeight;
-  const modalHeader = navModal.querySelector('.navigation-modal__header');
-  modalHeader.style.marginTop = `${headerTop}px`;
-  modalHeader.style.height = `${headerHeight}px`;
   navModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('overlay-open');
   trapNavFocus();

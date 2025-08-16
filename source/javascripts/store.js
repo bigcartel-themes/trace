@@ -18,12 +18,70 @@ document.addEventListener("DOMContentLoaded", function () {
             if (targetElement) {
               smoothScroll(targetElement, 1000);
             }
+          } else if (themeOptions.welcomeButtonBehavior === "navigate") {
+            if (isExternalLink(event.target.href)) {
+              event.preventDefault();
+              event.stopPropagation();
+              window.open(event.target.href, '_blank', 'noopener,noreferrer');
+            }
+            // Let internal links use template's href naturally
           }
         });
       }
 
-
+      // Handle separate image link functionality
+      const heroImageLink = themeOptions.heroImageLink && themeOptions.heroImageLink.trim() !== '' ? themeOptions.heroImageLink : null;
       
+      // Only make hero elements clickable if welcome button is not shown and heroImageLink is configured
+      if (!welcomeButton && heroImageLink) {
+        // Handle slideshow clicks
+        const slideshow = document.querySelector(".home-slideshow");
+        if (slideshow) {
+          const slides = slideshow.querySelectorAll('.splide__slide');
+          // Add styling and accessibility attributes to individual slides
+          slides.forEach(slide => {
+            slide.classList.add("hero-clickable");
+            slide.setAttribute("role", "button");
+            slide.setAttribute("aria-label", "Navigate to " + heroImageLink);
+          });
+          
+          // Use event delegation with a single listener on the slideshow container
+          slideshow.addEventListener("click", function(event) {
+            // Don't interfere with splide controls - only handle clicks on slide content
+            if (!event.target.closest('.splide__arrow, .splide__pagination')) {
+              const clickedSlide = event.target.closest('.splide__slide');
+              if (clickedSlide) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                if (isExternalLink(heroImageLink)) {
+                  window.open(heroImageLink, '_blank', 'noopener,noreferrer');
+                } else {
+                  window.location.href = heroImageLink;
+                }
+              }
+            }
+          });
+        }
+        
+        // Handle welcome image clicks
+        const welcomeImage = document.querySelector(".welcome-image");
+        if (welcomeImage) {
+          welcomeImage.classList.add("hero-clickable");
+          welcomeImage.setAttribute("role", "button");
+          welcomeImage.setAttribute("aria-label", "Navigate to " + heroImageLink);
+          welcomeImage.addEventListener("click", function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            if (isExternalLink(heroImageLink)) {
+              window.open(heroImageLink, '_blank', 'noopener,noreferrer');
+            } else {
+              window.location.href = heroImageLink;
+            }
+          });
+        }
+      }
 
       const featuredCategoriesContainerSelector = '.home-featured-categories';
       const featuredCategoriesContainer = document.querySelector(featuredCategoriesContainerSelector);

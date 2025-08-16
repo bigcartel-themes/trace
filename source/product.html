@@ -130,24 +130,36 @@
 
   <section class="product-detail">
     <div class="product-detail__header">
-      {% assign hide_price = false %}
-      {% if product.status == 'sold-out' and theme.show_sold_out_product_prices == false %}
-        {% assign hide_price = true %}
-      {% endif -%}
-      {% if product.status == 'coming-soon' and theme.show_coming_soon_product_prices == false %}
-        {% assign hide_price = true %}
-      {% endif %}
-
       {% capture product_pricing %}
         {% if product.variable_pricing and hide_price == false %}
           {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
-        {% elsif hide_price == false %}
+        {% else %}
           {{ product.default_price | money: theme.money_format }}
+        {% endif %}
+
+        {% if product.price_suffix != blank %}
+          {% if product.variable_pricing %}
+            {% assign formatted_suffix = '(' | append: product.price_suffix | append: ')' %}
+          {% else %}
+            {% assign formatted_suffix = product.price_suffix %}
+          {% endif %}
+          <span class="price-suffix">{{ formatted_suffix }}</span>
         {% endif %}
       {% endcapture %}
       <h1 class="page-title page-title--left product-detail__title">{{ product.name }}</h1>
       <div class="product-detail__pricing">
-        {% unless hide_price %}<span>{{ product_pricing }}</span>{% endunless %}
+        {% assign hide_price = false %}
+        {% if product.status == 'sold-out' and theme.show_sold_out_product_prices == false %}
+          {% assign hide_price = true %}
+        {% endif -%}
+        {% if product.status == 'coming-soon' and theme.show_coming_soon_product_prices == false %}
+          {% assign hide_price = true %}
+        {% endif %}
+
+        {% unless hide_price %}
+          <span>{{ product_pricing }}</span>
+        {% endunless %}
+
         {% if hide_price == false and product_status != blank %}<span class="product-detail__separator">&mdash;</span>{% endif %}
         {% if product_status != blank %}<div class="product-detail__status">{{ product_status }}</div>{% endif %}
       </div>
@@ -279,11 +291,22 @@
               <div class="product-list-thumb-info">
                 <div class="product-list-thumb-name">{{ related_product.name }}</div>
                 <div class="product-list-thumb-price">
-                  {% if related_product.variable_pricing %}
-                    {{ related_product.min_price | money: theme.money_format }} - {{ related_product.max_price | money: theme.money_format }}
-                  {% else %}
-                    {{ related_product.default_price | money: theme.money_format }}
-                  {% endif %}
+                  {% unless related_product.status == 'sold-out' and theme.show_sold_out_product_prices == false %}
+                    {% if related_product.variable_pricing %}
+                      {{ related_product.min_price | money: theme.money_format }} - {{ related_product.max_price | money: theme.money_format }}
+                    {% else %}
+                      {{ related_product.default_price | money: theme.money_format }}
+                    {% endif %}
+
+                    {% if related_product.price_suffix != blank %}
+                      {% if related_product.variable_pricing %}
+                        {% assign formatted_suffix = '(' | append: related_product.price_suffix | append: ')' %}
+                      {% else %}
+                        {% assign formatted_suffix = related_product.price_suffix %}
+                      {% endif %}
+                      <span class="price-suffix">{{ formatted_suffix }}</span>
+                    {% endif %}
+                  {% endunless %}
                 </div>
               </div>
             </a>
