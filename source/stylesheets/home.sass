@@ -55,9 +55,11 @@
         min-width: 0
         width: 100%
 
-  .home-slideshow
+  // Only apply background when welcome message is present
+  &.has-welcome-text .home-slideshow
     background: var(--welcome-background-color)
 
+  .home-slideshow
     .splide__slide
       width: 100%
 
@@ -66,9 +68,30 @@
       width: 100%
 
     .splide__arrow
+      width: 2.5em
+      height: 2.5em
+      z-index: 10
+      opacity: 0
+      transition: opacity 0.2s
+      background: rgba(255, 255, 255, 0.5)
+      border: none
       border-radius: var(--border-radius)
-      width: 2em
-      height: 3em
+      backdrop-filter: blur(4px)
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15)
+      // Position arrows to center on the image area, excluding pagination space
+      top: calc(50% - 15px)
+      transform: translateY(-50%)
+      
+      &:not(:disabled):hover
+        opacity: 1
+        background: rgba(255, 255, 255, 0.95)
+        
+      svg
+        fill: #262626
+        transition: fill 0.2s
+
+      &:hover svg
+        fill: #000
 
     .splide__pagination
       z-index: 1
@@ -107,6 +130,10 @@
 
   .featured-title
     margin-bottom: 0
+
+    @media screen and (max-width: $break-small)
+      .featured-title
+        font-size: 1.75em
 
   .featured-message
     text-align: center
@@ -168,3 +195,11 @@
 .video-embed-container
   margin-top: 28px
   padding-bottom: 20px
+
+// Hero clickable styling
+.hero-clickable
+  cursor: pointer
+
+  &:hover
+    opacity: 0.9
+    transition: opacity 0.2s ease

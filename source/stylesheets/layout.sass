@@ -84,7 +84,9 @@ header
     column-gap: 16px
 
     @media screen and (max-width: $break-small)
-      grid-template-columns: 0.5fr 2.75fr 0.5fr
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: auto auto
+      row-gap: 16px
 
   .header-nav
     +flexbox
@@ -95,6 +97,13 @@ header
     position: relative
     text-align: left
     gap: 20px
+
+    @media screen and (max-width: $break-small)
+      grid-column: 1
+      grid-row: 1
+
+    *
+      text-transform: #{"{{ theme.nav_text_transform_header }}"}
 
     .menu-bars
       +flexbox
@@ -210,6 +219,10 @@ header
 
     @media screen and (max-width: $break-small)
       font-size: 1.7em
+      grid-column: 1 / -1
+      grid-row: 2
+      padding: 0
+      height: auto
 
     &.image
       display: flex
@@ -262,6 +275,8 @@ header
     @media screen and (max-width: $break-small)
       column-gap: 8px
       right: -8px
+      grid-column: 2
+      grid-row: 1
 
     .cart-link
       display: flex
@@ -396,6 +411,9 @@ header
 
 
 footer
+  *:not(.footer-custom-content)
+    text-transform: #{"{{ theme.nav_text_transform_footer }}"}
+
   .wrapper
     display: flex
     flex-direction: column
@@ -404,6 +422,7 @@ footer
     margin: 0 auto
     padding: 40px 40px
     border-top: 1px solid var(--footer-border-color)
+    font-size: 18px
 
 .footer__pages
   width: 100%
@@ -417,6 +436,7 @@ footer
 
   @media screen and (max-width: $break-extra-small)
     flex-direction: column
+    text-align: center
 
   a
     display: block
@@ -426,22 +446,23 @@ footer
       text-decoration: underline
 
 .footer-custom-content
-  display: grid
-  grid-template-columns: 1fr
-  justify-content: center
+  display: block
   text-align: center
   padding: 10px 10px 20px 10px
-  gap: 20px
 
-  > *
-    justify-self: center
+  img
+    display: block
+    margin: 20px auto
+
+  a
+    text-decoration: underline
+    text-underline-offset: 3px
 
 .social-icons
   display: flex
   gap: 20px
   list-style: none
   margin: 0
-  padding: 10px 50px 20px 50px
   flex-wrap: wrap
   justify-content: center
 
@@ -458,11 +479,16 @@ footer
 
     svg
       fill: currentColor
-      height: 22px
-      width: 22px
+      height: 24px
+      width: 24px
 
       &.tumblr-icon
-        width: 14px
+        width: 15px
+
+      &.reddit-icon,
+      &.discord-icon
+        width: 28px
+        height: 28px
 
 .bigcartel-credit
   line-height: 1em
