@@ -340,12 +340,15 @@ header
     padding-bottom: 150px
 
   h1
-    font-size: 2em
+    font-size: 1.8em
     margin-bottom: 60px
     text-align: center
 
+    @media screen and (max-width: $break-medium)
+      font-size: 1.6em
+
     @media screen and (max-width: $break-small)
-      font-size: 1.5em
+      font-size: 1.25em
       margin-bottom: 40px
 
   &.product
