@@ -61,7 +61,11 @@
 
 {% capture featured_container %}
   <div class="featured-container">
-    {% assign featured_header = t['home.featured'] %}
+    {% if theme.featured_items_type == 'Categories' %}
+      {% assign featured_header = t['home.featured_categories'] %}
+    {% else %}
+      {% assign featured_header = t['home.featured'] %}
+    {% endif %}
     {% assign featured_text = theme.homepage_featured_text %}
     {% assign featured_text_position = theme.homepage_featured_text_position %}
     

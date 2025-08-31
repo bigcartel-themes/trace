@@ -13,7 +13,7 @@
 {% paginate products from products.current by theme.products_per_page %}
   {% if products != blank %}
     <div class="product-list-container">
-      <div class="product-list {% if products.size < 4 %}product-list--center{% endif %}">
+      <div class="product-list {% if products.size < theme.max_products_per_row or products.size < theme.max_products_per_row_mobile %}product-list--center{% endif %}">
         {% for product in products %}
           {% assign image_width = product.image.width | times: 1.0 %}
           {% assign image_height = product.image.height | times: 1.0 %}
