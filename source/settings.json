@@ -6,7 +6,7 @@
       "variable": "logo",
       "label": "Header logo",
       "section": "global_navigation",
-      "description": "Recommend transparent background and 300 x 80 size"
+      "description": "Use a PNG file with a transparent background. Your logo should be at least 80 pixels tall. Wide logos look better than square ones."
     },
     {
       "variable": "welcome_image",
