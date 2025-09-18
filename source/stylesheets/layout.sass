@@ -238,18 +238,16 @@ header
       img
         display: block
         margin: 0 auto
-        max-height: calc(var(--logo-max-height) * 1px)
+        height: calc(var(--logo-max-height) * 1px)
         max-width: 100%
         width: auto
         object-fit: contain
 
         @media screen and (max-width: $break-medium)
-          // Scale down max-height for medium screens, clamped between 60px and 120px
-          max-height: clamp(60px, calc(var(--logo-max-height) * 0.75 * 1px), 120px)
+          height: calc(var(--logo-max-height) * 0.75 * 1px)
 
         @media screen and (max-width: $break-small)
-          // Further scale down max-height for small screens, clamped between 40px and 100px (adjusted)
-          max-height: clamp(40px, calc(var(--logo-max-height) * 0.65 * 1px), 100px)
+          height: calc(var(--logo-max-height) * 0.65 * 1px)
 
     .store-link
       display: flex

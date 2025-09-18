@@ -469,7 +469,7 @@
   ],
   "options": [
     {
-      "variable": "logo_max_height",
+      "variable": "logo_image_size",
       "label": "Header logo image size",
       "section": "global_navigation",
       "type": "select",
