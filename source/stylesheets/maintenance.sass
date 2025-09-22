@@ -11,15 +11,66 @@
     align-items: center
     justify-content: center
     gap: 48px
+    max-width: 800px
+    margin: 0 auto
+
+  .maintenance-image-container
+    width: 100%
+    max-width: 600px
+
+  .maintenance-image
+    width: 100%
+    height: auto
+    max-height: 60vh
+    object-fit: contain
+    border-radius: var(--border-radius)
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1)
+
+    @media screen and (max-width: $break-small)
+      max-height: 50vh
+
+  .maintenance-header
+    font-size: 2rem
+    line-height: 1.2
+    margin: 0
+    padding: 0
+    text-align: center
+
+    @media screen and (max-width: $break-medium)
+      font-size: 1.75rem
+
+    @media screen and (max-width: $break-small)
+      font-size: 1.6rem
+
+    @media screen and (max-width: $break-extra-small)
+      font-size: 1.4rem
+
+  .maintenance-text
+    font-family: var(--secondary-font)
+    font-size: 1.125rem
+    line-height: 1.6
+    color: var(--primary-text-color)
+    max-width: 600px
+    margin: -30px auto 0 auto
+
+    @media screen and (max-width: $break-medium)
+      font-size: 1rem
+
+    @media screen and (max-width: $break-small)
+      font-size: 1rem
+
+    @media screen and (max-width: $break-extra-small)
+      font-size: 1rem
 
   .maintenance-icons
     display: flex
     align-items: center
-    column-gap: 24px
+    column-gap: 16px
     row-gap: 16px
     flex-wrap: wrap
     justify-content: center
     padding: 0
+    max-width: 500px
 
     li
       display: inline-block
@@ -27,6 +78,10 @@
       a
         display: block
         padding: 0 4px
+        transition: opacity 0.2s ease
+
+        &:hover
+          opacity: 0.7
 
         svg
           fill: currentColor
