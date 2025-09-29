@@ -45,6 +45,14 @@ $break-extra-small: 500px
   --header-height: 108px
   --header-height-mobile: 140px
 
+  --font-scale: #{'{{ theme.global_text_scale | default: 1 }}'}
+  --shop-name-scale: #{'{{ theme.shop_name_text_scale | default: 1 }}'}
+  --product-grid-scale: #{'{{ theme.product_grid_scale | default: 1 }}'}
+  --product-title-scale: #{'{{ theme.product_page_heading_scale | default: 1 }}'}
+  --product-description-scale: #{'{{ theme.product_page_description_scale | default: 1 }}'}
+  --header-scale: #{'{{ theme.header_text_scale | default: 1 }}'}
+  --footer-scale: #{'{{ theme.footer_text_scale | default: 1 }}'}
+
   // Video player customization
   --video-rounded-radius: var(--border-radius)
   --video-margin-small: var(--spacing-unit)

@@ -16,7 +16,7 @@
   flex-wrap: wrap
 
   @media screen and (max-width: $break-small)
-    font-size: .925em
+    font-size: 0.925rem
 
   .next-arrow
     width: 5px
@@ -78,34 +78,35 @@
 
   &__title, .page-title
     color: var(--primary-heading-text-color)
-    font-size: 2em
+    font-size: calc(2rem * var(--product-title-scale, 1))
     line-height: 1.2
     padding-bottom: 10px
 
     @media screen and (max-width: $break-large)
-      font-size: 1.9em
+      font-size: calc(1.9rem * var(--product-title-scale, 1))
 
     @media screen and (max-width: $break-small)
-      font-size: 1.5em
+      font-size: calc(1.5rem * var(--product-title-scale, 1))
 
   &__status
-    font-size: .875em
+    font-size: calc(0.875rem * min(var(--product-title-scale, 1), 1.3))
     line-height: normal
     display: inline-block
 
   &__pricing
     display: flex
     align-items: center
-    font-size: 1.3em
+    font-size: calc(1.3rem * var(--product-title-scale, 1))
     color: var(--primary-text-color)
 
     @media screen and (max-width: $break-small)
-      font-size: 1.1em
+      font-size: calc(1.1rem * var(--product-title-scale, 1))
 
   &__separator
     margin: 0 8px
 
   &__description
+    font-size: calc(1rem * var(--product-description-scale, 1))
     p
       margin: revert
 
@@ -154,10 +155,10 @@
 .related-products-header
   display: flex
   align-items: center
-  font-size: 1em
+  font-size: calc(1rem * var(--product-grid-scale, 1))
 
   @media screen and (max-width: $break-medium)
-    font-size: 0.8em
+    font-size: calc(0.8rem * var(--product-grid-scale, 1))
 
   @media screen and (max-width: $break-extra-small)
     display: block
@@ -187,7 +188,7 @@
 
 .inventory-status-message
   color: var(--inventory-status-text-color)
-  font-size: 0.9em
+  font-size: calc(0.9rem * min(var(--product-title-scale, 1), 1.3))
   margin: 10px 0 auto
   text-align: center
   padding: 8px 0
