@@ -59,6 +59,15 @@
   </div>
 {% endif %}
 
+{% comment %} Show featured text above when position is "above" OR when no featured items {% endcomment %}
+{% assign featured_text = theme.homepage_featured_text %}
+{% assign featured_text_position = theme.homepage_featured_text_position %}
+{% if featured_text != blank %}
+  {% if featured_text_position == "above" or theme.featured_items == 0 %}
+    <div class="featured-message">{{ featured_text }}</div>
+  {% endif %}
+{% endif %}
+
 {% capture featured_container %}
   <div class="featured-container">
     {% if theme.featured_items_type == 'Categories' %}
@@ -66,16 +75,11 @@
     {% else %}
       {% assign featured_header = t['home.featured'] %}
     {% endif %}
-    {% assign featured_text = theme.homepage_featured_text %}
-    {% assign featured_text_position = theme.homepage_featured_text_position %}
-    
-    {% if featured_text != blank and featured_text_position == "above" %}
-      <div class="featured-message">{{ featured_text }}</div>
-    {% endif %}
     
     <h1 class="featured-title page-title">{{ featured_header }}</h1>
     
-    {% if featured_text != blank and featured_text_position != "above" %}
+    {% comment %} Only show within if we have items AND position is within {% endcomment %}
+    {% if featured_text != blank and featured_text_position == "within" and theme.featured_items > 0 %}
       <div class="featured-message">{{ featured_text }}</div>
     {% endif %}
   </div>
