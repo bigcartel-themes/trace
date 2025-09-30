@@ -41,3 +41,33 @@
   &__close-icon
     height: 14px
     width: 14px
+
+  &--scrolling
+    min-height: 64px
+    padding: 0
+    overflow: hidden
+
+    @media screen and (max-width: $break-small)
+      min-height: 48px
+
+    &:hover .announcement-message__scroll-content
+      animation-play-state: paused
+
+  &__scroll-wrapper
+    width: 100%
+    overflow: hidden
+
+  &__scroll-content
+    display: inline-flex
+    white-space: nowrap
+    animation: scroll-announcement var(--announcement-scroll-duration) linear infinite
+
+    .announcement-message__text
+      display: inline-flex
+      padding: 0 5em
+
+@keyframes scroll-announcement
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateX(-20%)
