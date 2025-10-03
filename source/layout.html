@@ -80,9 +80,9 @@
             </div>
           {% endif %}
         </div>
-        <div class="store-name {% if theme.logo != blank %}image{% else %}text{% endif %}">
+        <div class="store-name {% if theme.logo_image != blank %}image{% else %}text{% endif %}">
           <a href="/" class="store-link" title="{{ store.name | escape }}">
-            {% if theme.logo != blank %}
+            {% if theme.logo_image != blank %}
               {% assign display_height = theme.logo_image_size %}
               {% assign optimal_width = display_height | times: 6 %}
               {% assign retina_width = optimal_width | times: 2 %}
@@ -90,8 +90,8 @@
               <img
                 class="store-logo"
                 alt="{{ store.name }} Home"
-                srcset="{{ theme.images.logo.url | constrain: optimal_width, display_height }} 1x, {{ theme.images.logo.url | constrain: retina_width, retina_height }} 2x"
-                src="{{ theme.images.logo.url | constrain: optimal_width, display_height }}">
+                srcset="{{ theme.images.logo_image.url | constrain: optimal_width, display_height }} 1x, {{ theme.images.logo_image.url | constrain: retina_width, retina_height }} 2x"
+                src="{{ theme.images.logo_image.url | constrain: optimal_width, display_height }}">
             {% else %}
               {{ store.name }}
             {% endif %}
