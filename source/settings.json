@@ -696,8 +696,10 @@
       "label": "Welcome message",
       "section": "homepage",
       "type": "text",
-      "description": "Displays a message above the welcome button on the Home page. Requires a welcome image to be set"
-
+      "description": "Displays a message above the welcome button on the Home page. Requires a welcome image to be set",
+      "requires": [
+        { "any": ["welcome_image present", "slideshow present"] }
+      ]
     },
     {
       "variable": "welcome_button_text",
@@ -705,7 +707,10 @@
       "section": "homepage",
       "type": "text",
       "description": "Displays a link to the Products page on the Home page. Requires a welcome image to be set",
-      "default": "Shop now"
+      "default": "Shop now",
+      "requires": [
+        { "any": ["welcome_image present", "slideshow present"] }
+      ]
     },
     {
       "variable": "welcome_button_behavior",
@@ -719,16 +724,17 @@
       "default": "scroll",
       "description": "Controls the behavior of the welcome button on the Home page",
       "requires": [
+        { "any": ["welcome_image present", "slideshow present"] },
         "welcome_button_text present"
       ]
     },
     {
-      "variable": "hero_button_link",
-      "label": "Hero button link",
+      "variable": "welcome_button_link",
+      "label": "Welcome button link",
       "section": "homepage",
       "type": "text",
       "default": "/products",
-      "description": "Link destination for the hero button. Accepts relative paths (e.g. /products) or full URLs.",
+      "description": "Link destination for the welcome button. Accepts relative paths (e.g. /products) or full URLs.",
       "requires": [
         { "any": ["welcome_image present", "slideshow present"] },
         "welcome_button_text present",
@@ -736,15 +742,14 @@
       ]
     },
     {
-      "variable": "hero_image_link",
-      "label": "Hero image link", 
+      "variable": "welcome_image_link",
+      "label": "Welcome image link", 
       "section": "homepage",
       "type": "text",
       "default": "",
-      "description": "Optionally makes the hero image or slideshow clickable. Leave blank to disable. Accepts relative paths (e.g. /products) or full URLs.",
+      "description": "Optionally makes the welcome image or slideshow clickable. Leave blank to disable. Accepts relative paths (e.g. /products) or full URLs.",
       "requires": [
-        { "any": ["welcome_image present", "slideshow present"] },
-        "welcome_button_text neq present"
+        { "any": ["welcome_image present", "slideshow present"] }
       ]
     },
     {

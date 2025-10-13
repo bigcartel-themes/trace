@@ -30,19 +30,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Handle separate image link functionality
-      const heroImageLink = themeOptions.heroImageLink && themeOptions.heroImageLink.trim() !== '' ? themeOptions.heroImageLink : null;
+      const welcomeImageLink = themeOptions.welcomeImageLink && themeOptions.welcomeImageLink.trim() !== '' ? themeOptions.welcomeImageLink : null;
       
-      // Only make hero elements clickable if welcome button is not shown and heroImageLink is configured
-      if (!welcomeButton && heroImageLink) {
+      if (welcomeImageLink) {
         // Handle slideshow clicks
         const slideshow = document.querySelector(".home-slideshow");
         if (slideshow) {
           const slides = slideshow.querySelectorAll('.splide__slide');
           // Add styling and accessibility attributes to individual slides
           slides.forEach(slide => {
-            slide.classList.add("hero-clickable");
+            slide.classList.add("welcome-clickable");
             slide.setAttribute("role", "button");
-            slide.setAttribute("aria-label", "Navigate to " + heroImageLink);
+            slide.setAttribute("aria-label", "Navigate to " + welcomeImageLink);
           });
           
           // Use event delegation with a single listener on the slideshow container
@@ -54,10 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 event.preventDefault();
                 event.stopPropagation();
                 
-                if (isExternalLink(heroImageLink)) {
-                  window.open(heroImageLink, '_blank', 'noopener,noreferrer');
+                if (isExternalLink(welcomeImageLink)) {
+                  window.open(welcomeImageLink, '_blank', 'noopener,noreferrer');
                 } else {
-                  window.location.href = heroImageLink;
+                  window.location.href = welcomeImageLink;
                 }
               }
             }
@@ -67,17 +66,17 @@ document.addEventListener("DOMContentLoaded", function () {
         // Handle welcome image clicks
         const welcomeImage = document.querySelector(".welcome-image");
         if (welcomeImage) {
-          welcomeImage.classList.add("hero-clickable");
+          welcomeImage.classList.add("welcome-clickable");
           welcomeImage.setAttribute("role", "button");
-          welcomeImage.setAttribute("aria-label", "Navigate to " + heroImageLink);
+          welcomeImage.setAttribute("aria-label", "Navigate to " + welcomeImageLink);
           welcomeImage.addEventListener("click", function(event) {
             event.preventDefault();
             event.stopPropagation();
             
-            if (isExternalLink(heroImageLink)) {
-              window.open(heroImageLink, '_blank', 'noopener,noreferrer');
+            if (isExternalLink(welcomeImageLink)) {
+              window.open(welcomeImageLink, '_blank', 'noopener,noreferrer');
             } else {
-              window.location.href = heroImageLink;
+              window.location.href = welcomeImageLink;
             }
           });
         }
