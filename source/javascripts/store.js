@@ -30,19 +30,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Handle separate image link functionality
-      const heroImageLink = themeOptions.heroImageLink && themeOptions.heroImageLink.trim() !== '' ? themeOptions.heroImageLink : null;
+      const welcomeImageLink = themeOptions.welcomeImageLink && themeOptions.welcomeImageLink.trim() !== '' ? themeOptions.welcomeImageLink : null;
       
-      // Only make hero elements clickable if welcome button is not shown and heroImageLink is configured
-      if (!welcomeButton && heroImageLink) {
+      if (welcomeImageLink) {
         // Handle slideshow clicks
         const slideshow = document.querySelector(".home-slideshow");
         if (slideshow) {
           const slides = slideshow.querySelectorAll('.splide__slide');
           // Add styling and accessibility attributes to individual slides
           slides.forEach(slide => {
-            slide.classList.add("hero-clickable");
+            slide.classList.add("welcome-clickable");
             slide.setAttribute("role", "button");
-            slide.setAttribute("aria-label", "Navigate to " + heroImageLink);
+            slide.setAttribute("aria-label", "Navigate to " + welcomeImageLink);
           });
           
           // Use event delegation with a single listener on the slideshow container
@@ -54,10 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 event.preventDefault();
                 event.stopPropagation();
                 
-                if (isExternalLink(heroImageLink)) {
-                  window.open(heroImageLink, '_blank', 'noopener,noreferrer');
+                if (isExternalLink(welcomeImageLink)) {
+                  window.open(welcomeImageLink, '_blank', 'noopener,noreferrer');
                 } else {
-                  window.location.href = heroImageLink;
+                  window.location.href = welcomeImageLink;
                 }
               }
             }
@@ -67,17 +66,17 @@ document.addEventListener("DOMContentLoaded", function () {
         // Handle welcome image clicks
         const welcomeImage = document.querySelector(".welcome-image");
         if (welcomeImage) {
-          welcomeImage.classList.add("hero-clickable");
+          welcomeImage.classList.add("welcome-clickable");
           welcomeImage.setAttribute("role", "button");
-          welcomeImage.setAttribute("aria-label", "Navigate to " + heroImageLink);
+          welcomeImage.setAttribute("aria-label", "Navigate to " + welcomeImageLink);
           welcomeImage.addEventListener("click", function(event) {
             event.preventDefault();
             event.stopPropagation();
             
-            if (isExternalLink(heroImageLink)) {
-              window.open(heroImageLink, '_blank', 'noopener,noreferrer');
+            if (isExternalLink(welcomeImageLink)) {
+              window.open(welcomeImageLink, '_blank', 'noopener,noreferrer');
             } else {
-              window.location.href = heroImageLink;
+              window.location.href = welcomeImageLink;
             }
           });
         }
@@ -135,4 +134,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener("load", () => {
   document.body.classList.remove("transition-preloader");
+});
+
+// Hybrid announcement pause: hover on desktop, tap-to-toggle on mobile, focus for keyboard
+document.addEventListener('DOMContentLoaded', () => {
+  const announcement = document.querySelector('.announcement-message--scrolling');
+
+  if (!announcement) return;
+
+  const scrollContent = announcement.querySelector('.announcement-message__scroll-content');
+  const firstText = announcement.querySelector('.announcement-message__text');
+
+  // Calculate exact scroll distance for seamless looping
+  function updateScrollDistance() {
+    if (scrollContent && firstText) {
+      // Get the width of one text block including its spacing
+      const textWidth = firstText.offsetWidth;
+
+      // Set CSS variable with exact pixel distance to scroll
+      // This ensures perfectly seamless looping regardless of content length
+      scrollContent.style.setProperty('--scroll-distance', `-${textWidth}px`);
+    }
+  }
+
+  // Initial calculation
+  updateScrollDistance();
+
+  // Recalculate on resize (debounced to avoid performance issues)
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(updateScrollDistance, 150);
+  });
+
+  // Add tap-to-toggle for all devices (primarily for touch devices)
+  // Desktop users can still use hover (handled by CSS), but click also works as backup
+  let isPaused = false;
+
+  announcement.addEventListener('click', (e) => {
+    // Don't toggle if user clicked a link - let the link work normally
+    if (e.target.closest('a')) return;
+
+    // Toggle pause state
+    isPaused = !isPaused;
+    announcement.classList.toggle('is-paused', isPaused);
+  });
 });

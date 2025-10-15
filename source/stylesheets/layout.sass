@@ -1,6 +1,7 @@
 html
   min-height: 100%
   position: relative
+  font-size: calc(16px * var(--font-scale, 1))
 
 body
   display: flex
@@ -8,7 +9,7 @@ body
   background-color: var(--background-color)
   color: var(--primary-text-color)
   font-family: var(--secondary-font)
-  font-size: 16px
+  font-size: 1rem
   line-height: 1.5
   height: 100%
   min-height: 100vh
@@ -18,6 +19,20 @@ body
     width: 100vw
     overflow: hidden
     overscroll-behavior: none
+
+
+// shop sprinkles overrides
+.emoji
+  font-size: var(--shop-sprinkles-size) !important
+  animation-name: var(--shop-sprinkles-animation) !important
+  animation-duration: var(--shop-sprinkles-style-duration) !important
+  animation-timing-function: var(--shop-sprinkles-style-timing) !important
+
+.emoji .inner
+  animation-duration: var(--shop-sprinkles-fall-duration) !important
+
+.emoji .inner span
+  animation-name: var(--shop-sprinkles-spin-animation) !important
 
 a.skip-link
   +transition(all .3s)
@@ -93,7 +108,7 @@ header
     +align-items(center)
     +justify-content(flex-start)
     left: -4px
-    font-size: 1.1em
+    font-size: calc(1.1rem * var(--header-scale, 1))
     position: relative
     text-align: left
     gap: 20px
@@ -122,8 +137,8 @@ header
 
       svg
         fill: currentColor
-        height: 24px
-        width: 24px
+        height: 22px
+        width: 22px
 
     .open-category-nav
       display: flex
@@ -198,7 +213,7 @@ header
 
           a
             display: block
-            font-size: .95rem
+            font-size: calc(.95rem * var(--header-scale, 1))
             padding: 8px 10px
 
             &:hover
@@ -208,17 +223,17 @@ header
     display: flex
     align-items: center
     justify-content: center
-    font-size: 2.5em
+    font-size: calc(2.5rem * var(--shop-name-scale, 1) * var(--header-scale, 1))
     height: 100%
     text-align: center
     padding: 0 16px
     word-break: break-word
 
     @media screen and (max-width: $break-medium)
-      font-size: 2em
+      font-size: calc(2rem * var(--shop-name-scale, 1) * var(--header-scale, 1))
 
     @media screen and (max-width: $break-small)
-      font-size: 1.7em
+      font-size: calc(1.7rem * var(--shop-name-scale, 1) * var(--header-scale, 1))
       grid-column: 1 / -1
       grid-row: 2
       padding: 0
@@ -238,18 +253,16 @@ header
       img
         display: block
         margin: 0 auto
-        max-height: calc(var(--logo-max-height) * 1px)
+        height: calc(var(--logo-max-height) * 1px)
         max-width: 100%
         width: auto
         object-fit: contain
 
         @media screen and (max-width: $break-medium)
-          // Scale down max-height for medium screens, clamped between 60px and 120px
-          max-height: clamp(60px, calc(var(--logo-max-height) * 0.75 * 1px), 120px)
+          height: calc(var(--logo-max-height) * 0.75 * 1px)
 
         @media screen and (max-width: $break-small)
-          // Further scale down max-height for small screens, clamped between 40px and 100px (adjusted)
-          max-height: clamp(40px, calc(var(--logo-max-height) * 0.65 * 1px), 100px)
+          height: calc(var(--logo-max-height) * 0.65 * 1px)
 
     .store-link
       display: flex
@@ -296,7 +309,7 @@ header
         color: var(--secondary-text-color)
 
       .cart-num-items
-        font-size: 12px
+        font-size: 0.75rem
         position: absolute
         top: 12px
 
@@ -340,15 +353,15 @@ header
     padding-bottom: 150px
 
   h1
-    font-size: 1.8em
+    font-size: 1.8rem
     margin-bottom: 60px
     text-align: center
 
     @media screen and (max-width: $break-medium)
-      font-size: 1.6em
+      font-size: 1.6rem
 
     @media screen and (max-width: $break-small)
-      font-size: 1.25em
+      font-size: 1.25rem
       margin-bottom: 40px
 
   &.product
@@ -426,10 +439,10 @@ footer
     margin: 0 auto
     padding: 40px 40px
     border-top: 1px solid var(--footer-border-color)
-    font-size: 18px
+    font-size: calc(1.125rem * var(--footer-scale, 1))
 
     @media screen and (max-width: $break-medium)
-      font-size: 16px
+      font-size: calc(1rem * var(--footer-scale, 1))
 
 .footer__pages
   width: 100%
@@ -456,6 +469,7 @@ footer
   display: block
   text-align: center
   padding: 10px 10px 20px 10px
+  font-size: calc(1rem * var(--footer-scale, 1))
 
   img
     display: block
@@ -481,25 +495,25 @@ footer
     align-items: center
     justify-content: center
     flex-shrink: 0
-    width: 36px
-    height: 36px
+    width: 30px
+    height: 30px
 
     svg
       fill: currentColor
-      height: 24px
-      width: 24px
+      height: 20px
+      width: 20px
 
       &.tumblr-icon
-        width: 15px
+        width: 14px
 
       &.reddit-icon,
       &.discord-icon
-        width: 28px
-        height: 28px
+        width: 24px
+        height: 24px
 
 .bigcartel-credit
   line-height: 1em
-  font-size: .975em
+  font-size: 0.975rem
   display: inline-flex
   align-items: center
   gap: 8px

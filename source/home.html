@@ -13,7 +13,7 @@
         <div class="splide__track">
           <div class="splide__list">
             {% for image in theme.image_sets.slideshow %}
-              <div class="splide__slide"{% if theme.hero_image_link != blank %} title="{{ theme.hero_image_link }}"{% endif %}>
+              <div class="splide__slide"{% if theme.welcome_image_link != blank %} title="{{ theme.welcome_image_link }}"{% endif %}>
                 <img
                   alt="Slideshow image {{ forloop.index }}"
                   {% if forloop.index == 1 %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
@@ -37,13 +37,13 @@
           {{ theme.images.welcome_image.url | constrain: 2000 }} 2000w,
         "
         data-sizes="auto"
-        {% if theme.hero_image_link != blank %} title="{{ theme.hero_image_link }}"{% endif %}
+        {% if theme.welcome_image_link != blank %} title="{{ theme.welcome_image_link }}"{% endif %}
       >
     {% endif %}
     {% if theme.welcome_message != blank or theme.welcome_button_text != blank %}
       <div class="welcome-message">
         {% if theme.welcome_message != blank %}<div class="welcome-header">{{ theme.welcome_message }}</div>{% endif %}
-        {% if theme.welcome_button_text != blank %}<a class="button welcome-button" href="{% if theme.hero_button_link != blank and theme.welcome_button_behavior == 'navigate' %}{{ theme.hero_button_link }}{% else %}/products{% endif %}">{{ theme.welcome_button_text }}</a>{% endif %}
+        {% if theme.welcome_button_text != blank %}<a class="button welcome-button" href="{% if theme.welcome_button_link != blank and theme.welcome_button_behavior == 'navigate' %}{{ theme.welcome_button_link }}{% else %}/products{% endif %}">{{ theme.welcome_button_text }}</a>{% endif %}
       </div>
     {% endif %}
   </div>
@@ -59,6 +59,15 @@
   </div>
 {% endif %}
 
+{% comment %} Show featured text above when position is "above" OR when no featured items {% endcomment %}
+{% assign featured_text = theme.homepage_featured_text %}
+{% assign featured_text_position = theme.homepage_featured_text_position %}
+{% if featured_text != blank %}
+  {% if featured_text_position == "above" or theme.featured_items == 0 %}
+    <div class="featured-message">{{ featured_text }}</div>
+  {% endif %}
+{% endif %}
+
 {% capture featured_container %}
   <div class="featured-container">
     {% if theme.featured_items_type == 'Categories' %}
@@ -66,16 +75,11 @@
     {% else %}
       {% assign featured_header = t['home.featured'] %}
     {% endif %}
-    {% assign featured_text = theme.homepage_featured_text %}
-    {% assign featured_text_position = theme.homepage_featured_text_position %}
-    
-    {% if featured_text != blank and featured_text_position == "above" %}
-      <div class="featured-message">{{ featured_text }}</div>
-    {% endif %}
     
     <h1 class="featured-title page-title">{{ featured_header }}</h1>
     
-    {% if featured_text != blank and featured_text_position != "above" %}
+    {% comment %} Only show within if we have items AND position is within {% endcomment %}
+    {% if featured_text != blank and featured_text_position == "within" and theme.featured_items > 0 %}
       <div class="featured-message">{{ featured_text }}</div>
     {% endif %}
   </div>
@@ -156,7 +160,8 @@
                       {% capture image_urls %}
                         [{% for product in category.products limit:4 %}"{{ product.image | product_image_url | constrain: 400 }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
                       {% endcapture %}
-                    {% elsif theme.home_page_categories_image_style == "single" %}
+                    {% else %}
+                      {% comment %} Fallback to single image (first product) {% endcomment %}
                       {% capture image_urls %}
                         ["{{ first_product.image | product_image_url | constrain: 800 }}"]
                       {% endcapture %}
@@ -193,7 +198,7 @@
       </div>
     </div>
     {% assign all_products_button_text = t['navigation.all_products'] %}
-    {% if all_products_button_text != blank %}
+    {% if theme.homepage_show_all_items_link and all_products_button_text != blank %}
       <a class="button centered-button" href="/products">{{ all_products_button_text }}</a>
     {% endif %}
   {% endif %}
@@ -259,6 +264,9 @@
                         {% if product.status == 'coming-soon' and theme.show_coming_soon_product_prices == false %}
                           {% assign hide_price = true %}
                         {% endif %}
+                        {% if product.has_password_protection and theme.show_password_protected_product_prices == false %}
+                          {% assign hide_price = true %}
+                        {% endif %}
 
                         {% unless hide_price %}
                           {{ product | product_price: theme.money_format, theme.product_variable_pricing_display_format }}
@@ -293,7 +301,7 @@
           </div>
           {% if paginate.pages > 1 %}
             {% assign all_products_button_text = t['home.all_products'] %}
-            {% if all_products_button_text != blank %}
+            {% if theme.homepage_show_all_items_link and all_products_button_text != blank %}
               <a class="button centered-button" href="/products">{{ all_products_button_text }}</a>
             {% endif %}
           {% endif %}

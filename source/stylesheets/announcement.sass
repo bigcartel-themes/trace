@@ -3,13 +3,14 @@
   background-color: var(--announcement-background-color)
   color: var(--announcement-text-color)
   display: none
-  font-size: 1rem
+  font-size: calc(1rem * var(--header-scale, 1))
   justify-content: center
   line-height: 1.25em
   padding: 22px 96px
   position: relative
   text-align: center
   width: 100%
+  z-index: 500
 
   a, a:visited
     color: var(--announcement-text-color)
@@ -41,3 +42,54 @@
   &__close-icon
     height: 14px
     width: 14px
+
+  &__text
+    display: inline-flex
+
+  &--scrolling
+    cursor: pointer
+    padding: 22px 0
+    overflow: hidden
+    min-height: fit-content
+
+    @media screen and (max-width: $break-small)
+      padding: 14px 0
+
+    // Pause scrolling on hover (desktop) and focus (keyboard) for accessibility
+    @media (hover: hover)
+      &:hover .announcement-message__scroll-content
+        animation-play-state: paused
+
+    &:focus-visible .announcement-message__scroll-content
+      animation-play-state: paused
+
+    // Pause when user taps on mobile (via JS class toggle)
+    &.is-paused .announcement-message__scroll-content
+      animation-play-state: paused
+
+    .announcement-message__text
+      padding: 0 96px
+
+      @media screen and (max-width: $break-small)
+        padding: 0 64px
+
+  &__scroll-wrapper
+    width: 100%
+    overflow: hidden
+    // Isolate this container to prevent layout thrashing
+    isolation: isolate
+
+  &__scroll-content
+    display: inline-flex
+    white-space: nowrap
+    animation: scroll-announcement var(--announcement-scroll-duration) linear infinite
+    // Contain the rendering to this element only
+    contain: layout style
+
+// Keyframe animation for smooth scrolling
+// Uses exact pixel distance calculated by JavaScript for seamless looping
+@keyframes scroll-announcement
+  0%
+    transform: translate3d(0, 0, 0)
+  100%
+    transform: translate3d(var(--scroll-distance, -20%), 0, 0)

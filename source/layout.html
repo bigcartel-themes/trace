@@ -27,13 +27,25 @@
   </head>
   <body id="{{ page.permalink }}" class="{{ page.category }} preloader transition-preloader" data-bc-page-type="{% if page.category == 'custom' %}custom{% else %}{{ page.permalink }}{% endif %}">
     {% if theme.announcement_message_text != blank %}
-      <div aria-label="Announcement message" class="announcement-message">
-        <div class="announcement-message__text">{{ theme.announcement_message_text }}</div>
-        <button title="Close announcement message" class="announcement-message__close-button">
-          <svg aria-hidden="true" fill="currentColor" class="announcement-message__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="9.2 12.3 12.5 12.5">
-            <path d="m21.4 14.4-4.1 4.1 4 4.1c.6.5.6 1.3 0 1.8-.4.5-1.2.5-1.7 0l-4.1-4.1-4.1 4.1c-.5.5-1.3.5-1.8 0s-.5-1.3 0-1.8l4.1-4.1-4.1-4.1c-.5-.5-.5-1.3 0-1.8s1.3-.5 1.8 0l4.1 4.1 4.1-4c.5-.6 1.3-.6 1.8 0 .5.4.5 1.2 0 1.7Z"/>
-          </svg>
-        </button>
+      <div role="{% if theme.announcement_message_scroll %}region{% else %}complementary{% endif %}" aria-label="{% if theme.announcement_message_scroll %}Scrolling announcement. Focus or hover to pause.{% else %}Announcement message{% endif %}" class="announcement-message{% if theme.announcement_message_scroll %} announcement-message--scrolling{% endif %}"{% if theme.announcement_message_scroll %} tabindex="0"{% endif %}>
+        {% if theme.announcement_message_scroll %}
+          <div class="announcement-message__scroll-wrapper">
+            <div class="announcement-message__scroll-content">
+              <span class="announcement-message__text">{{ theme.announcement_message_text }}</span>
+              <span class="announcement-message__text" aria-hidden="true">{{ theme.announcement_message_text }}</span>
+              <span class="announcement-message__text" aria-hidden="true">{{ theme.announcement_message_text }}</span>
+              <span class="announcement-message__text" aria-hidden="true">{{ theme.announcement_message_text }}</span>
+              <span class="announcement-message__text" aria-hidden="true">{{ theme.announcement_message_text }}</span>
+            </div>
+          </div>
+        {% else %}
+          <div class="announcement-message__text">{{ theme.announcement_message_text }}</div>
+          <button title="Close announcement message" class="announcement-message__close-button">
+            <svg aria-hidden="true" fill="currentColor" class="announcement-message__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="9.2 12.3 12.5 12.5">
+              <path d="m21.4 14.4-4.1 4.1 4 4.1c.6.5.6 1.3 0 1.8-.4.5-1.2.5-1.7 0l-4.1-4.1-4.1 4.1c-.5.5-1.3.5-1.8 0s-.5-1.3 0-1.8l4.1-4.1-4.1-4.1c-.5-.5-.5-1.3 0-1.8s1.3-.5 1.8 0l4.1 4.1 4.1-4c.5-.6 1.3-.6 1.8 0 .5.4.5 1.2 0 1.7Z"/>
+            </svg>
+          </button>
+        {% endif %}
       </div>
     {% endif %}
     <header class="header" data-bc-hook="header">
@@ -68,16 +80,18 @@
             </div>
           {% endif %}
         </div>
-        <div class="store-name {% if theme.logo != blank %}image{% else %}text{% endif %}">
+        <div class="store-name {% if theme.logo_image != blank %}image{% else %}text{% endif %}">
           <a href="/" class="store-link" title="{{ store.name | escape }}">
-            {% if theme.logo != blank %}
-              {% assign logo_image_height_1x = theme.logo_max_height %}
-              {% assign logo_image_height_2x = theme.logo_max_height | times: 2 %}
+            {% if theme.logo_image != blank %}
+              {% assign display_height = theme.logo_image_size %}
+              {% assign optimal_width = display_height | times: 6 %}
+              {% assign retina_width = optimal_width | times: 2 %}
+              {% assign retina_height = display_height | times: 2 %}
               <img
                 class="store-logo"
                 alt="{{ store.name }} Home"
-                src="{{ theme.images.logo.url | constrain: '', logo_image_height_2x }}"
-                srcset="{{ theme.images.logo.url | constrain: '', logo_image_height_2x }} 2x, {{ theme.images.logo.url | constrain: '', logo_image_height_1x }} 1x">
+                srcset="{{ theme.images.logo_image.url | constrain: optimal_width, display_height }} 1x, {{ theme.images.logo_image.url | constrain: retina_width, retina_height }} 2x"
+                src="{{ theme.images.logo_image.url | constrain: optimal_width, display_height }}">
             {% else %}
               {{ store.name }}
             {% endif %}
@@ -471,8 +485,8 @@
         homepageSlideshowSpeed: {{ theme.homepage_slideshow_speed }},
         homepageSlideshowTransition: "{{ theme.homepage_slideshow_transition }}",
         showBnplMessaging: {{ theme.show_bnpl_messaging }} && !themeFeatures.optOuts.includes("theme_bnpl_messaging"),
-        heroButtonLink: "{{ theme.hero_button_link }}",
-        heroImageLink: "{{ theme.hero_image_link }}",
+        welcomeButtonLink: "{{ theme.welcome_button_link }}",
+        welcomeImageLink: "{{ theme.welcome_image_link }}",
         homeFeaturedVideoUrl: "{{ theme.home_featured_video_url }}",
         homeFeaturedVideoSize: "{{ theme.home_featured_video_size }}",
         homeFeaturedVideoBorder: "{{ theme.home_featured_video_border }}",
@@ -499,16 +513,27 @@
           let announcementElement = document.querySelector(".announcement-message");
           announcementElement?.remove();
           document.body.classList.remove('has-announcement');
-          document.cookie = `announcementClosed=${hashedAnnouncement};path=/`;
+          document.cookie = `announcementClosed=${hashedAnnouncement};path=/;max-age=28800`;
         }
 
-        if (announcementElement?.classList && closeAnnouncementBtn && hashedAnnouncement) {
-          let hasClosedAnnouncement = document.cookie.includes(`announcementClosed=${hashedAnnouncement}`);
-          if (!hasClosedAnnouncement) {
+        let isScrolling = announcementElement?.classList.contains('announcement-message--scrolling');
+
+        if (announcementElement?.classList && hashedAnnouncement) {
+          // For scrolling announcements, always show them
+          // For non-scrolling announcements, check if they've been closed
+          if (isScrolling) {
             announcementElement.classList.add('visible');
             document.body.classList.add('has-announcement');
+          } else {
+            let hasClosedAnnouncement = document.cookie.includes(`announcementClosed=${hashedAnnouncement}`);
+            if (!hasClosedAnnouncement) {
+              announcementElement.classList.add('visible');
+              document.body.classList.add('has-announcement');
+            }
           }
-          closeAnnouncementBtn.addEventListener("click", closeAnnouncement);
+          if (closeAnnouncementBtn) {
+            closeAnnouncementBtn.addEventListener("click", closeAnnouncement);
+          }
         }
       </script>
     {% endif %}

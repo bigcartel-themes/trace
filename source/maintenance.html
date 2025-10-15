@@ -9,7 +9,16 @@
   </head>
   <body class="standalone-page maintenance-page">
     <div class="message-holder maintenance-message">
-	    <h1 class="standalone-header maintenance-header">{{ store.name }}</h1>
+      {% if theme.maintenance_image.url != blank %}
+        <div class="maintenance-image-container">
+          <img src="{{ theme.maintenance_image.url }}" alt="" class="maintenance-image" loading="lazy">
+        </div>
+      {% endif %}
+      {% if theme.show_shop_name_on_maintenance_page %}
+        <h1 class="standalone-header maintenance-header store-name">{{ store.name }}</h1>
+      {% else %}
+        <h1 class="standalone-header maintenance-header store-name visually-hidden">{{ store.name }}</h1>
+      {% endif %}
       <div class="maintenance-text">{{ theme.maintenance_message }}</div>
       {% if theme.instagram_url != blank
         or theme.tiktok_url != blank

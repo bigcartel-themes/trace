@@ -30,7 +30,7 @@
 
     .welcome-header
       color: var(--welcome-text-color)
-      font-size: 1.5em
+      font-size: 1.5rem
       font-weight: normal
       margin: 0 auto
       max-width: 600px
@@ -38,7 +38,7 @@
       text-align: center
 
       @media screen and (max-width: $break-small)
-        font-size: 1.1em
+        font-size: 1.1rem
         padding: 20px 0
 
     a.welcome-button
@@ -68,8 +68,8 @@
       width: 100%
 
     .splide__arrow
-      width: 2.5em
-      height: 2.5em
+      width: 2.5rem
+      height: 2.5rem
       z-index: 10
       opacity: 0
       transition: opacity 0.2s
@@ -127,13 +127,18 @@
   .featured-container
     margin: 0 auto 48px auto
     max-width: 1024px
+    font-size: 1rem
+
+    @media screen and (max-width: $break-medium)
+      font-size: 0.95rem
 
   .featured-title
     margin-bottom: 0
+    font-size: calc(1.5em * var(--product-grid-scale, 1))
+    text-align: center
 
     @media screen and (max-width: $break-small)
-      .featured-title
-        font-size: 1.75em
+      font-size: calc(1.35em * var(--product-grid-scale, 1))
 
   .featured-message
     text-align: center
@@ -196,8 +201,8 @@
   margin-top: 28px
   padding-bottom: 20px
 
-// Hero clickable styling
-.hero-clickable
+// Welcome area clickable styling
+.welcome-clickable
   cursor: pointer
 
   &:hover
