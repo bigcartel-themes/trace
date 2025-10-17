@@ -6,7 +6,7 @@
   </div>
 {% endif %}
 
-{% if theme.welcome_image or theme.image_sets.slideshow.size > 0 %}
+{% if theme.images.welcome_image or theme.image_sets.slideshow.size > 0 %}
   <div class="home-welcome{% if theme.welcome_message != blank or theme.welcome_button_text != blank %} has-welcome-text{% endif %}">
     {% if theme.image_sets.slideshow.size > 0 %}
       <div class="splide home-slideshow" data-autoplay="{{ theme.homepage_slideshow_autoplay }}">
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-    {% elsif theme.welcome_image %}
+    {% elsif theme.images.welcome_image != blank %}
       <img
         alt=""
         class="lazyload welcome-image blur-up"
