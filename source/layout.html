@@ -80,9 +80,9 @@
             </div>
           {% endif %}
         </div>
-        <div class="store-name {% if theme.logo_image != blank %}image{% else %}text{% endif %}">
+        <div class="store-name {% if theme.images.logo_image != blank %}image{% else %}text{% endif %}">
           <a href="/" class="store-link" title="{{ store.name | escape }}">
-            {% if theme.logo_image != blank %}
+            {% if theme.images.logo_image != blank %}
               {% assign display_height = theme.logo_image_size %}
               {% assign optimal_width = display_height | times: 6 %}
               {% assign retina_width = optimal_width | times: 2 %}
