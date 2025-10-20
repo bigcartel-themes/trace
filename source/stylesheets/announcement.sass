@@ -69,6 +69,9 @@
 
     .announcement-message__text
       padding: 0 96px
+      // Prevent iOS Safari text inflation
+      -webkit-text-size-adjust: 100%
+      text-size-adjust: 100%
 
       @media screen and (max-width: $break-small)
         padding: 0 64px
