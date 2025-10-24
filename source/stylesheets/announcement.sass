@@ -3,7 +3,7 @@
   background-color: var(--announcement-background-color)
   color: var(--announcement-text-color)
   display: none
-  font-size: calc(1rem * var(--header-scale, 1))
+  font-size: calc(1.1rem * var(--header-scale, 1))
   justify-content: center
   line-height: 1.25em
   padding: 22px 96px
@@ -69,6 +69,9 @@
 
     .announcement-message__text
       padding: 0 96px
+      // Prevent iOS Safari text inflation
+      -webkit-text-size-adjust: 100%
+      text-size-adjust: 100%
 
       @media screen and (max-width: $break-small)
         padding: 0 64px

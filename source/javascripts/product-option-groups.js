@@ -1,4 +1,11 @@
 function processProduct(product) {
+  // Store product data globally so other functions can access it
+  window.bigcartel = window.bigcartel || {};
+  window.bigcartel.product = product;
+
+  // Update inventory message now that product data is available
+  updateInventoryMessage();
+
   if (product.has_option_groups) {
     setInitialProductOptionStatuses(product);
     $(".product_option_group").on('change',function() {
