@@ -197,9 +197,12 @@
         </div>
       </div>
     </div>
-    {% assign all_products_button_text = t['navigation.all_products'] %}
-    {% if theme.homepage_show_all_items_link and all_products_button_text != blank %}
-      <a class="button centered-button" href="/products">{{ all_products_button_text }}</a>
+    {%- comment -%} Only show All Products button when eligible (categories shown, so products aren't displayed yet) {%- endcomment -%}
+    {% if theme.homepage_show_all_items_link and products.all.size > 0 %}
+      {% assign all_products_button_text = t['navigation.all_products'] %}
+      {% if all_products_button_text != blank %}
+        <a class="button centered-button" href="/products">{{ all_products_button_text }}</a>
+      {% endif %}
     {% endif %}
   {% endif %}
 
