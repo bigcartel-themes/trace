@@ -43,7 +43,7 @@
     {% if theme.welcome_message != blank or theme.welcome_button_text != blank %}
       <div class="welcome-message">
         {% if theme.welcome_message != blank %}<div class="welcome-header">{{ theme.welcome_message }}</div>{% endif %}
-        {% if theme.welcome_button_text != blank %}<a class="button welcome-button" href="{% if theme.welcome_button_link != blank and theme.welcome_button_behavior == 'navigate' %}{{ theme.welcome_button_link }}{% else %}/products{% endif %}">{{ theme.welcome_button_text }}</a>{% endif %}
+        {% if theme.welcome_button_text != blank %}<a class="button welcome-button" href="{% if theme.welcome_button_behavior == 'scroll' %}#{% elsif theme.welcome_button_link != blank %}{{ theme.welcome_button_link }}{% else %}/products{% endif %}">{{ theme.welcome_button_text }}</a>{% endif %}
       </div>
     {% endif %}
   </div>
