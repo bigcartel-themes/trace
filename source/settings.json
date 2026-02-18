@@ -893,6 +893,25 @@
       "description": "Choose how prices display. Rounded options remove decimals and round up to the next whole number."
     },
     {
+      "variable": "show_strikethrough_pricing",
+      "label": "Show strikethrough pricing for on-sale products",
+      "section": "product_page",
+      "type": "boolean",
+      "default": true,
+      "description": "Display original price with strikethrough next to sale price",
+      "requires": [
+        "feature:theme_strikethrough_pricing eq visible"
+      ]
+    },
+    {
+      "variable": "show_sale_label_in_product_options",
+      "label": "Show sale label in variant dropdowns",
+      "section": "product_page",
+      "type": "boolean",
+      "default": true,
+      "description": "Adds a sale indicator next to discounted variants in the dropdown"
+    },
+    {
       "variable": "show_sold_out_product_prices",
       "label": "Show prices for sold out products",
       "section": "product_page",

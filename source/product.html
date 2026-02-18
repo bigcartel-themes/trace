@@ -131,15 +131,27 @@
   <section class="product-detail">
     <div class="product-detail__header">
       {% capture product_pricing %}
-        {{ product | product_price: theme.money_format }}
+        {% comment %}
+          On product detail page, always show full price range for variable pricing.
+          Only show strikethrough for non-variable pricing products on sale.
+          The product_variable_pricing_display_format setting only affects grids.
+        {% endcomment %}
+        {% assign show_strikethrough = false %}
+        {% if theme.show_strikethrough_pricing and product.original_price > product.default_price %}
+          {% unless product.variable_pricing %}
+            {% assign show_strikethrough = true %}
+          {% endunless %}
+        {% endif %}
+
+        {% if show_strikethrough %}
+          <s class="price-compare">{{ product.original_price | money: theme.money_format }}</s>
+          <span class="price-sale">{{ product | product_price: theme.money_format }}</span>
+        {% else %}
+          {{ product | product_price: theme.money_format }}
+        {% endif %}
 
         {% if product.price_suffix != blank %}
-          {% assign variable_price_shown = true %}
-          {% if theme.product_variable_pricing_display_format == "min_only" or theme.product_variable_pricing_display_format == "max_only" %}
-            {% assign variable_price_shown = false %}
-          {% endif %}
-
-          {% if product.variable_pricing and variable_price_shown %}
+          {% if product.variable_pricing %}
             {% assign formatted_suffix = '(' | append: product.price_suffix | append: ')' %}
           {% else %}
             {% assign formatted_suffix = product.price_suffix %}
@@ -158,7 +170,7 @@
         {% endif %}
 
         {% unless hide_price %}
-          <span>{{ product_pricing }}</span>
+          <span class="product-price-value">{{ product_pricing }}</span>
         {% endunless %}
 
         {% if hide_price == false and product_status != blank %}<span class="product-detail__separator">&mdash;</span>{% endif %}
@@ -190,7 +202,26 @@
                     <select data-unavailable-text="(Unavailable)" data-sold-text="({{ t['products.sold_out'] }})" data-group-id="{{ option_group.id }}" data-group-name="{{ option_group.name | escape }}" class="product_option_group" name="option_group[{{ option_group.id }}]" aria-label="Select {{ option_group.name | escape }}" required>
                       <option value="" disabled="disabled" selected>{{ option_group.name }}</option>
                       {% for value in option_group.values %}
-                        <option value="{{ value.id }}" data-name="{{ value.name | escape }}">{{ value.name }}</option>
+                        {% comment %} Find matching product option by option_group_values ID to get price data {% endcomment %}
+                        {% assign matching_option = nil %}
+                        {% for option in product.options %}
+                          {% for ogv in option.option_group_values %}
+                            {% if ogv.id == value.id %}
+                              {% assign matching_option = option %}
+                              {% break %}
+                            {% endif %}
+                          {% endfor %}
+                          {% if matching_option %}{% break %}{% endif %}
+                        {% endfor %}
+                        {% assign option_status_label = '' %}
+                        {% if product.option_groups.size == 1 and matching_option %}
+                          {% if matching_option.sold_out %}
+                            {% assign option_status_label = t['products.sold_out'] %}
+                          {% elsif matching_option.original_price > matching_option.price and theme.show_sale_label_in_product_options %}
+                            {% assign option_status_label = t['products.on_sale'] | downcase %}
+                          {% endif %}
+                        {% endif %}
+                        <option value="{{ value.id }}" data-name="{{ value.name | escape }}"{% if matching_option %} data-price="{{ matching_option.price }}" data-original-price="{{ matching_option.original_price }}"{% if matching_option.sold_out %} disabled="disabled" disabled-type="sold-out"{% endif %}{% endif %}>{{ value.name }}{% if option_status_label != '' %} ({{ option_status_label }}){% endif %}</option>
                       {% endfor %}
                     </select>
                     <svg aria-hidden="true" class="down-arrow" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
@@ -202,7 +233,7 @@
                 <select class="product-option-select" id="option" name="cart[add][id]" aria-label="{{ t['products.select_variant'] }}" required>
                   <option value="" disabled="disabled" selected>{{ t['products.select_variant'] }}</option>
                   {% for option in product.options %}
-                    <option value="{{ option.id }}" data-price="{{ option.price }}"{% if option.sold_out %} disabled="disabled" disabled-type="sold-out"{% endif %}>{{ option.name }} {% if option.sold_out %} ({{ t['products.sold_out'] }}){% endif %}</option>
+                    <option value="{{ option.id }}" data-price="{{ option.price }}" data-original-price="{{ option.original_price }}"{% if option.sold_out %} disabled="disabled" disabled-type="sold-out"{% endif %}>{{ option.name }}{% if option.sold_out %} ({{ t['products.sold_out'] }}){% elsif option.original_price > option.price and theme.show_sale_label_in_product_options %} ({{ t['products.on_sale'] | downcase }}){% endif %}</option>
                   {% endfor %}
                 </select>
                 <svg aria-hidden="true" class="down-arrow" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
@@ -302,7 +333,32 @@
                   {% endif %}
                   
                   {% unless hide_price %}
-                    {{ related_product | product_price: theme.money_format, theme.product_variable_pricing_display_format }}
+                    {% assign show_strikethrough = false %}
+                    {% assign strikethrough_regular = nil %}
+                    {% assign strikethrough_sale = nil %}
+
+                    {% if theme.show_strikethrough_pricing %}
+                      {% if related_product.variable_pricing == false and related_product.original_price > related_product.default_price %}
+                        {% assign show_strikethrough = true %}
+                        {% assign strikethrough_regular = related_product.original_price %}
+                        {% assign strikethrough_sale = related_product.default_price %}
+                      {% elsif related_product.variable_pricing and theme.product_variable_pricing_display_format == "min_only" and related_product.min_original_price > related_product.min_price %}
+                        {% assign show_strikethrough = true %}
+                        {% assign strikethrough_regular = related_product.min_original_price %}
+                        {% assign strikethrough_sale = related_product.min_price %}
+                      {% elsif related_product.variable_pricing and theme.product_variable_pricing_display_format == "max_only" and related_product.max_original_price > related_product.max_price %}
+                        {% assign show_strikethrough = true %}
+                        {% assign strikethrough_regular = related_product.max_original_price %}
+                        {% assign strikethrough_sale = related_product.max_price %}
+                      {% endif %}
+                    {% endif %}
+
+                    {% if show_strikethrough %}
+                      <s class="price-compare">{{ strikethrough_regular | money: theme.money_format }}</s>
+                      <span class="price-sale">{{ strikethrough_sale | money: theme.money_format }}</span>
+                    {% else %}
+                      {{ related_product | product_price: theme.money_format, theme.product_variable_pricing_display_format }}
+                    {% endif %}
 
                     {% if related_product.price_suffix != blank %}
                       {% assign variable_price_shown = true %}
