@@ -314,15 +314,15 @@
                     </li>
                   {% endif %}
 
-                  {% if pages.subscribe_page %}
-                    <li class="artist-support"><a href="{{ pages.subscribe_page.url }}">{{ t['navigation.subscribe'] }}</a></li>
-                  {% endif %}
-
                   {% if theme.nav_page_display == "all" or theme.nav_page_display == "pages_only" %}
                     {% for custom_page in pages.custom_pages limit: theme.nav_items_footer %}
                       <li>{{ custom_page | link_to }}</li>
                     {% endfor %}
                   {% endif %}
+                {% endif %}
+
+                {% if pages.subscribe_page %}
+                  <li class="artist-support"><a href="{{ pages.subscribe_page.url }}">{{ t['navigation.subscribe'] }}</a></li>
                 {% endif %}
 
                 {% if theme.nav_page_display == "all" or theme.nav_page_display == "contact_only" %}
@@ -474,6 +474,7 @@
       };
       const themeOptions = {
         showSoldOutOptions: {{ theme.show_sold_out_product_options }},
+        showStrikethroughPricing: {{ theme.show_strikethrough_pricing }},
         showLowInventoryMessages: {{ theme.show_low_inventory_messages }},
         lowInventoryMessage: "{{ t['products.low_inventory'] | replace: '"', '\"' | replace: "'", "\\'" }}",
         almostSoldOutMessage: "{{ t['products.almost_sold_out'] | replace: '"', '\"' | replace: "'", "\\'" }}",
