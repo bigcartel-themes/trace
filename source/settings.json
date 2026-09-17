@@ -1,6 +1,6 @@
 {
   "name": "Trace",
-  "version": "1.19.5",
+  "version": "1.19.6",
   "images": [
     {
       "variable": "logo_image",
@@ -1528,8 +1528,8 @@
       "section": "translations",
       "sub_section": "navigation",
       "type": "text",
-      "default": "Subscribe",
-      "description": "Text for links to your Subscribe page if you are using the <a href='/account/payment-options'>Subscriptions Beta</a> feature",
+      "default": "Memberships",
+      "description": "Text for links to your Memberships page if you are using the <a href='/memberships'>Memberships</a> feature",
       "requires": [ "translation_mode eq manual" ]
     },
     {
