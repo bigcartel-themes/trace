@@ -79,6 +79,9 @@
               </div>
             </div>
           {% endif %}
+          {% if pages.subscribe_page %}
+            <div class="header-nav-link artist-support"><a href="{{ pages.subscribe_page.url }}">{{ t['navigation.subscribe'] }}</a></div>
+          {% endif %}
         </div>
         <div class="store-name {% if theme.images.logo_image != blank %}image{% else %}text{% endif %}">
           <a href="/" class="store-link" title="{{ store.name | escape }}">
@@ -313,16 +316,16 @@
                       <a href="/products">{{ t['navigation.products'] }}</a>
                     </li>
                   {% endif %}
-
-                  {% if theme.nav_page_display == "all" or theme.nav_page_display == "pages_only" %}
-                    {% for custom_page in pages.custom_pages limit: theme.nav_items_footer %}
-                      <li>{{ custom_page | link_to }}</li>
-                    {% endfor %}
-                  {% endif %}
                 {% endif %}
 
                 {% if pages.subscribe_page %}
                   <li class="artist-support"><a href="{{ pages.subscribe_page.url }}">{{ t['navigation.subscribe'] }}</a></li>
+                {% endif %}
+
+                {% if theme.nav_page_display == "all" or theme.nav_page_display == "pages_only" %}
+                  {% for custom_page in pages.custom_pages limit: theme.nav_items_footer %}
+                    <li>{{ custom_page | link_to }}</li>
+                  {% endfor %}
                 {% endif %}
 
                 {% if theme.nav_page_display == "all" or theme.nav_page_display == "contact_only" %}
